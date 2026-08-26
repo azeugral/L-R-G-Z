@@ -18,6 +18,19 @@
     font-family:'Unbounded',sans-serif; font-weight:700; text-transform:uppercase;
     font-size:clamp(2.4rem,8vw,6rem); line-height:1.05; color:#f7f7f3;
   }
+
+/* ============ TOGGLE DE IDIOMA (PT / EN) ============ */
+.lang-toggle{
+  display:inline-flex; align-items:center; gap:.3rem; flex:none;
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
+  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
+  padding:.42rem .62rem; line-height:1;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.lang-toggle:hover{ border-color:var(--gray); }
+.lang-toggle .sep{ opacity:.4; }
+.lang-toggle span.on{ color:var(--white); }
+.mobile-menu .lang-toggle{ margin-top:1.2rem; font-size:.8rem; padding:.6rem .9rem; }
 </style></noscript>
 <style>
 /* ============================================
@@ -725,7 +738,8 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <li><a href="#processo">Processo</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li><a href="#curso" class="nav-cta">Comprar Agora</a></li>
+      <li data-only="pt"><a href="#curso" class="nav-cta">Comprar Agora</a></li>
+      <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
     <div class="nav-status"><span class="dot"></span> Disponível para novos projetos</div>
     <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
@@ -740,7 +754,8 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   <a href="#processo">Processo</a>
   <a href="#projetos">Projetos</a>
   <a href="#contato">Contato</a>
-  <a href="#curso">Comprar Agora</a>
+  <a href="#curso" data-only="pt">Comprar Agora</a>
+  <button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
 </div>
 
 <main>
@@ -1024,6 +1039,64 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             </div>
           </div>
         </article>
+                <!-- ===================================================================
+             PROJETO 5 — PREENCHER (mesma lógica dos anteriores)
+             Troque "projeto-5.mp4" pelo nome exato do arquivo de vídeo
+             =================================================================== -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+<div class="mock">
+    <video class="site-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="2026-08-26 18-55-49.mp4" type="video/mp4">
+    </video>
+</div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Nail Designer</h3>
+            <p>Um estúdio de beleza que precisava de uma presença digital à altura da qualidade do seu trabalho. Desenvolvi um site elegante e sofisticado, com foco em identidade visual, apresentação do portfólio e uma experiência intuitiva que aproxima a profissional de novas clientes.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Mobile-first</span><span>Portfólio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             PROJETO 6 — PREENCHER (mesma lógica dos anteriores)
+             Troque "projeto-6.mp4" pelo nome exato do arquivo de vídeo
+             =================================================================== -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+<div class="mock">
+    <video class="site-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="2026-08-26 18-56-22.mp4" type="video/mp4">
+    </video>
+</div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Direção de arte</p>
+            <h3>Estúdio de tatuagem</h3>
+            <p>Um tatuador que precisava transformar seu trabalho artístico em uma experiência digital marcante. Desenvolvi um site com estética autoral e personalidade forte, valorizando o portfólio, os trabalhos realizados e a identidade do artista, com uma navegação pensada para apresentar seu trabalho e facilitar novos contatos.</p>
+            <div class="case-chips">
+              <span>Direção de Arte</span><span>Mobile-first</span><span>Portfólio</span>
+            </div>
+          </div>
+        </article>
+
+
+
       </div>
     </div>
   </section>
@@ -1084,7 +1157,11 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   </section>
 
   <!-- ============ CURSO / PÁGINA DE VENDAS ============ -->
-  <section class="section" id="curso">
+  <!-- CURSO-EN: a secção do curso só aparece em português enquanto o curso
+       não tiver versão em inglês. Para reativá-la nos dois idiomas, apague
+       data-only="pt" desta linha e dos 3 links "#curso" (nav, menu mobile
+       e rodapé). -->
+  <section class="section" id="curso" data-only="pt">
     <div class="container">
 
       <div class="section-head reveal">
@@ -1137,7 +1214,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <a href="#servicos">Serviços</a>
       <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
-      <a href="#curso">Comprar Agora</a>
+      <a href="#curso" data-only="pt">Comprar Agora</a>
     </div>
     <button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
   </div>
@@ -1150,7 +1227,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   /* ---------- Hero title: "revelação" interativa ---------- *
    * Troque a frase de impacto aqui — cada item do array vira uma linha.
    * A última linha recebe destaque (font-weight extra) automaticamente. */
-  var HERO_LINES = ['PRESENÇA', 'DIGITAL', 'PREMIUM.'];
+  var HERO_LINES = (window.LRGZ_JS_LINES ? window.LRGZ_JS_LINES.hero[window.LRGZ_LANG || 'pt'] : ['PRESENÇA','DIGITAL','PREMIUM.']);
 
   (function initHeroTitle(){
     var wrap = document.getElementById('heroTitle');
@@ -1316,22 +1393,26 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   }
 
   /* ---------- Terminal typing loop ---------- */
-  var lines = [
-    { t:'$ lrgz --novo-projeto', cls:'' },
-    { t:'> analisando identidade da marca...', cls:'' },
-    { t:'> definindo paleta e tipografia...', cls:'' },
-    { t:'> construindo estrutura responsiva...', cls:'' },
-    { t:'> revisando cada detalhe...', cls:'' },
-    { t:'✓ site publicado', cls:'ok' }
-  ];
+  var TERM_PT = ['$ lrgz --novo-projeto','> analisando identidade da marca...','> definindo paleta e tipografia...','> construindo estrutura responsiva...','> revisando cada detalhe...','✓ site publicado'];
+  function termLines(){
+    var src = (window.LRGZ_JS_LINES && window.LRGZ_JS_LINES.term[window.LRGZ_LANG]) || TERM_PT;
+    return src.map(function(txt, ix, arr){ return { t:txt, cls: ix === arr.length - 1 ? 'ok' : '' }; });
+  }
+  var lines = termLines();
   var body = document.getElementById('terminalBody');
 
+  /* termGen invalida a animação em curso quando o idioma muda, para não
+     misturar linhas já digitadas em português com linhas novas em inglês */
+  var termGen = 0;
+
   function typeLoop(){
+    var gen = ++termGen;
     body.innerHTML = '';
     var i = 0;
     function next(){
+      if(gen !== termGen) return;
       if(i >= lines.length){
-        setTimeout(typeLoop, 1400);
+        setTimeout(function(){ if(gen === termGen) typeLoop(); }, 1400);
         return;
       }
       var row = document.createElement('div');
@@ -1340,6 +1421,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       var text = lines[i].t, c = 0;
       var speed = reduceMotion ? 0 : 18;
       function typeChar(){
+        if(gen !== termGen) return;
         row.textContent = text.slice(0, c);
         if(c < text.length){
           c++;
@@ -1348,6 +1430,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           row.innerHTML = text + '<span class="cursor"></span>';
           i++;
           setTimeout(function(){
+            if(gen !== termGen) return;
             row.innerHTML = text;
             next();
           }, reduceMotion ? 0 : 260);
@@ -1359,6 +1442,22 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   }
   typeLoop();
 
+  /* ao trocar de idioma, o hero e o terminal são reconstruídos na fonte */
+  document.addEventListener('lrgz:lang', function(){
+    lines = termLines();
+    typeLoop();
+    var wrap = document.getElementById('heroTitle');
+    if(wrap && window.LRGZ_JS_LINES){
+      var HL = window.LRGZ_JS_LINES.hero[window.LRGZ_LANG] || window.LRGZ_JS_LINES.hero.pt;
+      var h = HL.map(function(line, i){
+        return '<span class="htx-line' + (i === HL.length - 1 ? ' htx-strong' : '') + '">' + line + '</span>';
+      }).join('');
+      ['htxVeil','htxClear','htxRed','htxCyan'].forEach(function(id){
+        var el = document.getElementById(id); if(el) el.innerHTML = h;
+      });
+    }
+  });
+
   /* ---------- Back to top ---------- */
   document.getElementById('toTop').addEventListener('click', function(){
     window.scrollTo({ top:0, behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -1366,5 +1465,320 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 })();
 </script>
 
+
+<!-- ============ I18N — PT-BR / EN-US ============
+     Todo o texto traduzido vive no objeto EN abaixo, no formato
+     'texto em português': 'texto em inglês'. Para corrigir ou
+     acrescentar uma tradução, basta editar este bloco.
+     Texto sem tradução aparece em português, sem quebrar a página.
+     Para esconder um elemento num idioma: data-only="pt" ou data-only="en".
+     ============================================================ -->
+<script>
+(function(){
+  var EN = {
+    /* — meta / nav — */
+    'L R G Z — Criação de site Premium':'L R G Z — Premium Web Design Studio',
+    'L R G Z é um estúdio de criação de sites premium: sites autorais para pequenos negócios que querem uma identidade digital à altura do que já são.':
+      'L R G Z is a premium web design studio: bespoke websites for small businesses that want a digital identity as good as they already are.',
+    'Sobre':'About', 'Serviços':'Services', 'Processo':'Process',
+    'Projetos':'Work', 'Contato':'Contact', 'Comprar Agora':'Buy Now',
+    'Disponível para novos projetos':'Available for new projects',
+    'DISPONÍVEL PARA NOVOS PROJETOS ✻ DISPONÍVEL PARA NOVOS PROJETOS ✻':
+      'AVAILABLE FOR NEW PROJECTS ✻ AVAILABLE FOR NEW PROJECTS ✻',
+    'Abrir menu':'Open menu', 'Voltar ao topo':'Back to top',
+
+    /* — hero — */
+    'Studio de sites para':'Web studio for',
+    'pequenos negócios':'small businesses',
+    '— direção visual, código e identidade digital, do zero.':
+      '— visual direction, code and digital identity, built from scratch.',
+    'Seu negócio não precisa de mais um site. Precisa de presença.':
+      'Your business doesn’t need another website. It needs presence.',
+    'mova o cursor sobre o título':'move your cursor over the title',
+    'Eu sou o':'I’m',
+    '. Crio sites para negócios que já são bons no que fazem — e que merecem parecer isso também online. Sem template genérico, sem enrolação.':
+      '. I build websites for businesses that are already good at what they do — and deserve to look like it online. No generic templates, no fluff.',
+    'Ver projetos ↓':'See the work ↓',
+    'Iniciar conversa':'Start a conversation',
+    'Baseado em São Paulo — atendo todo o Brasil, remoto':
+      'Based in São Paulo, Brazil — working remotely with clients worldwide',
+    'lrgz — build':'lrgz — build',
+
+    /* — marquee — */
+    'Identidade visual':'Visual identity',
+    'Sites responsivos':'Responsive websites',
+    'Performance':'Performance',
+    'SEO local':'Local SEO',
+    'Código limpo':'Clean code',
+    'Suporte contínuo':'Ongoing support',
+
+    /* — sobre — */
+    '/ Sobre':'/ About',
+    'Pequeno negócio tratado como marca grande.':'Small business, treated like a major brand.',
+    'L R G Z é a assinatura que uso pra esse trabalho: pegar negócios que já fazem diferença no dia a dia — a padaria, o ateliê, a loja, o estúdio — e dar a eles uma presença online':
+      'L R G Z is the name I put on this work: taking businesses that already make a difference day to day — the bakery, the atelier, the shop, the studio — and giving them an online presence',
+    'com a mesma qualidade':'of the same quality',
+    '. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.':
+      '. No stock photos dropped into a ready-made layout. Every site grows out of what your business already is.',
+    'Design autoral':'Bespoke design',
+    '— feito sob medida pro seu negócio, não adaptado de um template':
+      '— built to fit your business, not adapted from a template',
+    '— leve, rápido de carregar e fácil de manter':
+      '— lightweight, fast to load and easy to maintain',
+    'Foco em identidade':'Identity-led',
+    '— visual consistente, não uma fórmula pronta':
+      '— a consistent visual language, not an off-the-shelf formula',
+
+    /* — serviços — */
+    '/ O que eu faço':'/ What I do',
+    'Onde eu entro':'Where I come in',
+    'Do primeiro rascunho ao site no ar — cada etapa pensada pro seu negócio, não pro meu processo.':
+      'From first sketch to launch — every step shaped around your business, not around my process.',
+    'Serviço':'Service',
+    'Site institucional':'Business website',
+    'Presença digital completa: estrutura, conteúdo e visual pensados pra apresentar seu negócio com clareza — e converter visita em contato.':
+      'A complete digital presence: structure, content and visuals designed to present your business clearly — and turn visits into enquiries.',
+    'Landing page':'Landing page',
+    'Uma página, um objetivo. Ideal pra lançar um produto, uma campanha ou capturar contato rápido, sem enrolação.':
+      'One page, one goal. Ideal for launching a product, running a campaign or capturing leads fast, with no fluff.',
+    'Identidade visual digital':'Digital visual identity',
+    'Direção de arte, paleta, tipografia e aplicação consistente — pra sua marca ser reconhecida em qualquer tela.':
+      'Art direction, palette, typography and consistent application — so your brand is recognisable on any screen.',
+    'Manutenção & suporte':'Maintenance & support',
+    'Ajustes, atualização de conteúdo e acompanhamento depois da entrega. Seu site não fica largado.':
+      'Tweaks, content updates and follow-up after launch. Your site doesn’t get left behind.',
+
+    /* — processo — */
+    '/ Como funciona':'/ How it works',
+    'Do primeiro papo ao ar':'From first conversation to launch',
+    'Um processo direto, com pouca reunião e muita entrega.':
+      'A direct process — few meetings, plenty delivered.',
+    '01 / Diagnóstico':'01 / Discovery',
+    'Entender o negócio':'Understand the business',
+    'Converso com você sobre o negócio, o público e o que já existe (ou não) da sua presença online hoje.':
+      'We talk through the business, the audience, and what does (or doesn’t) exist of your online presence today.',
+    '02 / Direção':'02 / Direction',
+    'Definir a identidade':'Define the identity',
+    'Defino identidade visual, estrutura de conteúdo e tom de voz do site — a base de tudo que vem depois.':
+      'I define the visual identity, content structure and tone of voice — the foundation for everything that follows.',
+    '03 / Construção':'03 / Build',
+    'Desenvolver do zero':'Build from scratch',
+    'Desenvolvo o site do zero — responsivo, rápido e fácil de atualizar sozinho depois.':
+      'I build the site from scratch — responsive, fast, and easy for you to update yourself afterwards.',
+    '04 / Entrega':'04 / Handover',
+    'Publicar e repassar':'Launch and hand over',
+    'Publicação, ajustes finais e um repasse completo de como tudo funciona — sem depender de mim pra tudo.':
+      'Launch, final adjustments and a full walkthrough of how everything works — so you’re not dependent on me for every change.',
+
+    /* — projetos — */
+    '/ Projetos':'/ Work',
+    'Alguns exemplos, o mesmo cuidado':'A few examples, the same care',
+    'Portfólio curto, de propósito — prefiro mostrar poucos projetos bem feitos do que muitos genéricos.':
+      'A short portfolio, on purpose — I’d rather show a few projects done well than many done generically.',
+    'Site Profissional · Identidade visual':'Professional website · Visual identity',
+    'Site profissional · Identidade visual':'Professional website · Visual identity',
+    'Médica Veterinária':'Veterinarian',
+    'Uma clínica veterinária premium que precisava transmitir confiança, cuidado e excelência em cada detalhe. Desenvolvi um site moderno com identidade visual refinada, navegação intuitiva e foco em conversão, facilitando o contato e o agendamento de consultas em qualquer dispositivo.':
+      'A premium veterinary clinic that needed to convey trust, care and excellence in every detail. I built a modern site with a refined visual identity, intuitive navigation and a focus on conversion, making it easy to get in touch and book appointments from any device.',
+    'Branding':'Branding',
+    'Mobile-first':'Mobile-first',
+    'Google Meu Negócio':'Google Business Profile',
+    'Google meu negócio':'Google Business Profile',
+    'Landing page · Direção de arte':'Landing page · Art direction',
+    'Lash Designer':'Lash Designer',
+    'Uma profissional da área da beleza que buscava fortalecer sua presença digital e transformar visitantes em clientes. Criei uma landing page elegante, valorizando o portfólio, os serviços e um fluxo de contato simples e direto pelo WhatsApp.':
+      'A beauty professional looking to strengthen her digital presence and turn visitors into clients. I created an elegant landing page that showcases the portfolio and services, with a simple, direct contact flow via WhatsApp.',
+    'Identidade Visual':'Visual identity',
+    'Conversão via WhatsApp':'WhatsApp conversion',
+    'Clínica Veterinária':'Veterinary Clinic',
+    'Uma clínica veterinária que buscava fortalecer sua presença digital. Desenvolvi um site moderno e profissional, destacando serviços, especialidades e estrutura, com navegação intuitiva e foco em conversão.':
+      'A veterinary clinic looking to strengthen its digital presence. I built a modern, professional site highlighting services, specialties and facilities, with intuitive navigation and a focus on conversion.',
+    'Site profissional':'Professional website',
+    'Presença digital':'Digital presence',
+    'Site profissional · Marketing':'Professional website · Marketing',
+    'Site de vendas Fitness':'Fitness Sales Site',
+    'Desenvolvimento de uma plataforma fitness completa, criada para reunir em um só lugar produtos recomendados, ferramentas gratuitas e conteúdos voltados à evolução física e ao emagrecimento. O projeto foi estruturado com uma navegação intuitiva e moderna, conectando o usuário a ofertas selecionadas, recursos como a calculadora de IMC e ao método Fast90, criando uma experiência integrada e focada em resultados.':
+      'A complete fitness platform built to bring recommended products, free tools and content on physical progress and weight loss together in one place. The project was structured with modern, intuitive navigation, connecting users to selected offers, tools such as the BMI calculator and the Fast90 method — creating an integrated, results-focused experience.',
+    'Afiliados':'Affiliates',
+    'Outlet':'Outlet',
+
+    /* — contato — */
+    '/ Vamos começar':'/ Let’s begin',
+    'Vamos construir algo que representa o que você faz de verdade.':
+      'Let’s build something that actually represents what you do.',
+    'Me conta um pouco sobre o seu negócio. Eu respondo pessoalmente — sem robô, sem formulário genérico.':
+      'Tell me a little about your business. I reply personally — no bots, no generic forms.',
+    'E-mail':'Email',
+    'WhatsApp':'WhatsApp',
+    'Instagram':'Instagram',
+
+    /* — curso — */
+    '/ Curso':'/ Course',
+    'Aprenda a fazer o seu':'Learn to build your own',
+    'Se você prefere colocar a mão na massa, eu ensino o mesmo método que uso nos projetos do estúdio.':
+      'If you’d rather build it yourself, I teach the same method I use on studio projects.',
+    'Curso online · Acesso vitalício':'Online course · Lifetime access',
+    'Método Site Premium':'Método Site Premium',
+    'Do rascunho ao site publicado: direção visual, código e o passo a passo pra colocar no ar um site que parece caro — mesmo sendo o seu primeiro.':
+      'From sketch to published site: visual direction, code and the step-by-step for launching a site that looks expensive — even if it’s your first.',
+    'Aulas em ordem, do zero até o site no ar':'Lessons in order, from zero to a live site',
+    'Arquivos e templates que eu uso nos projetos':'The files and templates I use on real projects',
+    'Pagamento único, sem mensalidade':'One-time payment, no subscription',
+    'Planos a partir de R$49,90 no Pix':'Plans from R$49.90 via Pix',
+    'Ver planos':'See plans',
+
+    /* — rodapé — */
+    '© 2026 L R G Z. Todos os direitos reservados.':'© 2026 L R G Z. All rights reserved.',
+    'ver':'view'
+  };
+
+  /* linhas geradas por JS (hero + terminal) */
+  var JS_LINES = {
+    hero: { pt:['PRESENÇA','DIGITAL','PREMIUM.'], en:['PREMIUM','DIGITAL','PRESENCE.'] },
+    term: {
+      pt:['$ lrgz --novo-projeto','> analisando identidade da marca...','> definindo paleta e tipografia...','> construindo estrutura responsiva...','> revisando cada detalhe...','✓ site publicado'],
+      en:['$ lrgz --new-project','> analysing brand identity...','> setting palette and typography...','> building responsive structure...','> reviewing every detail...','✓ site published']
+    }
+  };
+
+  var STORAGE_KEY = 'lrgz_lang';
+  var lang = 'pt';
+  var observer = null;
+  var lastDispatched = null;
+
+  function translate(raw){
+    var key = raw.trim();
+    if(!key) return null;
+    if(Object.prototype.hasOwnProperty.call(EN, key)) return EN[key];
+    return null;
+  }
+  function swap(raw, t){
+    return raw.match(/^\s*/)[0] + t + raw.match(/\s*$/)[0];
+  }
+
+  var SKIP_TAGS = { SCRIPT:1, STYLE:1, NOSCRIPT:1, SVG:1 };
+  /* o hero e o terminal são gerados por JS e traduzidos na fonte, não pelo walker */
+  var SKIP_IDS  = { heroTitle:1, terminalBody:1 };
+  var ATTRS = ['placeholder','aria-label','alt','title','content'];
+
+  function walkText(root){
+    var tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        var p = node.parentNode;
+        while(p && p.nodeType === 1){
+          if(SKIP_TAGS[p.tagName] || SKIP_IDS[p.id]) return NodeFilter.FILTER_REJECT;
+          p = p.parentNode;
+        }
+        return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while((n = tw.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      if(node.__pt === undefined) node.__pt = node.nodeValue;
+      if(lang === 'pt'){ node.nodeValue = node.__pt; return; }
+      var t = translate(node.__pt);
+      if(t !== null) node.nodeValue = swap(node.__pt, t);
+    });
+  }
+
+  function walkAttrs(root){
+    var els = Array.prototype.slice.call(root.querySelectorAll('*'));
+    els.forEach(function(el){
+      ATTRS.forEach(function(a){
+        if(!el.hasAttribute(a)) return;
+        if(a === 'content' && el.getAttribute('name') !== 'description') return;
+        var k = '__pt_' + a;
+        if(el[k] === undefined) el[k] = el.getAttribute(a);
+        if(lang === 'pt'){ el.setAttribute(a, el[k]); return; }
+        var t = translate(el[k]);
+        if(t !== null) el.setAttribute(a, t);
+      });
+    });
+  }
+
+  function apply(){
+    if(observer) observer.disconnect();
+
+    walkText(document.body);
+    walkAttrs(document.body);
+    walkAttrs(document.head);
+
+    if(document.__ptTitle === undefined) document.__ptTitle = document.title;
+    document.title = lang === 'pt' ? document.__ptTitle : (translate(document.__ptTitle) || document.__ptTitle);
+    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en-US');
+
+    /* elementos marcados para aparecer só num idioma:
+       data-only="pt" ou data-only="en" */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-only]'), function(el){
+      el.style.display = (el.getAttribute('data-only') === lang) ? '' : 'none';
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.lang-toggle'), function(btn){
+      btn.setAttribute('data-lang', lang);
+      btn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
+      var pt = btn.querySelector('[data-l-pt]'), en = btn.querySelector('[data-l-en]');
+      if(pt) pt.classList.toggle('on', lang === 'pt');
+      if(en) en.classList.toggle('on', lang === 'en');
+    });
+
+    window.LRGZ_LANG = lang;
+    /* só avisa quando o idioma REALMENTE muda — senão o terminal, que muda o
+       DOM a cada caractere, dispararia o observer e reiniciaria a si mesmo em loop */
+    if(lastDispatched !== lang){
+      lastDispatched = lang;
+      document.dispatchEvent(new CustomEvent('lrgz:lang', { detail:{ lang: lang } }));
+    }
+
+    if(observer) observer.observe(document.body, { childList:true, subtree:true });
+  }
+
+  function setLang(next){
+    lang = (next === 'en') ? 'en' : 'pt';
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+    apply();
+  }
+
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if(saved === 'en' || saved === 'pt') lang = saved;
+    else if((navigator.language || '').toLowerCase().indexOf('pt') !== 0) lang = 'en';
+  } catch(e){}
+
+  window.LRGZ_LANG = lang;
+  window.LRGZ_JS_LINES = (typeof JS_LINES !== 'undefined') ? JS_LINES : null;
+
+  function boot(){
+    observer = new MutationObserver(function(muts){
+      if(lang === 'pt') return;
+      /* ignora mutações dentro do hero e do terminal: esses são animados e
+         já traduzidos na fonte, então não precisam (nem devem) ser revarridos */
+      var relevant = muts.some(function(m){
+        var n = m.target;
+        while(n && n.nodeType === 1){
+          if(SKIP_IDS[n.id]) return false;
+          n = n.parentNode;
+        }
+        return true;
+      });
+      if(!relevant) return;
+      clearTimeout(observer.__t);
+      observer.__t = setTimeout(apply, 20);
+    });
+    apply();
+    document.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('.lang-toggle');
+      if(!b) return;
+      e.preventDefault();
+      setLang(lang === 'pt' ? 'en' : 'pt');
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+
+  window.LRGZ_I18N = { setLang:setLang, apply:apply, get lang(){ return lang; } };
+
+})();
+</script>
 </body>
 </html>

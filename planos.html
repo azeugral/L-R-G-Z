@@ -254,6 +254,18 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
 .footer-inner .fmono{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; color:var(--gray-dim); }
 .footer-inner a{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; color:var(--gray); text-transform:uppercase; }
 .footer-inner a:hover{ color:var(--white); }
+
+/* ============ TOGGLE DE IDIOMA (PT / EN) ============ */
+.lang-toggle{
+  display:inline-flex; align-items:center; gap:.3rem; flex:none;
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
+  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
+  padding:.42rem .62rem; line-height:1;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.lang-toggle:hover{ border-color:var(--gray); }
+.lang-toggle .sep{ opacity:.4; }
+.lang-toggle span.on{ color:var(--white); }
 </style>
 </head>
 <body>
@@ -265,7 +277,7 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
 <div class="container">
   <nav class="mininav">
     <a href="index.html#contato" class="back">← lrgz.com.br</a>
-    <span class="brand">L R G Z <span class="dot"></span></span>
+    <span style="display:flex;align-items:center;gap:1rem"><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button><span class="brand">L R G Z <span class="dot"></span></span></span>
   </nav>
 </div>
 
@@ -425,5 +437,196 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
 })();
 </script>
 
+
+<!-- ============ I18N — PT-BR / EN-US ============
+     Dicionário no formato 'português': 'inglês'. Edite aqui para
+     corrigir traduções. Texto sem tradução fica em português.
+     ============================================================ -->
+<script>
+(function(){
+  var EN = {
+    'Método Site Premium — Escolha seu plano':'Método Site Premium — Choose your plan',
+    'Do primeiro site ao primeiro cliente pagante — escolha o plano do Método Site Premium que faz sentido pro seu momento.':
+      'From your first website to your first paying client — pick the Método Site Premium plan that fits where you are now.',
+
+    '← lrgz.com.br':'← lrgz.com.br',
+    '/ Método Site Premium':'/ Método Site Premium',
+    'Escolha como você':'Choose how you',
+    'vai chegar lá.':'get there.',
+    'Do primeiro site ao primeiro cliente pagante — no ritmo que fizer sentido pra você.':
+      'From your first website to your first paying client — at the pace that works for you.',
+    'Forma de pagamento':'Payment method',
+    'Pix':'Pix',
+    'instantâneo':'instant',
+
+    'Essencial':'Essential',
+    'Pra quem quer aprender o método e começar a criar sites por conta própria.':
+      'For anyone who wants to learn the method and start building sites on their own.',
+    'no Pix':'via Pix', 'No Pix':'Via Pix', 'No pix':'Via Pix', 'no cartão':'by card',
+    'pagamento único, sem parcelamento':'one-time payment, no instalments',
+    'Economize R$100':'Save R$100',
+    'O que está incluso':'What’s included',
+    'Curso completo (todos os módulos)':'Full course (all modules)',
+    '2 templates prontos para editar':'2 ready-to-edit templates',
+    'Suporte direto comigo':'Direct support from me',
+    'Revisão de projeto':'Project review',
+    'COMPRAR CURSO':'BUY THE COURSE',
+
+    'Mais escolhido':'Most popular',
+    'Profissional':'Professional',
+    '53% OFF':'53% OFF',
+    'Pra quem quer sair do curso já com projetos prontos pra vender e suporte comigo.':
+      'For anyone who wants to finish the course with projects ready to sell — and my support along the way.',
+    'Tudo do essencial, mais':'Everything in Essential, plus',
+    'Ferramenta de prospecção automática em larga escala':'Automated large-scale prospecting tool',
+    'Guia dinâmico para criação do site em 1 dia':'Step-by-step guide to building a site in one day',
+    'Curso completo (todos os módulos) + Bônus':'Full course (all modules) + bonuses',
+    '4 templates prontos para editar':'4 ready-to-edit templates',
+    'Lista de prompts premium':'Premium prompt library',
+    'Revisão de 2 projetos':'Review of 2 projects',
+
+    '© 2026 LRGZ. Todos os direitos reservados.':'© 2026 LRGZ. All rights reserved.',
+    'Voltar ao site':'Back to site'
+  };
+
+  var STORAGE_KEY = 'lrgz_lang';
+  var lang = 'pt';
+  var observer = null;
+  var lastDispatched = null;
+
+  function translate(raw){
+    var key = raw.trim();
+    if(!key) return null;
+    if(Object.prototype.hasOwnProperty.call(EN, key)) return EN[key];
+    return null;
+  }
+  function swap(raw, t){
+    return raw.match(/^\s*/)[0] + t + raw.match(/\s*$/)[0];
+  }
+
+  var SKIP_TAGS = { SCRIPT:1, STYLE:1, NOSCRIPT:1, SVG:1 };
+  /* o hero e o terminal são gerados por JS e traduzidos na fonte, não pelo walker */
+  var SKIP_IDS  = { heroTitle:1, terminalBody:1 };
+  var ATTRS = ['placeholder','aria-label','alt','title','content'];
+
+  function walkText(root){
+    var tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        var p = node.parentNode;
+        while(p && p.nodeType === 1){
+          if(SKIP_TAGS[p.tagName] || SKIP_IDS[p.id]) return NodeFilter.FILTER_REJECT;
+          p = p.parentNode;
+        }
+        return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var nodes = [], n;
+    while((n = tw.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      if(node.__pt === undefined) node.__pt = node.nodeValue;
+      if(lang === 'pt'){ node.nodeValue = node.__pt; return; }
+      var t = translate(node.__pt);
+      if(t !== null) node.nodeValue = swap(node.__pt, t);
+    });
+  }
+
+  function walkAttrs(root){
+    var els = Array.prototype.slice.call(root.querySelectorAll('*'));
+    els.forEach(function(el){
+      ATTRS.forEach(function(a){
+        if(!el.hasAttribute(a)) return;
+        if(a === 'content' && el.getAttribute('name') !== 'description') return;
+        var k = '__pt_' + a;
+        if(el[k] === undefined) el[k] = el.getAttribute(a);
+        if(lang === 'pt'){ el.setAttribute(a, el[k]); return; }
+        var t = translate(el[k]);
+        if(t !== null) el.setAttribute(a, t);
+      });
+    });
+  }
+
+  function apply(){
+    if(observer) observer.disconnect();
+
+    walkText(document.body);
+    walkAttrs(document.body);
+    walkAttrs(document.head);
+
+    if(document.__ptTitle === undefined) document.__ptTitle = document.title;
+    document.title = lang === 'pt' ? document.__ptTitle : (translate(document.__ptTitle) || document.__ptTitle);
+    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en-US');
+
+    /* elementos marcados para aparecer só num idioma:
+       data-only="pt" ou data-only="en" */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-only]'), function(el){
+      el.style.display = (el.getAttribute('data-only') === lang) ? '' : 'none';
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.lang-toggle'), function(btn){
+      btn.setAttribute('data-lang', lang);
+      btn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
+      var pt = btn.querySelector('[data-l-pt]'), en = btn.querySelector('[data-l-en]');
+      if(pt) pt.classList.toggle('on', lang === 'pt');
+      if(en) en.classList.toggle('on', lang === 'en');
+    });
+
+    window.LRGZ_LANG = lang;
+    /* só avisa quando o idioma REALMENTE muda — senão o terminal, que muda o
+       DOM a cada caractere, dispararia o observer e reiniciaria a si mesmo em loop */
+    if(lastDispatched !== lang){
+      lastDispatched = lang;
+      document.dispatchEvent(new CustomEvent('lrgz:lang', { detail:{ lang: lang } }));
+    }
+
+    if(observer) observer.observe(document.body, { childList:true, subtree:true });
+  }
+
+  function setLang(next){
+    lang = (next === 'en') ? 'en' : 'pt';
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+    apply();
+  }
+
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if(saved === 'en' || saved === 'pt') lang = saved;
+    else if((navigator.language || '').toLowerCase().indexOf('pt') !== 0) lang = 'en';
+  } catch(e){}
+
+  window.LRGZ_LANG = lang;
+  window.LRGZ_JS_LINES = (typeof JS_LINES !== 'undefined') ? JS_LINES : null;
+
+  function boot(){
+    observer = new MutationObserver(function(muts){
+      if(lang === 'pt') return;
+      /* ignora mutações dentro do hero e do terminal: esses são animados e
+         já traduzidos na fonte, então não precisam (nem devem) ser revarridos */
+      var relevant = muts.some(function(m){
+        var n = m.target;
+        while(n && n.nodeType === 1){
+          if(SKIP_IDS[n.id]) return false;
+          n = n.parentNode;
+        }
+        return true;
+      });
+      if(!relevant) return;
+      clearTimeout(observer.__t);
+      observer.__t = setTimeout(apply, 20);
+    });
+    apply();
+    document.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('.lang-toggle');
+      if(!b) return;
+      e.preventDefault();
+      setLang(lang === 'pt' ? 'en' : 'pt');
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+
+  window.LRGZ_I18N = { setLang:setLang, apply:apply, get lang(){ return lang; } };
+
+})();
+</script>
 </body>
 </html>
