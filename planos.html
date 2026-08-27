@@ -169,7 +169,15 @@ button{ font-family:inherit; cursor:pointer; }
   display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.2rem,2.4vw,2rem);
   align-items:stretch; margin-top:1rem; max-width:900px; margin-inline:auto;
 }
-@media (max-width:760px){ .plans{ grid-template-columns:1fr; max-width:460px; } }
+@media (max-width:760px){
+  /* minmax(0,1fr) no lugar de 1fr: sem isso o min-width:auto dos cards
+     estica a trilha alem do container e a pagina rola de lado no celular */
+  .plans{ grid-template-columns:minmax(0,1fr); max-width:460px; }
+  .plans > .card{ min-width:0; }
+}
+@media (max-width:420px){
+  .card{ padding:1.4rem 1.15rem; }
+}
 
 .card{
   position:relative; background:var(--surface); border:1px solid var(--line);
@@ -192,7 +200,7 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .card.featured .ribbon{ background:var(--white); color:var(--black); border-color:var(--black); }
 
-.plan-head{ display:flex; align-items:center; gap:.7rem; margin-bottom:.7rem; }
+.plan-head{ display:flex; flex-wrap:wrap; align-items:center; gap:.5rem .7rem; margin-bottom:.7rem; }
 .plan-name{ font-family:var(--font-display); font-size:1.15rem; font-weight:600; text-transform:uppercase; }
 .off-tag{
   font-family:var(--font-mono); font-size:.62rem; font-weight:600; letter-spacing:.04em;
@@ -257,15 +265,31 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
 
 /* ============ TOGGLE DE IDIOMA (PT / EN) ============ */
 .lang-toggle{
-  display:inline-flex; align-items:center; gap:.3rem; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; gap:.3rem; flex:none;
   font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
   background:transparent; border:1px solid var(--line); color:var(--gray-dim);
-  padding:.42rem .62rem; line-height:1;
+  padding:.42rem .62rem; line-height:1; cursor:pointer;
+  border-radius:0; -webkit-appearance:none; appearance:none;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
   transition:border-color .3s var(--ease), color .3s var(--ease);
 }
 .lang-toggle:hover{ border-color:var(--gray); }
+.lang-toggle:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
 .lang-toggle .sep{ opacity:.4; }
 .lang-toggle span.on{ color:var(--white); }
+
+/* no celular o alvo de toque precisa ser confortavel */
+@media (max-width:860px){
+  .lang-toggle{
+    min-height:44px; min-width:64px; padding:.6rem .8rem;
+    font-size:.78rem; border-color:var(--gray-dim);
+  }
+  .mininav{ gap:1rem; flex-wrap:wrap; }
+}
+@media (max-width:400px){
+  .lang-toggle{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
+  .mininav .brand{ font-size:.9rem; letter-spacing:.08em; }
+}
 </style>
 </head>
 <body>

@@ -19,18 +19,6 @@
     font-size:clamp(2.4rem,8vw,6rem); line-height:1.05; color:#f7f7f3;
   }
 
-/* ============ TOGGLE DE IDIOMA (PT / EN) ============ */
-.lang-toggle{
-  display:inline-flex; align-items:center; gap:.3rem; flex:none;
-  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
-  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
-  padding:.42rem .62rem; line-height:1;
-  transition:border-color .3s var(--ease), color .3s var(--ease);
-}
-.lang-toggle:hover{ border-color:var(--gray); }
-.lang-toggle .sep{ opacity:.4; }
-.lang-toggle span.on{ color:var(--white); }
-.mobile-menu .lang-toggle{ margin-top:1.2rem; font-size:.8rem; padding:.6rem .9rem; }
 </style></noscript>
 <style>
 /* ============================================
@@ -52,8 +40,8 @@
   --font-body:'IBM Plex Sans', sans-serif;
   --font-mono:'JetBrains Mono', monospace;
 
-  --fs-hero: clamp(3rem, 10vw, 9.5rem);
-  --fs-h1: clamp(2.2rem, 5.5vw, 4.6rem);
+  --fs-hero: clamp(2rem, 10vw, 9.5rem);
+  --fs-h1: clamp(1.7rem, 5.5vw, 4.6rem);
   --fs-h2: clamp(1.7rem, 3.4vw, 2.6rem);
   --fs-lead: clamp(1.05rem, 1.6vw, 1.35rem);
 
@@ -67,6 +55,8 @@
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
+h1,h2,h3,h4,p,li,a,span,small{ overflow-wrap:break-word; }
+img,svg,video{ max-width:100%; }
 html{ scroll-behavior:smooth; scroll-padding-top: var(--nav-h); }
 body{
   margin:0;
@@ -176,16 +166,80 @@ button{ font-family:inherit; cursor:pointer; }
 
 .mobile-menu{
   position:fixed; inset:0; z-index:99; background:var(--black);
-  display:flex; flex-direction:column; justify-content:center; gap:1.6rem; padding:var(--pad);
+  display:flex; flex-direction:column; gap:clamp(.9rem,3.2vh,1.6rem);
+  justify-content:center;
+  justify-content:safe center;   /* nao deixa o topo ficar inalcancavel ao rolar */
+  overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+  padding:calc(var(--nav-h) + 1rem) var(--pad)
+          calc(2rem + env(safe-area-inset-bottom, 0px));
   transform:translateY(-100%); transition:transform .5s var(--ease);
 }
 .mobile-menu.is-open{ transform:translateY(0); }
-.mobile-menu a{ font-family:var(--font-display); font-size:2.1rem; font-weight:500; }
+.mobile-menu a{
+  font-family:var(--font-display); font-size:clamp(1.55rem,7.2vw,2.1rem); font-weight:500;
+  line-height:1.15; padding-block:.15rem;
+}
+.mobile-menu .lang-toggle{
+  align-self:flex-start; margin-top:clamp(.8rem,2.5vh,1.6rem);
+  font-size:.88rem; gap:.45rem; padding:.85rem 1.15rem;
+  min-height:48px; border-color:var(--gray-dim);
+}
+body.menu-open{ overflow:hidden; }
+
+/* telas baixas (celular deitado, aparelhos pequenos): o menu encolhe
+   para caber inteiro em vez de depender da rolagem */
+@media (max-height:520px){
+  .mobile-menu{ gap:.5rem; padding-top:calc(var(--nav-h) - .75rem); }
+  .mobile-menu a{ font-size:clamp(1.1rem,5.4vh,1.6rem); }
+  .mobile-menu .lang-toggle{
+    margin-top:.7rem; min-height:44px; padding:.6rem .95rem; font-size:.8rem;
+  }
+}
 
 @media (max-width:860px){
   .nav-links{ display:none; }
   .nav-burger{ display:flex; }
   .nav-status{ display:none; }
+}
+
+/* ============================================
+   TOGGLE DE IDIOMA (PT / EN)
+   Vive em tres lugares: no menu desktop (.nav-links),
+   fixo na barra do topo no mobile (.lang-toggle--nav)
+   e dentro do menu mobile. O JS do i18n cuida de todos.
+   ============================================ */
+.nav-actions{ display:flex; align-items:center; gap:clamp(.5rem,2.5vw,1.4rem); }
+
+.lang-toggle{
+  display:inline-flex; align-items:center; justify-content:center; gap:.3rem; flex:none;
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
+  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
+  padding:.42rem .62rem; line-height:1; cursor:pointer;
+  border-radius:0; -webkit-appearance:none; appearance:none;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
+}
+.lang-toggle:hover{ border-color:var(--gray); }
+.lang-toggle:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.lang-toggle .sep{ opacity:.4; }
+.lang-toggle span.on{ color:var(--white); }
+
+/* a copia da barra do topo so entra quando o menu desktop sai */
+.lang-toggle--nav{ display:none; }
+
+@media (max-width:860px){
+  .lang-toggle--nav{
+    display:inline-flex;
+    min-height:44px; min-width:64px; padding:.6rem .8rem;
+    font-size:.78rem; border-color:var(--gray-dim);
+  }
+  .nav-burger{ min-width:44px; min-height:44px; align-items:center; justify-content:center; padding:0; }
+}
+
+/* telas bem estreitas: encolhe a marca para a barra nunca apertar */
+@media (max-width:400px){
+  .nav-logo{ font-size:.92rem; letter-spacing:.08em; }
+  .lang-toggle--nav{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
 }
 
 /* ============================================
@@ -344,6 +398,12 @@ button{ font-family:inherit; cursor:pointer; }
 @media (max-width:560px){
   .badge{ width:88px; height:88px; }
   .badge-center{ font-size:1rem; }
+  .hero-top{ gap:1rem; }
+  .hero-eyebrow{ font-size:.72rem; }
+}
+@media (max-width:420px){
+  .badge{ width:72px; height:72px; }
+  .hero-ctas .btn{ width:100%; justify-content:center; }
 }
 
 /* ============================================
@@ -394,7 +454,13 @@ button{ font-family:inherit; cursor:pointer; }
 /* ============================================
    SERVICES
    ============================================ */
-.section-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:clamp(2.5rem,5vw,4rem); }
+.section-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:clamp(2.5rem,5vw,4rem); }
+@media (max-width:700px){
+  .section-head{ flex-direction:column; align-items:flex-start; gap:1.1rem; }
+  .section-head > *{ min-width:0; }
+  .section-title{ max-width:100%; }
+  .section-note{ max-width:100%; }
+}
 .section-title{
   font-family:var(--font-display); font-weight:600; font-size:var(--fs-h1); line-height:1.05;
   text-transform:uppercase; margin-top:1rem; max-width:16ch;
@@ -682,7 +748,7 @@ button{ font-family:inherit; cursor:pointer; }
 footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 .footer-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.2rem; }
 .footer-inner .fmono{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; color:var(--gray-dim); }
-.footer-links{ display:flex; gap:1.6rem; }
+.footer-links{ display:flex; flex-wrap:wrap; gap:1rem 1.6rem; }
 .footer-links a{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; color:var(--gray); text-transform:uppercase; }
 .footer-links a:hover{ color:var(--white); }
 .to-top{ border:1px solid var(--line); width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:none; color:var(--white); }
@@ -741,10 +807,13 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <li data-only="pt"><a href="#curso" class="nav-cta">Comprar Agora</a></li>
       <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
-    <div class="nav-status"><span class="dot"></span> Disponível para novos projetos</div>
-    <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <div class="nav-status"><span class="dot"></span> Disponível para novos projetos</div>
+      <button class="lang-toggle lang-toggle--nav" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
+      <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -1303,12 +1372,20 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   /* ---------- Mobile menu ---------- */
   var burger = document.getElementById('burger');
   var menu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', function(){
-    var open = menu.classList.toggle('is-open');
+  function setMenu(open){
+    menu.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  burger.addEventListener('click', function(){
+    setMenu(!menu.classList.contains('is-open'));
   });
   menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ menu.classList.remove('is-open'); });
+    a.addEventListener('click', function(){ setMenu(false); });
+  });
+  /* Esc fecha o menu */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false);
   });
 
   /* ---------- Scroll reveal ---------- */
