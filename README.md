@@ -31,7 +31,7 @@ apague, senão o domínio se desfaz a cada deploy.
 | `site.webmanifest` | Metadados do site como app |
 | `og.png` | Imagem que aparece ao compartilhar o link |
 | `logo-lrgz.png` | Wordmark branco usado no topo e no rodapé |
-| `logo-lrgz-completo.png` | Marca completa com a bússola (uso avulso) |
+| ` Marca completa com as réguas laterais | Marca completa com a bússola (uso avulso) |
 | `robots.txt`, `sitemap.xml` | Permitem e orientam o rastreamento do Google |
 | `posters/poster-N.jpg` | Primeiro quadro de cada vídeo dos projetos |
 | `*.mp4` | Vídeos dos 6 projetos do portfólio |
@@ -62,3 +62,13 @@ era um `data:` embutido no HTML, que ele nunca indexa. Depois do deploy, a
 atualização não é imediata: costuma levar de dias a algumas semanas. Para
 apressar, use a Inspeção de URL no Google Search Console e peça a indexação
 da home.
+
+## Sobre o favicon
+
+O favicon é o monograma **LZ**. As letras do logo oficial são muito largas e
+de traço fino: em 16px, que é o tamanho que o Google usa no resultado de
+busca, elas viram uma mancha. O monograma mantém a mesma família de serifa e
+continua legível nos três tamanhos.
+
+Se quiser trocar depois, o único requisito do Google é que seja um arquivo
+real, quadrado e múltiplo de 48px.

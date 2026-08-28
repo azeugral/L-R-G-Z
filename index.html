@@ -6,12 +6,12 @@
 <title>L R G Z — Criação de site Premium</title>
 <meta name="description" content="L R G Z é um estúdio de criação de sites premium: sites autorais para pequenos negócios que querem uma identidade digital à altura do que já são.">
 <meta name="theme-color" content="#050505">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="canonical" href="https://lrgz.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lrgz.com.br/">
@@ -139,7 +139,8 @@ button{ font-family:inherit; cursor:pointer; }
   display:flex; align-items:center; gap:.6rem; flex:none;
 }
 .nav-logo img{
-  height:clamp(18px, 2.3vw, 26px); width:auto; display:block;
+  height:clamp(15px, 1.8vw, 21px); width:auto; display:block;
+  max-width:44vw; object-fit:contain;
   transition: opacity .35s var(--ease);
 }
 .nav-logo:hover img{ opacity:.72; }
@@ -260,7 +261,7 @@ body.menu-open{ overflow:hidden; }
 
 /* telas bem estreitas: encolhe a marca para a barra nunca apertar */
 @media (max-width:400px){
-  .nav-logo img{ height:17px; }
+  .nav-logo img{ height:14px; }
   .lang-toggle--nav{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
 }
 
@@ -768,7 +769,7 @@ body.menu-open{ overflow:hidden; }
    FOOTER
    ============================================ */
 footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
-.footer-logo{ height:15px; width:auto; display:inline-block; vertical-align:-2px; margin-right:.7rem; opacity:.7; }
+.footer-logo{ height:13px; width:auto; display:inline-block; vertical-align:-2px; margin-right:.7rem; opacity:.7; }
 .footer-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.2rem; }
 .footer-inner .fmono{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; color:var(--gray-dim); }
 .footer-links{ display:flex; flex-wrap:wrap; gap:1rem 1.6rem; }
@@ -821,7 +822,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 <nav class="nav" id="nav">
   <div class="container">
     <a href="#home" class="nav-logo" aria-label="L R G Z — página inicial">
-      <img src="/logo-lrgz.png" alt="L R G Z" width="1600" height="309" decoding="async">
+      <img src="logo-lrgz.png" alt="L R G Z" width="1800" height="220" decoding="async">
       <span class="dot"></span>
     </a>
     <ul class="nav-links">
@@ -1316,7 +1317,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 <footer>
   <div class="container footer-inner">
     <p class="fmono">
-      <img class="footer-logo" src="/logo-lrgz.png" alt="L R G Z" width="1600" height="309" decoding="async" loading="lazy">© 2026 L R G Z. Todos os direitos reservados.
+      <img class="footer-logo" src="logo-lrgz.png" alt="L R G Z" width="1800" height="220" decoding="async" loading="lazy">© 2026 L R G Z. Todos os direitos reservados.
     </p>
     <div class="footer-links">
       <a href="#sobre">Sobre</a>
