@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lrgz.com.br/sitemap.xml

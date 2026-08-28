@@ -6,7 +6,24 @@
 <title>L R G Z — Criação de site Premium</title>
 <meta name="description" content="L R G Z é um estúdio de criação de sites premium: sites autorais para pequenos negócios que querem uma identidade digital à altura do que já são.">
 <meta name="theme-color" content="#050505">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23050505'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' fill='%23f7f7f4' text-anchor='middle'%3ELZ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://lrgz.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lrgz.com.br/">
+<meta property="og:site_name" content="L R G Z">
+<meta property="og:title" content="L R G Z — Criação de site Premium">
+<meta property="og:description" content="Estúdio de criação de sites premium: sites autorais para pequenos negócios que querem uma identidade digital à altura do que já são.">
+<meta property="og:image" content="https://lrgz.com.br/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lrgz.com.br/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -119,8 +136,13 @@ button{ font-family:inherit; cursor:pointer; }
 .nav .container{ display:flex; align-items:center; justify-content:space-between; width:100%; }
 .nav-logo{
   font-family:var(--font-mono); font-weight:600; font-size:1.05rem; letter-spacing:.12em;
-  display:flex; align-items:center; gap:.5rem;
+  display:flex; align-items:center; gap:.6rem; flex:none;
 }
+.nav-logo img{
+  height:clamp(18px, 2.3vw, 26px); width:auto; display:block;
+  transition: opacity .35s var(--ease);
+}
+.nav-logo:hover img{ opacity:.72; }
 .nav-logo .dot{ width:6px; height:6px; background:var(--white); border-radius:50%; animation:blink 2.4s infinite; }
 .nav-links{ display:flex; align-items:center; gap:2.4rem; }
 .nav-links a{
@@ -238,7 +260,7 @@ body.menu-open{ overflow:hidden; }
 
 /* telas bem estreitas: encolhe a marca para a barra nunca apertar */
 @media (max-width:400px){
-  .nav-logo{ font-size:.92rem; letter-spacing:.08em; }
+  .nav-logo img{ height:17px; }
   .lang-toggle--nav{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
 }
 
@@ -746,6 +768,7 @@ body.menu-open{ overflow:hidden; }
    FOOTER
    ============================================ */
 footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
+.footer-logo{ height:15px; width:auto; display:inline-block; vertical-align:-2px; margin-right:.7rem; opacity:.7; }
 .footer-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.2rem; }
 .footer-inner .fmono{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; color:var(--gray-dim); }
 .footer-links{ display:flex; flex-wrap:wrap; gap:1rem 1.6rem; }
@@ -797,7 +820,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
 <nav class="nav" id="nav">
   <div class="container">
-    <a href="#home" class="nav-logo">L R G Z <span class="dot"></span></a>
+    <a href="#home" class="nav-logo" aria-label="L R G Z — página inicial">
+      <img src="/logo-lrgz.png" alt="L R G Z" width="1600" height="309" decoding="async">
+      <span class="dot"></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
@@ -1008,10 +1034,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-1.jpg"
+           data-lazy-video>
         <source src="2026-07-13 21-58-34.mp4" type="video/mp4">
     </video>
 </div>
@@ -1032,10 +1060,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-2.jpg"
+           data-lazy-video>
         <source src="2026-07-13 22-22-56.mp4" type="video/mp4">
     </video>
 </div>
@@ -1063,10 +1093,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-3.jpg"
+           data-lazy-video>
         <source src="2026-08-17 16-20-14.mp4" type="video/mp4">
     </video>
 </div>
@@ -1090,10 +1122,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-4.jpg"
+           data-lazy-video>
         <source src="2026-08-17 16-21-19.mp4" type="video/mp4">
     </video>
 </div>
@@ -1117,10 +1151,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-5.jpg"
+           data-lazy-video>
         <source src="2026-08-26 18-55-49.mp4" type="video/mp4">
     </video>
 </div>
@@ -1145,10 +1181,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-preview">
 <div class="mock">
     <video class="site-video"
-           autoplay
            muted
            loop
-           playsinline>
+           playsinline
+           preload="none"
+           poster="posters/poster-6.jpg"
+           data-lazy-video>
         <source src="2026-08-26 18-56-22.mp4" type="video/mp4">
     </video>
 </div>
@@ -1277,7 +1315,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
 <footer>
   <div class="container footer-inner">
-    <p class="fmono">© 2026 L R G Z. Todos os direitos reservados.</p>
+    <p class="fmono">
+      <img class="footer-logo" src="/logo-lrgz.png" alt="L R G Z" width="1600" height="309" decoding="async" loading="lazy">© 2026 L R G Z. Todos os direitos reservados.
+    </p>
     <div class="footer-links">
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
@@ -1368,6 +1408,48 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   };
   document.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
+
+  /* ---------- Vídeos dos projetos: só carregam quando aparecem ----------
+     Os <video> nascem com preload="none" e poster. O vídeo em si só é
+     baixado quando o card entra na tela, e pausa quando sai. Se o
+     usuário pediu menos animação no sistema, o vídeo não toca sozinho
+     e ganha controles para tocar no clique. */
+  (function(){
+    var vids = Array.prototype.slice.call(document.querySelectorAll('[data-lazy-video]'));
+    if(!vids.length) return;
+
+    var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(quieto){
+      vids.forEach(function(v){ v.setAttribute('controls',''); v.preload = 'metadata'; });
+      return;
+    }
+
+    function ligar(v){
+      if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
+      var t = v.play();
+      if(t && t.catch) t.catch(function(){});
+    }
+
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(ligar);
+      return;
+    }
+
+    var vio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var v = e.target;
+        if(e.isIntersecting){ ligar(v); }
+        else if(!v.paused){ v.pause(); }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.2 });
+
+    vids.forEach(function(v){ vio.observe(v); });
+
+    /* aba em segundo plano não precisa gastar bateria */
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ vids.forEach(function(v){ if(!v.paused) v.pause(); }); }
+    });
+  })();
 
   /* ---------- Mobile menu ---------- */
   var burger = document.getElementById('burger');
