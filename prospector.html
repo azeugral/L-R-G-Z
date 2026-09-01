@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prospector — L R G Z</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Mesmas variáveis do index.html — a página é parte do site,
+   não um painel colado nele.
+   ============================================================ */
+:root{
+  --black:#050505;
+  --surface:#0c0c0b;
+  --surface-2:#131311;
+  --white:#f7f7f3;
+  --gray:#8c8c86;
+  --gray-dim:#57574f;
+  --line:#232320;
+  --line-soft:#1a1a17;
+  --red:#ff3131;
+  --cyan:#00e5ff;
+
+  --font-display:'Unbounded', sans-serif;
+  --font-body:'IBM Plex Sans', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+
+  --fs-h1: clamp(1.7rem, 5.5vw, 4.6rem);
+  --fs-h2: clamp(1.7rem, 3.4vw, 2.6rem);
+  --fs-lead: clamp(1.05rem, 1.6vw, 1.35rem);
+
+  --container: 1500px;
+  --pad: clamp(1.25rem, 4vw, 3.5rem);
+  --nav-h: 84px;
+  --ease: cubic-bezier(.16,.84,.32,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--black); color:var(--white);
+  font-family:var(--font-body); font-weight:300; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--white);color:var(--black)}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--line)}
+::-webkit-scrollbar-thumb:hover{background:var(--gray-dim)}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--pad)}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay:var(--rd,0s)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ------------------------------------------------------------ nav */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:100; height:var(--nav-h);
+  display:flex; align-items:center; background:rgba(5,5,5,.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav .container{display:flex;align-items:center;gap:1.6rem}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.nav-logo img{height:26px;width:auto;display:block}
+.nav-logo .dot{width:5px;height:5px;background:var(--red);border-radius:50%;
+  animation:blink 2.4s infinite}
+.nav-tag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gray-dim)}
+.nav .cresce{flex:1}
+.nav a.voltar{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gray);text-decoration:none;
+  transition:color .3s var(--ease)}
+.nav a.voltar:hover{color:var(--white)}
+.creditos{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;
+  color:var(--gray-dim)}
+.creditos b{color:var(--white);font-weight:500}
+
+main{padding-top:var(--nav-h)}
+
+/* --------------------------------------------------------- tipos */
+.tag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--gray-dim)}
+.num{font-family:var(--font-mono);font-size:.72rem;color:var(--gray-dim)}
+h1.titulo{font-family:var(--font-display);font-size:var(--fs-h1);font-weight:300;
+  text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin:0 0 1rem}
+h2.secao{font-family:var(--font-display);font-size:var(--fs-h2);font-weight:400;
+  text-transform:uppercase;letter-spacing:-.01em;margin:0 0 1.4rem}
+p.lead{font-size:var(--fs-lead);color:var(--gray);max-width:56ch;margin:0 0 2rem}
+
+.btn{
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em;
+  text-transform:uppercase; padding:1rem 1.7rem;
+  border:1px solid var(--white); background:var(--white); color:var(--black);
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  cursor:pointer;
+  transition:transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+.btn:hover{background:transparent;color:var(--white);transform:translateY(-2px)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.btn.vazio{background:transparent;color:var(--white);border-color:var(--line)}
+.btn.vazio:hover{border-color:var(--white)}
+.btn.pequeno{padding:.62rem 1rem;font-size:.66rem}
+
+label.campo{display:block;margin-bottom:1.4rem}
+label.campo span{display:block;margin-bottom:.5rem}
+input[type=text],input[type=email],input[type=password],select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
+  padding:.85rem 0;color:var(--white);font-size:1rem;
+  transition:border-color .4s var(--ease)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--white)}
+input::placeholder{color:var(--gray-dim)}
+select option{background:var(--surface)}
+
+/* -------------------------------------------------------- login */
+.entrada{min-height:calc(100vh - var(--nav-h));display:grid;place-items:center;
+  padding:3rem var(--pad)}
+.cartao-entrada{width:100%;max-width:430px;border:1px solid var(--line);
+  background:var(--surface);padding:clamp(1.8rem,4vw,3rem)}
+.cartao-entrada h1{font-family:var(--font-display);font-size:1.6rem;font-weight:400;
+  text-transform:uppercase;margin:.6rem 0 .4rem}
+.cartao-entrada p{color:var(--gray);font-size:.92rem;margin:0 0 2rem}
+.erro{border-left:2px solid var(--red);padding:.7rem 0 .7rem .9rem;color:var(--gray);
+  font-size:.85rem;margin-bottom:1.2rem;display:none}
+.erro.ver{display:block}
+
+/* ------------------------------------------------------- busca */
+.painel-busca{border-bottom:1px solid var(--line);padding:clamp(2rem,5vw,3.4rem) 0}
+.linha-busca{display:grid;grid-template-columns:1.3fr 1fr .8fr auto;gap:1.6rem;
+  align-items:end}
+@media(max-width:900px){.linha-busca{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.linha-busca{grid-template-columns:1fr}}
+.aviso-uso{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-dim);
+  margin-top:1.4rem;letter-spacing:.04em}
+
+/* ---------------------------------------------------- resultados */
+.resultados{padding:clamp(2rem,5vw,3.4rem) 0 6rem}
+.cabeca-res{display:flex;align-items:baseline;gap:1.4rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:1.2rem;margin-bottom:.4rem}
+.filtros{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 .6rem}
+.filtro{background:none;border:none;padding:.3rem 0;cursor:pointer;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gray-dim);position:relative;
+  transition:color .3s var(--ease)}
+.filtro::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;
+  background:var(--white);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease)}
+.filtro.on{color:var(--white)}
+.filtro.on::after{transform:scaleX(1)}
+
+.negocio{border-bottom:1px solid var(--line-soft);padding:1.5rem 0;
+  display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:start;
+  transition:padding-left .4s var(--ease),background .4s var(--ease)}
+.negocio:hover{padding-left:1rem;background:var(--surface)}
+.negocio h3{font-family:var(--font-display);font-size:1.12rem;font-weight:400;
+  text-transform:uppercase;letter-spacing:-.01em;margin:0 0 .5rem}
+.dados{display:flex;gap:1.4rem;flex-wrap:wrap;font-family:var(--font-mono);
+  font-size:.7rem;color:var(--gray-dim)}
+.dados b{color:var(--gray);font-weight:400}
+.marca-site{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gray-dim);border:1px solid var(--line);
+  padding:.26rem .6rem;white-space:nowrap}
+.marca-site.alvo{color:var(--white);border-color:var(--gray-dim)}
+.acoes{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.acoes a,.acoes button{font-family:var(--font-mono);font-size:.64rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gray);
+  text-decoration:none;border:1px solid var(--line);padding:.5rem .8rem;
+  cursor:pointer;background:none;transition:all .3s var(--ease);white-space:nowrap}
+.acoes a:hover,.acoes button:hover{color:var(--black);background:var(--white);
+  border-color:var(--white)}
+.acoes select{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.06em;
+  text-transform:uppercase;border:1px solid var(--line);padding:.5rem .6rem;
+  background:transparent;cursor:pointer;width:auto}
+
+.vazio{padding:5rem 0;text-align:center;color:var(--gray-dim)}
+.vazio b{display:block;font-family:var(--font-display);font-size:1.3rem;
+  font-weight:300;text-transform:uppercase;color:var(--gray);margin-bottom:.7rem}
+.carregando{display:flex;align-items:center;gap:.8rem;padding:3rem 0;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gray-dim)}
+.giro{width:13px;height:13px;border:1px solid var(--line);border-top-color:var(--white);
+  border-radius:50%;animation:spin .8s linear infinite}
+
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;padding:1rem 0;background:var(--surface)}
+.marquee-track{display:flex;width:max-content;animation:marquee 42s linear infinite}
+.marquee span{font-family:var(--font-display);font-size:.9rem;font-weight:300;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--gray-dim);
+  padding-inline:1.6rem;white-space:nowrap}
+
+.rodape{border-top:1px solid var(--line);padding:2rem 0;font-family:var(--font-mono);
+  font-size:.64rem;letter-spacing:.06em;color:var(--gray-dim);display:flex;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+#alerta{position:fixed;left:0;right:0;bottom:0;background:var(--white);
+  color:var(--black);padding:1rem var(--pad);font-family:var(--font-mono);
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:120;
+  transform:translateY(100%);transition:transform .5s var(--ease)}
+#alerta.ver{transform:none}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo" aria-label="L R G Z">
+      <img src="logo-lrgz.png" alt="L R G Z">
+      <span class="dot"></span>
+    </a>
+    <span class="nav-tag">Prospector</span>
+    <span class="cresce"></span>
+    <span class="creditos" id="creditos"></span>
+    <a href="index.html" class="voltar">Voltar ao site</a>
+    <a href="#" class="voltar" id="sair" style="display:none">Sair</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ------------------------------------------------------- login -->
+<section class="entrada" id="tela-entrada">
+  <div class="cartao-entrada reveal">
+    <p class="tag">Acesso restrito</p>
+    <h1>Prospector</h1>
+    <p>Encontre negócios que ainda não têm site — e fale com eles hoje.</p>
+    <div class="erro" id="erro-entrada"></div>
+    <label class="campo"><span class="tag">E-mail</span>
+      <input type="email" id="e-email" autocomplete="email" placeholder="voce@email.com"></label>
+    <label class="campo"><span class="tag">Senha</span>
+      <input type="password" id="e-senha" autocomplete="current-password" placeholder="••••••••"></label>
+    <button class="btn" style="width:100%" id="bt-entrar">Entrar</button>
+    <p style="margin:1.6rem 0 0;font-size:.8rem">
+      Ainda não tem conta?
+      <a href="planos.html" style="color:var(--white)">Ver planos</a>
+    </p>
+  </div>
+</section>
+
+<!-- -------------------------------------------------------- app -->
+<div id="tela-app" style="display:none">
+
+  <section class="painel-busca">
+    <div class="container">
+      <p class="tag reveal">01 / Busca</p>
+      <h1 class="titulo reveal" style="--rd:.06s">Quem ainda<br>não tem site</h1>
+      <p class="lead reveal" style="--rd:.12s">
+        Escolha o ramo e a cidade. Devolvemos apenas os negócios sem site próprio —
+        os que só têm Instagram, link na bio ou nada. Os que já têm site são
+        descartados na hora.
+      </p>
+
+      <div class="linha-busca reveal" style="--rd:.18s">
+        <label class="campo" style="margin:0"><span class="tag">Ramo</span>
+          <input type="text" id="f-nicho" placeholder="unhas de gel"></label>
+        <label class="campo" style="margin:0"><span class="tag">Cidade</span>
+          <input type="text" id="f-cidade" placeholder="Braga"></label>
+        <label class="campo" style="margin:0"><span class="tag">País</span>
+          <select id="f-pais">
+            <option value="BR">Brasil</option>
+            <option value="PT">Portugal</option>
+            <option value="ES">Espanha</option>
+            <option value="IT">Itália</option>
+            <option value="FR">França</option>
+            <option value="DE">Alemanha</option>
+            <option value="GB">Reino Unido</option>
+            <option value="US">Estados Unidos</option>
+          </select></label>
+        <button class="btn" id="bt-buscar">Buscar</button>
+      </div>
+      <p class="aviso-uso" id="aviso-uso"></p>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="trilho">
+      <span>sem site</span><span>✻</span><span>só instagram</span><span>✻</span>
+      <span>link na bio</span><span>✻</span><span>página grátis do google</span><span>✻</span>
+      <span>sem site</span><span>✻</span><span>só instagram</span><span>✻</span>
+      <span>link na bio</span><span>✻</span><span>página grátis do google</span><span>✻</span>
+    </div>
+  </div>
+
+  <section class="resultados">
+    <div class="container">
+      <div class="cabeca-res">
+        <p class="tag">02 / Resultados</p>
+        <h2 class="secao" id="titulo-res" style="margin:0">Aguardando busca</h2>
+        <span class="num" id="contagem"></span>
+      </div>
+
+      <div class="filtros" id="filtros" style="display:none">
+        <button class="filtro on" data-f="todos">Todos</button>
+        <button class="filtro" data-f="">Sem site nenhum</button>
+        <button class="filtro" data-f="social">Só rede social</button>
+        <button class="filtro" data-f="agregador">Link na bio</button>
+        <button class="filtro" data-f="google">Página do Google</button>
+      </div>
+
+      <div id="lista">
+        <div class="vazio"><b>Nada buscado ainda</b>
+          Preencha o ramo e a cidade acima.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="rodape">
+      <span id="atribuicao">Dados de lugares fornecidos pelo Google</span>
+      <span>L R G Z · Prospector</span>
+    </div>
+  </div>
+</div>
+
+</main>
+<div id="alerta"></div>
+
+<script>
+/* ============================================================
+   Configuração — trocar quando o backend subir no Render
+   ============================================================ */
+const API = location.hostname === "127.0.0.1" || location.hostname === "localhost"
+  ? "http://127.0.0.1:8000"
+  : "https://prospector-api-ywsw.onrender.com";
+const SUPABASE_URL = "https://enkwtnzkgglktnowunav.supabase.co";
+const SUPABASE_ANON = "sb_publishable_z-GLi4p41sKhJVLs92OpIg_S-VkYQNB";
+
+const $ = s => document.querySelector(s);
+let sessao = null, resultados = [], filtro = "todos";
+
+function esc(t){return (t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function alertar(t){const a=$("#alerta");a.textContent=t;a.className="ver";
+  clearTimeout(a._t);a._t=setTimeout(()=>a.className="",4200)}
+
+/* --------------------------------------------------------- login */
+async function entrar(){
+  const email=$("#e-email").value.trim(), senha=$("#e-senha").value;
+  const erro=$("#erro-entrada");
+  erro.className="erro";
+  if(!email||!senha){erro.textContent="Preencha e-mail e senha.";erro.className="erro ver";return}
+  const bt=$("#bt-entrar"); bt.disabled=true; bt.textContent="Entrando…";
+  try{
+    const r=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`,{
+      method:"POST",
+      headers:{"apikey":SUPABASE_ANON,"Content-Type":"application/json"},
+      body:JSON.stringify({email,password:senha})
+    });
+    const d=await r.json();
+    if(!r.ok||!d.access_token)throw new Error(d.error_description||d.msg||"E-mail ou senha inválidos.");
+    sessao=d;
+    localStorage.setItem("lrgz_sessao",JSON.stringify(d));
+    abrirApp();
+  }catch(e){erro.textContent=e.message;erro.className="erro ver"}
+  bt.disabled=false; bt.textContent="Entrar";
+}
+
+function sair(){
+  localStorage.removeItem("lrgz_sessao"); sessao=null;
+  $("#tela-app").style.display="none";
+  $("#tela-entrada").style.display="grid";
+  $("#sair").style.display="none";
+  $("#creditos").textContent="";
+}
+
+async function abrirApp(){
+  $("#tela-entrada").style.display="none";
+  $("#tela-app").style.display="block";
+  $("#sair").style.display="";
+  observar();
+  try{
+    const r=await fetch(`${API}/eu`,{headers:{Authorization:`Bearer ${sessao.access_token}`}});
+    if(r.status===401)return sair();
+    const d=await r.json();
+    $("#creditos").innerHTML=`plano <b>${esc(d.plano)}</b> · <b>${d.creditos}</b> buscas`;
+    $("#aviso-uso").textContent=`Cada busca consome 1 crédito. Você tem ${d.creditos} neste ciclo.`;
+  }catch(e){
+    $("#aviso-uso").textContent="Não consegui falar com o servidor. Ele está rodando?";
+  }
+}
+
+/* --------------------------------------------------------- busca */
+async function buscar(){
+  const nicho=$("#f-nicho").value.trim(), cidade=$("#f-cidade").value.trim();
+  if(!nicho||!cidade)return alertar("preencha o ramo e a cidade");
+  const bt=$("#bt-buscar"); bt.disabled=true;
+  $("#titulo-res").textContent="Buscando";
+  $("#lista").innerHTML='<div class="carregando"><i class="giro"></i>procurando no mapa…</div>';
+  try{
+    const r=await fetch(`${API}/buscar`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json",
+               Authorization:`Bearer ${sessao.access_token}`},
+      body:JSON.stringify({nicho,cidade,pais:$("#f-pais").value})
+    });
+    const d=await r.json();
+    if(r.status===401){alertar("sessão expirada");return sair()}
+    if(!r.ok)throw new Error(d.detail||"falhou");
+    resultados=d.leads; filtro="todos";
+    document.querySelectorAll(".filtro").forEach((f,i)=>f.classList.toggle("on",i===0));
+    $("#filtros").style.display="flex";
+    if(d.atribuicao)$("#atribuicao").textContent=d.atribuicao;
+    $("#titulo-res").textContent=`${esc(nicho)} · ${esc(cidade)}`;
+    desenhar();
+    const eu=await fetch(`${API}/eu`,{headers:{Authorization:`Bearer ${sessao.access_token}`}}).then(x=>x.json());
+    $("#creditos").innerHTML=`plano <b>${esc(eu.plano)}</b> · <b>${eu.creditos}</b> buscas`;
+    $("#aviso-uso").textContent=`Restam ${eu.creditos} buscas neste ciclo.`;
+  }catch(e){
+    $("#titulo-res").textContent="Não deu certo";
+    $("#lista").innerHTML=`<div class="vazio"><b>${esc(e.message)}</b>
+      Tente de novo ou mude o termo da busca.</div>`;
+  }
+  bt.disabled=false;
+}
+
+function desenhar(){
+  const lista = filtro==="todos" ? resultados
+    : resultados.filter(l=>(l.tipo_site||"")===filtro);
+  $("#contagem").textContent=`${lista.length} de ${resultados.length}`;
+  if(!lista.length){
+    $("#lista").innerHTML='<div class="vazio"><b>Nenhum negócio aqui</b>'+
+      'Tente outro filtro ou outra cidade.</div>';return;
+  }
+  $("#lista").innerHTML=lista.map((l,i)=>{
+    const wa=l.whats?`https://wa.me/${l.whats}`:"";
+    const ig=l.instagram?`https://www.instagram.com/${l.instagram}/`:"";
+    const alvo=(l.tipo_site||"")!=="proprio";
+    return `<article class="negocio reveal" style="--rd:${Math.min(i,10)*.04}s">
+      <div>
+        <h3>${esc(l.nome)}</h3>
+        <div class="dados">
+          <span class="marca-site ${alvo?"alvo":""}">${esc(l.rotulo_site)}</span>
+          ${l.telefone?`<span><b>${esc(l.telefone)}</b></span>`:"<span>sem telefone</span>"}
+          ${l.instagram?`<span>@${esc(l.instagram)}</span>`:""}
+          ${l.nota?`<span>${l.nota} ★ (${l.avaliacoes||0})</span>`:""}
+        </div>
+      </div>
+      <div class="acoes">
+        ${wa?`<a href="${wa}" target="_blank" rel="noopener">WhatsApp</a>`:""}
+        ${ig?`<a href="${ig}" target="_blank" rel="noopener">Instagram</a>`:""}
+        ${l.maps?`<a href="${esc(l.maps)}" target="_blank" rel="noopener">Maps</a>`:""}
+        <select onchange="marcar('${esc(l.place_id)}',this.value)">
+          ${["novo","a contatar","falei","respondeu","cliente","descartado"]
+            .map(s=>`<option ${l.status===s?"selected":""}>${s}</option>`).join("")}
+        </select>
+      </div>
+    </article>`;
+  }).join("");
+  observar();
+}
+
+async function marcar(place_id,status){
+  try{
+    await fetch(`${API}/lead`,{method:"POST",
+      headers:{"Content-Type":"application/json",
+               Authorization:`Bearer ${sessao.access_token}`},
+      body:JSON.stringify({place_id,status})});
+    const l=resultados.find(x=>x.place_id===place_id); if(l)l.status=status;
+    alertar("situação salva");
+  }catch(e){alertar("não consegui salvar")}
+}
+
+/* ---------------------------------------------------- revelação */
+let observador=null;
+function observar(){
+  if(!("IntersectionObserver" in window)){
+    document.querySelectorAll(".reveal").forEach(e=>e.classList.add("in-view"));return;
+  }
+  if(!observador){
+    observador=new IntersectionObserver(entradas=>{
+      entradas.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in-view");
+        observador.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:"0px 0px -8% 0px"});
+  }
+  document.querySelectorAll(".reveal:not(.in-view)").forEach(e=>observador.observe(e));
+}
+
+/* ------------------------------------------------------ arranque */
+$("#bt-entrar").onclick=entrar;
+$("#e-senha").onkeydown=e=>{if(e.key==="Enter")entrar()};
+$("#bt-buscar").onclick=buscar;
+$("#f-cidade").onkeydown=e=>{if(e.key==="Enter")buscar()};
+$("#sair").onclick=e=>{e.preventDefault();sair()};
+document.querySelectorAll(".filtro").forEach(f=>{
+  f.onclick=()=>{document.querySelectorAll(".filtro").forEach(x=>x.classList.remove("on"));
+    f.classList.add("on");filtro=f.dataset.f;desenhar()};
+});
+
+const guardada=localStorage.getItem("lrgz_sessao");
+if(guardada){try{sessao=JSON.parse(guardada);abrirApp()}catch(e){sair()}}
+observar();
+</script>
+</body>
+</html>
