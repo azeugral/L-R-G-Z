@@ -205,6 +205,34 @@ select option{background:var(--surface)}
   font-size:.64rem;letter-spacing:.06em;color:var(--gray-dim);display:flex;
   justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
+.abas-entrada{display:flex;gap:1.6rem;margin-bottom:1.8rem}
+.aba-e{background:none;border:none;padding:.3rem 0;cursor:pointer;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gray-dim);position:relative;
+  transition:color .3s var(--ease)}
+.aba-e::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;
+  background:var(--white);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease)}
+.aba-e.on{color:var(--white)}
+.aba-e.on::after{transform:scaleX(1)}
+.ok-msg{border-left:2px solid var(--cyan);padding:.7rem 0 .7rem .9rem;
+  color:var(--gray);font-size:.85rem;margin-bottom:1.2rem;display:none}
+.ok-msg.ver{display:block}
+
+.paywall{border:1px solid var(--line);background:var(--surface);
+  padding:clamp(1.8rem,4vw,3rem);text-align:center;margin:2rem 0}
+.paywall h3{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2rem);
+  font-weight:300;text-transform:uppercase;margin:.8rem 0 1rem}
+.paywall p{color:var(--gray);max-width:52ch;margin:0 auto 2rem}
+
+.lang-toggle{display:inline-flex;align-items:center;gap:.35rem;background:none;
+  border:1px solid var(--line);padding:.5rem .7rem;cursor:pointer;
+  font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;
+  color:var(--gray-dim);transition:border-color .3s var(--ease)}
+.lang-toggle:hover{border-color:var(--gray-dim)}
+.lang-toggle .on{color:var(--white)}
+.lang-toggle .sep{opacity:.4}
+
 #alerta{position:fixed;left:0;right:0;bottom:0;background:var(--white);
   color:var(--black);padding:1rem var(--pad);font-family:var(--font-mono);
   font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:120;
@@ -223,7 +251,9 @@ select option{background:var(--surface)}
     <span class="nav-tag">Prospector</span>
     <span class="cresce"></span>
     <span class="creditos" id="creditos"></span>
-    <a href="index.html" class="voltar">Voltar ao site</a>
+    <button class="lang-toggle" id="lang" type="button" aria-label="Switch to English">
+      <span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
+    <a href="index.html" class="voltar" data-pt="Voltar ao site" data-en="Back to site">Voltar ao site</a>
     <a href="#" class="voltar" id="sair" style="display:none">Sair</a>
   </div>
 </nav>
@@ -233,18 +263,30 @@ select option{background:var(--surface)}
 <!-- ------------------------------------------------------- login -->
 <section class="entrada" id="tela-entrada">
   <div class="cartao-entrada reveal">
-    <p class="tag">Acesso restrito</p>
+    <p class="tag" data-pt="Acesso" data-en="Access">Acesso</p>
     <h1>Prospector</h1>
-    <p>Encontre negócios que ainda não têm site — e fale com eles hoje.</p>
+    <p data-pt="Encontre negócios que ainda não têm site — e fale com eles hoje."
+       data-en="Find businesses that still have no website — and reach them today.">
+       Encontre negócios que ainda não têm site — e fale com eles hoje.</p>
+    <div class="abas-entrada">
+      <button class="aba-e on" id="aba-entrar" data-pt="Entrar" data-en="Sign in">Entrar</button>
+      <button class="aba-e" id="aba-criar" data-pt="Criar conta grátis"
+        data-en="Create free account">Criar conta grátis</button>
+    </div>
     <div class="erro" id="erro-entrada"></div>
+    <div class="ok-msg" id="ok-entrada"></div>
     <label class="campo"><span class="tag">E-mail</span>
       <input type="email" id="e-email" autocomplete="email" placeholder="voce@email.com"></label>
     <label class="campo"><span class="tag">Senha</span>
       <input type="password" id="e-senha" autocomplete="current-password" placeholder="••••••••"></label>
-    <button class="btn" style="width:100%" id="bt-entrar">Entrar</button>
-    <p style="margin:1.6rem 0 0;font-size:.8rem">
-      Ainda não tem conta?
-      <a href="planos.html" style="color:var(--white)">Ver planos</a>
+    <button class="btn" style="width:100%" id="bt-entrar"
+      data-pt="Entrar" data-en="Sign in">Entrar</button>
+    <p style="margin:1.6rem 0 0;font-size:.8rem;color:var(--gray)">
+      <span id="pe-teste" data-pt="Conta nova começa com 5 buscas de teste, sem cartão."
+        data-en="New accounts start with 5 free searches, no card required.">
+        Conta nova começa com 5 buscas de teste, sem cartão.</span>
+      <a href="planos-prospector.html" style="color:var(--white)"
+        data-pt="Ver planos" data-en="See plans">Ver planos</a>
     </p>
   </div>
 </section>
@@ -254,20 +296,22 @@ select option{background:var(--surface)}
 
   <section class="painel-busca">
     <div class="container">
-      <p class="tag reveal">01 / Busca</p>
-      <h1 class="titulo reveal" style="--rd:.06s">Quem ainda<br>não tem site</h1>
+      <p class="tag reveal" data-pt="01 / Busca" data-en="01 / Search">01 / Busca</p>
+      <h1 class="titulo reveal" style="--rd:.06s" data-pt="Quem ainda|não tem site" data-en="Who still|has no website">Quem ainda<br>não tem site</h1>
       <p class="lead reveal" style="--rd:.12s">
-        Escolha o ramo e a cidade. Devolvemos apenas os negócios sem site próprio —
-        os que só têm Instagram, link na bio ou nada. Os que já têm site são
-        descartados na hora.
+<span data-pt="Escolha o ramo e a cidade. Devolvemos apenas os negócios sem site próprio — os que só têm Instagram, link na bio ou nada. Os que já têm site são descartados na hora."
+      data-en="Pick the trade and the city. We return only businesses without a real website — those with just Instagram, a link in bio, or nothing at all. The ones that already have a site are dropped on the spot.">
+Escolha o ramo e a cidade. Devolvemos apenas os negócios sem site próprio —
+os que só têm Instagram, link na bio ou nada. Os que já têm site são
+descartados na hora.</span>
       </p>
 
       <div class="linha-busca reveal" style="--rd:.18s">
-        <label class="campo" style="margin:0"><span class="tag">Ramo</span>
+        <label class="campo" style="margin:0"><span class="tag" data-pt="Ramo" data-en="Trade">Ramo</span>
           <input type="text" id="f-nicho" placeholder="unhas de gel"></label>
-        <label class="campo" style="margin:0"><span class="tag">Cidade</span>
+        <label class="campo" style="margin:0"><span class="tag" data-pt="Cidade" data-en="City">Cidade</span>
           <input type="text" id="f-cidade" placeholder="Braga"></label>
-        <label class="campo" style="margin:0"><span class="tag">País</span>
+        <label class="campo" style="margin:0"><span class="tag" data-pt="País" data-en="Country">País</span>
           <select id="f-pais">
             <option value="BR">Brasil</option>
             <option value="PT">Portugal</option>
@@ -278,7 +322,7 @@ select option{background:var(--surface)}
             <option value="GB">Reino Unido</option>
             <option value="US">Estados Unidos</option>
           </select></label>
-        <button class="btn" id="bt-buscar">Buscar</button>
+        <button class="btn" id="bt-buscar" data-pt="Buscar" data-en="Search">Buscar</button>
       </div>
       <p class="aviso-uso" id="aviso-uso"></p>
     </div>
@@ -296,17 +340,25 @@ select option{background:var(--surface)}
   <section class="resultados">
     <div class="container">
       <div class="cabeca-res">
-        <p class="tag">02 / Resultados</p>
-        <h2 class="secao" id="titulo-res" style="margin:0">Aguardando busca</h2>
+        <p class="tag" data-pt="02 / Resultados" data-en="02 / Results">02 / Resultados</p>
+        <h2 class="secao" id="titulo-res" style="margin:0" data-pt="Aguardando busca" data-en="Waiting for a search">Aguardando busca</h2>
         <span class="num" id="contagem"></span>
       </div>
 
       <div class="filtros" id="filtros" style="display:none">
-        <button class="filtro on" data-f="todos">Todos</button>
-        <button class="filtro" data-f="">Sem site nenhum</button>
-        <button class="filtro" data-f="social">Só rede social</button>
-        <button class="filtro" data-f="agregador">Link na bio</button>
-        <button class="filtro" data-f="google">Página do Google</button>
+        <button class="filtro on" data-f="todos" data-pt="Todos" data-en="All">Todos</button>
+        <button class="filtro" data-f="" data-pt="Sem site nenhum" data-en="No website at all">Sem site nenhum</button>
+        <button class="filtro" data-f="social" data-pt="Só rede social" data-en="Social only">Só rede social</button>
+        <button class="filtro" data-f="agregador" data-pt="Link na bio" data-en="Link in bio">Link na bio</button>
+        <button class="filtro" data-f="google" data-pt="Página do Google" data-en="Google page">Página do Google</button>
+      </div>
+
+      <div class="paywall" id="paywall" style="display:none">
+        <p class="tag" data-pt="Créditos esgotados" data-en="Out of credits">Créditos esgotados</p>
+        <h3 id="pw-titulo">Suas buscas de teste acabaram</h3>
+        <p id="pw-texto"></p>
+        <a class="btn" href="planos-prospector.html"
+           data-pt="Ver planos" data-en="See plans">Ver planos</a>
       </div>
 
       <div id="lista">
@@ -338,32 +390,128 @@ const SUPABASE_URL = "https://enkwtnzkgglktnowunav.supabase.co";
 const SUPABASE_ANON = "sb_publishable_z-GLi4p41sKhJVLs92OpIg_S-VkYQNB";
 
 const $ = s => document.querySelector(s);
-let sessao = null, resultados = [], filtro = "todos";
+let sessao = null, resultados = [], filtro = "todos", modoEntrada = "entrar", eu = null;
+
+/* ---------------------------------------------------------- idioma
+   Usa a MESMA chave do site principal: quem escolheu EN lá, entra em EN aqui. */
+const CHAVE_LANG = "lrgz_lang";
+let lang = "pt";
+try{
+  const g = localStorage.getItem(CHAVE_LANG);
+  if(g === "en" || g === "pt") lang = g;
+  else if((navigator.language || "").toLowerCase().indexOf("pt") !== 0) lang = "en";
+}catch(e){}
+
+function traduzir(){
+  document.querySelectorAll("[data-pt]").forEach(el=>{
+    const t = el.getAttribute(lang === "en" ? "data-en" : "data-pt");
+    if(t === null) return;
+    if(el.hasAttribute("placeholder")) el.setAttribute("placeholder", t);
+    else el.innerHTML = t.replace(/\|/g, "<br>");
+  });
+  document.querySelectorAll("[data-ph-pt]").forEach(el=>{
+    el.setAttribute("placeholder",
+      el.getAttribute(lang === "en" ? "data-ph-en" : "data-ph-pt") || "");
+  });
+  document.documentElement.setAttribute("lang", lang === "en" ? "en-US" : "pt-BR");
+  const bt = $("#lang");
+  if(bt){
+    bt.querySelector("[data-l-pt]").classList.toggle("on", lang === "pt");
+    bt.querySelector("[data-l-en]").classList.toggle("on", lang === "en");
+    bt.setAttribute("aria-label", lang === "pt" ? "Switch to English" : "Mudar para português");
+  }
+}
+function trocarLang(){
+  lang = lang === "pt" ? "en" : "pt";
+  try{ localStorage.setItem(CHAVE_LANG, lang); }catch(e){}
+  traduzir();
+  trocarModo(modoEntrada, true);
+  if(eu){
+    $("#creditos").innerHTML=`${lang==="en"?"plan":"plano"} <b>${esc(eu.plano_nome||eu.plano)}</b> · <b>${eu.creditos}</b> ${lang==="en"?"searches":"buscas"}`;
+    $("#aviso-uso").textContent=t("restam", eu.creditos);
+    aplicarBloqueio();
+  }
+  if(resultados.length) desenhar();
+}
+const T = {
+  entrar:{pt:"Entrar",en:"Sign in"},
+  criar:{pt:"Criar conta grátis",en:"Create free account"},
+  criando:{pt:"Criando…",en:"Creating…"},
+  entrando:{pt:"Entrando…",en:"Signing in…"},
+  confirme:{pt:"Conta criada. Confira seu e-mail para confirmar o cadastro e depois entre.",
+            en:"Account created. Check your e-mail to confirm, then sign in."},
+  pronto:{pt:"Conta criada. Pode entrar.",en:"Account created. You can sign in."},
+  faltam:{pt:"Preencha e-mail e senha.",en:"Fill in e-mail and password."},
+  curta:{pt:"A senha precisa de pelo menos 6 caracteres.",
+         en:"Password needs at least 6 characters."},
+  semSite:{pt:"sem site",en:"no website"},
+  buscando:{pt:"procurando no mapa…",en:"searching the map…"},
+  nada:{pt:"Nenhum negócio aqui",en:"No business here"},
+  tenteOutro:{pt:"Tente outro filtro ou outra cidade.",en:"Try another filter or city."},
+  semTel:{pt:"sem telefone",en:"no phone"},
+  salvo:{pt:"situação salva",en:"status saved"},
+  restam:{pt:c=>`Restam ${c} buscas neste ciclo.`,en:c=>`${c} searches left in this cycle.`},
+  acabou:{pt:"Suas buscas de teste acabaram",en:"Your trial searches are over"},
+  acabouHoje:{pt:"Você usou as buscas de hoje",en:"You used today's searches"},
+  txtTeste:{pt:"Escolha um plano para continuar prospectando. Os planos renovam as buscas todos os dias.",
+            en:"Pick a plan to keep prospecting. Paid plans refill your searches every day."},
+  txtHoje:{pt:"Suas buscas voltam amanhã. Se precisar de mais por dia, veja os planos maiores.",
+           en:"Your searches come back tomorrow. Need more per day? Check the bigger plans."},
+};
+const t = (k,...a) => { const v = T[k][lang]; return typeof v === "function" ? v(...a) : v; };
 
 function esc(t){return (t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function alertar(t){const a=$("#alerta");a.textContent=t;a.className="ver";
   clearTimeout(a._t);a._t=setTimeout(()=>a.className="",4200)}
 
 /* --------------------------------------------------------- login */
+function trocarModo(novo, manterAviso){
+  modoEntrada = novo;
+  $("#aba-entrar").classList.toggle("on", novo === "entrar");
+  $("#aba-criar").classList.toggle("on", novo === "criar");
+  $("#bt-entrar").textContent = novo === "entrar" ? t("entrar") : t("criar");
+  $("#erro-entrada").className = "erro";
+  if(!manterAviso) $("#ok-entrada").className = "ok-msg";
+}
+
 async function entrar(){
   const email=$("#e-email").value.trim(), senha=$("#e-senha").value;
-  const erro=$("#erro-entrada");
-  erro.className="erro";
-  if(!email||!senha){erro.textContent="Preencha e-mail e senha.";erro.className="erro ver";return}
-  const bt=$("#bt-entrar"); bt.disabled=true; bt.textContent="Entrando…";
+  const erro=$("#erro-entrada"), ok=$("#ok-entrada");
+  erro.className="erro"; ok.className="ok-msg";
+  if(!email||!senha){erro.textContent=t("faltam");erro.className="erro ver";return}
+  if(modoEntrada==="criar" && senha.length<6){
+    erro.textContent=t("curta");erro.className="erro ver";return}
+  const bt=$("#bt-entrar"); bt.disabled=true;
+  bt.textContent = modoEntrada==="criar" ? t("criando") : t("entrando");
   try{
-    const r=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`,{
-      method:"POST",
-      headers:{"apikey":SUPABASE_ANON,"Content-Type":"application/json"},
-      body:JSON.stringify({email,password:senha})
-    });
-    const d=await r.json();
-    if(!r.ok||!d.access_token)throw new Error(d.error_description||d.msg||"E-mail ou senha inválidos.");
-    sessao=d;
-    localStorage.setItem("lrgz_sessao",JSON.stringify(d));
-    abrirApp();
+    if(modoEntrada==="criar"){
+      const r=await fetch(`${SUPABASE_URL}/auth/v1/signup`,{
+        method:"POST",
+        headers:{"apikey":SUPABASE_ANON,"Content-Type":"application/json"},
+        body:JSON.stringify({email,password:senha})
+      });
+      const d=await r.json();
+      if(!r.ok)throw new Error(d.msg||d.error_description||d.message||"Não consegui criar a conta.");
+      if(d.access_token){                       // confirmação de e-mail desligada
+        sessao=d; localStorage.setItem("lrgz_sessao",JSON.stringify(d));
+        return abrirApp();
+      }
+      trocarModo("entrar", true);
+      ok.textContent=t("confirme"); ok.className="ok-msg ver";
+    }else{
+      const r=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`,{
+        method:"POST",
+        headers:{"apikey":SUPABASE_ANON,"Content-Type":"application/json"},
+        body:JSON.stringify({email,password:senha})
+      });
+      const d=await r.json();
+      if(!r.ok||!d.access_token)throw new Error(d.error_description||d.msg||"E-mail ou senha inválidos.");
+      sessao=d; localStorage.setItem("lrgz_sessao",JSON.stringify(d));
+      abrirApp();
+    }
   }catch(e){erro.textContent=e.message;erro.className="erro ver"}
-  bt.disabled=false; bt.textContent="Entrar";
+  bt.disabled=false;
+  bt.textContent = modoEntrada==="criar" ? t("criar") : t("entrar");
 }
 
 function sair(){
@@ -374,19 +522,47 @@ function sair(){
   $("#creditos").textContent="";
 }
 
+function voltarSeVeioDeAssinar(){
+  const p = new URLSearchParams(location.search).get("assinar");
+  if(p){ location.href = "planos-prospector.html?assinar=" + encodeURIComponent(p); return true; }
+  return false;
+}
+
 async function abrirApp(){
+  if(voltarSeVeioDeAssinar()) return;
   $("#tela-entrada").style.display="none";
   $("#tela-app").style.display="block";
   $("#sair").style.display="";
   observar();
+  await carregarEu();
+}
+
+async function carregarEu(){
   try{
     const r=await fetch(`${API}/eu`,{headers:{Authorization:`Bearer ${sessao.access_token}`}});
-    if(r.status===401)return sair();
-    const d=await r.json();
-    $("#creditos").innerHTML=`plano <b>${esc(d.plano)}</b> · <b>${d.creditos}</b> buscas`;
-    $("#aviso-uso").textContent=`Cada busca consome 1 crédito. Você tem ${d.creditos} neste ciclo.`;
+    if(r.status===401){sair();return null}
+    eu=await r.json();
+    $("#creditos").innerHTML=`${lang==="en"?"plan":"plano"} <b>${esc(eu.plano_nome||eu.plano)}</b> · <b>${eu.creditos}</b> ${lang==="en"?"searches":"buscas"}`;
+    $("#aviso-uso").textContent=t("restam", eu.creditos);
+    aplicarBloqueio();
+    return eu;
   }catch(e){
-    $("#aviso-uso").textContent="Não consegui falar com o servidor. Ele está rodando?";
+    $("#aviso-uso").textContent = lang==="en"
+      ? "Could not reach the server." : "Não consegui falar com o servidor.";
+    return null;
+  }
+}
+
+function aplicarBloqueio(){
+  const travado = !!(eu && eu.bloqueado);
+  $("#bt-buscar").disabled = travado;
+  $("#paywall").style.display = travado ? "block" : "none";
+  if(travado){
+    const teste = (eu.plano || "gratuito") === "gratuito";
+    $("#pw-titulo").textContent = teste ? t("acabou") : t("acabouHoje");
+    $("#pw-texto").textContent  = teste ? t("txtTeste") : t("txtHoje");
+    $("#lista").innerHTML = "";
+    $("#filtros").style.display = "none";
   }
 }
 
@@ -396,7 +572,8 @@ async function buscar(){
   if(!nicho||!cidade)return alertar("preencha o ramo e a cidade");
   const bt=$("#bt-buscar"); bt.disabled=true;
   $("#titulo-res").textContent="Buscando";
-  $("#lista").innerHTML='<div class="carregando"><i class="giro"></i>procurando no mapa…</div>';
+  $("#paywall").style.display="none";
+  $("#lista").innerHTML=`<div class="carregando"><i class="giro"></i>${t("buscando")}</div>`;
   try{
     const r=await fetch(`${API}/buscar`,{
       method:"POST",
@@ -406,6 +583,7 @@ async function buscar(){
     });
     const d=await r.json();
     if(r.status===401){alertar("sessão expirada");return sair()}
+    if(r.status===402){const er=new Error(d.detail||"");er.pagamento=true;throw er}
     if(!r.ok)throw new Error(d.detail||"falhou");
     resultados=d.leads; filtro="todos";
     document.querySelectorAll(".filtro").forEach((f,i)=>f.classList.toggle("on",i===0));
@@ -413,15 +591,17 @@ async function buscar(){
     if(d.atribuicao)$("#atribuicao").textContent=d.atribuicao;
     $("#titulo-res").textContent=`${esc(nicho)} · ${esc(cidade)}`;
     desenhar();
-    const eu=await fetch(`${API}/eu`,{headers:{Authorization:`Bearer ${sessao.access_token}`}}).then(x=>x.json());
-    $("#creditos").innerHTML=`plano <b>${esc(eu.plano)}</b> · <b>${eu.creditos}</b> buscas`;
-    $("#aviso-uso").textContent=`Restam ${eu.creditos} buscas neste ciclo.`;
+    await carregarEu();
   }catch(e){
-    $("#titulo-res").textContent="Não deu certo";
-    $("#lista").innerHTML=`<div class="vazio"><b>${esc(e.message)}</b>
-      Tente de novo ou mude o termo da busca.</div>`;
+    if(e.pagamento){ await carregarEu(); $("#titulo-res").textContent=t("acabou"); }
+    else{
+      $("#titulo-res").textContent = lang==="en" ? "It did not work" : "Não deu certo";
+      $("#lista").innerHTML=`<div class="vazio"><b>${esc(e.message)}</b>
+        ${lang==="en"?"Try again or change the search term."
+                     :"Tente de novo ou mude o termo da busca."}</div>`;
+    }
   }
-  bt.disabled=false;
+  bt.disabled = !!(eu && eu.bloqueado);
 }
 
 function desenhar(){
@@ -429,8 +609,7 @@ function desenhar(){
     : resultados.filter(l=>(l.tipo_site||"")===filtro);
   $("#contagem").textContent=`${lista.length} de ${resultados.length}`;
   if(!lista.length){
-    $("#lista").innerHTML='<div class="vazio"><b>Nenhum negócio aqui</b>'+
-      'Tente outro filtro ou outra cidade.</div>';return;
+    $("#lista").innerHTML=`<div class="vazio"><b>${t("nada")}</b>${t("tenteOutro")}</div>`;return;
   }
   $("#lista").innerHTML=lista.map((l,i)=>{
     const wa=l.whats?`https://wa.me/${l.whats}`:"";
@@ -441,7 +620,7 @@ function desenhar(){
         <h3>${esc(l.nome)}</h3>
         <div class="dados">
           <span class="marca-site ${alvo?"alvo":""}">${esc(l.rotulo_site)}</span>
-          ${l.telefone?`<span><b>${esc(l.telefone)}</b></span>`:"<span>sem telefone</span>"}
+          ${l.telefone?`<span><b>${esc(l.telefone)}</b></span>`:`<span>${t("semTel")}</span>`}
           ${l.instagram?`<span>@${esc(l.instagram)}</span>`:""}
           ${l.nota?`<span>${l.nota} ★ (${l.avaliacoes||0})</span>`:""}
         </div>
@@ -467,7 +646,7 @@ async function marcar(place_id,status){
                Authorization:`Bearer ${sessao.access_token}`},
       body:JSON.stringify({place_id,status})});
     const l=resultados.find(x=>x.place_id===place_id); if(l)l.status=status;
-    alertar("situação salva");
+    alertar(t("salvo"));
   }catch(e){alertar("não consegui salvar")}
 }
 
@@ -487,6 +666,9 @@ function observar(){
 }
 
 /* ------------------------------------------------------ arranque */
+$("#lang").onclick=trocarLang;
+$("#aba-entrar").onclick=()=>trocarModo("entrar");
+$("#aba-criar").onclick=()=>trocarModo("criar");
 $("#bt-entrar").onclick=entrar;
 $("#e-senha").onkeydown=e=>{if(e.key==="Enter")entrar()};
 $("#bt-buscar").onclick=buscar;
@@ -497,8 +679,18 @@ document.querySelectorAll(".filtro").forEach(f=>{
     f.classList.add("on");filtro=f.dataset.f;desenhar()};
 });
 
+if(new URLSearchParams(location.search).get("assinar")){
+  const ok=$("#ok-entrada");
+  ok.textContent = lang==="en"
+    ? "Create your account (or sign in) to continue to payment."
+    : "Crie sua conta (ou entre) para seguir ao pagamento.";
+  ok.className="ok-msg ver";
+  trocarModo("criar", true);
+}
+
 const guardada=localStorage.getItem("lrgz_sessao");
 if(guardada){try{sessao=JSON.parse(guardada);abrirApp()}catch(e){sair()}}
+traduzir();
 observar();
 </script>
 </body>
