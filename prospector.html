@@ -75,7 +75,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 .nav .container{display:flex;align-items:center;gap:1.6rem}
 .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
-.nav-logo img{height:26px;width:auto;display:block}
+.nav-logo img{height:34px;width:auto;display:block}
 .nav-logo .dot{width:5px;height:5px;background:var(--red);border-radius:50%;
   animation:blink 2.4s infinite}
 .nav-tag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.22em;
@@ -245,7 +245,7 @@ select option{background:var(--surface)}
 <nav class="nav">
   <div class="container">
     <a href="index.html" class="nav-logo" aria-label="L R G Z">
-      <img src="logo-lrgz.png" alt="L R G Z">
+      <img src="imagens/Logo.png" alt="L R G Z">
       <span class="dot"></span>
     </a>
     <span class="nav-tag">Prospector</span>
@@ -385,9 +385,9 @@ descartados na hora.</span>
    ============================================================ */
 const API = location.hostname === "127.0.0.1" || location.hostname === "localhost"
   ? "http://127.0.0.1:8000"
-  : "https://prospector-api-ywsw.onrender.com";
+  : "https://api.lrgz.com.br";
 const SUPABASE_URL = "https://enkwtnzkgglktnowunav.supabase.co";
-const SUPABASE_ANON = "sb_publishable_z-GLi4p41sKhJVLs92OpIg_S-VkYQNB";
+const SUPABASE_ANON = "COLE_AQUI_A_PUBLISHABLE_KEY";
 
 const $ = s => document.querySelector(s);
 let sessao = null, resultados = [], filtro = "todos", modoEntrada = "entrar", eu = null;

@@ -139,7 +139,7 @@ button{ font-family:inherit; cursor:pointer; }
   display:flex; align-items:center; gap:.6rem; flex:none;
 }
 .nav-logo img{
-  height:clamp(15px, 1.8vw, 21px); width:auto; display:block;
+  height:clamp(24px, 2.6vw, 34px); width:auto; display:block;
   max-width:44vw; object-fit:contain;
   transition: opacity .35s var(--ease);
 }
@@ -180,7 +180,24 @@ button{ font-family:inherit; cursor:pointer; }
     display:none;
 }
 
-.nav-links .nav-cta:hover{
+.nav-links .nav-cta--destaque{
+    border-color:#fff;
+    background:#fff;
+    color:#050505;
+    font-weight:600;
+}
+.nav-cta--destaque:hover{
+    background:transparent;
+    color:#fff;
+    border-color:#fff;
+}
+.menu-destaque{
+    border:2px solid #fff;
+    padding:.5rem 1.1rem;
+    align-self:flex-start;
+    margin-bottom:.4rem;
+}
+.nav-cta:hover{
     border-color:#fff;
     background:rgba(255,255,255,.05);
 }
@@ -261,7 +278,7 @@ body.menu-open{ overflow:hidden; }
 
 /* telas bem estreitas: encolhe a marca para a barra nunca apertar */
 @media (max-width:400px){
-  .nav-logo img{ height:14px; }
+  .nav-logo img{ height:22px; }
   .lang-toggle--nav{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
 }
 
@@ -822,18 +839,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 <nav class="nav" id="nav">
   <div class="container">
     <a href="#home" class="nav-logo" aria-label="L R G Z — página inicial">
-      <img src="logo-lrgz.png" alt="L R G Z" width="1800" height="220" decoding="async">
-      <span class="dot"></span>
+      <img src="imagens/Logo.png" alt="L R G Z" width="582" height="220" decoding="async">
     </a>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#processo">Processo</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><a href="prospector.html">Prospector</a></li>
-      <li><a href="planos-prospector.html">Planos Prospector</a></li>
-      <li data-only="pt"><a href="#curso" class="nav-cta">Comprar Agora</a></li>
+      <li><a href="#projetos">Portfólio</a></li>
+      <li data-only="pt"><a href="#curso">Curso</a></li>
+      <li><a href="planos-prospector.html" class="nav-cta nav-cta--destaque">Prospector</a></li>
       <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
     <div class="nav-actions">
@@ -847,12 +858,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#sobre">Sobre</a>
-  <a href="#servicos">Serviços</a>
-  <a href="#processo">Processo</a>
-  <a href="#projetos">Projetos</a>
+  <a href="planos-prospector.html" class="menu-destaque">Prospector</a>
+  <a href="#projetos">Portfólio</a>
+  <a href="#curso" data-only="pt">Curso</a>
   <a href="#contato">Contato</a>
-  <a href="#curso" data-only="pt">Comprar Agora</a>
   <button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
 </div>
 
