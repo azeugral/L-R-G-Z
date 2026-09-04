@@ -894,47 +894,100 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 /* ============================================
    INVESTIMENTO
    ============================================ */
-.price-grid{
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:clamp(1.2rem,2.4vw,2rem); margin-top:clamp(2.5rem,5vw,4rem);
-}
-@media (max-width:820px){ .price-grid{ grid-template-columns:1fr; } }
-.price-card{
+.price-box{
+  margin-top:clamp(2.5rem,5vw,4rem);
   border:1px solid var(--line); background:var(--surface);
-  padding:clamp(1.6rem,2.6vw,2.2rem);
-  transition:border-color .4s var(--ease), background .4s var(--ease);
+  display:grid; grid-template-columns:.95fr 1.05fr;
+  transition:border-color .4s var(--ease);
 }
-.price-card:hover{ border-color:var(--gray-dim); background:var(--surface-2); }
-.price-card .region{
-  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--gray-dim);
+.price-box:hover{ border-color:var(--gray-dim); }
+@media (max-width:860px){ .price-box{ grid-template-columns:1fr; } }
+
+.price-main{
+  padding:clamp(1.8rem,3vw,2.6rem);
+  border-right:1px solid var(--line);
+  display:flex; flex-direction:column; gap:.2rem;
 }
-.price-card .from{
-  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--gray); margin-top:1.5rem;
+@media (max-width:860px){ .price-main{ border-right:none; border-bottom:1px solid var(--line); } }
+
+.price-switch{ display:flex; gap:.4rem; margin-bottom:1.8rem; }
+.price-switch button{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; font-weight:500;
+  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
+  padding:.5rem .8rem; line-height:1; cursor:pointer;
+  border-radius:0; -webkit-appearance:none; appearance:none;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
 }
-.price-card .amount{
+.price-switch button:hover{ border-color:var(--gray); color:var(--gray); }
+.price-switch button:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.price-switch button.on{ border-color:var(--white); color:var(--black); background:var(--white); }
+
+.price-main .from{
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--gray);
+}
+.price-main .amount{
   font-family:var(--font-display); font-weight:500; line-height:1;
-  font-size:clamp(2rem,4vw,2.9rem); margin-top:.45rem;
+  font-size:clamp(2.6rem,6vw,4rem); margin-top:.5rem;
+  font-variant-numeric:tabular-nums;
 }
-.price-card .what{
-  color:var(--gray); font-weight:300; font-size:.88rem; margin-top:1.1rem;
+.price-main .where{
+  color:var(--gray); font-weight:300; font-size:.88rem; margin-top:1.4rem; max-width:34ch;
 }
+
+.price-list{ padding:clamp(1.8rem,3vw,2.6rem); }
+.price-list .price-list-head{
+  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gray-dim); margin-bottom:1.3rem;
+}
+.price-list ul{ list-style:none; display:grid; gap:.75rem; }
+.price-list li{
+  color:var(--gray); font-weight:300; font-size:.92rem;
+  display:flex; align-items:flex-start; gap:.7rem;
+}
+.price-list li::before{
+  content:''; width:6px; height:6px; background:var(--white);
+  flex:none; margin-top:.5em;
+}
+
+/* faixa promocional — precisa ser lida */
 .price-flag{
   margin-top:clamp(1.8rem,3.5vw,2.6rem);
-  border:1px solid var(--line); padding:1.1rem 1.3rem;
-  display:flex; align-items:center; gap:.9rem;
-  font-family:var(--font-mono); font-size:.75rem; line-height:1.6;
-  letter-spacing:.03em; color:var(--gray);
+  padding:clamp(1.1rem,2vw,1.5rem) clamp(1.2rem,2.2vw,1.7rem);
+  display:flex; align-items:flex-start; gap:1rem;
+  border:1px solid rgba(0,229,255,.38);
+  background:linear-gradient(100deg, rgba(0,229,255,.09), rgba(0,229,255,.025) 55%, transparent);
+  animation:flagGlow 3.6s ease-in-out infinite;
 }
 .price-flag .dot{
-  width:6px; height:6px; border-radius:50%; background:var(--cyan);
-  animation:blink 2.4s infinite; flex:none;
+  width:7px; height:7px; border-radius:50%; background:var(--cyan);
+  box-shadow:0 0 10px rgba(0,229,255,.9); animation:blink 2.4s infinite;
+  flex:none; margin-top:.45em;
 }
+.price-flag .flag-txt{ display:flex; flex-direction:column; gap:.45rem; }
+.price-flag .lead{
+  font-family:var(--font-mono); font-weight:500;
+  font-size:clamp(.86rem,1.5vw,1rem); letter-spacing:.02em;
+  color:var(--white); text-shadow:0 0 18px rgba(0,229,255,.45);
+}
+.price-flag .sub{
+  font-family:var(--font-mono); font-size:clamp(.74rem,1.2vw,.82rem);
+  line-height:1.6; color:var(--gray);
+}
+@keyframes flagGlow{
+  0%,100%{ box-shadow:0 0 22px rgba(0,229,255,.10), inset 0 0 26px rgba(0,229,255,.04); }
+  50%    { box-shadow:0 0 42px rgba(0,229,255,.22), inset 0 0 34px rgba(0,229,255,.09); }
+}
+
 .price-cta{ margin-top:clamp(1.6rem,3vw,2.2rem); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
 .price-cta .fine{ font-family:var(--font-mono); font-size:.7rem; color:var(--gray-dim); }
 @media (max-width:600px){
   .price-cta .btn{ width:100%; justify-content:center; }
+}
+@media (prefers-reduced-motion: reduce){
+  .price-flag{ animation:none; box-shadow:0 0 26px rgba(0,229,255,.14); }
+  .price-flag .dot{ animation:none; }
 }
 
 </style>
@@ -1347,8 +1400,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
   <!-- ============ INVESTIMENTO ============ -->
   <!-- ===================================================================
-       Preços de entrada por região. Para atualizar, edite os três
-       .price-card abaixo (região, valor e a linha do que está incluso).
+       Preço de entrada. Para mudar os valores, edite a tabela TABELA_MOEDA
+       no bloco de JavaScript no fim da página — é de lá que sai o número
+       que aparece na caixa. O que está incluso sai da lista <ul> abaixo.
        Se traduzir o site, atualize também o dicionário EN mais abaixo.
        =================================================================== -->
   <section class="section" id="investimento">
@@ -1361,34 +1415,41 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
         <p class="section-note">Preço de entrada para landing page e site simples. O valor final depende do escopo — e isso fica fechado na primeira conversa, sem surpresa no meio do caminho.</p>
       </div>
 
-      <div class="price-grid">
+      <div class="price-box reveal" id="precoBox">
 
-        <div class="price-card reveal">
-          <p class="region">Brasil</p>
+        <div class="price-main">
+          <div class="price-switch" role="group" aria-label="Escolher moeda">
+            <button type="button" data-moeda="BRL" aria-pressed="true">R$ BRL</button>
+            <button type="button" data-moeda="EUR" aria-pressed="false">€ EUR</button>
+            <button type="button" data-moeda="GBP" aria-pressed="false">£ GBP</button>
+          </div>
           <p class="from">a partir de</p>
-          <p class="amount">R$ 400</p>
-          <p class="what">Landing page ou site simples, no ar, responsivo e pronto pra receber contato.</p>
+          <p class="amount" id="precoValor">R$ 400</p>
+          <p class="where">Mesmo escopo em qualquer lugar — Brasil, Europa ou Reino Unido. Escolha a sua moeda aí em cima.</p>
         </div>
 
-        <div class="price-card reveal" style="--rd:.08s">
-          <p class="region">Europa</p>
-          <p class="from">a partir de</p>
-          <p class="amount">€ 180</p>
-          <p class="what">Mesmo escopo, atendimento remoto — já entreguei em Portugal.</p>
-        </div>
-
-        <div class="price-card reveal" style="--rd:.16s">
-          <p class="region">Reino Unido</p>
-          <p class="from">a partir de</p>
-          <p class="amount">£ 150</p>
-          <p class="what">Mesmo escopo, atendimento remoto, em inglês ou português.</p>
+        <div class="price-list">
+          <p class="price-list-head">O que está incluso</p>
+          <ul>
+            <li>Landing page ou site simples, feito do zero pro seu negócio</li>
+            <li>Domínio próprio configurado e publicado</li>
+            <li>Certificado SSL — o cadeado de site seguro</li>
+            <li>CTA e contato direto no WhatsApp, sem formulário genérico</li>
+            <li>Responsivo de verdade, pensado primeiro no celular</li>
+            <li>Otimizado para o Google, com foco em busca local</li>
+            <li>Acabamento premium: direção de arte própria, nada de template</li>
+            <li>Suporte e ajustes depois da entrega</li>
+          </ul>
         </div>
 
       </div>
 
       <div class="price-flag reveal">
         <span class="dot" aria-hidden="true"></span>
-        <span>Valores promocionais, abaixo do mercado, enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.</span>
+        <span class="flag-txt">
+          <span class="lead">Valores promocionais, abaixo do mercado.</span>
+          <span class="sub">Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.</span>
+        </span>
       </div>
 
       <div class="price-cta reveal" style="--rd:.1s">
@@ -2111,18 +2172,30 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Quanto custa começar':'What it costs to start',
     'Preço de entrada para landing page e site simples. O valor final depende do escopo — e isso fica fechado na primeira conversa, sem surpresa no meio do caminho.':
       'Entry price for a landing page or a simple site. The final figure depends on scope — and that gets settled in the first conversation, with no surprises later.',
-    'Brasil':'Brazil',
-    'Europa':'Europe',
-    'Reino Unido':'United Kingdom',
     'a partir de':'from',
-    'Landing page ou site simples, no ar, responsivo e pronto pra receber contato.':
-      'Landing page or simple site, live, responsive and ready to take enquiries.',
-    'Mesmo escopo, atendimento remoto — já entreguei em Portugal.':
-      'Same scope, handled remotely — already delivered in Portugal.',
-    'Mesmo escopo, atendimento remoto, em inglês ou português.':
-      'Same scope, handled remotely, in English or Portuguese.',
-    'Valores promocionais, abaixo do mercado, enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.':
-      'Promotional rates, below market, while I build out a strong portfolio. Whoever comes in now pays this price.',
+    'Mesmo escopo em qualquer lugar — Brasil, Europa ou Reino Unido. Escolha a sua moeda aí em cima.':
+      'Same scope anywhere — Brazil, Europe or the United Kingdom. Pick your currency above.',
+    'O que está incluso':'What you get',
+    'Landing page ou site simples, feito do zero pro seu negócio':
+      'Landing page or simple site, built from scratch for your business',
+    'Domínio próprio configurado e publicado':
+      'Your own domain, set up and published',
+    'Certificado SSL — o cadeado de site seguro':
+      'SSL certificate — the secure-site padlock',
+    'CTA e contato direto no WhatsApp, sem formulário genérico':
+      'Clear CTA and direct WhatsApp contact, no generic form',
+    'Responsivo de verdade, pensado primeiro no celular':
+      'Genuinely responsive, designed mobile-first',
+    'Otimizado para o Google, com foco em busca local':
+      'Optimised for Google, with a focus on local search',
+    'Acabamento premium: direção de arte própria, nada de template':
+      'Premium finish: original art direction, never a template',
+    'Suporte e ajustes depois da entrega':
+      'Support and tweaks after handover',
+    'Valores promocionais, abaixo do mercado.':
+      'Promotional rates, below market.',
+    'Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.':
+      'While I build out a strong portfolio. Whoever comes in now pays this price.',
     'Pedir orçamento':'Request a quote',
     'Resposta minha, no mesmo dia.':'You get an answer from me, same day.',
 
@@ -2182,7 +2255,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
   var SKIP_TAGS = { SCRIPT:1, STYLE:1, NOSCRIPT:1, SVG:1 };
   /* o hero e o terminal são gerados por JS e traduzidos na fonte, não pelo walker */
-  var SKIP_IDS  = { heroTitle:1, terminalBody:1 };
+  var SKIP_IDS  = { heroTitle:1, terminalBody:1, precoValor:1 };
   var ATTRS = ['placeholder','aria-label','alt','title','content'];
 
   function walkText(root){
@@ -2310,6 +2383,37 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 </a>
 
 <script>
+/* Seletor de moeda da caixa de preço. O valor mostrado sai daqui —
+   para mudar de preço, edite TABELA_MOEDA. O elemento #precoValor está
+   na lista SKIP_IDS do tradutor, pra troca de idioma não desfazer a escolha. */
+(function(){
+  var TABELA_MOEDA = { BRL:'R$ 400', EUR:'\u20ac 180', GBP:'\u00a3 150' };
+  var caixa = document.getElementById('precoBox');
+  var valor = document.getElementById('precoValor');
+  if(!caixa || !valor) return;
+  var btns = Array.prototype.slice.call(caixa.querySelectorAll('[data-moeda]'));
+  var CHAVE = 'lrgz_moeda';
+
+  function escolher(m){
+    if(!TABELA_MOEDA[m]) m = 'BRL';
+    valor.textContent = TABELA_MOEDA[m];
+    btns.forEach(function(b){
+      var on = b.getAttribute('data-moeda') === m;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try{ localStorage.setItem(CHAVE, m); }catch(e){}
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ escolher(b.getAttribute('data-moeda')); });
+  });
+
+  var salvo = null;
+  try{ salvo = localStorage.getItem(CHAVE); }catch(e){}
+  escolher(salvo || 'BRL');
+})();
+
 /* Botao flutuante do WhatsApp: aparece depois do hero e some quando a
    secao de contato entra na tela (pra nao repetir o mesmo CTA duas vezes). */
 (function(){
