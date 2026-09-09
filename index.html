@@ -910,23 +910,29 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 }
 @media (max-width:860px){ .price-main{ border-right:none; border-bottom:1px solid var(--line); } }
 
-.price-switch{ display:flex; gap:.4rem; margin-bottom:1.8rem; }
-.price-switch button{
-  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; font-weight:500;
-  background:transparent; border:1px solid var(--line); color:var(--gray-dim);
-  padding:.5rem .8rem; line-height:1; cursor:pointer;
-  border-radius:0; -webkit-appearance:none; appearance:none;
-  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
-  transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
-}
-.price-switch button:hover{ border-color:var(--gray); color:var(--gray); }
-.price-switch button:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
-.price-switch button.on{ border-color:var(--white); color:var(--black); background:var(--white); }
-
-.price-main .from{
+.price-pick{ display:flex; align-items:center; flex-wrap:wrap; gap:.7rem; margin-bottom:1.1rem; }
+.price-pick .from{
   font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em;
   text-transform:uppercase; color:var(--gray);
 }
+.price-select{ position:relative; display:inline-flex; }
+.price-select::after{
+  content:'\25be'; position:absolute; right:.7rem; top:50%; transform:translateY(-50%);
+  font-size:.7rem; color:var(--gray); pointer-events:none;
+}
+.price-select select{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; font-weight:500;
+  text-transform:uppercase;
+  background:transparent; border:1px solid var(--line); color:var(--white);
+  padding:.52rem 2.1rem .52rem .8rem; line-height:1; cursor:pointer;
+  border-radius:0; -webkit-appearance:none; appearance:none;
+  -webkit-tap-highlight-color:transparent;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.price-select select:hover{ border-color:var(--gray); }
+.price-select select:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.price-select option{ background:var(--surface); color:var(--white); text-transform:none; }
+
 .price-main .amount{
   font-family:var(--font-display); font-weight:500; line-height:1;
   font-size:clamp(2.6rem,6vw,4rem); margin-top:.5rem;
@@ -988,6 +994,70 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 @media (prefers-reduced-motion: reduce){
   .price-flag{ animation:none; box-shadow:0 0 26px rgba(0,229,255,.14); }
   .price-flag .dot{ animation:none; }
+}
+
+/* ============================================
+   MODAL DE ORÇAMENTO
+   ============================================ */
+.modal{
+  position:fixed; inset:0; z-index:120;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(1rem,4vw,2rem);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .35s var(--ease), visibility .35s var(--ease);
+}
+.modal.is-open{ opacity:1; visibility:visible; pointer-events:auto; }
+.modal-backdrop{ position:absolute; inset:0; background:rgba(5,5,5,.86); backdrop-filter:blur(3px); }
+.modal-card{
+  position:relative; z-index:1;
+  width:min(560px,100%); max-height:88vh; overflow-y:auto; overscroll-behavior:contain;
+  background:var(--surface); border:1px solid var(--line);
+  padding:clamp(1.6rem,3.4vw,2.6rem);
+  transform:translateY(16px); transition:transform .4s var(--ease);
+}
+.modal.is-open .modal-card{ transform:translateY(0); }
+.modal-x{
+  position:absolute; top:.9rem; right:.9rem;
+  width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+  background:none; border:1px solid var(--line); color:var(--gray);
+  font-family:var(--font-mono); font-size:1rem; line-height:1; cursor:pointer;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.modal-x:hover{ border-color:var(--white); color:var(--white); }
+.modal-card h3{
+  font-family:var(--font-display); font-weight:500; text-transform:uppercase;
+  font-size:clamp(1.2rem,2.4vw,1.6rem); margin:.7rem 0 .6rem;
+}
+.modal-sub{ color:var(--gray); font-weight:300; font-size:.92rem; margin-bottom:1.8rem; }
+.modal-form{ display:grid; gap:1.1rem; }
+.modal-form label{ display:grid; gap:.5rem; }
+.modal-form .lbl{
+  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gray-dim);
+}
+.modal-form input, .modal-form textarea, .modal-form select{
+  font-family:var(--font-body); font-size:.95rem; font-weight:300;
+  background:var(--black); border:1px solid var(--line); color:var(--white);
+  padding:.8rem .9rem; border-radius:0; -webkit-appearance:none; appearance:none;
+  transition:border-color .3s var(--ease);
+}
+.modal-form select{ font-family:var(--font-mono); font-size:.8rem; cursor:pointer; }
+.modal-form option{ background:var(--surface); }
+.modal-form textarea{ resize:vertical; min-height:104px; line-height:1.6; }
+.modal-form input::placeholder, .modal-form textarea::placeholder{ color:var(--gray-dim); }
+.modal-form input:focus, .modal-form textarea:focus, .modal-form select:focus{
+  outline:none; border-color:var(--gray);
+}
+.modal-form input:focus-visible, .modal-form textarea:focus-visible, .modal-form select:focus-visible{
+  outline:2px solid var(--cyan); outline-offset:2px;
+}
+.modal-form .btn{ width:100%; justify-content:center; margin-top:.4rem; }
+.modal-fine{
+  font-family:var(--font-mono); font-size:.68rem; line-height:1.6;
+  color:var(--gray-dim); text-align:center;
+}
+@media (prefers-reduced-motion: reduce){
+  .modal, .modal-card{ transition:none; }
 }
 
 </style>
@@ -1418,14 +1488,18 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <div class="price-box reveal" id="precoBox">
 
         <div class="price-main">
-          <div class="price-switch" role="group" aria-label="Escolher moeda">
-            <button type="button" data-moeda="BRL" aria-pressed="true">R$ BRL</button>
-            <button type="button" data-moeda="EUR" aria-pressed="false">€ EUR</button>
-            <button type="button" data-moeda="GBP" aria-pressed="false">£ GBP</button>
+          <div class="price-pick">
+            <span class="from">a partir de</span>
+            <span class="price-select">
+              <select id="precoRegiao" aria-label="Escolher região">
+                <option value="BRL">Brasil</option>
+                <option value="EUR">Europa</option>
+                <option value="GBP">Reino Unido</option>
+              </select>
+            </span>
           </div>
-          <p class="from">a partir de</p>
-          <p class="amount" id="precoValor">R$ 400</p>
-          <p class="where">Mesmo escopo em qualquer lugar — Brasil, Europa ou Reino Unido. Escolha a sua moeda aí em cima.</p>
+          <p class="amount" id="precoValor">R$ 350</p>
+          <p class="where">Mesmo escopo em qualquer lugar. O valor final depende do tamanho do projeto — e sai fechado na primeira conversa.</p>
         </div>
 
         <div class="price-list">
@@ -1453,7 +1527,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       </div>
 
       <div class="price-cta reveal" style="--rd:.1s">
-        <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="btn">Pedir orçamento</a>
+        <a href="https://wa.me/5519984428872" target="_blank" rel="noopener" class="btn" id="abrirOrcamento">Pedir orçamento</a>
         <span class="fine">Resposta minha, no mesmo dia.</span>
       </div>
 
@@ -2173,8 +2247,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Preço de entrada para landing page e site simples. O valor final depende do escopo — e isso fica fechado na primeira conversa, sem surpresa no meio do caminho.':
       'Entry price for a landing page or a simple site. The final figure depends on scope — and that gets settled in the first conversation, with no surprises later.',
     'a partir de':'from',
-    'Mesmo escopo em qualquer lugar — Brasil, Europa ou Reino Unido. Escolha a sua moeda aí em cima.':
-      'Same scope anywhere — Brazil, Europe or the United Kingdom. Pick your currency above.',
+    'Escolher região':'Choose region',
+    'Brasil':'Brazil',
+    'Europa':'Europe',
+    'Reino Unido':'United Kingdom',
+    'Mesmo escopo em qualquer lugar. O valor final depende do tamanho do projeto — e sai fechado na primeira conversa.':
+      'Same scope anywhere. The final figure depends on the size of the project — and it gets settled in the first conversation.',
     'O que está incluso':'What you get',
     'Landing page ou site simples, feito do zero pro seu negócio':
       'Landing page or simple site, built from scratch for your business',
@@ -2198,6 +2276,24 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       'While I build out a strong portfolio. Whoever comes in now pays this price.',
     'Pedir orçamento':'Request a quote',
     'Resposta minha, no mesmo dia.':'You get an answer from me, same day.',
+
+    /* — modal de orçamento — */
+    '/ Orçamento':'/ Quote',
+    'Me conta o que você precisa':'Tell me what you need',
+    'Preenche aqui e a mensagem chega pronta no meu WhatsApp — com os dados que eu preciso pra te passar o valor certo já na primeira resposta.':
+      'Fill this in and the message lands in my WhatsApp ready to go — with everything I need to quote you properly on the first reply.',
+    'Seu nome':'Your name',
+    'Como você se chama':'What you go by',
+    'Seu negócio':'Your business',
+    'padaria, estúdio de tatuagem, clínica...':'bakery, tattoo studio, clinic...',
+    'Região':'Region',
+    'O que você precisa':'What you need',
+    'Uma página pra divulgar meu serviço, com botão de WhatsApp e minhas fotos de trabalho...':
+      'A page to show my service, with a WhatsApp button and photos of my work...',
+    'Abrir no WhatsApp':'Open in WhatsApp',
+    'Abre a conversa com a mensagem escrita. Você confere e envia.':
+      'Opens the chat with the message written out. You check it and hit send.',
+    'Fechar':'Close',
 
     /* — contato — */
     '/ Vamos começar':'/ Let’s begin',
@@ -2382,36 +2478,143 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   <span>Falar no WhatsApp</span>
 </a>
 
+<!-- ============ MODAL DE ORÇAMENTO ============ -->
+<!-- Nao envia nada sozinho: monta a mensagem e abre o WhatsApp com ela
+     escrita, pra pessoa conferir e apertar enviar. -->
+<div class="modal" id="orcModal" aria-hidden="true">
+  <div class="modal-backdrop" data-fechar></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="orcTitulo">
+    <button type="button" class="modal-x" data-fechar aria-label="Fechar">✕</button>
+    <p class="eyebrow">/ Orçamento</p>
+    <h3 id="orcTitulo">Me conta o que você precisa</h3>
+    <p class="modal-sub">Preenche aqui e a mensagem chega pronta no meu WhatsApp — com os dados que eu preciso pra te passar o valor certo já na primeira resposta.</p>
+
+    <form class="modal-form" id="orcForm">
+      <label>
+        <span class="lbl">Seu nome</span>
+        <input type="text" name="nome" autocomplete="name" required placeholder="Como você se chama">
+      </label>
+      <label>
+        <span class="lbl">Seu negócio</span>
+        <input type="text" name="negocio" placeholder="padaria, estúdio de tatuagem, clínica...">
+      </label>
+      <label>
+        <span class="lbl">Região</span>
+        <select name="regiao" id="orcRegiao">
+          <option value="Brasil">Brasil</option>
+          <option value="Europa">Europa</option>
+          <option value="Reino Unido">Reino Unido</option>
+        </select>
+      </label>
+      <label>
+        <span class="lbl">O que você precisa</span>
+        <textarea name="oque" rows="4" placeholder="Uma página pra divulgar meu serviço, com botão de WhatsApp e minhas fotos de trabalho..."></textarea>
+      </label>
+      <button type="submit" class="btn">Abrir no WhatsApp</button>
+      <p class="modal-fine">Abre a conversa com a mensagem escrita. Você confere e envia.</p>
+    </form>
+  </div>
+</div>
+
 <script>
-/* Seletor de moeda da caixa de preço. O valor mostrado sai daqui —
-   para mudar de preço, edite TABELA_MOEDA. O elemento #precoValor está
+/* Caixa de preço: o campo de região troca o valor mostrado.
+   Para mudar de preço, edite TABELA_REGIAO. O elemento #precoValor está
    na lista SKIP_IDS do tradutor, pra troca de idioma não desfazer a escolha. */
 (function(){
-  var TABELA_MOEDA = { BRL:'R$ 400', EUR:'\u20ac 180', GBP:'\u00a3 150' };
-  var caixa = document.getElementById('precoBox');
+  var TABELA_REGIAO = {
+    BRL: { valor:'R$ 350', regiao:'Brasil' },
+    EUR: { valor:'\u20ac 180', regiao:'Europa' },
+    GBP: { valor:'\u00a3 150', regiao:'Reino Unido' }
+  };
+  var campo = document.getElementById('precoRegiao');
   var valor = document.getElementById('precoValor');
-  if(!caixa || !valor) return;
-  var btns = Array.prototype.slice.call(caixa.querySelectorAll('[data-moeda]'));
-  var CHAVE = 'lrgz_moeda';
+  if(!campo || !valor) return;
+  var CHAVE = 'lrgz_regiao';
 
-  function escolher(m){
-    if(!TABELA_MOEDA[m]) m = 'BRL';
-    valor.textContent = TABELA_MOEDA[m];
-    btns.forEach(function(b){
-      var on = b.getAttribute('data-moeda') === m;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-    try{ localStorage.setItem(CHAVE, m); }catch(e){}
+  function escolher(m, salvar){
+    if(!TABELA_REGIAO[m]) m = 'BRL';
+    campo.value = m;
+    valor.textContent = TABELA_REGIAO[m].valor;
+    var noModal = document.getElementById('orcRegiao');
+    if(noModal) noModal.selectedIndex = campo.selectedIndex;
+    if(salvar !== false){ try{ localStorage.setItem(CHAVE, m); }catch(e){} }
   }
 
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){ escolher(b.getAttribute('data-moeda')); });
-  });
+  campo.addEventListener('change', function(){ escolher(campo.value); });
 
   var salvo = null;
   try{ salvo = localStorage.getItem(CHAVE); }catch(e){}
-  escolher(salvo || 'BRL');
+  escolher(salvo || 'BRL', false);
+  window.LRGZ_REGIAO = escolher;
+})();
+
+/* Modal de orçamento: junta os campos numa mensagem e abre o WhatsApp.
+   Sem back-end — só monta o link wa.me. Se o JS não rodar, o botão
+   continua sendo um link normal pro WhatsApp. */
+(function(){
+  var ZAP = '5519984428872';
+  var modal = document.getElementById('orcModal');
+  var abrirBtn = document.getElementById('abrirOrcamento');
+  var form = document.getElementById('orcForm');
+  if(!modal || !abrirBtn || !form) return;
+
+  var ultimoFoco = null;
+  var FOCAVEIS = 'a[href], button:not([disabled]), input, select, textarea';
+
+  function abrir(e){
+    if(e) e.preventDefault();
+    ultimoFoco = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    var primeiro = form.querySelector('input, textarea, select');
+    if(primeiro) setTimeout(function(){ primeiro.focus(); }, 60);
+  }
+  function fechar(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    if(ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+  }
+
+  abrirBtn.addEventListener('click', abrir);
+  modal.addEventListener('click', function(e){
+    if(e.target.hasAttribute && e.target.hasAttribute('data-fechar')) fechar();
+  });
+  document.addEventListener('keydown', function(e){
+    if(!modal.classList.contains('is-open')) return;
+    if(e.key === 'Escape'){ fechar(); return; }
+    if(e.key !== 'Tab') return;
+    var itens = Array.prototype.slice.call(modal.querySelectorAll(FOCAVEIS))
+      .filter(function(el){ return el.offsetParent !== null; });
+    if(!itens.length) return;
+    var primeiro = itens[0], ultimo = itens[itens.length - 1];
+    if(e.shiftKey && document.activeElement === primeiro){ e.preventDefault(); ultimo.focus(); }
+    else if(!e.shiftKey && document.activeElement === ultimo){ e.preventDefault(); primeiro.focus(); }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(form);
+    function v(k){ return (d.get(k) || '').toString().trim(); }
+    /* a mensagem sai no idioma em que a pessoa esta vendo o site */
+    var en = (document.documentElement.lang || 'pt').slice(0, 2) === 'en';
+    var T = en
+      ? { ola:'Hi! I came from the L R G Z site.', nome:'Name: ',
+          neg:'Business: ', reg:'Region: ', oque:'What I need:' }
+      : { ola:'Oi! Vim pelo site do L R G Z.', nome:'Nome: ',
+          neg:'Neg\u00f3cio: ', reg:'Regi\u00e3o: ', oque:'O que eu preciso:' };
+    var linhas = [T.ola, ''];
+    if(v('nome'))    linhas.push(T.nome + v('nome'));
+    if(v('negocio')) linhas.push(T.neg + v('negocio'));
+    var selReg = form.querySelector('#orcRegiao');
+    var regiao = selReg ? selReg.options[selReg.selectedIndex].textContent.trim() : '';
+    if(regiao)       linhas.push(T.reg + regiao);
+    if(v('oque'))    linhas.push('', T.oque, v('oque'));
+    var url = 'https://wa.me/' + ZAP + '?text=' + encodeURIComponent(linhas.join('\n'));
+    window.open(url, '_blank', 'noopener');
+    fechar();
+  });
 })();
 
 /* Botao flutuante do WhatsApp: aparece depois do hero e some quando a
@@ -2436,5 +2639,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   medir();
 })();
 </script>
+
 </body>
 </html>
