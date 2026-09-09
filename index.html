@@ -897,57 +897,20 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 .price-box{
   margin-top:clamp(2.5rem,5vw,4rem);
   border:1px solid var(--line); background:var(--surface);
-  display:grid; grid-template-columns:.95fr 1.05fr;
+  padding:clamp(1.8rem,3.2vw,2.6rem);
   transition:border-color .4s var(--ease);
 }
 .price-box:hover{ border-color:var(--gray-dim); }
-@media (max-width:860px){ .price-box{ grid-template-columns:1fr; } }
 
-.price-main{
-  padding:clamp(1.8rem,3vw,2.6rem);
-  border-right:1px solid var(--line);
-  display:flex; flex-direction:column; gap:.2rem;
-}
-@media (max-width:860px){ .price-main{ border-right:none; border-bottom:1px solid var(--line); } }
-
-.price-pick{ display:flex; align-items:center; flex-wrap:wrap; gap:.7rem; margin-bottom:1.1rem; }
-.price-pick .from{
-  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--gray);
-}
-.price-select{ position:relative; display:inline-flex; }
-.price-select::after{
-  content:'\25be'; position:absolute; right:.7rem; top:50%; transform:translateY(-50%);
-  font-size:.7rem; color:var(--gray); pointer-events:none;
-}
-.price-select select{
-  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; font-weight:500;
-  text-transform:uppercase;
-  background:transparent; border:1px solid var(--line); color:var(--white);
-  padding:.52rem 2.1rem .52rem .8rem; line-height:1; cursor:pointer;
-  border-radius:0; -webkit-appearance:none; appearance:none;
-  -webkit-tap-highlight-color:transparent;
-  transition:border-color .3s var(--ease), color .3s var(--ease);
-}
-.price-select select:hover{ border-color:var(--gray); }
-.price-select select:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
-.price-select option{ background:var(--surface); color:var(--white); text-transform:none; }
-
-.price-main .amount{
-  font-family:var(--font-display); font-weight:500; line-height:1;
-  font-size:clamp(2.6rem,6vw,4rem); margin-top:.5rem;
-  font-variant-numeric:tabular-nums;
-}
-.price-main .where{
-  color:var(--gray); font-weight:300; font-size:.88rem; margin-top:1.4rem; max-width:34ch;
-}
-
-.price-list{ padding:clamp(1.8rem,3vw,2.6rem); }
 .price-list .price-list-head{
   font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--gray-dim); margin-bottom:1.3rem;
 }
-.price-list ul{ list-style:none; display:grid; gap:.75rem; }
+.price-list ul{
+  list-style:none; display:grid; grid-template-columns:repeat(2,1fr);
+  gap:.85rem clamp(1.5rem,3vw,2.6rem); margin:0; padding:0;
+}
+@media (max-width:760px){ .price-list ul{ grid-template-columns:1fr; } }
 .price-list li{
   color:var(--gray); font-weight:300; font-size:.92rem;
   display:flex; align-items:flex-start; gap:.7rem;
@@ -1470,9 +1433,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
   <!-- ============ INVESTIMENTO ============ -->
   <!-- ===================================================================
-       Preço de entrada. Para mudar os valores, edite a tabela TABELA_MOEDA
-       no bloco de JavaScript no fim da página — é de lá que sai o número
-       que aparece na caixa. O que está incluso sai da lista <ul> abaixo.
+       O que está incluso em todo projeto. O valor não aparece aqui de
+       propósito: a região é perguntada no modal de orçamento, e o preço
+       vai na resposta do WhatsApp, já na moeda certa.
        Se traduzir o site, atualize também o dicionário EN mais abaixo.
        =================================================================== -->
   <section class="section" id="investimento">
@@ -1480,28 +1443,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <div class="section-head reveal">
         <div>
           <p class="eyebrow">/ Investimento</p>
-          <h2 class="section-title">Quanto custa começar</h2>
+          <h2 class="section-title">O que vai no seu site</h2>
         </div>
-        <p class="section-note">Preço de entrada para landing page e site simples. O valor final depende do escopo — e isso fica fechado na primeira conversa, sem surpresa no meio do caminho.</p>
+        <p class="section-note">Todo projeto sai com tudo isso. O valor depende do tamanho do que você precisa — e sai fechado na primeira conversa, sem surpresa no meio do caminho.</p>
       </div>
 
-      <div class="price-box reveal" id="precoBox">
-
-        <div class="price-main">
-          <div class="price-pick">
-            <span class="from">a partir de</span>
-            <span class="price-select">
-              <select id="precoRegiao" aria-label="Escolher região">
-                <option value="BRL">Brasil</option>
-                <option value="EUR">Europa</option>
-                <option value="GBP">Reino Unido</option>
-              </select>
-            </span>
-          </div>
-          <p class="amount" id="precoValor">R$ 350</p>
-          <p class="where">Mesmo escopo em qualquer lugar. O valor final depende do tamanho do projeto — e sai fechado na primeira conversa.</p>
-        </div>
-
+      <div class="price-box reveal">
         <div class="price-list">
           <p class="price-list-head">O que está incluso</p>
           <ul>
@@ -1515,7 +1462,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <li>Suporte e ajustes depois da entrega</li>
           </ul>
         </div>
-
       </div>
 
       <div class="price-flag reveal">
@@ -2243,16 +2189,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     /* — investimento — */
     '/ Investimento':'/ Pricing',
     'Investimento':'Pricing',
-    'Quanto custa começar':'What it costs to start',
-    'Preço de entrada para landing page e site simples. O valor final depende do escopo — e isso fica fechado na primeira conversa, sem surpresa no meio do caminho.':
-      'Entry price for a landing page or a simple site. The final figure depends on scope — and that gets settled in the first conversation, with no surprises later.',
-    'a partir de':'from',
-    'Escolher região':'Choose region',
-    'Brasil':'Brazil',
-    'Europa':'Europe',
-    'Reino Unido':'United Kingdom',
-    'Mesmo escopo em qualquer lugar. O valor final depende do tamanho do projeto — e sai fechado na primeira conversa.':
-      'Same scope anywhere. The final figure depends on the size of the project — and it gets settled in the first conversation.',
+    'O que vai no seu site':'What goes into your site',
+    'Todo projeto sai com tudo isso. O valor depende do tamanho do que você precisa — e sai fechado na primeira conversa, sem surpresa no meio do caminho.':
+      'Every project ships with all of this. The price depends on the size of what you need — and it gets settled in the first conversation, with no surprises later.',
     'O que está incluso':'What you get',
     'Landing page ou site simples, feito do zero pro seu negócio':
       'Landing page or simple site, built from scratch for your business',
@@ -2276,6 +2215,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       'While I build out a strong portfolio. Whoever comes in now pays this price.',
     'Pedir orçamento':'Request a quote',
     'Resposta minha, no mesmo dia.':'You get an answer from me, same day.',
+    'Brasil':'Brazil',
+    'Europa':'Europe',
+    'Reino Unido':'United Kingdom',
 
     /* — modal de orçamento — */
     '/ Orçamento':'/ Quote',
@@ -2351,7 +2293,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
   var SKIP_TAGS = { SCRIPT:1, STYLE:1, NOSCRIPT:1, SVG:1 };
   /* o hero e o terminal são gerados por JS e traduzidos na fonte, não pelo walker */
-  var SKIP_IDS  = { heroTitle:1, terminalBody:1, precoValor:1 };
+  var SKIP_IDS  = { heroTitle:1, terminalBody:1 };
   var ATTRS = ['placeholder','aria-label','alt','title','content'];
 
   function walkText(root){
@@ -2517,37 +2459,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 </div>
 
 <script>
-/* Caixa de preço: o campo de região troca o valor mostrado.
-   Para mudar de preço, edite TABELA_REGIAO. O elemento #precoValor está
-   na lista SKIP_IDS do tradutor, pra troca de idioma não desfazer a escolha. */
-(function(){
-  var TABELA_REGIAO = {
-    BRL: { valor:'R$ 350', regiao:'Brasil' },
-    EUR: { valor:'\u20ac 180', regiao:'Europa' },
-    GBP: { valor:'\u00a3 150', regiao:'Reino Unido' }
-  };
-  var campo = document.getElementById('precoRegiao');
-  var valor = document.getElementById('precoValor');
-  if(!campo || !valor) return;
-  var CHAVE = 'lrgz_regiao';
-
-  function escolher(m, salvar){
-    if(!TABELA_REGIAO[m]) m = 'BRL';
-    campo.value = m;
-    valor.textContent = TABELA_REGIAO[m].valor;
-    var noModal = document.getElementById('orcRegiao');
-    if(noModal) noModal.selectedIndex = campo.selectedIndex;
-    if(salvar !== false){ try{ localStorage.setItem(CHAVE, m); }catch(e){} }
-  }
-
-  campo.addEventListener('change', function(){ escolher(campo.value); });
-
-  var salvo = null;
-  try{ salvo = localStorage.getItem(CHAVE); }catch(e){}
-  escolher(salvo || 'BRL', false);
-  window.LRGZ_REGIAO = escolher;
-})();
-
 /* Modal de orçamento: junta os campos numa mensagem e abre o WhatsApp.
    Sem back-end — só monta o link wa.me. Se o JS não rodar, o botão
    continua sendo um link normal pro WhatsApp. */
