@@ -34,7 +34,7 @@ apague, senão o domínio se desfaz a cada deploy.
 | ` Marca completa com as réguas laterais | Marca completa com a bússola (uso avulso) |
 | `robots.txt`, `sitemap.xml` | Permitem e orientam o rastreamento do Google |
 | `posters/poster-N.jpg` | Primeiro quadro de cada vídeo dos projetos |
-| `*.mp4` | Vídeos dos 6 projetos do portfólio |
+| `*.mp4` | Vídeos dos projetos do portfólio (um por card) |
 
 ## Como trocar um vídeo do portfólio
 
