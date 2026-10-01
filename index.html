@@ -773,7 +773,15 @@ body.menu-open{ overflow:hidden; }
 .course-points li::before{
   content:''; width:7px; height:7px; margin-top:.55rem; flex:none; background:var(--white);
 }
-.course-info .cta-buy{ margin-top:2rem; }
+.course-info .cta-buy{
+  margin-top:2rem;
+  padding:1.4rem clamp(1.1rem,2.4vw,1.6rem);
+  border:1px solid rgba(0,229,255,.38);
+  background:linear-gradient(100deg, rgba(0,229,255,.09), rgba(0,229,255,.025) 55%, transparent);
+  animation:flagGlow 3.6s ease-in-out infinite;
+}
+.course-info .cta-buy:hover{ border-color:rgba(0,229,255,.72); }
+@media (prefers-reduced-motion: reduce){ .course-info .cta-buy{ animation:none; } }
 @media (max-width:900px){
   .course-inner{ grid-template-columns:1fr; }
   .course-media{ order:-1; }
@@ -1038,8 +1046,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     </a>
     <ul class="nav-links">
       <li><a href="#projetos">Portfólio</a></li>
-      <li data-only="pt"><a href="#curso">Curso</a></li>
-      <li><a href="planos-prospector.html" class="nav-cta">Prospector</a></li>
+      <li data-only="pt"><a href="#curso" class="nav-cta">Curso</a></li>
       <li><a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="nav-cta nav-cta--destaque">Falar no WhatsApp</a></li>
       <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
@@ -1055,9 +1062,8 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="menu-destaque">Falar no WhatsApp</a>
-  <a href="planos-prospector.html">Prospector</a>
-  <a href="#projetos">Portfólio</a>
   <a href="#curso" data-only="pt">Curso</a>
+  <a href="#projetos">Portfólio</a>
   <a href="#contato">Contato</a>
   <button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
 </div>
@@ -1182,16 +1188,15 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
-              <!-- Ainda sem gravação de tela: o <video> mostra só a capa.
-                   Quando tiver o Maronez.mp4, ponha o arquivo na raiz do site,
-                   acrescente data-lazy-video na tag abaixo e a linha
-                   <source src="Maronez.mp4" type="video/mp4"> aqui dentro. -->
               <video class="site-video"
                      muted
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-maronez.jpg"></video>
+                     poster="posters/poster-maronez.jpg"
+                     data-lazy-video>
+                <source src="MARONASK.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="halftone"></div>
           </div>
@@ -1206,7 +1211,35 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 03 · Monlebu Cookies — Confeitaria artesanal, Tiete/SP -->
+        <!-- 03 · DAC Art Ink — Dani Coelho, tatuagem e arte autoral, São José dos Campos/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-dac.jpg"
+                     data-lazy-video>
+                <source src="DAC.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Direção de arte</p>
+            <h3>Tatuagem &amp; Arte Autoral</h3>
+            <p>Uma artista que tatua, pinta e vende obra autoral, com tudo isso espalhado em lugares diferentes. Reuni num site só: os trabalhos na pele, a galeria de telas e ilustrações ligada à loja, as regras de sinal e agendamento e os cuidados pré e pós — com o orçamento saindo direto no WhatsApp.</p>
+            <div class="case-chips">
+              <span>Direção de Arte</span><span>Multi-páginas</span><span>Loja integrada</span>
+            </div>
+            <a class="case-live" href="https://dacartink.com" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 04 · Monlebu Cookies — Confeitaria artesanal, Tiete/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1234,7 +1267,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 04 · Hono Ink — Kamile Hono, tatuadora fine line, Indaiatuba/SP -->
+        <!-- 05 · Hono Ink — Kamile Hono, tatuadora fine line, Indaiatuba/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1262,7 +1295,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 05 · Eric Cardozo — Tatuagem neo-oriental e blackwork, Sao Paulo/SP -->
+        <!-- 06 · Eric Cardozo — Tatuagem neo-oriental e blackwork, Sao Paulo/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1290,7 +1323,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 06 · Clinica Veterinaria Modelo & Pet Design, Tiete/SP -->
+        <!-- 07 · Clinica Veterinaria Modelo & Pet Design, Tiete/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1318,7 +1351,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 07 · Scar Andrade — Tatuagem old school, Brasilia/DF -->
+        <!-- 08 · Scar Andrade — Tatuagem old school, Brasilia/DF -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1346,7 +1379,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 08 · Lenny Amorim Beauty Studio — Nail design, Porto/PT -->
+        <!-- 09 · Lenny Amorim Beauty Studio — Nail design, Porto/PT -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1374,7 +1407,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 09 · Ana Delgado — Extensao de cilios, Tiete/SP -->
+        <!-- 10 · Ana Delgado — Extensao de cilios, Tiete/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1402,7 +1435,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 10 · VitaCore — Plataforma fitness e metodo Fast90 -->
+        <!-- 11 · VitaCore — Plataforma fitness e metodo Fast90 -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1430,7 +1463,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 11 · Bruna Lopes Cilios — Lash designer, Rio Verde/GO -->
+        <!-- 12 · Bruna Lopes Cilios — Lash designer, Rio Verde/GO -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1751,7 +1784,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </ul>
 
           <a href="planos.html" class="contact-row cta-buy">
-            <span class="label">Ver planos</span>
+            <span class="label">A partir de R$49,90</span>
             <span class="buy-button">Comprar Agora</span>
             <span class="arrow">→</span>
           </a>
@@ -2221,47 +2254,53 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Um tatuador que desenha direto na pele, sem stencil, não fica num endereço fixo e sai em guest spot por outras cidades. Montei um site de várias páginas em cima disso: portfólio separado por trabalho, uma página só pra explicar o que é o freehand, o calendário de guest spots com lista de espera por cidade e o orçamento caindo direto no WhatsApp.':
       'A tattoo artist who draws straight onto skin with no stencil, works from no fixed address and travels for guest spots in other cities. I built a multi-page site around exactly that: the portfolio split by piece, a page devoted to explaining freehand, the guest-spot calendar with a waiting list per city, and quotes landing straight in WhatsApp.',
 
-    /* 03 — Monlebu Cookies */
+    /* 03 — DAC Art Ink */
+    'Tatuagem & Arte Autoral':'Tattoo & Original Art',
+    'Loja integrada':'Integrated shop',
+    'Uma artista que tatua, pinta e vende obra autoral, com tudo isso espalhado em lugares diferentes. Reuni num site só: os trabalhos na pele, a galeria de telas e ilustrações ligada à loja, as regras de sinal e agendamento e os cuidados pré e pós — com o orçamento saindo direto no WhatsApp.':
+      'An artist who tattoos, paints and sells original work, with all of it scattered across different places. I brought it into a single site: the work on skin, the gallery of canvases and illustrations wired to the shop, the deposit and booking rules, and the before-and-after care — with quotes landing straight in WhatsApp.',
+
+    /* 04 — Monlebu Cookies */
     'Cookies Artesanais':'Artisan Cookies',
     'Uma confeitaria artesanal que não queria parecer mais uma loja de doces. Desenvolvi um site que se comporta como galeria: a navegação percorre salas, cada cookie é apresentado como peça da coleção e uma trilha sonora acompanha a visita — com o pedido sempre a um toque de distância no cardápio online.':
       'An artisan bakery that refused to look like just another sweet shop. I built a site that behaves like a gallery: the navigation moves through rooms, every cookie is presented as a piece of the collection and a soundtrack follows the visit — with ordering always one tap away in the online menu.',
 
-    /* 04 — Hono Ink */
+    /* 05 — Hono Ink */
     'Tatuadora Fine Line':'Fine Line Tattoo Artist',
     'Uma tatuadora de traço fino, com estúdio privado que atende uma pessoa por vez, e que precisava de um site à altura desse cuidado. Criei uma landing page em tom de papel e tinta, que apresenta a artista antes da arte, organiza o portfólio por estilo e leva a cliente do orçamento ao agendamento pelo WhatsApp em poucos toques.':
       'A fine-line tattoo artist with a private studio that sees one person at a time, who needed a site worthy of that care. I created a paper-and-ink landing page that introduces the artist before the art, organises the portfolio by style and takes the client from quote to WhatsApp booking in just a few taps.',
 
-    /* 05 — Eric Cardozo */
+    /* 06 — Eric Cardozo */
     'Tatuador Neo-oriental':'Neo-Oriental Tattoo Artist',
     'Um tatuador especializado em neo-oriental e blackwork que precisava de uma presença digital com a mesma intensidade do seu trabalho. Desenvolvi uma landing page escura, com um único acento de cor e estética cinematográfica, apresentando o portfólio em carrossel, os estilos e o processo — com o agendamento pelo WhatsApp sempre à mão.':
       'A tattoo artist specialising in neo-oriental and blackwork who needed a digital presence as intense as his work. I built a dark landing page with a single accent colour and a cinematic feel, presenting the portfolio as a carousel, the styles and the process — with WhatsApp booking always within reach.',
 
-    /* 06 — Clínica Veterinária Modelo */
+    /* 07 — Clínica Veterinária Modelo */
     'Clínica Veterinária':'Veterinary Clinic',
     'Uma clínica veterinária que buscava fortalecer sua presença digital. Desenvolvi um site moderno e profissional, destacando serviços, especialidades e estrutura, com navegação intuitiva e foco em conversão.':
       'A veterinary clinic looking to strengthen its digital presence. I built a modern, professional site highlighting services, specialties and facilities, with intuitive navigation and a focus on conversion.',
 
-    /* 07 — Estúdio de tatuagem */
+    /* 08 — Estúdio de tatuagem */
     'Estúdio de tatuagem':'Tattoo Studio',
     'Um tatuador que precisava transformar seu trabalho artístico em uma experiência digital marcante. Desenvolvi um site com estética autoral e personalidade forte, valorizando o portfólio, os trabalhos realizados e a identidade do artista, com uma navegação pensada para apresentar seu trabalho e facilitar novos contatos.':
       'A tattoo artist who needed to turn their art into a digital experience just as striking. I built a site with a distinctive aesthetic and strong personality, showcasing the portfolio, the finished pieces and the artist’s identity, with navigation designed to present the work and make new enquiries effortless.',
 
-    /* 08 — Nail Designer */
+    /* 09 — Nail Designer */
     'Nail Designer':'Nail Designer',
     'Um estúdio de beleza que precisava de uma presença digital à altura da qualidade do seu trabalho. Desenvolvi um site elegante e sofisticado, com foco em identidade visual, apresentação do portfólio e uma experiência intuitiva que aproxima a profissional de novas clientes.':
       'A beauty studio that needed a digital presence worthy of the quality of its work. I built an elegant, refined site focused on visual identity, portfolio presentation and an intuitive experience that brings the artist closer to new clients.',
 
-    /* 09 — Lash Designer */
+    /* 10 — Lash Designer */
     'Lash Designer':'Lash Designer',
     'Uma profissional da área da beleza que buscava fortalecer sua presença digital e transformar visitantes em clientes. Criei uma landing page elegante, valorizando o portfólio, os serviços e um fluxo de contato simples e direto pelo WhatsApp.':
       'A beauty professional looking to strengthen her digital presence and turn visitors into clients. I created an elegant landing page that showcases the portfolio and services, with a simple, direct contact flow via WhatsApp.',
 
-    /* 10 — VitaCore */
+    /* 11 — VitaCore */
     'Site de vendas Fitness':'Fitness Sales Site',
     'Desenvolvimento de uma plataforma fitness completa, criada para reunir em um só lugar produtos recomendados, ferramentas gratuitas e conteúdos voltados à evolução física e ao emagrecimento. O projeto foi estruturado com uma navegação intuitiva e moderna, conectando o usuário a ofertas selecionadas, recursos como a calculadora de IMC e ao método Fast90, criando uma experiência integrada e focada em resultados.':
       'A complete fitness platform built to bring recommended products, free tools and content on physical progress and weight loss together in one place. The project was structured with modern, intuitive navigation, connecting users to selected offers, tools such as the BMI calculator and the Fast90 method — creating an integrated, results-focused experience.',
 
-    /* 11 — Bruna Lopes Cílios */
+    /* 12 — Bruna Lopes Cílios */
     'Lash Designer & Visagista':'Lash Designer & Visagist',
     'Uma lash designer com certificação internacional que estava levando o próprio nome para uma nova cidade e precisava reconstruir sua presença digital do zero. Criei uma landing page que apresenta a profissional, explica cada técnica de extensão de cílios e leva a cliente até o agendamento pelo WhatsApp em poucos toques.':
       'A lash designer with international certification taking her name to a new city and needing to rebuild her digital presence from scratch. I created a landing page that introduces her, explains each lash extension technique and takes the client to a WhatsApp booking in just a few taps.',
@@ -2361,7 +2400,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Arquivos e templates que eu uso nos projetos':'The files and templates I use on real projects',
     'Pagamento único, sem mensalidade':'One-time payment, no subscription',
     'Planos a partir de R$49,90 no Pix':'Plans from R$49.90 via Pix',
-    'Ver planos':'See plans',
+    'A partir de R$49,90':'From R$49.90',
 
     /* — rodapé — */
     '© 2026 L R G Z. Todos os direitos reservados.':'© 2026 L R G Z. All rights reserved.',
