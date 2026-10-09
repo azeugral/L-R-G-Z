@@ -2155,8 +2155,11 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       return;
     }
 
-    function ligar(v){
+    function carregar(v){
       if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
+    }
+    function ligar(v){
+      carregar(v);
       var t = v.play();
       if(t && t.catch) t.catch(function(){});
     }
@@ -2166,15 +2169,26 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       return;
     }
 
+    /* Carregar e tocar sao coisas separadas: o arquivo comeca a baixar
+       300px antes do card aparecer (pra nao ter espera), mas o play so
+       acontece com metade do video realmente na tela. Os mockups abrem
+       parados no topo do site, e essa parada so faz sentido se a pessoa
+       estiver olhando quando o video comeca. */
+    var pre = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ carregar(e.target); pre.unobserve(e.target); }
+      });
+    }, { rootMargin: '300px 0px' });
+
     var vio = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         var v = e.target;
         if(e.isIntersecting){ ligar(v); }
         else if(!v.paused){ v.pause(); }
       });
-    }, { rootMargin: '200px 0px', threshold: 0.2 });
+    }, { threshold: 0.5 });
 
-    vids.forEach(function(v){ vio.observe(v); });
+    vids.forEach(function(v){ pre.observe(v); vio.observe(v); });
 
     /* aba em segundo plano não precisa gastar bateria */
     document.addEventListener('visibilitychange', function(){
