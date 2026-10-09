@@ -549,7 +549,7 @@ body.menu-open{ overflow:hidden; }
 /* ============================================
    PORTFOLIO
    ============================================ */
-.portfolio-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.5rem,3vw,2.2rem); margin-top:clamp(2.5rem,5vw,4rem); }
+.portfolio-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.5rem,3vw,2.2rem); margin-top:clamp(2.5rem,5vw,4rem); }
 .case-card{
   border:1px solid var(--line); background:var(--surface); position:relative;
   transition:transform .5s var(--ease), border-color .4s var(--ease);
@@ -610,6 +610,7 @@ body.menu-open{ overflow:hidden; }
   font-family:var(--font-mono); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase;
   border:1px solid var(--line); color:var(--gray); padding:.35rem .6rem;
 }
+@media (max-width:1100px){ .portfolio-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:820px){ .portfolio-grid{ grid-template-columns:1fr; } }
 
 /* ============================================
@@ -1147,15 +1148,13 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       </div>
 
       <!-- ===================================================================
-           PORTFÓLIO — a ordem dos <article> abaixo é a ordem que aparece no site.
-           Para adicionar um projeto: duplique um <article> inteiro, coloque o
-           .mp4 na raiz do site e a imagem de capa em posters/, e edite o
-           <p class="tag">, o <h3>, o <p> da descrição e os <span> de chips.
-           Se traduzir o site para inglês, acrescente os textos novos no
-           dicionário EN mais abaixo (procure por "projetos").
+           PORTFÓLIO — 3 por fileira; a ordem dos <article> é a ordem no site.
+           Os vídeos em mockups/ são gerados: rolagem da home inteira de cada
+           site, gravada quadro a quadro em 1280x720 e salva em 960x540.
+           Capa = primeiro quadro, em posters/poster-<slug>.jpg.
            =================================================================== -->
       <div class="portfolio-grid">
-        <!-- 01 · Dra. Juliana Cubas — Veterinaria a domicilio, Tiete/SP -->
+        <!-- 01 · Dra. Juliana Cubas — veterinária a domicílio, Tietê/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1165,14 +1164,14 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-1.jpg"
+                     poster="posters/poster-juliana-cubas.jpg"
                      data-lazy-video>
-                <source src="2026-07-13 21-58-34.mp4" type="video/mp4">
+                <source src="mockups/juliana-cubas.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Site Profissional · Identidade visual</p>
             <h3>Médica Veterinária</h3>
             <p>Uma clínica veterinária premium que precisava transmitir confiança, cuidado e excelência em cada detalhe. Desenvolvi um site moderno com identidade visual refinada, navegação intuitiva e foco em conversão, facilitando o contato e o agendamento de consultas em qualquer dispositivo.</p>
@@ -1195,12 +1194,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      preload="none"
                      poster="posters/poster-maronez.jpg"
                      data-lazy-video>
-                <source src="MARONASK.mp4" type="video/mp4">
+                <source src="mockups/maronez.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Site Profissional · Direção de arte</p>
             <h3>Tatuador Freehand</h3>
             <p>Um tatuador que desenha direto na pele, sem stencil, não fica num endereço fixo e sai em guest spot por outras cidades. Montei um site de várias páginas em cima disso: portfólio separado por trabalho, uma página só pra explicar o que é o freehand, o calendário de guest spots com lista de espera por cidade e o orçamento caindo direto no WhatsApp.</p>
@@ -1211,7 +1210,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 03 · DAC Art Ink — Dani Coelho, tatuagem e arte autoral, São José dos Campos/SP -->
+        <!-- 03 · DAC Art Ink — tatuagem e arte autoral, São José dos Campos/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1223,12 +1222,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      preload="none"
                      poster="posters/poster-dac.jpg"
                      data-lazy-video>
-                <source src="DAC.mp4" type="video/mp4">
+                <source src="mockups/dac.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Site Profissional · Direção de arte</p>
             <h3>Tatuagem &amp; Arte Autoral</h3>
             <p>Uma artista que tatua, pinta e vende obra autoral, com tudo isso espalhado em lugares diferentes. Reuni num site só: os trabalhos na pele, a galeria de telas e ilustrações ligada à loja, as regras de sinal e agendamento e os cuidados pré e pós — com o orçamento saindo direto no WhatsApp.</p>
@@ -1239,7 +1238,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 04 · Monlebu Cookies — Confeitaria artesanal, Tiete/SP -->
+        <!-- 04 · Bernardo Art — tatuagem abstrata -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1249,25 +1248,81 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-monlebu.jpg"
+                     poster="posters/poster-bernardo.jpg"
                      data-lazy-video>
-                <source src="Monlebu.mp4" type="video/mp4">
+                <source src="mockups/bernardo.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
           <div class="case-body">
             <p class="tag">Site Profissional · Direção de arte</p>
-            <h3>Cookies Artesanais</h3>
-            <p>Uma confeitaria artesanal que não queria parecer mais uma loja de doces. Desenvolvi um site que se comporta como galeria: a navegação percorre salas, cada cookie é apresentado como peça da coleção e uma trilha sonora acompanha a visita — com o pedido sempre a um toque de distância no cardápio online.</p>
+            <h3>Tatuagem Abstrata</h3>
+            <p>Um tatuador de trabalhos abstratos e sempre autorais, com agenda que circula entre Rio, São Paulo e Paris. Tirei o agendamento do formulário genérico e trouxe pra dentro do site: o arquivo completo de trabalhos, as regras do que ele faz e não faz, a agenda por cidade e o pedido de horário com tudo o que ele precisa pra orçar.</p>
             <div class="case-chips">
-              <span>Direção de Arte</span><span>Cardápio online</span><span>Experiência imersiva</span>
+              <span>Direção de Arte</span><span>Agendamento próprio</span><span>Experiência imersiva</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/Monlebu/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <a class="case-live" href="https://azeugral.github.io/bernardo-art/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
           </div>
         </article>
 
-        <!-- 05 · Hono Ink — Kamile Hono, tatuadora fine line, Indaiatuba/SP -->
+        <!-- 05 · Samtto — tatupunk, Manaus/AM -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-samtto.jpg"
+                     data-lazy-video>
+                <source src="mockups/samtto.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Direção de arte</p>
+            <h3>Tatuagem Punk</h3>
+            <p>Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site segue a mesma estética da pele: ficha de artista, amostra das tatuagens por parte do corpo, o passo a passo de como agendar e a conversa saindo direto no WhatsApp.</p>
+            <div class="case-chips">
+              <span>Direção de Arte</span><span>Portfólio</span><span>Conversão via WhatsApp</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/samtto/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 06 · Erick Ratox — tribal e freehand, Salvador/BA -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-erick-ratox.jpg"
+                     data-lazy-video>
+                <source src="mockups/erick-ratox.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Direção de arte</p>
+            <h3>Tatuagem Tribal</h3>
+            <p>Um tatuador premiado de Salvador que veio do graffiti, do break e da roupa de rua antes da máquina. O site virou muro: o fundo é superfície pra pichar com o dedo, os estilos aparecem em adesivos de “HELLO my name is” e o orçamento sai pelo WhatsApp.</p>
+            <div class="case-chips">
+              <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/erick-ratox/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 07 · Hono Ink — fine line, Indaiatuba/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1279,12 +1334,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      preload="none"
                      poster="posters/poster-hono.jpg"
                      data-lazy-video>
-                <source src="Hono.mp4" type="video/mp4">
+                <source src="mockups/hono.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Landing page · Identidade visual</p>
             <h3>Tatuadora Fine Line</h3>
             <p>Uma tatuadora de traço fino, com estúdio privado que atende uma pessoa por vez, e que precisava de um site à altura desse cuidado. Criei uma landing page em tom de papel e tinta, que apresenta a artista antes da arte, organiza o portfólio por estilo e leva a cliente do orçamento ao agendamento pelo WhatsApp em poucos toques.</p>
@@ -1295,7 +1350,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 06 · Eric Cardozo — Tatuagem neo-oriental e blackwork, Sao Paulo/SP -->
+        <!-- 08 · Eric Cardozo — neo-oriental, São Paulo/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1307,12 +1362,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      preload="none"
                      poster="posters/poster-eric.jpg"
                      data-lazy-video>
-                <source src="Eric.mp4" type="video/mp4">
+                <source src="mockups/eric.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Landing page · Direção de arte</p>
             <h3>Tatuador Neo-oriental</h3>
             <p>Um tatuador especializado em neo-oriental e blackwork que precisava de uma presença digital com a mesma intensidade do seu trabalho. Desenvolvi uma landing page escura, com um único acento de cor e estética cinematográfica, apresentando o portfólio em carrossel, os estilos e o processo — com o agendamento pelo WhatsApp sempre à mão.</p>
@@ -1323,7 +1378,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 07 · Clinica Veterinaria Modelo & Pet Design, Tiete/SP -->
+        <!-- 09 · Agatha Amorim — fine line e ornamental, Diadema/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1333,14 +1388,126 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-3.jpg"
+                     poster="posters/poster-agatha.jpg"
                      data-lazy-video>
-                <source src="2026-08-17 16-20-14.mp4" type="video/mp4">
+                <source src="mockups/agatha.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
           <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Tatuagem Ornamental</h3>
+            <p>Uma tatuadora de fine line e ornamental, com estúdio privado em Diadema e uma arte que nasce da natureza. Montei um site delicado como o traço dela, com os trabalhos separados por estilo, o ritual do atendimento explicado e um painel onde ela mesma troca fotos e textos sem depender de ninguém.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Painel de edição</span><span>Portfólio</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/agatha-amorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 10 · Diva Tattoo — Praça da Árvore, São Paulo/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-diva.jpg"
+                     data-lazy-video>
+                <source src="mockups/diva.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Pontilhismo & Blackwork</h3>
+            <p>Uma tatuadora da Praça da Árvore que trabalha quatro estilos, todos em preto. O site herda o gótico em preto e roxo do Instagram dela, filtra os trabalhos por estilo num toque e conduz o cliente do pedido de orçamento até a medida do local no corpo.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Portfólio</span><span>Orçamento guiado</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/diva-tattoo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 11 · André Azevedo — fineline e realismo P&B, Capão Bonito/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-andre.jpg"
+                     data-lazy-video>
+                <source src="mockups/andre.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Realismo Preto e Branco</h3>
+            <p>Um tatuador de Capão Bonito que divide o trabalho entre o fineline delicado e o realismo em preto e branco. Construí o site em volta da logo dele, com os dois estilos separados, galeria que amplia no toque e o caminho do orçamento direto pela DM.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Portfólio</span><span>Mobile-first</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/andre-azevedo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 12 · Amanda Reali — cílios, sobrancelha e make -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-amanda.jpg"
+                     data-lazy-video>
+                <source src="mockups/amanda.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Cílios, Sobrancelha & Make</h3>
+            <p>Uma lash designer que também faz sobrancelha e maquiagem. O site explica cada técnica de extensão de cílios em linguagem simples, mostra a diferença entre os efeitos e leva a cliente da escolha ao agendamento.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Mobile-first</span><span>Conversão via WhatsApp</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/amanda-reali/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 13 · Clínica Veterinária Modelo — Tietê/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-clinica-modelo.jpg"
+                     data-lazy-video>
+                <source src="mockups/clinica-modelo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+<div class="case-body">
             <p class="tag">Site profissional · Identidade visual</p>
             <h3>Clínica Veterinária</h3>
             <p>Uma clínica veterinária que buscava fortalecer sua presença digital. Desenvolvi um site moderno e profissional, destacando serviços, especialidades e estrutura, com navegação intuitiva e foco em conversão.</p>
@@ -1351,7 +1518,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 08 · Scar Andrade — Tatuagem old school, Brasilia/DF -->
+        <!-- 14 · Monlebu Cookies — confeitaria, Tietê/SP -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1361,25 +1528,25 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-6.jpg"
+                     poster="posters/poster-monlebu.jpg"
                      data-lazy-video>
-                <source src="2026-08-26 18-56-22.mp4" type="video/mp4">
+                <source src="mockups/monlebu.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Site Profissional · Direção de arte</p>
-            <h3>Estúdio de tatuagem</h3>
-            <p>Um tatuador que precisava transformar seu trabalho artístico em uma experiência digital marcante. Desenvolvi um site com estética autoral e personalidade forte, valorizando o portfólio, os trabalhos realizados e a identidade do artista, com uma navegação pensada para apresentar seu trabalho e facilitar novos contatos.</p>
+            <h3>Cookies Artesanais</h3>
+            <p>Uma confeitaria artesanal que não queria parecer mais uma loja de doces. Desenvolvi um site que se comporta como galeria: a navegação percorre salas, cada cookie é apresentado como peça da coleção e uma trilha sonora acompanha a visita — com o pedido sempre a um toque de distância no cardápio online.</p>
             <div class="case-chips">
-              <span>Direção de Arte</span><span>Mobile-first</span><span>Portfólio</span>
+              <span>Direção de Arte</span><span>Cardápio online</span><span>Experiência imersiva</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/Scar/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <a class="case-live" href="https://azeugral.github.io/Monlebu/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
           </div>
         </article>
 
-        <!-- 09 · Lenny Amorim Beauty Studio — Nail design, Porto/PT -->
+        <!-- 15 · VitaCore — plataforma fitness -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1389,70 +1556,14 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      loop
                      playsinline
                      preload="none"
-                     poster="posters/poster-5.jpg"
+                     poster="posters/poster-vitacore.jpg"
                      data-lazy-video>
-                <source src="2026-08-26 18-55-49.mp4" type="video/mp4">
+                <source src="mockups/vitacore.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
-            <p class="tag">Site Profissional · Identidade visual</p>
-            <h3>Nail Designer</h3>
-            <p>Um estúdio de beleza que precisava de uma presença digital à altura da qualidade do seu trabalho. Desenvolvi um site elegante e sofisticado, com foco em identidade visual, apresentação do portfólio e uma experiência intuitiva que aproxima a profissional de novas clientes.</p>
-            <div class="case-chips">
-              <span>Identidade Visual</span><span>Mobile-first</span><span>Portfólio</span>
-            </div>
-            <a class="case-live" href="https://azeugral.github.io/lennyamorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
-          </div>
-        </article>
-
-        <!-- 10 · Ana Delgado — Extensao de cilios, Tiete/SP -->
-        <article class="case-card reveal tilt-card">
-          <div class="case-frame"><span></span><span></span><span></span> </div>
-          <div class="case-preview">
-            <div class="mock">
-              <video class="site-video"
-                     muted
-                     loop
-                     playsinline
-                     preload="none"
-                     poster="posters/poster-2.jpg"
-                     data-lazy-video>
-                <source src="2026-07-13 22-22-56.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="halftone"></div>
-          </div>
-          <div class="case-body">
-            <p class="tag">Landing page · Direção de arte</p>
-            <h3>Lash Designer</h3>
-            <p>Uma profissional da área da beleza que buscava fortalecer sua presença digital e transformar visitantes em clientes. Criei uma landing page elegante, valorizando o portfólio, os serviços e um fluxo de contato simples e direto pelo WhatsApp.</p>
-            <div class="case-chips">
-              <span>Landing page</span><span>Identidade Visual</span><span>Conversão via WhatsApp</span>
-            </div>
-            <a class="case-live" href="https://azeugral.github.io/site2/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
-          </div>
-        </article>
-
-        <!-- 11 · VitaCore — Plataforma fitness e metodo Fast90 -->
-        <article class="case-card reveal tilt-card">
-          <div class="case-frame"><span></span><span></span><span></span> </div>
-          <div class="case-preview">
-            <div class="mock">
-              <video class="site-video"
-                     muted
-                     loop
-                     playsinline
-                     preload="none"
-                     poster="posters/poster-4.jpg"
-                     data-lazy-video>
-                <source src="2026-08-17 16-21-19.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="halftone"></div>
-          </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Site profissional · Marketing</p>
             <h3>Site de vendas Fitness</h3>
             <p>Desenvolvimento de uma plataforma fitness completa, criada para reunir em um só lugar produtos recomendados, ferramentas gratuitas e conteúdos voltados à evolução física e ao emagrecimento. O projeto foi estruturado com uma navegação intuitiva e moderna, conectando o usuário a ofertas selecionadas, recursos como a calculadora de IMC e ao método Fast90, criando uma experiência integrada e focada em resultados.</p>
@@ -1463,7 +1574,63 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 12 · Bruna Lopes Cilios — Lash designer, Rio Verde/GO -->
+        <!-- 16 · Lenny Amorim — nail design, Porto/PT -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-lenny.jpg"
+                     data-lazy-video>
+                <source src="mockups/lenny.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+<div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Nail Designer</h3>
+            <p>Um estúdio de beleza que precisava de uma presença digital à altura da qualidade do seu trabalho. Desenvolvi um site elegante e sofisticado, com foco em identidade visual, apresentação do portfólio e uma experiência intuitiva que aproxima a profissional de novas clientes.</p>
+            <div class="case-chips">
+              <span>Identidade Visual</span><span>Mobile-first</span><span>Portfólio</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/lennyamorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 17 · RYMMAPROF — micropigmentação, Lisboa/PT -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-rymmaprof.jpg"
+                     data-lazy-video>
+                <source src="mockups/rymmaprof.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Profissional · Identidade visual</p>
+            <h3>Micropigmentação</h3>
+            <p>Uma especialista em micropigmentação em Lisboa, com 15 anos de profissão e 12 formando outras profissionais. O site, em português de Portugal, separa os dois públicos: clientes encontram os preços por zona e marcam pelo Booksy, alunas encontram a formação.</p>
+            <div class="case-chips">
+              <span>Site profissional</span><span>Mercado europeu</span><span>Agendamento online</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/rymmaprof/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 18 · Bruna Lopes — lash designer, Rio Verde/GO -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1475,12 +1642,12 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
                      preload="none"
                      poster="posters/poster-bruna.jpg"
                      data-lazy-video>
-                <source src="Bruna.mp4" type="video/mp4">
+                <source src="mockups/bruna.mp4" type="video/mp4">
               </video>
             </div>
             <div class="halftone"></div>
           </div>
-          <div class="case-body">
+<div class="case-body">
             <p class="tag">Landing page · Identidade visual</p>
             <h3>Lash Designer &amp; Visagista</h3>
             <p>Uma lash designer com certificação internacional que estava levando o próprio nome para uma nova cidade e precisava reconstruir sua presença digital do zero. Criei uma landing page que apresenta a profissional, explica cada técnica de extensão de cílios e leva a cliente até o agendamento pelo WhatsApp em poucos toques.</p>
@@ -1488,6 +1655,62 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
               <span>Landing page</span><span>Mobile-first</span><span>Conversão via WhatsApp</span>
             </div>
             <a class="case-live" href="https://azeugral.github.io/BrunaLopes/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 19 · Conecta Fundidos — representação industrial, Santa Bárbara d’Oeste/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-conecta.jpg"
+                     data-lazy-video>
+                <source src="mockups/conecta.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Institucional · B2B</p>
+            <h3>Representação Industrial</h3>
+            <p>Uma representação que conecta indústrias a fornecedores de peças fundidas, modelação e usinagem. Organizei uma oferta técnica difícil de explicar num site direto, que separa os serviços por material e leva o comprador ao contato pelo WhatsApp.</p>
+            <div class="case-chips">
+              <span>Site profissional</span><span>B2B</span><span>Conversão via WhatsApp</span>
+            </div>
+            <a class="case-live" href="https://www.conectafundidos.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+          </div>
+        </article>
+
+        <!-- 20 · WRM Equipamentos — peças para britadores, Santa Bárbara d’Oeste/SP -->
+        <article class="case-card reveal tilt-card">
+          <div class="case-frame"><span></span><span></span><span></span> </div>
+          <div class="case-preview">
+            <div class="mock">
+              <video class="site-video"
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     poster="posters/poster-wrm.jpg"
+                     data-lazy-video>
+                <source src="mockups/wrm.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="halftone"></div>
+          </div>
+          <div class="case-body">
+            <p class="tag">Site Institucional · B2B</p>
+            <h3>Peças para Britadores</h3>
+            <p>Uma indústria de Santa Bárbara d’Oeste que fabrica e recupera peças para britadores desde 2000. Transformei o conhecimento técnico num catálogo de 57 peças com foto, filtrado por modelo de equipamento, com uma lista de cotação que o comprador monta e envia de uma vez.</p>
+            <div class="case-chips">
+              <span>B2B</span><span>Catálogo de peças</span><span>Lista de cotação</span>
+            </div>
+            <a class="case-live" href="https://azeugral.github.io/wrm-equipamentos/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
           </div>
         </article>
 
@@ -2243,64 +2466,64 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Cardápio online':'Online menu',
     'Experiência imersiva':'Immersive experience',
 
-    /* 01 — Dra. Juliana Cubas */
+    /* Dra. Juliana Cubas */
     'Médica Veterinária':'Veterinarian',
     'Uma clínica veterinária premium que precisava transmitir confiança, cuidado e excelência em cada detalhe. Desenvolvi um site moderno com identidade visual refinada, navegação intuitiva e foco em conversão, facilitando o contato e o agendamento de consultas em qualquer dispositivo.':
       'A premium veterinary clinic that needed to convey trust, care and excellence in every detail. I built a modern site with a refined visual identity, intuitive navigation and a focus on conversion, making it easy to get in touch and book appointments from any device.',
 
-    /* 02 — Maronez */
+    /* Maronez */
     'Tatuador Freehand':'Freehand Tattoo Artist',
     'Multi-páginas':'Multi-page',
     'Um tatuador que desenha direto na pele, sem stencil, não fica num endereço fixo e sai em guest spot por outras cidades. Montei um site de várias páginas em cima disso: portfólio separado por trabalho, uma página só pra explicar o que é o freehand, o calendário de guest spots com lista de espera por cidade e o orçamento caindo direto no WhatsApp.':
       'A tattoo artist who draws straight onto skin with no stencil, works from no fixed address and travels for guest spots in other cities. I built a multi-page site around exactly that: the portfolio split by piece, a page devoted to explaining freehand, the guest-spot calendar with a waiting list per city, and quotes landing straight in WhatsApp.',
 
-    /* 03 — DAC Art Ink */
+    /* DAC Art Ink */
     'Tatuagem & Arte Autoral':'Tattoo & Original Art',
     'Loja integrada':'Integrated shop',
     'Uma artista que tatua, pinta e vende obra autoral, com tudo isso espalhado em lugares diferentes. Reuni num site só: os trabalhos na pele, a galeria de telas e ilustrações ligada à loja, as regras de sinal e agendamento e os cuidados pré e pós — com o orçamento saindo direto no WhatsApp.':
       'An artist who tattoos, paints and sells original work, with all of it scattered across different places. I brought it into a single site: the work on skin, the gallery of canvases and illustrations wired to the shop, the deposit and booking rules, and the before-and-after care — with quotes landing straight in WhatsApp.',
 
-    /* 04 — Monlebu Cookies */
+    /* Monlebu Cookies */
     'Cookies Artesanais':'Artisan Cookies',
     'Uma confeitaria artesanal que não queria parecer mais uma loja de doces. Desenvolvi um site que se comporta como galeria: a navegação percorre salas, cada cookie é apresentado como peça da coleção e uma trilha sonora acompanha a visita — com o pedido sempre a um toque de distância no cardápio online.':
       'An artisan bakery that refused to look like just another sweet shop. I built a site that behaves like a gallery: the navigation moves through rooms, every cookie is presented as a piece of the collection and a soundtrack follows the visit — with ordering always one tap away in the online menu.',
 
-    /* 05 — Hono Ink */
+    /* Hono Ink */
     'Tatuadora Fine Line':'Fine Line Tattoo Artist',
     'Uma tatuadora de traço fino, com estúdio privado que atende uma pessoa por vez, e que precisava de um site à altura desse cuidado. Criei uma landing page em tom de papel e tinta, que apresenta a artista antes da arte, organiza o portfólio por estilo e leva a cliente do orçamento ao agendamento pelo WhatsApp em poucos toques.':
       'A fine-line tattoo artist with a private studio that sees one person at a time, who needed a site worthy of that care. I created a paper-and-ink landing page that introduces the artist before the art, organises the portfolio by style and takes the client from quote to WhatsApp booking in just a few taps.',
 
-    /* 06 — Eric Cardozo */
+    /* Eric Cardozo */
     'Tatuador Neo-oriental':'Neo-Oriental Tattoo Artist',
     'Um tatuador especializado em neo-oriental e blackwork que precisava de uma presença digital com a mesma intensidade do seu trabalho. Desenvolvi uma landing page escura, com um único acento de cor e estética cinematográfica, apresentando o portfólio em carrossel, os estilos e o processo — com o agendamento pelo WhatsApp sempre à mão.':
       'A tattoo artist specialising in neo-oriental and blackwork who needed a digital presence as intense as his work. I built a dark landing page with a single accent colour and a cinematic feel, presenting the portfolio as a carousel, the styles and the process — with WhatsApp booking always within reach.',
 
-    /* 07 — Clínica Veterinária Modelo */
+    /* Clínica Veterinária Modelo */
     'Clínica Veterinária':'Veterinary Clinic',
     'Uma clínica veterinária que buscava fortalecer sua presença digital. Desenvolvi um site moderno e profissional, destacando serviços, especialidades e estrutura, com navegação intuitiva e foco em conversão.':
       'A veterinary clinic looking to strengthen its digital presence. I built a modern, professional site highlighting services, specialties and facilities, with intuitive navigation and a focus on conversion.',
 
-    /* 08 — Estúdio de tatuagem */
+    /* Estúdio de tatuagem */
     'Estúdio de tatuagem':'Tattoo Studio',
     'Um tatuador que precisava transformar seu trabalho artístico em uma experiência digital marcante. Desenvolvi um site com estética autoral e personalidade forte, valorizando o portfólio, os trabalhos realizados e a identidade do artista, com uma navegação pensada para apresentar seu trabalho e facilitar novos contatos.':
       'A tattoo artist who needed to turn their art into a digital experience just as striking. I built a site with a distinctive aesthetic and strong personality, showcasing the portfolio, the finished pieces and the artist’s identity, with navigation designed to present the work and make new enquiries effortless.',
 
-    /* 09 — Nail Designer */
+    /* Nail Designer */
     'Nail Designer':'Nail Designer',
     'Um estúdio de beleza que precisava de uma presença digital à altura da qualidade do seu trabalho. Desenvolvi um site elegante e sofisticado, com foco em identidade visual, apresentação do portfólio e uma experiência intuitiva que aproxima a profissional de novas clientes.':
       'A beauty studio that needed a digital presence worthy of the quality of its work. I built an elegant, refined site focused on visual identity, portfolio presentation and an intuitive experience that brings the artist closer to new clients.',
 
-    /* 10 — Lash Designer */
+    /* Lash Designer */
     'Lash Designer':'Lash Designer',
     'Uma profissional da área da beleza que buscava fortalecer sua presença digital e transformar visitantes em clientes. Criei uma landing page elegante, valorizando o portfólio, os serviços e um fluxo de contato simples e direto pelo WhatsApp.':
       'A beauty professional looking to strengthen her digital presence and turn visitors into clients. I created an elegant landing page that showcases the portfolio and services, with a simple, direct contact flow via WhatsApp.',
 
-    /* 11 — VitaCore */
+    /* VitaCore */
     'Site de vendas Fitness':'Fitness Sales Site',
     'Desenvolvimento de uma plataforma fitness completa, criada para reunir em um só lugar produtos recomendados, ferramentas gratuitas e conteúdos voltados à evolução física e ao emagrecimento. O projeto foi estruturado com uma navegação intuitiva e moderna, conectando o usuário a ofertas selecionadas, recursos como a calculadora de IMC e ao método Fast90, criando uma experiência integrada e focada em resultados.':
       'A complete fitness platform built to bring recommended products, free tools and content on physical progress and weight loss together in one place. The project was structured with modern, intuitive navigation, connecting users to selected offers, tools such as the BMI calculator and the Fast90 method — creating an integrated, results-focused experience.',
 
-    /* 12 — Bruna Lopes Cílios */
+    /* Bruna Lopes Cílios */
     'Lash Designer & Visagista':'Lash Designer & Visagist',
     'Uma lash designer com certificação internacional que estava levando o próprio nome para uma nova cidade e precisava reconstruir sua presença digital do zero. Criei uma landing page que apresenta a profissional, explica cada técnica de extensão de cílios e leva a cliente até o agendamento pelo WhatsApp em poucos toques.':
       'A lash designer with international certification taking her name to a new city and needing to rebuild her digital presence from scratch. I created a landing page that introduces her, explains each lash extension technique and takes the client to a WhatsApp booking in just a few taps.',
@@ -2376,6 +2599,47 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Abre a conversa com a mensagem escrita. Você confere e envia.':
       'Opens the chat with the message written out. You check it and hit send.',
     'Fechar':'Close',
+
+    /* — novos cards do portfólio — */
+    'Site Institucional · B2B':'Corporate website · B2B',
+    'Agendamento próprio':'Built-in booking',
+    'Painel de edição':'Self-edit panel',
+    'Orçamento guiado':'Guided quote',
+    'Mercado europeu':'European market',
+    'Agendamento online':'Online booking',
+    'B2B':'B2B',
+    'Catálogo de peças':'Parts catalogue',
+    'Lista de cotação':'Quote list',
+    'Tatuagem Abstrata':'Abstract Tattoo',
+    'Tatuagem Punk':'Punk Tattoo',
+    'Tatuagem Tribal':'Tribal Tattoo',
+    'Tatuagem Ornamental':'Ornamental Tattoo',
+    'Pontilhismo & Blackwork':'Dotwork & Blackwork',
+    'Realismo Preto e Branco':'Black & Grey Realism',
+    'Cílios, Sobrancelha & Make':'Lashes, Brows & Makeup',
+    'Micropigmentação':'Permanent Makeup',
+    'Representação Industrial':'Industrial Sourcing',
+    'Peças para Britadores':'Crusher Parts',
+    'Um tatuador de trabalhos abstratos e sempre autorais, com agenda que circula entre Rio, São Paulo e Paris. Tirei o agendamento do formulário genérico e trouxe pra dentro do site: o arquivo completo de trabalhos, as regras do que ele faz e não faz, a agenda por cidade e o pedido de horário com tudo o que ele precisa pra orçar.':
+      'An abstract tattoo artist whose work is always original, with a schedule that moves between Rio, São Paulo and Paris. I took booking out of a generic form and brought it into the site: the full archive of work, the rules of what he does and doesn’t do, the schedule by city, and a booking request that collects everything he needs to quote.',
+    'Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site segue a mesma estética da pele: ficha de artista, amostra das tatuagens por parte do corpo, o passo a passo de como agendar e a conversa saindo direto no WhatsApp.':
+      'A punk tattoo artist from Manaus with a dirty line in red and black. The site follows the same aesthetic as the skin: an artist profile, a sample of tattoos by body part, a step-by-step on how to book, and the conversation going straight to WhatsApp.',
+    'Um tatuador premiado de Salvador que veio do graffiti, do break e da roupa de rua antes da máquina. O site virou muro: o fundo é superfície pra pichar com o dedo, os estilos aparecem em adesivos de “HELLO my name is” e o orçamento sai pelo WhatsApp.':
+      'An award-winning tattoo artist from Salvador who came from graffiti, breaking and streetwear before the machine. The site became a wall: the background is a surface to tag with your finger, the styles show up on “HELLO my name is” stickers, and quotes go out through WhatsApp.',
+    'Uma tatuadora de fine line e ornamental, com estúdio privado em Diadema e uma arte que nasce da natureza. Montei um site delicado como o traço dela, com os trabalhos separados por estilo, o ritual do atendimento explicado e um painel onde ela mesma troca fotos e textos sem depender de ninguém.':
+      'A fine line and ornamental tattoo artist with a private studio in Diadema and work that grows out of nature. I built a site as delicate as her line, with work split by style, the appointment ritual explained, and a panel where she swaps photos and text herself without depending on anyone.',
+    'Uma tatuadora da Praça da Árvore que trabalha quatro estilos, todos em preto. O site herda o gótico em preto e roxo do Instagram dela, filtra os trabalhos por estilo num toque e conduz o cliente do pedido de orçamento até a medida do local no corpo.':
+      'A tattoo artist from Praça da Árvore working four styles, all in black. The site inherits the black-and-purple gothic of her Instagram, filters the work by style in one tap, and guides the client from the quote request to measuring the spot on the body.',
+    'Um tatuador de Capão Bonito que divide o trabalho entre o fineline delicado e o realismo em preto e branco. Construí o site em volta da logo dele, com os dois estilos separados, galeria que amplia no toque e o caminho do orçamento direto pela DM.':
+      'A tattoo artist from Capão Bonito who splits his work between delicate fineline and black-and-grey realism. I built the site around his logo, with the two styles kept apart, a gallery that enlarges on tap, and the path to a quote straight through DM.',
+    'Uma lash designer que também faz sobrancelha e maquiagem. O site explica cada técnica de extensão de cílios em linguagem simples, mostra a diferença entre os efeitos e leva a cliente da escolha ao agendamento.':
+      'A lash designer who also does brows and makeup. The site explains each lash extension technique in plain language, shows the difference between the effects, and takes the client from choosing to booking.',
+    'Uma especialista em micropigmentação em Lisboa, com 15 anos de profissão e 12 formando outras profissionais. O site, em português de Portugal, separa os dois públicos: clientes encontram os preços por zona e marcam pelo Booksy, alunas encontram a formação.':
+      'A permanent makeup specialist in Lisbon with 15 years in the trade and 12 training other professionals. The site, in European Portuguese, separates the two audiences: clients find prices by area and book through Booksy, students find the training.',
+    'Uma representação que conecta indústrias a fornecedores de peças fundidas, modelação e usinagem. Organizei uma oferta técnica difícil de explicar num site direto, que separa os serviços por material e leva o comprador ao contato pelo WhatsApp.':
+      'A sourcing firm connecting manufacturers to suppliers of cast parts, pattern making and machining. I organised a technical offer that is hard to explain into a direct site that splits the services by material and takes the buyer to a WhatsApp conversation.',
+    'Uma indústria de Santa Bárbara d’Oeste que fabrica e recupera peças para britadores desde 2000. Transformei o conhecimento técnico num catálogo de 57 peças com foto, filtrado por modelo de equipamento, com uma lista de cotação que o comprador monta e envia de uma vez.':
+      'A manufacturer in Santa Bárbara d’Oeste that has built and rebuilt crusher parts since 2000. I turned their technical know-how into a catalogue of 57 parts with photos, filtered by equipment model, with a quote list the buyer builds and sends in one go.',
 
     /* — contato — */
     '/ Vamos começar':'/ Let’s begin',
