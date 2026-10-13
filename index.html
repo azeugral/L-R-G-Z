@@ -908,7 +908,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   border:1px solid var(--line); background:var(--surface);
   padding:clamp(1.8rem,3.2vw,2.6rem);
   transition:border-color .4s var(--ease);
+  display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  gap:clamp(1.8rem,4vw,3.4rem); align-items:start;
 }
+@media (max-width:900px){ .price-box{ grid-template-columns:minmax(0,1fr); } }
 .price-box:hover{ border-color:var(--gray-dim); }
 
 .price-list .price-list-head{
@@ -916,10 +919,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   text-transform:uppercase; color:var(--gray-dim); margin-bottom:1.3rem;
 }
 .price-list ul{
-  list-style:none; display:grid; grid-template-columns:repeat(2,1fr);
+  list-style:none; display:grid; grid-template-columns:minmax(0,1fr);
   gap:.85rem clamp(1.5rem,3vw,2.6rem); margin:0; padding:0;
 }
-@media (max-width:760px){ .price-list ul{ grid-template-columns:1fr; } }
 .price-list li{
   color:var(--gray); font-weight:300; font-size:.92rem;
   display:flex; align-items:flex-start; gap:.7rem;
@@ -958,10 +960,36 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   50%    { box-shadow:0 0 42px rgba(0,229,255,.22), inset 0 0 34px rgba(0,229,255,.09); }
 }
 
-.price-cta{ margin-top:clamp(1.6rem,3vw,2.2rem); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
-.price-cta .fine{ font-family:var(--font-mono); font-size:.7rem; color:var(--gray-dim); }
+/* card de preco */
+.price-card{
+  background:var(--black); border:1px solid var(--line);
+  padding:clamp(1.5rem,2.6vw,2.1rem);
+}
+.pc-from{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--gray);
+}
+.pc-valor{ display:flex; align-items:flex-start; gap:.4rem; margin-top:.5rem; line-height:1; }
+.pc-moeda{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.1rem,2vw,1.4rem); margin-top:.3em; }
+.pc-num{ font-family:var(--font-display); font-weight:600; font-size:clamp(3rem,6vw,4.4rem); letter-spacing:-.02em; }
+.pc-nota{ color:var(--gray); font-weight:300; font-size:.92rem; margin-top:1rem; }
+.pc-linhas{ margin:1.5rem 0 0; }
+.pc-linhas > div{
+  display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+  padding:.95rem 0; border-top:1px solid var(--line);
+}
+.pc-linhas > div:last-child{ border-bottom:1px solid var(--line); }
+/* o rotulo cede espaco: valores curtos ("1 ano gratis") ficam numa linha so */
+.pc-linhas dt{ color:var(--gray); font-size:.9rem; font-weight:300; flex:1 1 0; min-width:0; }
+.pc-linhas dd{ margin:0; color:var(--white); font-size:.9rem; font-weight:500; text-align:right; flex:0 1 auto; max-width:58%; }
+.pc-cta{ width:100%; justify-content:center; text-align:center; margin-top:1.6rem; }
 @media (max-width:600px){
-  .price-cta .btn{ width:100%; justify-content:center; }
+  .pc-cta{ padding-inline:1rem; letter-spacing:.04em; }
+}
+/* tela bem estreita: rotulo em cima, valor embaixo, cada um com a largura toda */
+@media (max-width:360px){
+  .pc-linhas > div{ flex-direction:column; align-items:flex-start; gap:.25rem; }
+  .pc-linhas dd{ text-align:left; max-width:none; }
 }
 @media (prefers-reduced-motion: reduce){
   .price-flag{ animation:none; box-shadow:0 0 26px rgba(0,229,255,.14); }
@@ -1797,9 +1825,9 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
   <!-- ============ INVESTIMENTO ============ -->
   <!-- ===================================================================
-       O que está incluso em todo projeto. O valor não aparece aqui de
-       propósito: a região é perguntada no modal de orçamento, e o preço
-       vai na resposta do WhatsApp, já na moeda certa.
+       O que está incluso em todo projeto + card de preço e prazos. O botão
+       do card (#abrirOrcamento) abre o modal de orçamento, que pergunta a
+       região; o valor final vai na resposta do WhatsApp.
        Se traduzir o site, atualize também o dicionário EN mais abaixo.
        =================================================================== -->
   <section class="section" id="investimento">
@@ -1816,16 +1844,28 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
         <div class="price-list">
           <p class="price-list-head">O que está incluso</p>
           <ul>
-            <li>Landing page ou site simples, feito do zero pro seu negócio</li>
-            <li>Domínio próprio configurado e publicado</li>
-            <li>Certificado SSL — o cadeado de site seguro</li>
-            <li>CTA e contato direto no WhatsApp, sem formulário genérico</li>
-            <li>Responsivo de verdade, pensado primeiro no celular</li>
-            <li>Otimizado para o Google, com foco em busca local</li>
-            <li>Acabamento premium: direção de arte própria, nada de template</li>
-            <li>Suporte e ajustes depois da entrega</li>
+            <li>Até 5 páginas (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio</li>
+            <li>Textos escritos a partir do que você me contar; você revisa, eu ajusto</li>
+            <li>Funciona no celular — é onde 8 em cada 10 clientes vão abrir</li>
+            <li>Botão de WhatsApp em toda página, e formulário de contato que chega no seu e-mail</li>
+            <li>Google: títulos, descrições e velocidade prontos pra indexar; cadastro no Perfil de Empresa do Google se você ainda não tiver</li>
+            <li>Domínio .com.br incluso, registrado no seu nome — é seu, não meu</li>
+            <li>Você aprende a editar textos e fotos em 15 minutos, sem depender de mim</li>
           </ul>
         </div>
+
+        <aside class="price-card" aria-label="Preço e prazos">
+          <p class="pc-from">a partir de</p>
+          <p class="pc-valor"><span class="pc-moeda">R$</span><span class="pc-num">500</span></p>
+          <p class="pc-nota">Hospedagem e domínio .com.br grátis no primeiro ano.</p>
+          <dl class="pc-linhas">
+            <div><dt>Primeira versão</dt><dd>em 48 horas</dd></div>
+            <div><dt>Entrega</dt><dd>em até 7 dias</dd></div>
+            <div><dt>Pagamento</dt><dd>metade pra começar, metade na entrega</dd></div>
+            <div><dt>Hospedagem + domínio .com.br</dt><dd>1 ano grátis</dd></div>
+          </dl>
+          <a href="https://wa.me/5519984428872" target="_blank" rel="noopener" class="btn pc-cta" id="abrirOrcamento">Quero meu site em 7 dias</a>
+        </aside>
       </div>
 
       <div class="price-flag reveal">
@@ -1834,11 +1874,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <span class="lead">Valores promocionais, abaixo do mercado.</span>
           <span class="sub">Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.</span>
         </span>
-      </div>
-
-      <div class="price-cta reveal" style="--rd:.1s">
-        <a href="https://wa.me/5519984428872" target="_blank" rel="noopener" class="btn" id="abrirOrcamento">Pedir orçamento</a>
-        <span class="fine">Resposta minha, no mesmo dia.</span>
       </div>
 
     </div>
@@ -2614,6 +2649,32 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.':
       'While I build out a strong portfolio. Whoever comes in now pays this price.',
     'Pedir orçamento':'Request a quote',
+    'Até 5 páginas (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio':
+      'Up to 5 pages (home, about, services, contact and one more) — or a single conversion page, if it is for ads',
+    'Textos escritos a partir do que você me contar; você revisa, eu ajusto':
+      'Copy written from what you tell me; you review, I adjust',
+    'Funciona no celular — é onde 8 em cada 10 clientes vão abrir':
+      'Works on phones — where 8 in 10 of your clients will open it',
+    'Botão de WhatsApp em toda página, e formulário de contato que chega no seu e-mail':
+      'WhatsApp button on every page, and a contact form that lands in your inbox',
+    'Google: títulos, descrições e velocidade prontos pra indexar; cadastro no Perfil de Empresa do Google se você ainda não tiver':
+      'Google: titles, descriptions and speed ready to be indexed; Google Business Profile set up if you do not have one yet',
+    'Domínio .com.br incluso, registrado no seu nome — é seu, não meu':
+      '.com.br domain included, registered in your name — it is yours, not mine',
+    'Você aprende a editar textos e fotos em 15 minutos, sem depender de mim':
+      'You learn to edit text and photos in 15 minutes, without depending on me',
+    'Preço e prazos':'Price and timelines',
+    'a partir de':'from',
+    'Hospedagem e domínio .com.br grátis no primeiro ano.':'Hosting and a .com.br domain free for the first year.',
+    'Primeira versão':'First version',
+    'em 48 horas':'within 48 hours',
+    'Entrega':'Delivery',
+    'em até 7 dias':'within 7 days',
+    'Pagamento':'Payment',
+    'metade pra começar, metade na entrega':'half to start, half on delivery',
+    'Hospedagem + domínio .com.br':'Hosting + .com.br domain',
+    '1 ano grátis':'1 year free',
+    'Quero meu site em 7 dias':'I want my site in 7 days',
     'Resposta minha, no mesmo dia.':'You get an answer from me, same day.',
     'Brasil':'Brazil',
     'Europa':'Europe',
