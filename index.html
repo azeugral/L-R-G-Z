@@ -586,9 +586,6 @@ body.menu-open{ overflow:hidden; }
     display:block;
 }
 .case-preview .mock{ position:absolute; inset:0; padding:9%; display:flex; flex-direction:column; gap:8%; }
-.case-preview .mock .mock-row{ display:flex; gap:6%; align-items:center; }
-.case-preview .mock .mock-bar{ height:9px; background:var(--line); }
-.case-preview .mock .mock-block{ background:var(--line-soft); flex:1; }
 .case-preview .halftone{
   position:absolute; inset:0; pointer-events:none;
   background-image:radial-gradient(var(--black) 35%, transparent 36%);
@@ -632,11 +629,6 @@ body.menu-open{ overflow:hidden; }
 .contact-row .value{ font-family:var(--font-display); font-size:clamp(1rem,1.8vw,1.3rem); }
 .contact-row .arrow{ font-family:var(--font-mono); color:var(--gray-dim); transition:transform .3s var(--ease), color .3s var(--ease); }
 .contact-row:hover .arrow{ transform:translateX(4px); color:var(--white); }
-.checkout-wrapper{
-    display:flex;
-    flex-direction:column;
-}
-
 .course-cover{
     width:100%;
     max-width:480px;
@@ -650,34 +642,6 @@ body.menu-open{ overflow:hidden; }
 
 .course-cover:hover{
     transform:translateY(-6px);
-}
-
-.checkout-box{
-    width:100%;
-    aspect-ratio:1/1;
-
-    border:8px solid #fff;
-
-    background:#000;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-}
-
-/* caso use iframe */
-.checkout-box iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-/* caso use widget da Hotmart */
-.checkout-box .hotmart-widget{
-    width:100%;
-    height:100%;
 }
 
 .cta-buy{
@@ -1290,7 +1254,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           </div>
         </article>
 
-        <!-- 05 · Samtto — tatupunk, Manaus/AM -->
+        <!-- 05 · Samtto — tatupunk, Manaus/AM (samtto.com.br; mockup = tour, ver samtto_tour.py) -->
         <article class="case-card reveal tilt-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
@@ -1310,11 +1274,11 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <div class="case-body">
             <p class="tag">Site Profissional · Direção de arte</p>
             <h3>Tatuagem Punk</h3>
-            <p>Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site segue a mesma estética da pele: ficha de artista, amostra das tatuagens por parte do corpo, o passo a passo de como agendar e a conversa saindo direto no WhatsApp.</p>
+            <p>Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site virou uma área de trabalho de computador antigo: ícones em pixel abrem o acervo de tatuagens, os desenhos disponíveis, o agendamento e as dúvidas, tudo na mesma estética da pele, com domínio próprio e o pedido saindo direto no WhatsApp.</p>
             <div class="case-chips">
-              <span>Direção de Arte</span><span>Portfólio</span><span>Conversão via WhatsApp</span>
+              <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/samtto/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <a class="case-live" href="https://samtto.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
           </div>
         </article>
 
@@ -2403,7 +2367,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     '. Crio sites para negócios que já são bons no que fazem — e que merecem parecer isso também online. Sem template genérico, sem enrolação.':
       '. I build websites for businesses that are already good at what they do — and deserve to look like it online. No generic templates, no fluff.',
     'Ver projetos ↓':'See the work ↓',
-    'Iniciar conversa':'Start a conversation',
     'Baseado em São Paulo — atendo todo o Brasil, remoto':
       'Based in São Paulo, Brazil — working remotely with clients worldwide',
     'lrgz — build':'lrgz — build',
@@ -2541,9 +2504,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       'A veterinary clinic looking to strengthen its digital presence. I built a modern, professional site highlighting services, specialties and facilities, with intuitive navigation and a focus on conversion.',
 
     /* Estúdio de tatuagem */
-    'Estúdio de tatuagem':'Tattoo Studio',
-    'Um tatuador que precisava transformar seu trabalho artístico em uma experiência digital marcante. Desenvolvi um site com estética autoral e personalidade forte, valorizando o portfólio, os trabalhos realizados e a identidade do artista, com uma navegação pensada para apresentar seu trabalho e facilitar novos contatos.':
-      'A tattoo artist who needed to turn their art into a digital experience just as striking. I built a site with a distinctive aesthetic and strong personality, showcasing the portfolio, the finished pieces and the artist’s identity, with navigation designed to present the work and make new enquiries effortless.',
 
     /* Nail Designer */
     'Nail Designer':'Nail Designer',
@@ -2552,8 +2512,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
     /* Lash Designer */
     'Lash Designer':'Lash Designer',
-    'Uma profissional da área da beleza que buscava fortalecer sua presença digital e transformar visitantes em clientes. Criei uma landing page elegante, valorizando o portfólio, os serviços e um fluxo de contato simples e direto pelo WhatsApp.':
-      'A beauty professional looking to strengthen her digital presence and turn visitors into clients. I created an elegant landing page that showcases the portfolio and services, with a simple, direct contact flow via WhatsApp.',
 
     /* VitaCore */
     'Site de vendas Fitness':'Fitness Sales Site',
@@ -2593,23 +2551,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Todo projeto sai com tudo isso. O valor depende do tamanho do que você precisa — e sai fechado na primeira conversa, sem surpresa no meio do caminho.':
       'Every project ships with all of this. The price depends on the size of what you need — and it gets settled in the first conversation, with no surprises later.',
     'O que está incluso':'What you get',
-    'Landing page ou site simples, feito do zero pro seu negócio':
-      'Landing page or simple site, built from scratch for your business',
-    'Domínio próprio configurado e publicado':
-      'Your own domain, set up and published',
-    'Certificado SSL — o cadeado de site seguro':
-      'SSL certificate — the secure-site padlock',
-    'CTA e contato direto no WhatsApp, sem formulário genérico':
-      'Clear CTA and direct WhatsApp contact, no generic form',
-    'Responsivo de verdade, pensado primeiro no celular':
-      'Genuinely responsive, designed mobile-first',
-    'Otimizado para o Google, com foco em busca local':
-      'Optimised for Google, with a focus on local search',
-    'Acabamento premium: direção de arte própria, nada de template':
-      'Premium finish: original art direction, never a template',
-    'Suporte e ajustes depois da entrega':
-      'Support and tweaks after handover',
-    'Pedir orçamento':'Request a quote',
     'Até 5 páginas (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio':
       'Up to 5 pages (home, about, services, contact and one more) — or a single conversion page, if it is for ads',
     'Textos escritos a partir do que você me contar; você revisa, eu ajusto':
@@ -2636,7 +2577,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Hospedagem + domínio .com.br':'Hosting + .com.br domain',
     '1 ano grátis':'1 year free',
     'Quero meu site em 7 dias':'I want my site in 7 days',
-    'Resposta minha, no mesmo dia.':'You get an answer from me, same day.',
     'Brasil':'Brazil',
     'Europa':'Europe',
     'Reino Unido':'United Kingdom',
@@ -2681,8 +2621,8 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Peças para Britadores':'Crusher Parts',
     'Um tatuador de trabalhos abstratos e sempre autorais, com agenda que circula entre Rio, São Paulo e Paris. Tirei o agendamento do formulário genérico e trouxe pra dentro do site: o arquivo completo de trabalhos, as regras do que ele faz e não faz, a agenda por cidade e o pedido de horário com tudo o que ele precisa pra orçar.':
       'An abstract tattoo artist whose work is always original, with a schedule that moves between Rio, São Paulo and Paris. I took booking out of a generic form and brought it into the site: the full archive of work, the rules of what he does and doesn’t do, the schedule by city, and a booking request that collects everything he needs to quote.',
-    'Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site segue a mesma estética da pele: ficha de artista, amostra das tatuagens por parte do corpo, o passo a passo de como agendar e a conversa saindo direto no WhatsApp.':
-      'A punk tattoo artist from Manaus with a dirty line in red and black. The site follows the same aesthetic as the skin: an artist profile, a sample of tattoos by body part, a step-by-step on how to book, and the conversation going straight to WhatsApp.',
+    'Um tatuador punk de Manaus, de traço sujo, vermelho e preto. O site virou uma área de trabalho de computador antigo: ícones em pixel abrem o acervo de tatuagens, os desenhos disponíveis, o agendamento e as dúvidas, tudo na mesma estética da pele, com domínio próprio e o pedido saindo direto no WhatsApp.':
+      'A punk tattoo artist from Manaus with a dirty line in red and black. The site became an old computer desktop: pixel icons open the tattoo archive, the available flash, booking and FAQs, all in the same aesthetic as the skin, on its own domain and with requests going straight to WhatsApp.',
     'Um tatuador premiado de Salvador que veio do graffiti, do break e da roupa de rua antes da máquina. O site virou muro: o fundo é superfície pra pichar com o dedo, os estilos aparecem em adesivos de “HELLO my name is” e o orçamento sai pelo WhatsApp.':
       'An award-winning tattoo artist from Salvador who came from graffiti, breaking and streetwear before the machine. The site became a wall: the background is a surface to tag with your finger, the styles show up on “HELLO my name is” stickers, and quotes go out through WhatsApp.',
     'Uma tatuadora de fine line e ornamental, com estúdio privado em Diadema e uma arte que nasce da natureza. Montei um site delicado como o traço dela, com os trabalhos separados por estilo, o ritual do atendimento explicado e um painel onde ela mesma troca fotos e textos sem depender de ninguém.':
