@@ -703,7 +703,8 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
   try {
     var saved = localStorage.getItem(STORAGE_KEY);
     if(saved === 'en' || saved === 'pt') lang = saved;
-    else if((navigator.language || '').toLowerCase().indexOf('pt') !== 0) lang = 'en';
+    /* sem deteccao automatica pelo idioma do navegador: o robo do Google
+       navega em ingles e indexava a versao EN. Ingles so pelo botao. */
   } catch(e){}
 
   window.LRGZ_LANG = lang;

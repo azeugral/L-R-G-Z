@@ -56,7 +56,10 @@
    "priceRange": "A partir de R$ 500",
    "address": {
     "@type": "PostalAddress",
+    "streetAddress": "R. Paulo de Moraes, 88 - Centro",
+    "addressLocality": "Santa Bárbara d'Oeste",
     "addressRegion": "SP",
+    "postalCode": "13450-036",
     "addressCountry": "BR"
    },
    "areaServed": [
@@ -886,30 +889,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 .case-live:hover .ar{ transform:translate(2px,-2px); }
 
 /* ============================================
-   DEPOIMENTOS
-   ============================================ */
-.reviews-grid{
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:clamp(1.2rem,2.4vw,2rem); margin-top:clamp(2.5rem,5vw,4rem);
-}
-@media (max-width:900px){ .reviews-grid{ grid-template-columns:1fr; } }
-.review{
-  margin:0; border:1px solid var(--line); background:var(--surface);
-  padding:clamp(1.6rem,2.6vw,2.2rem);
-  display:flex; flex-direction:column; gap:1.3rem;
-  transition:border-color .4s var(--ease);
-}
-.review:hover{ border-color:var(--gray-dim); }
-.review .qm{ font-family:var(--font-display); font-size:2.2rem; line-height:.5; color:var(--gray-dim); }
-.review p{ color:var(--gray); font-weight:300; font-size:.95rem; line-height:1.65; flex:1; margin:0; }
-.review .review-by{ border-top:1px solid var(--line); padding-top:1.1rem; }
-.review .who{ font-family:var(--font-display); font-size:.95rem; text-transform:uppercase; }
-.review .role{
-  font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--gray-dim); margin-top:.4rem;
-}
-
-/* ============================================
    BOTAO FLUTUANTE DE WHATSAPP
    ============================================ */
 .wa-float{
@@ -1086,7 +1065,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 
 @media (max-width:600px), (pointer:coarse) and (max-height:500px){
   /* nada de texto abaixo de ~11,5px no celular */
-  .case-body .tag, .case-chips span, .review .role,
+  .case-body .tag, .case-chips span,
   .price-list .price-list-head{ font-size:.74rem; }
   .footer-links a{ display:inline-block; padding-block:.8rem; }
   .nav-logo{ padding-block:11px; }
@@ -1922,56 +1901,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     </div>
   </section>
 
-  <!-- ============ DEPOIMENTOS ============ -->
-  <!-- ===================================================================
-       ⚠ TEXTOS PROVISÓRIOS. Os três depoimentos abaixo foram escritos
-       como rascunho para você substituir pelas frases reais dos clientes.
-       Troque a frase, o nome e a linha de função/cidade de cada bloco.
-       Se traduzir o site, atualize também o dicionário EN lá embaixo.
-       =================================================================== -->
-  <section class="section" id="depoimentos">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">/ Depoimentos</p>
-          <h2 class="section-title">O que dizem depois do site no ar</h2>
-        </div>
-        <p class="section-note">Três projetos, três países — e o site de cada um no ar pra você conferir.</p>
-      </div>
-
-      <div class="reviews-grid">
-
-        <blockquote class="review reveal">
-          <div class="qm" aria-hidden="true">“</div>
-          <p>Eu já tinha tentado antes e o que veio foi um site bonito que não trazia ninguém. Aqui foi diferente: ele entendeu que o meu atendimento é a domicílio e montou a página inteira em cima disso. Hoje a maior parte dos meus agendamentos entra pelo site.</p>
-          <div class="review-by">
-            <div class="who">Dra. Juliana Cubas</div>
-            <div class="role">Veterinária a domicílio · Tietê, SP</div>
-          </div>
-        </blockquote>
-
-        <blockquote class="review reveal" style="--rd:.08s">
-          <div class="qm" aria-hidden="true">“</div>
-          <p>Estava à espera de mais um site igual a todos os outros e enganei-me. Percebeu o que fazemos melhor do que eu própria conseguia explicar, e no telemóvel ficou impecável. Já tivemos marcações de gente que nos encontrou pelo Google.</p>
-          <div class="review-by">
-            <div class="who">Rita Fontoura</div>
-            <div class="role">Atelier de costura · Coimbra, PT</div>
-          </div>
-        </blockquote>
-
-        <blockquote class="review reveal" style="--rd:.16s">
-          <div class="qm" aria-hidden="true">“</div>
-          <p>I put this off for two years because every quote came back with the same template. This was the opposite — he asked about the shop before he asked about the design. It loads fast, it looks like us, and I can update it myself.</p>
-          <div class="review-by">
-            <div class="who">Claire Mensah</div>
-            <div class="role">Ceramics studio · Bristol, UK</div>
-          </div>
-        </blockquote>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ============ CTA / CONTATO ============ -->
   <section class="section" id="contato">
     <div class="container cta-inner">
@@ -2087,7 +2016,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       <a href="#servicos">Serviços</a>
       <a href="#investimento">Investimento</a>
       <a href="#projetos">Projetos</a>
-      <a href="#depoimentos">Depoimentos</a>
       <a href="#contato">Contato</a>
       <a href="#curso" data-only="pt">Comprar Agora</a>
     </div>
@@ -2597,19 +2525,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     /* — link dos cards — */
     'Ver site ao vivo':'View live site',
 
-    /* — depoimentos — */
-    '/ Depoimentos':'/ Testimonials',
-    'Depoimentos':'Testimonials',
-    'O que dizem depois do site no ar':'What they say once the site is live',
-    'Três projetos, três países — e o site de cada um no ar pra você conferir.':
-      'Three projects, three countries — and every one of them live for you to check.',
-    'Eu já tinha tentado antes e o que veio foi um site bonito que não trazia ninguém. Aqui foi diferente: ele entendeu que o meu atendimento é a domicílio e montou a página inteira em cima disso. Hoje a maior parte dos meus agendamentos entra pelo site.':
-      'I had tried before and what I got was a pretty site that brought nobody in. This was different: he understood that I work through house calls and built the whole page around that. Today most of my bookings come through the site.',
-    'Dra. Juliana Cubas':'Dr. Juliana Cubas',
-    'Veterinária a domicílio · Tietê, SP':'House-call veterinarian · Tietê, Brazil',
-    'Estava à espera de mais um site igual a todos os outros e enganei-me. Percebeu o que fazemos melhor do que eu própria conseguia explicar, e no telemóvel ficou impecável. Já tivemos marcações de gente que nos encontrou pelo Google.':
-      'I was expecting yet another site like all the others and I was wrong. He understood what we do better than I could explain it myself, and on mobile it turned out flawless. We have already had bookings from people who found us on Google.',
-    'Atelier de costura · Coimbra, PT':'Tailoring atelier · Coimbra, Portugal',
 
     /* — CTAs de WhatsApp — */
     'Falar no WhatsApp':'Message on WhatsApp',
@@ -2851,7 +2766,8 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   try {
     var saved = localStorage.getItem(STORAGE_KEY);
     if(saved === 'en' || saved === 'pt') lang = saved;
-    else if((navigator.language || '').toLowerCase().indexOf('pt') !== 0) lang = 'en';
+    /* sem deteccao automatica pelo idioma do navegador: o robo do Google
+       navega em ingles e indexava a versao EN. Ingles so pelo botao. */
   } catch(e){}
 
   window.LRGZ_LANG = lang;
