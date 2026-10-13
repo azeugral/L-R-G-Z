@@ -931,30 +931,7 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
   flex:none; margin-top:.5em;
 }
 
-/* faixa promocional — precisa ser lida */
-.price-flag{
-  margin-top:clamp(1.8rem,3.5vw,2.6rem);
-  padding:clamp(1.1rem,2vw,1.5rem) clamp(1.2rem,2.2vw,1.7rem);
-  display:flex; align-items:flex-start; gap:1rem;
-  border:1px solid rgba(0,229,255,.38);
-  background:linear-gradient(100deg, rgba(0,229,255,.09), rgba(0,229,255,.025) 55%, transparent);
-  animation:flagGlow 3.6s ease-in-out infinite;
-}
-.price-flag .dot{
-  width:7px; height:7px; border-radius:50%; background:var(--cyan);
-  box-shadow:0 0 10px rgba(0,229,255,.9); animation:blink 2.4s infinite;
-  flex:none; margin-top:.45em;
-}
-.price-flag .flag-txt{ display:flex; flex-direction:column; gap:.45rem; }
-.price-flag .lead{
-  font-family:var(--font-mono); font-weight:500;
-  font-size:clamp(.86rem,1.5vw,1rem); letter-spacing:.02em;
-  color:var(--white); text-shadow:0 0 18px rgba(0,229,255,.45);
-}
-.price-flag .sub{
-  font-family:var(--font-mono); font-size:clamp(.74rem,1.2vw,.82rem);
-  line-height:1.6; color:var(--gray);
-}
+/* brilho ciano pulsante (usado no bloco de compra do curso) */
 @keyframes flagGlow{
   0%,100%{ box-shadow:0 0 22px rgba(0,229,255,.10), inset 0 0 26px rgba(0,229,255,.04); }
   50%    { box-shadow:0 0 42px rgba(0,229,255,.22), inset 0 0 34px rgba(0,229,255,.09); }
@@ -990,10 +967,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 @media (max-width:360px){
   .pc-linhas > div{ flex-direction:column; align-items:flex-start; gap:.25rem; }
   .pc-linhas dd{ text-align:left; max-width:none; }
-}
-@media (prefers-reduced-motion: reduce){
-  .price-flag{ animation:none; box-shadow:0 0 26px rgba(0,229,255,.14); }
-  .price-flag .dot{ animation:none; }
 }
 
 /* ============================================
@@ -1868,14 +1841,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
         </aside>
       </div>
 
-      <div class="price-flag reveal">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="flag-txt">
-          <span class="lead">Valores promocionais, abaixo do mercado.</span>
-          <span class="sub">Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.</span>
-        </span>
-      </div>
-
     </div>
   </section>
 
@@ -2644,10 +2609,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
       'Premium finish: original art direction, never a template',
     'Suporte e ajustes depois da entrega':
       'Support and tweaks after handover',
-    'Valores promocionais, abaixo do mercado.':
-      'Promotional rates, below market.',
-    'Enquanto eu fecho um portfólio forte. Quem entra agora paga esse preço.':
-      'While I build out a strong portfolio. Whoever comes in now pays this price.',
     'Pedir orçamento':'Request a quote',
     'Até 5 páginas (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio':
       'Up to 5 pages (home, about, services, contact and one more) — or a single conversion page, if it is for ads',
