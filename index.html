@@ -1048,6 +1048,104 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
 }
 
 /* ============================================
+   "TESTAR AQUI" — o site do cliente numa janela por cima
+   ============================================ */
+.case-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:.9rem 1.4rem; margin-top:1.3rem; }
+.case-actions .case-live{ margin-top:0; }
+.case-try{
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+  background:transparent; color:var(--white); border:1px solid var(--gray-dim);
+  padding:.6rem .95rem; cursor:pointer;
+  transition:border-color .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+.case-try:hover{ background:var(--white); border-color:var(--white); color:var(--black); }
+.case-try:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+/* no celular a janela nao cabe: fica so o "Ver site ao vivo" */
+@media (max-width:760px){ .case-try{ display:none; } }
+
+.demo{
+  position:fixed; inset:0; z-index:130;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(.75rem,2.4vw,1.75rem);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .35s var(--ease), visibility .35s var(--ease);
+}
+.demo.is-open{ opacity:1; visibility:visible; pointer-events:auto; }
+/* o mouse dentro do iframe nao chega aqui: o cursor proprio ficaria congelado */
+body.demo-aberta .cursor-dot, body.demo-aberta .cursor-ring{ opacity:0; }
+.demo-backdrop{ position:absolute; inset:0; background:rgba(5,5,5,.9); backdrop-filter:blur(3px); }
+.demo-win{
+  position:relative; z-index:1; display:flex; flex-direction:column;
+  width:min(1440px,100%); height:100%; max-height:940px;
+  background:var(--surface); border:1px solid var(--line);
+  transform:translateY(16px); transition:transform .4s var(--ease);
+}
+.demo.is-open .demo-win{ transform:translateY(0); }
+.demo-bar{
+  display:flex; align-items:center; gap:1rem; padding:.55rem .6rem .55rem 1rem;
+  border-bottom:1px solid var(--line);
+  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+}
+.demo-title{ flex:1; min-width:0; color:var(--gray); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.demo-title b{ color:var(--white); font-weight:500; }
+.demo-dev{ display:flex; border:1px solid var(--line); }
+.demo-dev button{
+  font:inherit; letter-spacing:inherit; text-transform:inherit;
+  background:none; border:0; color:var(--gray); padding:.55rem .9rem; cursor:pointer;
+  transition:background .3s var(--ease), color .3s var(--ease);
+}
+.demo-dev button + button{ border-left:1px solid var(--line); }
+.demo-dev button[aria-pressed="true"]{ background:var(--white); color:var(--black); }
+.demo-open{ color:var(--white); border-bottom:1px solid var(--gray-dim); padding-bottom:.2rem; white-space:nowrap; }
+.demo-open:hover{ border-color:var(--white); }
+.demo-x{
+  width:34px; height:34px; display:flex; align-items:center; justify-content:center; flex:none;
+  background:none; border:1px solid var(--line); color:var(--gray);
+  font-family:var(--font-mono); font-size:1rem; line-height:1; cursor:pointer;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.demo-x:hover{ border-color:var(--white); color:var(--white); }
+.demo-dev button:focus-visible, .demo-open:focus-visible, .demo-x:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.demo-stage{
+  position:relative; flex:1; min-height:0; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; background:var(--black);
+}
+.demo-load{
+  position:absolute; font-family:var(--font-mono); font-size:.7rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--gray-dim);
+}
+.demo-stage iframe{
+  position:relative; width:100%; height:100%; border:0; background:var(--black);
+  opacity:0; transition:opacity .4s var(--ease), width .45s var(--ease), height .45s var(--ease);
+}
+.demo-stage.is-ready iframe{ opacity:1; }
+/* modo celular: largura de um iPhone, moldura reta como o resto do site */
+.demo-stage.is-phone iframe{
+  width:390px; height:min(844px, calc(100% - 2.5rem));
+  box-shadow:0 0 0 10px #151513, 0 0 0 11px var(--line);
+}
+.demo-bar .demo-hide-sm{ display:inline; }
+@media (max-width:900px){ .demo-bar .demo-hide-sm{ display:none; } }
+@media (prefers-reduced-motion: reduce){
+  .demo, .demo-win, .demo-stage iframe{ transition:none; }
+}
+
+/* opcoes de toque do orcamento */
+.modal-form fieldset{ border:0; padding:0; margin:0; min-width:0; display:grid; gap:.6rem; }
+.modal-form legend{ padding:0; margin-bottom:.6rem; }
+.chip-row{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.chip{ position:relative; cursor:pointer; }
+.chip input{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
+.chip span{
+  display:inline-block; font-family:var(--font-body); font-size:.86rem; font-weight:300;
+  padding:.6rem .85rem; border:1px solid var(--line); color:var(--gray);
+  transition:border-color .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
+}
+.chip:hover span{ border-color:var(--gray); color:var(--white); }
+.chip input:checked + span{ background:var(--white); border-color:var(--white); color:var(--black); font-weight:400; }
+.chip input:focus-visible + span{ outline:2px solid var(--cyan); outline-offset:2px; }
+
+/* ============================================
    AJUSTES DE CELULAR
    ============================================ */
 /* minmax(0,1fr) na grade + min-width:0 no card: sem isso uma palavra longa
@@ -1216,7 +1314,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Branding</span><span>Mobile-first</span><span>Google Meu Negócio</span>
             </div>
-            <a class="case-live" href="https://julianacubasvet.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://julianacubasvet.com.br">Testar aqui</button>
+              <a class="case-live" href="https://julianacubasvet.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1244,7 +1345,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Multi-páginas</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://maronez.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://maronez.com.br">Testar aqui</button>
+              <a class="case-live" href="https://maronez.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1272,7 +1376,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Multi-páginas</span><span>Loja integrada</span>
             </div>
-            <a class="case-live" href="https://dacartink.com" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://dacartink.com">Testar aqui</button>
+              <a class="case-live" href="https://dacartink.com" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1300,7 +1407,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Agendamento próprio</span><span>Experiência imersiva</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/bernardo-art/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/bernardo-art/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/bernardo-art/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1328,7 +1438,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://samtto.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://samtto.com.br">Testar aqui</button>
+              <a class="case-live" href="https://samtto.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1356,7 +1469,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/erick-ratox/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/erick-ratox/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/erick-ratox/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1384,7 +1500,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/fernando-fernandes/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/fernando-fernandes/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/fernando-fernandes/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1412,7 +1531,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Landing page</span><span>Identidade Visual</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/hono-ink/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/hono-ink/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/hono-ink/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1440,7 +1562,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Portfólio</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/studio-eric-cardozo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/studio-eric-cardozo/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/studio-eric-cardozo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1468,7 +1593,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Painel de edição</span><span>Portfólio</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/agatha-amorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/agatha-amorim/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/agatha-amorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1496,7 +1624,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Portfólio</span><span>Orçamento guiado</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/diva-tattoo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/diva-tattoo/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/diva-tattoo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1524,7 +1655,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Experiência imersiva</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/na-ponta-da-agulha/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/na-ponta-da-agulha/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/na-ponta-da-agulha/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1552,7 +1686,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Portfólio</span><span>Mobile-first</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/andre-azevedo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/andre-azevedo/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/andre-azevedo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1580,7 +1717,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Mobile-first</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/amanda-reali/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/amanda-reali/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/amanda-reali/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1608,7 +1748,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Site profissional</span><span>Google meu negócio</span><span>Presença digital</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/Site_Clinica_Modelo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/Site_Clinica_Modelo/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/Site_Clinica_Modelo/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1636,7 +1779,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Cardápio online</span><span>Experiência imersiva</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/Monlebu/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/Monlebu/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/Monlebu/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1664,7 +1810,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Site profissional</span><span>Afiliados</span><span>Outlet</span>
             </div>
-            <a class="case-live" href="https://www.vitacorehub.com.br/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://www.vitacorehub.com.br/">Testar aqui</button>
+              <a class="case-live" href="https://www.vitacorehub.com.br/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1692,7 +1841,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Mobile-first</span><span>Portfólio</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/lennyamorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/lennyamorim/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/lennyamorim/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1720,7 +1872,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Site profissional</span><span>Mercado europeu</span><span>Agendamento online</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/rymmaprof/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/rymmaprof/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/rymmaprof/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1748,7 +1903,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Landing page</span><span>Mobile-first</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/BrunaLopes/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/BrunaLopes/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/BrunaLopes/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1776,7 +1934,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Site profissional</span><span>B2B</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://www.conectafundidos.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://www.conectafundidos.com.br">Testar aqui</button>
+              <a class="case-live" href="https://www.conectafundidos.com.br" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1804,7 +1965,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>B2B</span><span>Catálogo de peças</span><span>Lista de cotação</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/wrm-equipamentos/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/wrm-equipamentos/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/wrm-equipamentos/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1832,7 +1996,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Portfólio</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/andreia-caverna/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/andreia-caverna/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/andreia-caverna/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1860,7 +2027,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Direção de Arte</span><span>Agenda por cidade</span><span>Conversão via WhatsApp</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/bruxa-do-piercing/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/bruxa-do-piercing/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/bruxa-do-piercing/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -1888,7 +2058,10 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
             <div class="case-chips">
               <span>Identidade Visual</span><span>Mercado europeu</span><span>Multi-páginas</span>
             </div>
-            <a class="case-live" href="https://azeugral.github.io/fabi-gomez/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            <div class="case-actions">
+              <button type="button" class="case-try" data-demo="https://azeugral.github.io/fabi-gomez/">Testar aqui</button>
+              <a class="case-live" href="https://azeugral.github.io/fabi-gomez/" target="_blank" rel="noopener">Ver site ao vivo <span class="ar">↗</span></a>
+            </div>
           </div>
         </article>
 
@@ -2717,9 +2890,6 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Seu negócio':'Your business',
     'padaria, estúdio de tatuagem, clínica...':'bakery, tattoo studio, clinic...',
     'Região':'Region',
-    'O que você precisa':'What you need',
-    'Uma página pra divulgar meu serviço, com botão de WhatsApp e minhas fotos de trabalho...':
-      'A page to show my service, with a WhatsApp button and photos of my work...',
     'Abrir no WhatsApp':'Open in WhatsApp',
     'Abre a conversa com a mensagem escrita. Você confere e envia.':
       'Opens the chat with the message written out. You check it and hit send.',
@@ -2783,6 +2953,36 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     'Uma tatuadora do Ipiranga que trocou o fineline delicado pelo blackwork autoral. O site acompanha essa virada: fumaça de tinta no fundo, imagens que surgem dela ao rolar, os desenhos exclusivos disponíveis separados dos trabalhos já feitos e o orçamento direto pelo WhatsApp.':
       'A tattoo artist from Ipiranga who swapped delicate fineline for original blackwork. The site follows that shift: ink smoke in the background, images emerging from it as you scroll, the exclusive available designs kept apart from finished work, and quotes straight through WhatsApp.',
     'Body Piercing':'Body Piercing',
+
+    /* — testar aqui — */
+    'Testar aqui':'Try it here',
+    'Computador':'Desktop',
+    'Celular':'Phone',
+    'Tamanho da tela':'Screen size',
+    'Abrir em nova aba ↗':'Open in new tab ↗',
+    'Carregando o site…':'Loading the site…',
+    'Site do cliente':'Client site',
+
+    /* — orçamento: opções de toque — */
+    'O site precisa':'The site needs to',
+    'Receber pedidos de orçamento':'Take quote requests',
+    'Agendar horários':'Book appointments',
+    'Mostrar meus trabalhos':'Show my work',
+    'Aparecer no Google':'Show up on Google',
+    'Vender produtos':'Sell products',
+    'Você já tem':'You already have',
+    'Logo':'A logo',
+    'Fotos do trabalho':'Photos of my work',
+    'Instagram ativo':'An active Instagram',
+    'Domínio':'A domain',
+    'Um site antigo':'An old website',
+    'Pra quando':'When',
+    'O quanto antes':'As soon as possible',
+    'Este mês':'This month',
+    'Sem pressa':'No rush',
+    'Mais alguma coisa? (opcional)':'Anything else? (optional)',
+    'Um link de referência, o seu Instagram, uma ideia que você já tem...':
+      'A reference link, your Instagram, an idea you already have...',
 
     /* — contato — */
     '/ Vamos começar':'/ Let’s begin',
@@ -2996,13 +3196,66 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
           <option value="Reino Unido">Reino Unido</option>
         </select>
       </label>
+      <fieldset>
+        <legend class="lbl">O site precisa</legend>
+        <div class="chip-row">
+          <label class="chip"><input type="checkbox" name="precisa" value="Receber pedidos de orçamento"><span>Receber pedidos de orçamento</span></label>
+          <label class="chip"><input type="checkbox" name="precisa" value="Agendar horários"><span>Agendar horários</span></label>
+          <label class="chip"><input type="checkbox" name="precisa" value="Mostrar meus trabalhos"><span>Mostrar meus trabalhos</span></label>
+          <label class="chip"><input type="checkbox" name="precisa" value="Aparecer no Google"><span>Aparecer no Google</span></label>
+          <label class="chip"><input type="checkbox" name="precisa" value="Vender produtos"><span>Vender produtos</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="lbl">Você já tem</legend>
+        <div class="chip-row">
+          <label class="chip"><input type="checkbox" name="tenho" value="Logo"><span>Logo</span></label>
+          <label class="chip"><input type="checkbox" name="tenho" value="Fotos do trabalho"><span>Fotos do trabalho</span></label>
+          <label class="chip"><input type="checkbox" name="tenho" value="Instagram ativo"><span>Instagram ativo</span></label>
+          <label class="chip"><input type="checkbox" name="tenho" value="Domínio"><span>Domínio</span></label>
+          <label class="chip"><input type="checkbox" name="tenho" value="Um site antigo"><span>Um site antigo</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="lbl">Pra quando</legend>
+        <div class="chip-row">
+          <label class="chip"><input type="radio" name="prazo" value="O quanto antes"><span>O quanto antes</span></label>
+          <label class="chip"><input type="radio" name="prazo" value="Este mês"><span>Este mês</span></label>
+          <label class="chip"><input type="radio" name="prazo" value="Sem pressa"><span>Sem pressa</span></label>
+        </div>
+      </fieldset>
       <label>
-        <span class="lbl">O que você precisa</span>
-        <textarea name="oque" rows="4" placeholder="Uma página pra divulgar meu serviço, com botão de WhatsApp e minhas fotos de trabalho..."></textarea>
+        <span class="lbl">Mais alguma coisa? (opcional)</span>
+        <textarea name="oque" rows="3" placeholder="Um link de referência, o seu Instagram, uma ideia que você já tem..."></textarea>
       </label>
       <button type="submit" class="btn">Abrir no WhatsApp</button>
       <p class="modal-fine">Abre a conversa com a mensagem escrita. Você confere e envia.</p>
     </form>
+  </div>
+</div>
+
+<!-- ============ "TESTAR AQUI" ============ -->
+<!-- O site do cliente carregado de verdade, com troca Computador/Celular.
+     O iframe so recebe o endereco quando abre e volta pra about:blank ao
+     fechar, pra nao deixar WebGL rodando escondido. -->
+<div class="demo" id="demoModal" aria-hidden="true">
+  <div class="demo-backdrop" data-fechar></div>
+  <div class="demo-win" role="dialog" aria-modal="true" aria-labelledby="demoTitulo">
+    <div class="demo-bar">
+      <p class="demo-title" id="demoTitulo"><b id="demoNome"></b> <span class="demo-hide-sm" id="demoHost"></span></p>
+      <div class="demo-dev" role="group" aria-label="Tamanho da tela">
+        <button type="button" data-dev="pc" aria-pressed="true">Computador</button>
+        <button type="button" data-dev="cel" aria-pressed="false">Celular</button>
+      </div>
+      <a class="demo-open demo-hide-sm" id="demoAbrir" href="#" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+      <button type="button" class="demo-x" data-fechar aria-label="Fechar">✕</button>
+    </div>
+    <div class="demo-stage" id="demoStage">
+      <p class="demo-load">Carregando o site…</p>
+      <iframe id="demoFrame" title="Site do cliente" src="about:blank"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+              allow="autoplay; fullscreen"></iframe>
+    </div>
   </div>
 </div>
 
@@ -3060,19 +3313,100 @@ footer{ border-top:1px solid var(--line); padding:2.4rem 0; }
     var en = (document.documentElement.lang || 'pt').slice(0, 2) === 'en';
     var T = en
       ? { ola:'Hi! I came from the L R G Z site.', nome:'Name: ',
-          neg:'Business: ', reg:'Region: ', oque:'What I need:' }
+          neg:'Business: ', reg:'Region: ', precisa:'The site needs to: ',
+          tenho:'I already have: ', prazo:'Timing: ', oque:'More details:' }
       : { ola:'Oi! Vim pelo site do L R G Z.', nome:'Nome: ',
-          neg:'Neg\u00f3cio: ', reg:'Regi\u00e3o: ', oque:'O que eu preciso:' };
+          neg:'Neg\u00f3cio: ', reg:'Regi\u00e3o: ', precisa:'O site precisa: ',
+          tenho:'J\u00e1 tenho: ', prazo:'Pra quando: ', oque:'Mais detalhes:' };
+    function marcados(k){
+      return Array.prototype.map.call(form.querySelectorAll('input[name="' + k + '"]:checked'),
+        function(i){ return i.nextElementSibling.textContent.trim(); }).join(', ');
+    }
     var linhas = [T.ola, ''];
     if(v('nome'))    linhas.push(T.nome + v('nome'));
     if(v('negocio')) linhas.push(T.neg + v('negocio'));
     var selReg = form.querySelector('#orcRegiao');
     var regiao = selReg ? selReg.options[selReg.selectedIndex].textContent.trim() : '';
     if(regiao)       linhas.push(T.reg + regiao);
+    var extra = ['precisa', 'tenho', 'prazo'].filter(function(k){ return marcados(k); });
+    if(extra.length) linhas.push('');
+    extra.forEach(function(k){ linhas.push(T[k] + marcados(k)); });
     if(v('oque'))    linhas.push('', T.oque, v('oque'));
     var url = 'https://wa.me/' + ZAP + '?text=' + encodeURIComponent(linhas.join('\n'));
     window.open(url, '_blank', 'noopener');
     fechar();
+  });
+})();
+
+/* "Testar aqui": abre o site do card na janela #demoModal. */
+(function(){
+  var modal = document.getElementById('demoModal');
+  var frame = document.getElementById('demoFrame');
+  var stage = document.getElementById('demoStage');
+  if(!modal || !frame) return;
+  var nome = document.getElementById('demoNome');
+  var host = document.getElementById('demoHost');
+  var abrirAba = document.getElementById('demoAbrir');
+  var devs = modal.querySelectorAll('[data-dev]');
+  var ultimoFoco = null, pausados = [];
+  var FOCAVEIS = 'a[href], button:not([disabled])';
+
+  function dispositivo(d){
+    stage.classList.toggle('is-phone', d === 'cel');
+    Array.prototype.forEach.call(devs, function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-dev') === d ? 'true' : 'false'); });
+  }
+  function abrir(btn){
+    var url = btn.getAttribute('data-demo');
+    var card = btn.closest('.case-card');
+    var h3 = card && card.querySelector('h3');
+    ultimoFoco = btn;
+    nome.textContent = h3 ? h3.textContent : '';
+    host.textContent = '· ' + url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    abrirAba.href = url;
+    stage.classList.remove('is-ready');
+    dispositivo('pc');
+    frame.src = url;
+    /* os mockups em video param enquanto a janela esta aberta */
+    pausados = Array.prototype.filter.call(document.querySelectorAll('.site-video'), function(v){ return !v.paused; });
+    pausados.forEach(function(v){ v.pause(); });
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open', 'demo-aberta');
+    setTimeout(function(){ modal.querySelector('.demo-x').focus(); }, 60);
+  }
+  function fechar(){
+    if(!modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open', 'demo-aberta');
+    frame.src = 'about:blank';
+    pausados.forEach(function(v){ var p = v.play(); if(p && p.catch) p.catch(function(){}); });
+    pausados = [];
+    if(ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+  }
+
+  frame.addEventListener('load', function(){
+    if(frame.getAttribute('src') !== 'about:blank') stage.classList.add('is-ready');
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.case-try'), function(b){
+    b.addEventListener('click', function(){ abrir(b); });
+  });
+  Array.prototype.forEach.call(devs, function(b){
+    b.addEventListener('click', function(){ dispositivo(b.getAttribute('data-dev')); });
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target.hasAttribute && e.target.hasAttribute('data-fechar')) fechar();
+  });
+  document.addEventListener('keydown', function(e){
+    if(!modal.classList.contains('is-open')) return;
+    if(e.key === 'Escape'){ fechar(); return; }
+    if(e.key !== 'Tab') return;
+    var itens = Array.prototype.slice.call(modal.querySelectorAll(FOCAVEIS))
+      .filter(function(el){ return el.offsetParent !== null; });
+    if(!itens.length) return;
+    var primeiro = itens[0], ultimo = itens[itens.length - 1];
+    if(e.shiftKey && document.activeElement === primeiro){ e.preventDefault(); ultimo.focus(); }
+    else if(!e.shiftKey && document.activeElement === ultimo){ e.preventDefault(); primeiro.focus(); }
   });
 })();
 
