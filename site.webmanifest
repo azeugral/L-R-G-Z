@@ -1,7 +1,7 @@
 {
   "name": "L R G Z",
   "short_name": "LRGZ",
-  "description": "Estúdio de criação de sites premium para pequenos negócios.",
+  "description": "Estúdio de criação de sites premium.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#050505",

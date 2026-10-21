@@ -1,9 +1,9 @@
 (function(){
   var EN = {
     /* — meta / nav — */
-    'Criação de Sites para Pequenos Negócios | LRGZ':'Websites for Small Businesses | LRGZ',
-    'Sites profissionais feitos do zero para pequenos negócios: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 500.':
-      'Professional websites built from scratch for small businesses: a domain in your name, first version in 48 hours and delivery within 7 days.',
+    'Criação de Sites Profissionais e Landing Pages | LRGZ':'Professional Websites and Landing Pages | LRGZ',
+    'Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 500.':
+      'Websites built from scratch with bespoke design: a domain in your name, first version in 48 hours and delivery within 7 days.',
     'Sobre':'About', 'Serviços':'Services', 'Processo':'Process',
     'Projetos':'Work', 'Contato':'Contact', 'Comprar Agora':'Buy Now',
     'Disponível para novos projetos':'Available for new projects',
@@ -12,12 +12,12 @@
     'Abrir menu':'Open menu', 'Voltar ao topo':'Back to top',
 
     /* — hero — */
-    'Studio de sites para':'Web studio for',
-    'pequenos negócios':'small businesses',
+    'Studio de':'A studio for',
+    'criação de sites':'website design',
     '— direção visual, código e identidade digital, do zero.':
       '— visual direction, code and digital identity, built from scratch.',
-    'Criação de sites para pequenos negócios: seu negócio não precisa de mais um site, precisa de presença.':
-      'Websites for small businesses: your business doesn’t need another website, it needs presence.',
+    'Criação de sites profissionais: você não precisa de mais um site, precisa de presença.':
+      'Professional website design: you don’t need another website, you need presence.',
     'mova o cursor sobre o título':'move your cursor over the title',
     'Eu sou o':'I’m',
     '. Crio sites para negócios que já são bons no que fazem — e que merecem parecer isso também online. Sem template genérico, sem enrolação.':
@@ -37,9 +37,9 @@
 
     /* — sobre — */
     '/ Sobre':'/ About',
-    'Pequeno negócio tratado como marca grande.':'Small business, treated like a major brand.',
-    'L R G Z é a assinatura que uso pra esse trabalho: pegar negócios que já fazem diferença no dia a dia — a padaria, o ateliê, a loja, o estúdio — e dar a eles uma presença online':
-      'L R G Z is the name I put on this work: taking businesses that already make a difference day to day — the bakery, the atelier, the shop, the studio — and giving them an online presence',
+    'Todo projeto tratado como marca grande.':'Every project treated like a major brand.',
+    'L R G Z é a assinatura que uso pra esse trabalho: pegar quem já faz um trabalho bom — o estúdio de tatuagem, a clínica, o ateliê, a indústria — e dar a ele uma presença online':
+      'L R G Z is the name I put on this work: taking people who already do good work — the tattoo studio, the clinic, the atelier, the manufacturer — and giving them an online presence',
     'com a mesma qualidade':'of the same quality',
     '. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.':
       '. No stock photos dropped into a ready-made layout. Every site grows out of what your business already is.',
