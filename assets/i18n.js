@@ -23,7 +23,7 @@
     '. Crio sites para negócios que já são bons no que fazem — e que merecem parecer isso também online. Sem template genérico, sem enrolação.':
       '. I build websites for businesses that are already good at what they do — and deserve to look like it online. No generic templates, no fluff.',
     'Ver projetos ↓':'See the work ↓',
-    'Santa Bárbara d'Oeste, SP — atendo todo o Brasil, remoto':
+    'Santa Bárbara d\'Oeste, SP — atendo todo o Brasil, remoto':
       'Based in Santa Bárbara d’Oeste, Brazil — working remotely with clients worldwide',
     'lrgz — build':'lrgz — build',
 
@@ -375,7 +375,7 @@
     'A partir de R$49,90':'From R$49.90',
 
     /* — rodapé — */
-    '© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.':'© 2026 L R G Z · Santa Bárbara d’Oeste, Brazil. All rights reserved.',
+    '© 2026 L R G Z · Santa Bárbara d\'Oeste, SP. Todos os direitos reservados.':'© 2026 L R G Z · Santa Bárbara d’Oeste, Brazil. All rights reserved.',
     'ver':'view'
   };
 
