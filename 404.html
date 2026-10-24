@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Página não encontrada | LRGZ</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/lrgz.css?v=1">
+<style>
+  /* pagina solta: sem os scripts do site, entao nada de reveal escondendo conteudo */
+  .erro{ min-height:100dvh; display:flex; align-items:center; border-top:0; }
+  .erro .section-title{ font-size:clamp(2rem,7vw,5rem); margin:1rem 0 1.2rem; }
+  .erro p.lead{ color:var(--gray); font-weight:300; max-width:44ch; margin-bottom:2rem; }
+  .erro .ctas{ display:flex; flex-wrap:wrap; gap:1rem; }
+  .erro .logo{ display:inline-block; margin-bottom:3rem; }
+  .erro .logo img{ height:44px; width:auto; }
+  @media (max-width:600px){ .erro .ctas .btn{ width:100%; justify-content:center; } }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<main class="section erro">
+  <div class="container">
+    <a class="logo" href="/" aria-label="L R G Z — página inicial"><img src="/Logo.png" alt="L R G Z" width="582" height="220"></a>
+    <p class="eyebrow">/ 404</p>
+    <h1 class="section-title">Página não encontrada</h1>
+    <p class="lead">Esse endereço não existe ou mudou de lugar. O resto do site continua aqui.</p>
+    <div class="ctas">
+      <a href="/" class="btn">Voltar ao início</a>
+      <a href="/portfolio" class="btn btn-outline">Ver portfólio</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
