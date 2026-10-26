@@ -182,6 +182,17 @@
     /* — link dos cards — */
     'Ver site ao vivo':'View live site',
 
+    /* — avaliacoes (os textos dos clientes ficam no original) — */
+    '/ Avaliações':'/ Reviews',
+    'Avaliações':'Reviews',
+    'O que dizem depois do site no ar':'What they say once the site is live',
+    '5,0 no Google · 4 avaliações':'5.0 on Google · 4 reviews',
+    'Ver no Google':'See on Google',
+    'Tatuadora e artista visual · DAC Art Ink':'Tattoo artist and visual artist · DAC Art Ink',
+    'Tatuador · Samtto, Manaus':'Tattoo artist · Samtto, Manaus',
+    'Veterinária a domicílio · Tietê, SP':'House-call veterinarian · Tietê, Brazil',
+    'Dra. Juliana Cubas':'Dr. Juliana Cubas',
+
 
     /* — CTAs de WhatsApp — */
     'Falar no WhatsApp':'Message on WhatsApp',
