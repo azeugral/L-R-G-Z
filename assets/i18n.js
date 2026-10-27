@@ -291,6 +291,16 @@
     'Uma indústria de Santa Bárbara d’Oeste que fabrica e recupera peças para britadores desde 2000. Transformei o conhecimento técnico num catálogo de 57 peças com foto, filtrado por modelo de equipamento, com uma lista de cotação que o comprador monta e envia de uma vez.':
       'A manufacturer in Santa Bárbara d’Oeste that has built and rebuilt crusher parts since 2000. I turned their technical know-how into a catalogue of 57 parts with photos, filtered by equipment model, with a quote list the buyer builds and sends in one go.',
 
+    /* — Zaparolli e Goblins Mágicos — */
+    'Dark Art & Coberturas':'Dark Art & Cover-ups',
+    'Proxies de Magic':'Magic Proxies',
+    'Antes e depois':'Before and after',
+    'Montador de deck':'Deck builder',
+    'Um tatuador de dark art em preto e cinza de São José, em Santa Catarina, que veio do graffiti e virou referência em cobrir tatuagem antiga. O site abre com uma arte real dele e a logo rachada da marca, mostra as coberturas lado a lado com o antes, os relatos de clientes em vídeo e o passo a passo do orçamento, que chega pronto no WhatsApp.':
+      'A black-and-grey dark art tattoo artist from São José, Santa Catarina, who came from graffiti and became a go-to name for covering old tattoos. The site opens with a real piece of his and the cracked logo of the brand, shows the cover-ups side by side with the before, client stories on video and the step-by-step quote, which lands in WhatsApp ready to go.',
+    'Uma loja de Americana que imprime proxies de Magic para partidas casuais. Além da vitrine com fotos reais das cartas, o site tem um montador de deck: o jogador cola a lista, vê o valor estimado na hora e manda o pedido, que chega pro dono com o arquivo de impressão gerado no próprio navegador.':
+      'A shop in Americana that prints Magic proxies for casual play. Beyond the showcase with real photos of the cards, the site has a deck builder: the player pastes the list, sees the estimated price right away and sends the order, which reaches the owner with the print file generated right in the browser.',
+
     /* — cards 21-26 — */
     'Agenda por cidade':'Schedule by city',
     'Cabelo & Maquiagem':'Hair & Makeup',
@@ -346,8 +356,8 @@
 
     /* — portfolio.html e botao da home — */
     'Portfólio de Sites | LRGZ':'Website Portfolio | LRGZ',
-    'Portfólio da LRGZ: 26 sites feitos do zero para tatuadores, profissionais da beleza, clínicas e indústrias. Veja cada um rodando e teste o site de verdade.':
-      'LRGZ portfolio: 26 websites built from scratch for tattoo artists, beauty professionals, clinics and manufacturers. Watch each one run and try the real site.',
+    'Portfólio da LRGZ: 28 sites feitos do zero para tatuadores, profissionais da beleza, clínicas e indústrias. Veja cada um rodando e teste o site de verdade.':
+      'LRGZ portfolio: 28 websites built from scratch for tattoo artists, beauty professionals, clinics and manufacturers. Watch each one run and try the real site.',
     '/ Portfólio':'/ Portfolio',
     'Todos os projetos':'Every project',
     'Sites feitos do zero, cada um com a cara de quem atende. O vídeo mostra a página inicial; o botão abre o site de verdade.':
