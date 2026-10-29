@@ -291,6 +291,31 @@
     'Uma indústria de Santa Bárbara d’Oeste que fabrica e recupera peças para britadores desde 2000. Transformei o conhecimento técnico num catálogo de 57 peças com foto, filtrado por modelo de equipamento, com uma lista de cotação que o comprador monta e envia de uma vez.':
       'A manufacturer in Santa Bárbara d’Oeste that has built and rebuilt crusher parts since 2000. I turned their technical know-how into a catalogue of 57 parts with photos, filtered by equipment model, with a quote list the buyer builds and sends in one go.',
 
+    /* — cards de 28/10/2026 — */
+    'Blackwork & Floral':'Blackwork & Floral',
+    'Um estúdio privado de Santa Bárbara d’Oeste que fecha braço em floral, blackwork e dark art. A foto do topo se monta a partir de estilhaços, como o nome pede, e o site leva o cliente dos estilos aos flashes com preço e ao pedido de horário pelo WhatsApp, com as regras do sinal explicadas antes.':
+      'A private studio in Santa Bárbara d’Oeste that does full floral sleeves, blackwork and dark art. The top photo assembles itself from shards, as the name asks, and the site takes the client from the styles to priced flash and a booking request through WhatsApp, with the deposit rules explained up front.',
+    'Visagismo & Hair Design':'Visagism & Hair Design',
+    'Um hair designer e visagista do Morumbi que planeja corte, cor e maquiagem a partir dos traços e da rotina de cada cliente. O site fica no café e no caramelo da logo dele, com o retrato em destaque, os bastidores dos eventos de beleza e o atendimento marcado direto pelo WhatsApp.':
+      'A hair designer and visagist in Morumbi who plans cut, colour and makeup around each client’s features and routine. The site sits in the coffee and caramel of his logo, with his portrait up front, behind-the-scenes from beauty events and appointments booked straight through WhatsApp.',
+    'Ornamental Sob Medida':'Custom Ornamental',
+    'Uma tatuadora de Lajeado que desenha ornamental sob medida em cima da anatomia de cada corpo e passa temporadas em Porto Alegre, São Paulo e Florianópolis. O fundo é um mármore negro em movimento, tirado das estátuas dos mockups dela, e o site mostra a agenda por cidade e monta o pedido de orçamento pro WhatsApp.':
+      'A tattoo artist from Lajeado who draws custom ornamental work over the anatomy of each body and spends seasons in Porto Alegre, São Paulo and Florianópolis. The background is a moving black marble taken from the statues in her mockups, and the site shows the schedule by city and builds the quote request for WhatsApp.',
+    'Anime em Preto e Cinza':'Black & Grey Anime',
+    'Uma tatuadora de São José dos Campos que faz personagens de anime e games em preto e cinza, com cybertribal e traço fino. O site é cromo gelado com fumaça prateada, e no topo o decalque vira a tatuagem pronta na pele. Os disponíveis, os preços e o pedido de orçamento levam direto pra DM.':
+      'A tattoo artist from São José dos Campos who does anime and game characters in black and grey, with cybertribal and fine line. The site is icy chrome with silver smoke, and at the top the stencil turns into the finished tattoo on skin. Available flash, prices and the quote request lead straight to DM.',
+    'Cybertribal & Free Hand':'Cybertribal & Free Hand',
+    'Uma tatuadora de Santana que desenha o cybertribal com caneta direto no corpo antes de ir pra agulha. Foi o primeiro tema claro da série: gesso, tinta e vermelho, com fios de cybersigil que se desenham no topo, o portfólio separado por estilo e o orçamento saindo pelo WhatsApp.':
+      'A tattoo artist from Santana who draws cybertribal with a pen straight on the body before it goes to the needle. It was the first light theme in the series: plaster, ink and red, with cybersigil threads drawing themselves at the top, the portfolio split by style and quotes going out through WhatsApp.',
+    'Cybertribal Gótico':'Gothic Cybertribal',
+    'Um tatuador de cybertribal e cybersigilismo da Vila Mariana, com a assinatura em gótico vermelho. O site herda esse lettering e uma fumaça cor de sangue, mostra os desenhos disponíveis recortados da folha dele e monta a reserva em quatro passos, que já sai pronta pra DM.':
+      'A cybertribal and cybersigilism tattoo artist from Vila Mariana with a red gothic signature. The site inherits that lettering and a blood-coloured smoke, shows the available designs cut from his flash sheet and builds the booking in four steps, ready to send by DM.',
+    'Penteado & Make para Noivas':'Bridal Hair & Makeup',
+    'Uma referência em noivas de São José dos Campos, com 13 anos de profissão e penteado em técnica russa. O site é claro e luxuoso, em vinho, champanhe e ouro, separa o dia da noiva dos outros atendimentos, mostra os depoimentos e leva a noiva a reservar a data pelo WhatsApp.':
+      'A go-to name for brides in São José dos Campos, with 13 years in the trade and Russian-technique hairstyling. The site is light and luxurious, in wine, champagne and gold, separates the wedding day from other services, shows testimonials and takes the bride to reserve her date through WhatsApp.',
+    'Bichos & Ornamentos':'Creatures & Ornaments',
+    'Um tatuador da Casa Feia, no centro de São Paulo, que desenha bichos, dragões e ornamentos à mão, em preto, vermelho ou azul, e tatua cada flash uma vez só. O site é papel e nanquim como as artes dele, com os desenhos disponíveis, a agenda por cidade e a lista de espera.':
+      'A tattoo artist at Casa Feia, in central São Paulo, who hand-draws creatures, dragons and ornaments in black, red or blue, and tattoos each flash only once. The site is paper and India ink like his art, with the available designs, the schedule by city and the waiting list.',
     /* — Zaparolli e Goblins Mágicos — */
     'Dark Art & Coberturas':'Dark Art & Cover-ups',
     'Proxies de Magic':'Magic Proxies',
@@ -356,8 +381,8 @@
 
     /* — portfolio.html e botao da home — */
     'Portfólio de Sites | LRGZ':'Website Portfolio | LRGZ',
-    'Portfólio da LRGZ: 28 sites feitos do zero para tatuadores, profissionais da beleza, clínicas e indústrias. Veja cada um rodando e teste o site de verdade.':
-      'LRGZ portfolio: 28 websites built from scratch for tattoo artists, beauty professionals, clinics and manufacturers. Watch each one run and try the real site.',
+    'Portfólio da LRGZ: 23 sites feitos do zero para tatuadores, profissionais da beleza, veterinária e lojas. Veja cada um rodando e teste o site de verdade.':
+      'LRGZ portfolio: 23 websites built from scratch for tattoo artists, beauty professionals, veterinary care and shops. Watch each one run and try the real site.',
     '/ Portfólio':'/ Portfolio',
     'Todos os projetos':'Every project',
     'Sites feitos do zero, cada um com a cara de quem atende. O vídeo mostra a página inicial; o botão abre o site de verdade.':
