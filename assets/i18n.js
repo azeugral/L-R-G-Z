@@ -313,6 +313,45 @@
     'Penteado & Make para Noivas':'Bridal Hair & Makeup',
     'Uma referência em noivas de São José dos Campos, com 13 anos de profissão e penteado em técnica russa. O site é claro e luxuoso, em vinho, champanhe e ouro, separa o dia da noiva dos outros atendimentos, mostra os depoimentos e leva a noiva a reservar a data pelo WhatsApp.':
       'A go-to name for brides in São José dos Campos, with 13 years in the trade and Russian-technique hairstyling. The site is light and luxurious, in wine, champagne and gold, separates the wedding day from other services, shows testimonials and takes the bride to reserve her date through WhatsApp.',
+    'Tatuagem Autoral em Preto':'Natural-History Blackwork',
+    'Um tatuador do Recreio, no Rio, que trabalha só com preto concentrado e monta o portfólio como um gabinete de história natural. A mariposa do peito se forma uma vez no topo, atravessada por um túnel de vento, e as tatuagens viram 48 pranchas extraídas da pele, com filtro e um botão que já preenche o orçamento.':
+      'A Recreio tattoo artist in Rio who works only in concentrated black and shows his portfolio like a natural history cabinet. The chest moth forms once at the top, crossed by a wind tunnel, and the tattoos become 48 plates extracted from skin, with filters and a button that fills in the quote for you.',
+    'Mangá & Anime':'Manga & Anime',
+    'Um tatuador de mangá, anime e cybertribal da Black Blood, em Curitiba. O site é um tomo de mangá: o topo são três painéis vivos, que no celular viram uma página inteira, o traço aparece extraído da pele, a evolução se lê da direita para a esquerda e o orçamento sai pronto pro WhatsApp ou pro Direct.':
+      'A manga, anime and cybertribal tattoo artist at Black Blood, in Curitiba. The site is a manga volume: the top is three living panels that become a full page on phones, the linework appears extracted from skin, the evolution reads right to left and the quote goes out ready for WhatsApp or Direct.',
+    'Natureza & Fantasia':'Nature & Fantasy',
+    'Uma tatuadora de Sorocaba que desenha asas, ornamentos e projetos autorais inspirados na natureza e na fantasia. As fontes e as cores saíram das capas dela, e no topo uma filigrana se pinta sozinha sobre papel a partir da estrela central. Os disponíveis e o passo a passo levam o pedido pronto pra DM.':
+      'A Sorocaba tattoo artist who draws wings, ornaments and original projects inspired by nature and fantasy. The fonts and colours came from her own covers, and at the top a filigree paints itself on paper from the central star. Available designs and the step by step take the request ready to DM.',
+    'Tradicional Americano':'American Traditional',
+    'Um tatuador de tradicional americano do Space Monkey Tattoo, em Águas Claras, que pinta o próprio flash à mão. No topo uma folha de flash se pinta do esboço à aguada, e o site organiza o catálogo por código de folha, com loja de pinturas, prints e ímãs e pedido pelo WhatsApp.':
+      'An American traditional tattoo artist at Space Monkey Tattoo, in Águas Claras, who paints his own flash by hand. At the top a flash sheet paints itself from sketch to wash, and the site sorts the catalogue by sheet code, with a shop of paintings, prints and magnets ordered through WhatsApp.',
+    'Fine Line & Histórias':'Fine Line & Stories',
+    'Uma tatuadora de fine line de Recife, com estúdio em Piedade, cujo perfil vive das histórias de quem tatua com ela. No topo o decalque de uma tatuagem real vira traço molhado de tinta e seca na pele, e a seção de processo conta essa mesma peça do começo ao fim.':
+      'A fine line tattoo artist from Recife, working in Piedade, whose profile lives on the stories of the people she tattoos. At the top the stencil of a real tattoo turns into wet ink and dries on skin, and the process section tells that same piece from start to finish.',
+    'Fineline & Energéticas':'Fineline & Energy Tattoos',
+    'Uma especialista em fineline do Studio Ink\'Alma, em Campinas, que cria tatuagens energéticas a partir do mapa astral. O topo é uma capa de revista, com o retrato dela sangrando na página, e o site separa as energéticas, as reformas com comparador de antes e depois e a lojinha de incensos.':
+      'A fineline specialist at Studio Ink\'Alma, in Campinas, who creates energy tattoos from the birth chart. The top is a magazine cover with her portrait bleeding off the page, and the site sets apart the energy tattoos, the reworks with a before and after slider and the small incense shop.',
+    'Realismo & Fine Line':'Realism & Fine Line',
+    'Uma tatuadora de Joinville que atende um cliente por dia, com realismo, fine line autoral, retratos de pets e coberturas de cicatriz. O site abre com o retrato dela numa fumaça vinho, na cor da marca, mostra os pets ao lado da tatuagem e monta a mensagem do WhatsApp numa ficha.':
+      'A Joinville tattoo artist who sees one client a day, doing realism, original fine line, pet portraits and scar cover-ups. The site opens with her portrait in wine-coloured smoke, the brand colour, shows pets next to their tattoos and builds the WhatsApp message from a short form.',
+    'Sobrancelhas no Porto':'Brows in Porto',
+    'Um estúdio especialista em sobrancelhas nas Galerias Atlantis, no Porto. No topo um rosto simétrico tem as sobrancelhas renascendo fio a fio, e o site traz os resultados, a carta de preços em abas, a equipa, a formação e a marcação online.':
+      'A brow specialist studio at Galerias Atlantis, in Porto. At the top a symmetrical face has its brows growing back hair by hair, and the site brings the results, the tabbed price list, the team, the training and online booking.',
+    'Realismo & Fechamento':'Realism & Full Sleeves',
+    'Um tatuador de realismo em preto e cinza especialista em fechar o braço por fora em um dia só. O topo é um braço recortado em preto e branco com fumaça por trás, e o site mostra os fechamentos em blocos, o antes e depois e o caminho até o orçamento pelo WhatsApp.':
+      'A black and grey realism tattoo artist who specialises in finishing the outer arm in a single day. The top is a cut-out black and white arm with smoke behind it, and the site shows the sleeves in blocks, the before and after and the path to a WhatsApp quote.',
+    'Ornamental em Lisboa':'Ornamental in Lisbon',
+    'Uma tatuadora brasileira no Artfakt Tattoo, em Lisboa, que desenha ornamental, mandala e floral à medida do corpo. As fotos dela são sempre tinta preta sobre cetim branco, então o site também é: no topo, uma mandala dela se forma em 26 mil pontos.':
+      'A Brazilian tattoo artist at Artfakt Tattoo, in Lisbon, who draws ornamental, mandala and floral pieces to fit the body. Her photos are always black ink on white satin, so the site is too: at the top, one of her mandalas forms from 26 thousand dots.',
+    'Pontilhismo & Mandalas':'Dotwork & Mandalas',
+    'Uma tatuadora especialista em pontilhismo no Traço Nobre, em Curitiba, com mandalas exclusivas feitas ponto a ponto. No topo, 26 mil pontos formam as mandalas dela e trocam entre si, e o site reúne as artes prontas, o ponto depois de curado e o caminho da ideia à última sessão.':
+      'A dotwork specialist at Traço Nobre, in Curitiba, with exclusive mandalas made dot by dot. At the top, 26 thousand dots form her mandalas and shift between them, and the site brings together ready designs, healed dotwork and the path from idea to last session.',
+    'Tatuagem & Piercing':'Tattoo & Piercing',
+    'O estúdio do tatuador e piercer Nei Bastos, em Parobé, no Rio Grande do Sul. A paleta veio do próprio estúdio, verde garrafa e ouro, e os botões seguem o hexágono da logo. O topo é um lobo em preto e branco só com os olhos verdes, seguido de trabalhos, prêmios e agendamento.':
+      'The studio of tattoo artist and piercer Nei Bastos, in Parobé, Rio Grande do Sul. The palette came from the studio itself, bottle green and gold, and the buttons follow the hexagon in the logo. The top is a black and white wolf with only its eyes in green, followed by work, awards and booking.',
+    'DJ de Casamentos':'Wedding DJ',
+    'Um DJ de casamentos e festas com curadoria musical feita para cada evento. No topo ele aparece nos pratos sob feixes de luz de palco em movimento, e o site reúne os reels com som, a galeria, as playlists e os sets, com uma ficha que leva o pedido pro WhatsApp.':
+      'A wedding and party DJ with music curated for each event. At the top he stands at the decks under moving stage light beams, and the site gathers the reels with sound, the gallery, the playlists and the sets, with a short form that takes the request to WhatsApp.',
     'Bichos & Ornamentos':'Creatures & Ornaments',
     'Um tatuador da Casa Feia, no centro de São Paulo, que desenha bichos, dragões e ornamentos à mão, em preto, vermelho ou azul, e tatua cada flash uma vez só. O site é papel e nanquim como as artes dele, com os desenhos disponíveis, a agenda por cidade e a lista de espera.':
       'A tattoo artist at Casa Feia, in central São Paulo, who hand-draws creatures, dragons and ornaments in black, red or blue, and tattoos each flash only once. The site is paper and India ink like his art, with the available designs, the schedule by city and the waiting list.',
@@ -381,8 +420,8 @@
 
     /* — portfolio.html e botao da home — */
     'Portfólio de Sites | LRGZ':'Website Portfolio | LRGZ',
-    'Portfólio da LRGZ: 23 sites feitos do zero para tatuadores, profissionais da beleza, veterinária e lojas. Veja cada um rodando e teste o site de verdade.':
-      'LRGZ portfolio: 23 websites built from scratch for tattoo artists, beauty professionals, veterinary care and shops. Watch each one run and try the real site.',
+    'Portfólio da LRGZ: 36 sites feitos do zero para tatuadores, profissionais da beleza, veterinária e lojas. Veja cada um rodando e teste o site de verdade.':
+      'LRGZ portfolio: 36 websites built from scratch for tattoo artists, beauty professionals, veterinary care and shops. Watch each one run and try the real site.',
     '/ Portfólio':'/ Portfolio',
     'Todos os projetos':'Every project',
     'Sites feitos do zero, cada um com a cara de quem atende. O vídeo mostra a página inicial; o botão abre o site de verdade.':
