@@ -12,6 +12,7 @@
     'Abrir menu':'Open menu', 'Voltar ao topo':'Back to top',
 
     /* — hero — */
+    '36 sites. Nenhum igual ao outro.':'36 websites. No two alike.',
     'sites no ar':'websites live',
     'primeira versão':'first version',
     'entrega':'delivery',

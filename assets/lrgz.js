@@ -56,7 +56,7 @@
   })();
 
   /* ---------- Revelacao ---------- */
-  var reveals = document.querySelectorAll('.reveal');
+  var reveals = document.querySelectorAll('.reveal, .raio, .parede');
   if('IntersectionObserver' in window && !quieto){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
@@ -109,9 +109,8 @@
         palco.classList.add('modo-shader');
         var inicio = performance.now(), quadros = 0, lento = 0, ant = inicio;
         var medir = function(){
-          var box = palco.getBoundingClientRect();
           var d = Math.min(window.devicePixelRatio || 1, 2);
-          var lado = Math.round(Math.min(box.width, box.height) * d);
+          var lado = Math.round(Math.min(palco.offsetWidth, palco.offsetHeight) * d);
           if(canvas.width !== lado){ canvas.width = canvas.height = lado; }
         };
         medir();
@@ -137,20 +136,34 @@
       new IntersectionObserver(function(en){ if(palco.classList.contains('modo-shader')) visivel = en[0].isIntersecting; }).observe(hero);
     }
 
-    /* rolagem: o sigilo sai devagar */
+    /* rolagem: o sigilo encolhe ate o lugar do logo e vira ele */
     var txt = document.getElementById('heroTxt');
-    var pedido = false;
+    var logo = document.querySelector('.nav-logo img');
+    var cena = palco.parentNode;
+    var pedido = false, alvo = null;
+    var medirAlvo = function(){
+      if(!logo) return;
+      var c = cena.getBoundingClientRect(), r = logo.getBoundingClientRect();
+      alvo = {
+        x: r.left + r.width / 2 - (c.left + c.width / 2),
+        y: r.top + r.height / 2 - (c.top + c.height / 2),
+        k: r.width / (Math.min(palco.offsetWidth, palco.offsetHeight) * .972)
+      };
+    };
     var rolar = function(){
       pedido = false;
       var alt = hero.offsetHeight - window.innerHeight;
       var p = alt > 0 ? Math.min(1, Math.max(0, window.scrollY / alt)) : 0;
-      var e = p * p * (3 - 2 * p);
-      document.body.classList.toggle('no-hero', p < .92);
-      palco.style.transform = 'scale(' + (1 + e * .16).toFixed(4) + ')';
-      palco.style.opacity = (1 - e * .9).toFixed(3);
+      var f = Math.min(1, p / .92);
+      var e = f * f * (3 - 2 * f);
+      document.body.classList.toggle('no-hero', f < 1);
+      if(alvo){
+        palco.style.transform = 'translate3d(' + (alvo.x * e).toFixed(1) + 'px,' + (alvo.y * e).toFixed(1) + 'px,0) scale(' + Math.pow(alvo.k, e).toFixed(4) + ')';
+      }
+      palco.style.opacity = f < 1 ? '1' : '0';
       if(txt){
-        txt.style.transform = 'translate3d(0,' + (-e * 40).toFixed(1) + 'px,0)';
-        txt.style.opacity = Math.max(0, 1 - p * 1.6).toFixed(3);
+        txt.style.transform = 'translate3d(0,' + (Math.min(1, p * 2.4) * 26).toFixed(1) + 'px,0)';
+        txt.style.opacity = Math.max(0, 1 - p * 2.4).toFixed(3);
       }
     };
     document.body.classList.add('no-hero');
@@ -159,8 +172,72 @@
       document.addEventListener('scroll', function(){
         if(!pedido){ pedido = true; requestAnimationFrame(rolar); }
       }, { passive:true });
-      rolar();
+      var refazer = function(){ var y = palco.style.transform; palco.style.transform = 'none'; medirAlvo(); palco.style.transform = y; rolar(); };
+      window.addEventListener('resize', refazer);
+      window.addEventListener('load', refazer);
+      refazer();
     }
+  }
+
+  /* ---------- Parede: entra do centro para fora, como o sigilo ---------- */
+  var parede = document.getElementById('parede-grade');
+  if(parede){
+    var ladrilhos = parede.children, caixa = parede.getBoundingClientRect(), maior = .01;
+    var dist = Array.prototype.map.call(ladrilhos, function(a){
+      var r = a.getBoundingClientRect();
+      var d = Math.hypot((r.left + r.width / 2 - caixa.left - caixa.width / 2) / caixa.width, (r.top + r.height / 2 - caixa.top - caixa.height / 2) / caixa.height);
+      maior = Math.max(maior, d);
+      return d;
+    });
+    Array.prototype.forEach.call(ladrilhos, function(a, i){ a.style.setProperty('--d', (dist[i] / maior * .8).toFixed(2) + 's'); });
+  }
+
+  /* ---------- Projetos: o card coberto recua e para o video ---------- */
+  var pilha = document.querySelector('.trilho');
+  var empilha = window.matchMedia && window.matchMedia('(min-width:1000px) and (min-height:640px)');
+  if(pilha && empilha && !quieto){
+    var cards = Array.prototype.slice.call(pilha.querySelectorAll('.case-card'));
+    var ticket = false;
+    var empilhar = function(){
+      ticket = false;
+      var liga = empilha.matches, topo = nav ? nav.offsetHeight : 76, altura = window.innerHeight - topo;
+      cards.forEach(function(c, i){
+        var prox = cards[i + 1], cobre = 0;
+        if(liga && prox) cobre = Math.min(1, Math.max(0, 1 - (prox.getBoundingClientRect().top - topo) / altura));
+        var escala = 1 - cobre * .05;
+        var op = (1 - cobre * .75).toFixed(3);
+        Array.prototype.forEach.call(c.children, function(f){
+          f.style.transform = liga && cobre ? 'scale(' + escala.toFixed(4) + ')' : '';
+          f.style.opacity = liga && cobre ? op : '';
+        });
+        var v = c.querySelector('video');
+        if(v && liga){
+          if(cobre > .98 && !v.paused) v.pause();
+          else if(cobre <= .98 && v.paused && v.readyState > 1 && c.getBoundingClientRect().top < window.innerHeight * .6){ var t = v.play(); if(t && t.catch) t.catch(function(){}); }
+        }
+      });
+    };
+    var pedeE = function(){ if(!ticket){ ticket = true; requestAnimationFrame(empilhar); } };
+    document.addEventListener('scroll', pedeE, { passive:true });
+    window.addEventListener('resize', pedeE);
+    empilhar();
+  }
+
+  /* ---------- Processo: a estrela anda pelas etapas ---------- */
+  var plista = document.getElementById('processo-lista');
+  if(plista && !quieto){
+    var trilha = plista.querySelector('.process-trilha'), passo = false;
+    var andar = function(){
+      passo = false;
+      if(!trilha.offsetWidth) return;
+      var r = plista.getBoundingClientRect(), vh = window.innerHeight;
+      var q = Math.min(1, Math.max(0, (vh * .86 - r.top) / (vh * .5)));
+      trilha.style.setProperty('--p', q.toFixed(3));
+      trilha.style.setProperty('--x', (q * trilha.offsetWidth).toFixed(1) + 'px');
+    };
+    document.addEventListener('scroll', function(){ if(!passo){ passo = true; requestAnimationFrame(andar); } }, { passive:true });
+    window.addEventListener('resize', andar);
+    andar();
   }
 
   /* ---------- Voltar ao topo ---------- */
