@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Curso de Criação de Sites: Método Site Premium | LRGZ</title>
 <meta name="description" content="Aprenda a criar sites profissionais e a vender o seu serviço: 17 módulos, templates, scripts de abordagem e modelo de contrato. A partir de R$ 49,90.">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=2">
@@ -65,27 +65,27 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <style>
 /* ============================================
    LRGZ — DESIGN TOKENS (idênticos ao site principal)
    ============================================ */
 :root{
-  --black:#050505;
-  --surface:#0c0c0b;
-  --surface-2:#131311;
-  --white:#f7f7f3;
-  --gray:#8c8c86;
-  --gray-dim:#57574f;
-  --line:#232320;
-  --line-soft:#1a1a17;
+  --black:#000;
+  --surface:#08090b;
+  --surface-2:#0f1114;
+  --white:#eef1f5;
+  --gray:#9aa1ab;
+  --gray-dim:#646b75;
+  --line:#23262b;
+  --line-soft:#16181c;
   --red:#ff3131;
   --cyan:#00e5ff;
 
-  --font-display:'Unbounded', sans-serif;
-  --font-body:'IBM Plex Sans', sans-serif;
-  --font-mono:'JetBrains Mono', monospace;
+  --font-display:'Forum', Georgia, serif;
+  --font-body:'Geist', system-ui, sans-serif;
+  --font-mono:'Geist', system-ui, sans-serif;
 
   --container: 1180px;
   --pad: clamp(1.25rem, 4vw, 3.5rem);
@@ -162,7 +162,10 @@ button{ font-family:inherit; cursor:pointer; }
   font-family:var(--font-mono); font-weight:600; font-size:1rem; letter-spacing:.12em;
   display:flex; align-items:center; gap:.5rem;
 }
-.mininav .brand .dot{ width:6px; height:6px; background:var(--white); border-radius:50%; animation:blink 2.4s infinite; }
+.mininav .brand .dot{ display:none; }
+.cursor-dot,.cursor-ring,.grain{ display:none !important; }
+h1,h2,h3{ font-weight:400 !important; text-transform:none !important; letter-spacing:0 !important; }
+h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 @keyframes blink{ 0%,100%{ opacity:1;} 50%{ opacity:.25; } }
 
 /* ============================================
@@ -186,14 +189,14 @@ button{ font-family:inherit; cursor:pointer; }
 .planos-hero .brandmark{
   font-family:var(--font-display); font-weight:800; font-size:clamp(2.6rem,7vw,5.5rem);
   text-transform:uppercase; letter-spacing:-.01em; line-height:1;
-  color:transparent; -webkit-text-stroke:1.5px var(--white);
+  color:transparent; 
   margin-bottom:1.6rem;
 }
 .planos-title{
   font-family:var(--font-display); font-weight:600; text-transform:uppercase;
   font-size:clamp(2rem,5.2vw,3.6rem); line-height:1.08; margin-top:1.2rem; max-width:20ch; margin-inline:auto;
 }
-.planos-title .hl{ color:transparent; -webkit-text-stroke:1.5px var(--white); }
+.planos-title .hl{ color:transparent;  }
 .planos-sub{
   font-size:clamp(1rem,1.6vw,1.2rem); color:var(--gray); font-weight:300;
   max-width:44ch; margin:1.2rem auto 0;
@@ -202,18 +205,18 @@ button{ font-family:inherit; cursor:pointer; }
 /* toggle */
 .toggle{
   display:inline-flex; align-items:center; gap:.25rem; margin-top:2.4rem;
-  background:var(--surface); border:1px solid var(--line); padding:.3rem; border-radius:999px;
+  background:var(--surface); border:1px solid var(--line); padding:.3rem; border-radius:0;
 }
 .toggle button{
   font-family:var(--font-mono); font-weight:500; font-size:.78rem; letter-spacing:.04em;
   border:none; background:transparent; color:var(--gray);
-  padding:.7rem 1.3rem; border-radius:999px; display:flex; align-items:center; gap:.5rem;
+  padding:.7rem 1.3rem; border-radius:0; display:flex; align-items:center; gap:.5rem;
   transition:background .3s var(--ease), color .3s var(--ease);
 }
 .toggle button.active{ background:var(--white); color:var(--black); }
 .toggle .badge{
   font-family:var(--font-mono); font-size:.62rem; font-weight:600; letter-spacing:.03em;
-  background:var(--line); color:var(--gray); padding:.15rem .4rem; border-radius:5px;
+  background:var(--line); color:var(--gray); padding:.15rem .4rem; border-radius:0;
 }
 .toggle button.active .badge{ background:rgba(5,5,5,.12); color:var(--black); }
 

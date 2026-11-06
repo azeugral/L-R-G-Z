@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Criação de Sites Profissionais e Landing Pages | LRGZ</title>
 <meta name="description" content="Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 500.">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=2">
@@ -100,29 +100,18 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
-<noscript><style>
-  .hero-title{ display:none; }
-  .sr-only{ position:static !important; width:auto !important; height:auto !important; overflow:visible !important; clip:auto !important; white-space:normal !important; margin:0 !important; }
-  #heroA11y{
-    font-family:'Unbounded',sans-serif; font-weight:700; text-transform:uppercase;
-    font-size:clamp(2.4rem,8vw,6rem); line-height:1.05; color:#f7f7f3;
-  }
-
-</style></noscript>
-<link rel="stylesheet" href="assets/lrgz.css?v=2">
+<link rel="preload" as="image" href="assets/marca/sigilo-poster.jpg" media="(max-width:900px)">
+<link rel="stylesheet" href="assets/lrgz.css?v=3">
 </head>
 <body>
 
-<div class="grain" aria-hidden="true"></div>
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"><span>ver</span></div>
 
 <nav class="nav" id="nav">
   <div class="container">
     <a href="#home" class="nav-logo" aria-label="L R G Z — página inicial">
-      <img src="Logo.png" alt="L R G Z" width="582" height="220" decoding="async">
+      <img src="assets/marca/sigilo.svg" alt="L R G Z" width="560" height="460" decoding="async">
     </a>
     <ul class="nav-links">
       <li><a href="/portfolio">Portfólio</a></li>
@@ -131,7 +120,6 @@
       <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
     <div class="nav-actions">
-      <div class="nav-status"><span class="dot"></span> Disponível para novos projetos</div>
       <button class="lang-toggle lang-toggle--nav" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
       <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span>
@@ -150,60 +138,30 @@
 
 <main>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO ============
+       O sigilo oficial em cromo liquido. Computador: shader (assets/cromo.js).
+       Celular: dois MP4 gravados do mesmo shader, a formacao e depois o laco. -->
   <section class="hero" id="home">
-    <div class="hero-grid" id="heroGrid" aria-hidden="true"></div>
-    <div class="container hero-inner">
-
-      <div class="hero-top">
-        <p class="hero-eyebrow reveal">Studio de <b>criação de sites</b> — direção visual, código e identidade digital, do zero.</p>
-        <div class="badge reveal" aria-hidden="true">
-          <svg viewBox="0 0 200 200">
-            <defs>
-              <path id="circlePath" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/>
-            </defs>
-            <text>
-              <textPath href="#circlePath">DISPONÍVEL PARA NOVOS PROJETOS ✻ DISPONÍVEL PARA NOVOS PROJETOS ✻</textPath>
-            </text>
-          </svg>
-          <span class="badge-center">↗</span>
+    <div class="hero-palco">
+      <div class="hero-cena" aria-hidden="true">
+        <div class="sigilo" id="sigilo">
+          <img id="sigiloPoster" src="assets/marca/sigilo-poster.jpg" alt="" width="1080" height="1080" decoding="async">
+          <canvas id="sigiloCanvas" width="1080" height="1080"></canvas>
+          <video id="sigiloForma" muted playsinline preload="none" src="assets/marca/sigilo-forma.mp4"></video>
+          <video id="sigiloLaco" muted playsinline loop preload="none" src="assets/marca/sigilo-laco.mp4"></video>
         </div>
       </div>
-
-      <!--
-        FRASE DE IMPACTO: para trocar o texto do título, edite apenas
-        o array HERO_LINES no bloco de JavaScript no fim da página — as 4
-        camadas visuais abaixo são geradas automaticamente a partir dele.
-      -->
-      <h1 class="sr-only" id="heroA11y">Criação de sites profissionais: você não precisa de mais um site, precisa de presença.</h1>
-
-      <div class="hero-title reveal" id="heroTitle" aria-hidden="true">
-        <div class="htx-layer htx-veil" id="htxVeil"></div>
-        <div class="htx-layer htx-clear" id="htxClear"></div>
-        <div class="htx-layer htx-fringe htx-fringe-red" id="htxRed"></div>
-        <div class="htx-layer htx-fringe htx-fringe-cyan" id="htxCyan"></div>
-        <p class="hero-hint" id="heroHint">mova o cursor sobre o título</p>
-      </div>
-
-      <div class="hero-bottom">
-        <div class="reveal" style="--rd:.24s">
-          <p class="hero-lead">Eu sou o <strong>L R G Z</strong>. Crio sites para negócios que já são bons no que fazem — e que merecem parecer isso também online. Sem template genérico, sem enrolação.</p>
-          <div class="hero-ctas">
-            <a href="#projetos" class="btn">Ver projetos ↓</a>
-            <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="btn btn-outline">Chamar no WhatsApp</a>
-          </div>
-          <p class="hero-meta">Santa Bárbara d'Oeste, SP — atendo todo o Brasil, remoto</p>
+      <div class="hero-txt" id="heroTxt">
+        <h1 class="sr-only" id="heroA11y">Criação de sites profissionais: seu negócio já é bom, falta parecer.</h1>
+        <p class="hero-eyebrow" style="--i:0">Studio de criação de sites</p>
+        <p class="hero-frase" style="--i:1" aria-hidden="true"><span>Seu negócio já é bom.</span> <span>Falta parecer.</span></p>
+        <p class="hero-lead" style="--i:2">Sites feitos do zero, com direção de arte, animação própria e código escrito à mão. Nenhum igual ao outro.</p>
+        <div class="hero-ctas" style="--i:3">
+          <a href="#projetos" class="btn">Ver projetos</a>
+          <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="btn btn-outline">Chamar no WhatsApp</a>
         </div>
-
-        <div class="terminal reveal" style="--rd:.32s" aria-hidden="true">
-          <div class="terminal-head">
-            <span></span><span></span><span></span>
-            <small>lrgz — build</small>
-          </div>
-          <div class="terminal-body" id="terminalBody"></div>
-        </div>
+        <p class="hero-meta" style="--i:4">Santa Bárbara d'Oeste, SP — atendo todo o Brasil, remoto</p>
       </div>
-
     </div>
   </section>
 
@@ -220,10 +178,10 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ Projetos</p>
+          <p class="eyebrow">Projetos</p>
           <h2 class="section-title">Alguns exemplos, o mesmo cuidado</h2>
         </div>
-        <p class="section-note">Portfólio curto, de propósito — prefiro mostrar poucos projetos bem feitos do que muitos genéricos.</p>
+        <p class="section-note">São 36 sites no ar, nenhum saído de template. Aqui estão alguns; o portfólio completo tem todos, e dá pra testar cada um.</p>
       </div>
 
       <!-- ===================================================================
@@ -232,10 +190,10 @@
            site, gravada quadro a quadro em 1280x720 e salva em 960x540.
            Capa = primeiro quadro, em posters/poster-<slug>.jpg.
            =================================================================== -->
-      <div class="portfolio-grid">
+      <div class="portfolio-grid trilho">
 
         <!-- 04b · Thiago Zaparolli — dark art e coberturas, São José/SC (thiagozaparolli.com.br) -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -266,7 +224,7 @@
         </article>
 
         <!-- 02 · Maronez — tatuador freehand, Porto Alegre/RS -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -297,7 +255,7 @@
         </article>
 
         <!-- 03 · DAC Art Ink — tatuagem e arte autoral, São José dos Campos/SP -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -328,7 +286,7 @@
         </article>
 
         <!-- 04 · Samtto — tatupunk, Manaus/AM (samtto.com.br; mockup = tour, ver samtto_tour.py) -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -358,7 +316,7 @@
           </div>
         </article>
         <!-- 01 · Dra. Juliana Cubas — veterinária a domicílio, Tietê/SP -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -389,7 +347,7 @@
         </article>
 
         <!-- 04c · Goblins Mágicos Proxys — proxies de Magic, Americana/SP (goblinsmagicos.com.br) -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -420,7 +378,7 @@
         </article>
 
         <!-- 05 · Bernardo Art — tatuagem abstrata -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -451,7 +409,7 @@
         </article>
 
         <!-- 06 · Fernando Fernandes — preto e cinza, Bom Retiro/SP -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -482,7 +440,7 @@
         </article>
 
         <!-- 07 · Erick Ratox — tribal e freehand, Salvador/BA -->
-        <article class="case-card reveal tilt-card">
+        <article class="case-card reveal">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -521,16 +479,49 @@
     </div>
   </section>
 
+  <!-- ============ LABORATORIO ============
+       Trechos reais de heros feitos para clientes (assets/marca/lab).
+       Tudo roda em MP4 aqui, entao vale o mesmo em qualquer celular. -->
+  <section class="section" id="laboratorio">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Laboratório</p>
+          <h2 class="section-title">O que dá pra fazer num site</h2>
+        </div>
+        <p class="section-note">Nada disso é plugin. Cada efeito foi programado para um cliente e está rodando no site dele agora, no celular inclusive.</p>
+      </div>
+      <div class="lab-grade">
+        <a class="lab-peca reveal" href="https://azeugral.github.io/kiu-tatu/" target="_blank" rel="noopener">
+          <video muted loop playsinline preload="none" poster="assets/marca/lab/fumaca.jpg" data-lazy-video><source src="assets/marca/lab/fumaca.mp4" type="video/mp4"></video>
+          <span class="lab-legenda"><b>Fumaça em shader</b><span>Kiu Tatu</span></span>
+        </a>
+        <a class="lab-peca reveal" style="--rd:.08s" href="https://azeugral.github.io/ana-dias/" target="_blank" rel="noopener">
+          <video muted loop playsinline preload="none" poster="assets/marca/lab/pontos.jpg" data-lazy-video><source src="assets/marca/lab/pontos.mp4" type="video/mp4"></video>
+          <span class="lab-legenda"><b>26 mil pontos</b><span>Ana Dias</span></span>
+        </a>
+        <a class="lab-peca reveal" style="--rd:.16s" href="https://azeugral.github.io/rodrigo-canhedo/" target="_blank" rel="noopener">
+          <video muted loop playsinline preload="none" poster="assets/marca/lab/flash.jpg" data-lazy-video><source src="assets/marca/lab/flash.mp4" type="video/mp4"></video>
+          <span class="lab-legenda"><b>Flash pintado na tela</b><span>Rodrigo Canhedo</span></span>
+        </a>
+        <a class="lab-peca reveal" style="--rd:.24s" href="https://azeugral.github.io/pilha-ink-tattoo/" target="_blank" rel="noopener">
+          <video muted loop playsinline preload="none" poster="assets/marca/lab/vento.jpg" data-lazy-video><source src="assets/marca/lab/vento.mp4" type="video/mp4"></video>
+          <span class="lab-legenda"><b>Túnel de vento</b><span>Pilha Ink</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SOBRE ============ -->
   <section class="section about" id="sobre">
-    <div class="about-wm" id="aboutWm" aria-hidden="true">L R G Z</div>
+    <div class="about-wm" aria-hidden="true"></div>
     <div class="container about-grid">
       <div class="about-head reveal">
-        <p class="eyebrow">/ Sobre</p>
+        <p class="eyebrow">Sobre</p>
         <h2 class="about-title">Todo projeto tratado como marca grande.</h2>
       </div>
       <div>
-        <p class="about-body reveal">L R G Z é a assinatura que uso pra esse trabalho: pegar quem já faz um trabalho bom — o estúdio de tatuagem, a clínica, o ateliê, a indústria — e dar a ele uma presença online <strong>com a mesma qualidade</strong>. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.</p>
+        <p class="about-body" data-luz>L R G Z é a assinatura que uso pra esse trabalho: pegar quem já faz um trabalho bom — o estúdio de tatuagem, a clínica, o ateliê, a indústria — e dar a ele uma presença online <strong>com a mesma qualidade</strong>. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.</p>
         <ul class="about-list reveal" style="--rd:.1s">
           <li><b>Design autoral</b> — feito sob medida pro seu negócio, não adaptado de um template</li>
           <li><b>Código limpo</b> — leve, rápido de carregar e fácil de manter</li>
@@ -545,7 +536,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ O que eu faço</p>
+          <p class="eyebrow">O que eu faço</p>
           <h2 class="section-title">Onde eu entro</h2>
         </div>
         <p class="section-note">Do primeiro rascunho ao site no ar — cada etapa pensada pro seu negócio, não pro meu processo.</p>
@@ -553,22 +544,18 @@
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <p class="num">Serviço</p>
         <h3>Site institucional</h3>
         <p>Presença digital completa: estrutura, conteúdo e visual pensados pra apresentar seu negócio com clareza — e converter visita em contato.</p>
       </div>
       <div class="service-card reveal" style="--rd:.06s">
-        <p class="num">Serviço</p>
         <h3>Landing page</h3>
         <p>Uma página, um objetivo. Ideal pra lançar um produto, uma campanha ou capturar contato rápido, sem enrolação.</p>
       </div>
       <div class="service-card reveal" style="--rd:.12s">
-        <p class="num">Serviço</p>
         <h3>Identidade visual digital</h3>
         <p>Direção de arte, paleta, tipografia e aplicação consistente — pra sua marca ser reconhecida em qualquer tela.</p>
       </div>
       <div class="service-card reveal" style="--rd:.18s">
-        <p class="num">Serviço</p>
         <h3>Manutenção &amp; suporte</h3>
         <p>Ajustes, atualização de conteúdo e acompanhamento depois da entrega. Seu site não fica largado.</p>
       </div>
@@ -586,7 +573,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ Investimento</p>
+          <p class="eyebrow">Investimento</p>
           <h2 class="section-title">O que vai no seu site</h2>
         </div>
         <p class="section-note">Todo projeto sai com tudo isso. O valor depende do tamanho do que você precisa — e sai fechado na primeira conversa, sem surpresa no meio do caminho.</p>
@@ -628,35 +615,35 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ Como funciona</p>
+          <p class="eyebrow">Como funciona</p>
           <h2 class="section-title">Do primeiro papo ao ar</h2>
         </div>
         <p class="section-note">Um processo direto, com pouca reunião e muita entrega.</p>
       </div>
       <div class="process-list">
         <div class="process-item reveal">
-          <p class="num">01 / Diagnóstico</p>
+          <p class="num">Diagnóstico</p>
           <div>
             <h3>Entender o negócio</h3>
             <p>Converso com você sobre o negócio, o público e o que já existe (ou não) da sua presença online hoje.</p>
           </div>
         </div>
         <div class="process-item reveal" style="--rd:.06s">
-          <p class="num">02 / Direção</p>
+          <p class="num">Direção</p>
           <div>
             <h3>Definir a identidade</h3>
             <p>Defino identidade visual, estrutura de conteúdo e tom de voz do site — a base de tudo que vem depois.</p>
           </div>
         </div>
         <div class="process-item reveal" style="--rd:.12s">
-          <p class="num">03 / Construção</p>
+          <p class="num">Construção</p>
           <div>
             <h3>Desenvolver do zero</h3>
             <p>Desenvolvo o site do zero — responsivo, rápido e fácil de atualizar sozinho depois.</p>
           </div>
         </div>
         <div class="process-item reveal" style="--rd:.18s">
-          <p class="num">04 / Entrega</p>
+          <p class="num">Entrega</p>
           <div>
             <h3>Publicar e repassar</h3>
             <p>Publicação, ajustes finais e um repasse completo de como tudo funciona — sem depender de mim pra tudo.</p>
@@ -677,7 +664,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ Avaliações</p>
+          <p class="eyebrow">Avaliações</p>
           <h2 class="section-title">O que dizem depois do site no ar</h2>
         </div>
         <div class="section-note">
@@ -723,7 +710,8 @@
   <section class="section" id="contato">
     <div class="container cta-inner">
       <div class="reveal">
-        <p class="eyebrow">/ Vamos começar</p>
+        <div class="cta-sigilo" aria-hidden="true"><video muted loop playsinline preload="none" poster="assets/marca/sigilo-poster.jpg" data-lazy-video><source src="assets/marca/sigilo-laco.mp4" type="video/mp4"></video></div>
+        <p class="eyebrow">Vamos começar</p>
         <h2 class="cta-title">Vamos construir algo que representa o que você faz de verdade.</h2>
         <p class="cta-body">Me conta um pouco sobre o seu negócio. Eu respondo pessoalmente — sem robô, sem formulário genérico.</p>
       </div>
@@ -784,7 +772,7 @@
 
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">/ Curso</p>
+          <p class="eyebrow">Curso</p>
           <h2 class="section-title">Aprenda a fazer o seu</h2>
         </div>
         <p class="section-note">Se você prefere colocar a mão na massa, eu ensino o mesmo método que uso nos projetos do estúdio.</p>
@@ -827,7 +815,7 @@
 <footer>
   <div class="container footer-inner">
     <p class="fmono">
-      <img class="footer-logo" src="Logo.png" alt="L R G Z" width="582" height="220" decoding="async" loading="lazy">© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.
+      <img class="footer-logo" src="assets/marca/sigilo.svg" alt="L R G Z" width="560" height="460" decoding="async" loading="lazy">© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.
     </p>
     <div class="footer-links">
       <a href="#sobre">Sobre</a>
@@ -842,7 +830,8 @@
   </div>
 </footer>
 
-<script src="assets/lrgz.js?v=1"></script>
+<script src="assets/cromo.js?v=1"></script>
+<script src="assets/lrgz.js?v=2"></script>
 
 
 <!-- ============ I18N — PT-BR / EN-US ============
@@ -852,7 +841,7 @@
      Texto sem tradução aparece em português, sem quebrar a página.
      Para esconder um elemento num idioma: data-only="pt" ou data-only="en".
      ============================================================ -->
-<script src="assets/i18n.js?v=8"></script>
+<script src="assets/i18n.js?v=9"></script>
 <a class="wa-float" id="waFloat" href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2.5C6.79 2.5 2.52 6.77 2.52 12.02c0 1.68.44 3.32 1.28 4.77L2.5 21.5l4.85-1.27a9.47 9.47 0 0 0 4.69 1.2h.01c5.25 0 9.52-4.27 9.52-9.52a9.46 9.46 0 0 0-2.79-6.73 9.46 9.46 0 0 0-6.74-2.79zm0 17.35h-.01a7.9 7.9 0 0 1-4.02-1.1l-.29-.17-2.98.78.8-2.91-.19-.3a7.88 7.88 0 0 1-1.21-4.2c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.59 2.32a7.86 7.86 0 0 1 2.32 5.6c0 4.36-3.55 7.89-7.92 7.89z"/></svg>
   <span>Falar no WhatsApp</span>
@@ -865,7 +854,7 @@
   <div class="modal-backdrop" data-fechar></div>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="orcTitulo">
     <button type="button" class="modal-x" data-fechar aria-label="Fechar">✕</button>
-    <p class="eyebrow">/ Orçamento</p>
+    <p class="eyebrow">Orçamento</p>
     <h3 id="orcTitulo">Me conta o que você precisa</h3>
     <p class="modal-sub">Preenche aqui e a mensagem chega pronta no meu WhatsApp — com os dados que eu preciso pra te passar o valor certo já na primeira resposta.</p>
 
