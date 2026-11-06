@@ -141,7 +141,7 @@ button{ font-family:inherit; cursor:pointer; }
   width:36px; height:36px; border:1px solid var(--gray);
   transition:width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
   display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-mono); font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--black);
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--black);
 }
 .cursor-ring.is-hover{ width:70px; height:70px; background:var(--white); border-color:var(--white); }
 @media (pointer:coarse){ .cursor-dot,.cursor-ring{ display:none; } }
@@ -153,8 +153,9 @@ button{ font-family:inherit; cursor:pointer; }
   position:relative; z-index:5; padding:1.6rem 0 0;
   display:flex; align-items:center; justify-content:space-between;
 }
-.mininav .back{
-  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+.mininav .back,.mininav .lang-toggle{ min-height:44px; }
+.mininav .back{ display:inline-flex; align-items:center;
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
   color:var(--gray); border-bottom:1px solid transparent; transition:color .3s var(--ease), border-color .3s var(--ease);
 }
 .mininav .back:hover{ color:var(--white); border-color:var(--white); }
@@ -215,7 +216,7 @@ h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 }
 .toggle button.active{ background:var(--white); color:var(--black); }
 .toggle .badge{
-  font-family:var(--font-mono); font-size:.62rem; font-weight:600; letter-spacing:.03em;
+  font-family:var(--font-mono); font-size:.75rem; font-weight:600; letter-spacing:.03em;
   background:var(--line); color:var(--gray); padding:.15rem .4rem; border-radius:0;
 }
 .toggle button.active .badge{ background:rgba(5,5,5,.12); color:var(--black); }
@@ -253,7 +254,7 @@ h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 
 .ribbon{
   position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-  font-family:var(--font-mono); font-size:.66rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  font-family:var(--font-mono); font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
   background:var(--black); color:var(--white); border:1px solid var(--line);
   padding:.5rem 1rem; white-space:nowrap;
 }
@@ -262,7 +263,7 @@ h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 .plan-head{ display:flex; flex-wrap:wrap; align-items:center; gap:.5rem .7rem; margin-bottom:.7rem; }
 .plan-name{ font-family:var(--font-display); font-size:1.15rem; font-weight:600; text-transform:uppercase; }
 .off-tag{
-  font-family:var(--font-mono); font-size:.62rem; font-weight:600; letter-spacing:.04em;
+  font-family:var(--font-mono); font-size:.75rem; font-weight:600; letter-spacing:.04em;
   border:1px solid var(--line); color:var(--gray); padding:.2rem .5rem;
 }
 .card.featured .off-tag{ border-color:rgba(5,5,5,.25); color:var(--gray-dim); }
@@ -273,13 +274,13 @@ h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 .price-row{ display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; margin-top:1.3rem; }
 .price-old{ color:var(--gray-dim); text-decoration:line-through; font-family:var(--font-mono); font-size:.9rem; }
 .price-new{ font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.1rem); font-weight:600; }
-.price-unit{ color:var(--gray); font-family:var(--font-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+.price-unit{ color:var(--gray); font-family:var(--font-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.04em; }
 .card.featured .price-unit{ color:var(--gray-dim); }
 .price-note{ color:var(--gray); font-size:.78rem; margin-top:.3rem; }
 
 .save-btn{
   margin-top:1.1rem; width:100%; text-align:center; font-family:var(--font-mono);
-  font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; font-weight:500;
+  font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; font-weight:500;
   border:1px solid var(--line); color:var(--gray); padding:.7rem;
 }
 .card.featured .save-btn{ border-color:rgba(5,5,5,.2); color:var(--gray-dim); }
@@ -287,7 +288,7 @@ h1 em,h1 span{ color:inherit !important; font-style:normal !important; }
 .divider{ height:1px; background:var(--line); margin:1.6rem 0; }
 .card.featured .divider{ background:rgba(5,5,5,.14); }
 .section-label{
-  font-family:var(--font-mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase;
   color:var(--gray-dim); margin-bottom:.9rem;
 }
 
@@ -318,14 +319,14 @@ ul.features li.dim .mk{ color:var(--gray-dim); }
    ============================================ */
 footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
 .footer-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
-.footer-inner .fmono{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; color:var(--gray-dim); }
-.footer-inner a{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; color:var(--gray); text-transform:uppercase; }
+.footer-inner .fmono{ font-family:var(--font-mono); font-size:.75rem; letter-spacing:.06em; color:var(--gray-dim); }
+.footer-inner a{ display:inline-flex; align-items:center; min-height:44px; font-family:var(--font-mono); font-size:.75rem; letter-spacing:.06em; color:var(--gray); text-transform:uppercase; }
 .footer-inner a:hover{ color:var(--white); }
 
 /* ============ TOGGLE DE IDIOMA (PT / EN) ============ */
 .lang-toggle{
   display:inline-flex; align-items:center; justify-content:center; gap:.3rem; flex:none;
-  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; font-weight:500;
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; font-weight:500;
   background:transparent; border:1px solid var(--line); color:var(--gray-dim);
   padding:.42rem .62rem; line-height:1; cursor:pointer;
   border-radius:0; -webkit-appearance:none; appearance:none;
@@ -346,15 +347,15 @@ footer{ border-top:1px solid var(--line); padding:2.2rem 0; }
   .mininav{ gap:1rem; flex-wrap:wrap; }
 }
 @media (max-width:400px){
-  .lang-toggle{ min-width:58px; padding:.6rem .6rem; font-size:.72rem; }
+  .lang-toggle{ min-width:58px; padding:.6rem .6rem; font-size:.75rem; }
   .mininav .brand{ font-size:.9rem; letter-spacing:.08em; }
 }
 /* ============================================
    AJUSTES DE CELULAR
    ============================================ */
 @media (max-width:600px), (pointer:coarse) and (max-height:500px){
-  .toggle .badge, .off-tag{ font-size:.72rem; }
-  .section-label, .ribbon{ font-size:.72rem; }
+  .toggle .badge, .off-tag{ font-size:.75rem; }
+  .section-label, .ribbon{ font-size:.75rem; }
   .mininav .back{ display:inline-block; padding-block:.8rem; }
   .footer-inner a{ display:inline-block; padding-block:.8rem; }
 }

@@ -4,10 +4,12 @@
 (function(){
   document.documentElement.classList.add('js');
   var mm = function(q){ return window.matchMedia ? window.matchMedia(q) : { matches:false }; };
-  var quieto = mm('(prefers-reduced-motion: reduce)').matches;
+  var economia = !!(navigator.connection && navigator.connection.saveData);
+  var quieto = mm('(prefers-reduced-motion: reduce)').matches || economia;
   var toque = mm('(hover: none), (pointer: coarse)').matches;
   var vit = document.getElementById('vitrine');
   var vitrineLigada = !!vit && !quieto && mm('(min-width:1000px)').matches;
+  function capa(v){ if(v.dataset.poster){ v.poster = v.dataset.poster; delete v.dataset.poster; } }
 
   /* ---------- Nav ---------- */
   var nav = document.getElementById('nav');
@@ -38,10 +40,10 @@
     if(vitrineLigada) vids = vids.filter(function(v){ return !vit.contains(v); });
     if(!vids.length) return;
     if(quieto){
-      vids.forEach(function(v){ v.preload = 'metadata'; });
+      vids.forEach(function(v){ capa(v); v.preload = 'metadata'; });
       return;
     }
-    function carregar(v){ if(v.preload === 'none'){ v.preload = 'auto'; v.load(); } }
+    function carregar(v){ capa(v); if(v.preload === 'none'){ v.preload = 'auto'; v.load(); } }
     function ligar(v){ carregar(v); var t = v.play(); if(t && t.catch) t.catch(function(){}); }
     if(!('IntersectionObserver' in window)){ vids.forEach(ligar); return; }
     /* baixar comeca antes de aparecer; tocar, so com metade na tela */
@@ -86,13 +88,20 @@
       });
       vForma.classList.add('on');
       pede(vForma).catch(function(){ palco.classList.add('so-poster'); });
-      /* modo economia de energia do iPhone recusa o autoplay em silencio */
+      /* conexao lenta ou economia de energia: a logo pronta entra no lugar e,
+         se o laco chegar depois, ele assume sem salto (comeca no mesmo quadro) */
       setTimeout(function(){
-        if(vForma.currentTime === 0 && vLaco.paused) palco.classList.add('so-poster');
+        if(vForma.currentTime > 0 || !vLaco.paused) return;
+        palco.classList.add('so-poster');
+        vForma.pause(); vForma.removeAttribute('src');
+        vLaco.addEventListener('playing', function(){
+          vLaco.classList.add('on'); vForma.classList.remove('on'); palco.classList.remove('so-poster');
+        }, { once:true });
+        pede(vLaco);
       }, 1600);
       if('IntersectionObserver' in window){
         new IntersectionObserver(function(en){
-          if(!vForma.ended) return;
+          if(!vForma.ended && palco.classList.contains('so-poster') === false && !vLaco.classList.contains('on')) return;
           if(en[0].isIntersecting) pede(vLaco);
           else vLaco.pause();
         }).observe(hero);
@@ -145,6 +154,8 @@
     var lista = document.createElement('ol');
     lista.className = 'vitrine-lista';
     var atual = 0;
+    var videos = function(c){ return Array.prototype.slice.call(c.querySelectorAll('video')); };
+    var toca = function(v){ capa(v); if(v.preload === 'none'){ v.preload = 'auto'; v.load(); } var t = v.play(); if(t && t.catch) t.catch(function(){}); };
     var mostra = function(i){
       atual = i;
       cards.forEach(function(c, k){
@@ -153,12 +164,13 @@
         btns[k].classList.toggle('ativo', on);
         btns[k].setAttribute('aria-pressed', on ? 'true' : 'false');
         if(!vitrineLigada) return;
-        var v = c.querySelector('video');
-        if(on){
-          if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
-          var t = v.play(); if(t && t.catch) t.catch(function(){});
-        } else if(!v.paused) v.pause();
+        videos(c).forEach(function(v){
+          if(on){ try{ v.currentTime = 0; }catch(e){} toca(v); }
+          else if(!v.paused) v.pause();
+        });
       });
+      /* a capa do proximo ja chega antes dele */
+      if(vitrineLigada) videos(cards[(i + 1) % cards.length]).forEach(capa);
     };
     var btns = cards.map(function(c, i){
       var li = document.createElement('li');
@@ -178,12 +190,18 @@
       new IntersectionObserver(function(en){
         var dentro = en[0].isIntersecting;
         vit.classList.toggle('fora', !dentro);
-        var v = cards[atual].querySelector('video');
-        if(dentro){ var t = v.play(); if(t && t.catch) t.catch(function(){}); }
-        else if(!v.paused) v.pause();
+        videos(cards[atual]).forEach(function(v){ if(dentro) toca(v); else if(!v.paused) v.pause(); });
       }, { threshold:.35 }).observe(vit);
     }
     mostra(0);
+  }
+
+  /* ---------- Raios: a luz so corre com o raio na tela ---------- */
+  if(!quieto && 'IntersectionObserver' in window){
+    var raios = new IntersectionObserver(function(en){
+      en.forEach(function(e){ e.target.classList.toggle('vivo', e.isIntersecting); });
+    }, { rootMargin:'40px' });
+    document.querySelectorAll('.raio').forEach(function(r){ raios.observe(r); });
   }
 
   /* ---------- Voltar ao topo ---------- */

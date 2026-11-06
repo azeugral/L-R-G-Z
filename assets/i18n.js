@@ -14,7 +14,7 @@
     /* — hero — */
     'Valores':'Pricing',
     'Essência':'Essence',
-    '36 sites. Nenhum igual ao outro.':'36 websites. No two alike.',
+    'Nenhum site igual ao outro.':'No two websites alike.',
     'sites no ar':'websites live',
     'primeira versão':'first version',
     'entrega':'delivery',
@@ -28,7 +28,6 @@
     'Falta parecer.':'It just needs to look it.',
     'Sites feitos do zero, com direção de arte, animação própria e código escrito à mão. Nenhum igual ao outro.':'Websites built from scratch, with art direction, original animation and hand-written code. No two alike.',
     'Ver projetos':'See the work',
-    'São 36 sites no ar, nenhum saído de template. Aqui estão alguns; o portfólio completo tem todos, e dá pra testar cada um.':'36 websites live, none of them from a template. Here are a few; the full portfolio has them all, and you can try each one.',
     'Laboratório':'Lab',
     'O que dá pra fazer num site':'What a website can do',
     'Nada disso é plugin. Cada efeito foi programado para um cliente e está rodando no site dele agora, no celular inclusive.':'None of this is a plugin. Each effect was programmed for a client and is running on their site right now, on phones too.',
@@ -456,8 +455,8 @@
 
     /* — portfolio.html e botao da home — */
     'Portfólio de Sites | LRGZ':'Website Portfolio | LRGZ',
-    'Portfólio da LRGZ: 36 sites feitos do zero para tatuadores, profissionais da beleza, veterinária e lojas. Veja cada um rodando e teste o site de verdade.':
-      'LRGZ portfolio: 36 websites built from scratch for tattoo artists, beauty professionals, veterinary care and shops. Watch each one run and try the real site.',
+    'Portfólio da LRGZ: sites feitos do zero para tatuadores, profissionais da beleza, veterinária e lojas. Veja cada um rodando e teste o site de verdade.':
+      'LRGZ portfolio: websites built from scratch for tattoo artists, beauty professionals, veterinary care and shops. Watch each one run and try the real site.',
     '/ Portfólio':'/ Portfolio',
     'Todos os projetos':'Every project',
     'Sites feitos do zero, cada um com a cara de quem atende. O vídeo mostra a página inicial; o botão abre o site de verdade.':
