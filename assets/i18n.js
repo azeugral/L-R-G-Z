@@ -26,7 +26,7 @@
     'Criação de sites profissionais: seu negócio já é bom, falta parecer.':'Professional website design: your business is already good, it just needs to look it.',
     'Seu negócio já é bom.':'Your business is already good.',
     'Falta parecer.':'It just needs to look it.',
-    'Sites feitos do zero, com direção de arte, animação própria e código escrito à mão. Nenhum igual ao outro.':'Websites built from scratch, with art direction, original animation and hand-written code. No two alike.',
+    'Sites feitos do zero, com direção de arte, animação própria e pensados primeiro pro celular. Nenhum igual ao outro.':'Websites built from scratch, with art direction, original animation and a mobile-first design. No two alike.',
     'Ver projetos':'See the work',
     'Laboratório':'Lab',
     'O que dá pra fazer num site':'What a website can do',
@@ -125,8 +125,8 @@
       'I build the site from scratch — responsive, fast, and easy for you to update yourself afterwards.',
     '04 / Entrega':'04 / Handover',
     'Publicar e repassar':'Launch and hand over',
-    'Publicação, ajustes finais e um repasse completo de como tudo funciona — sem depender de mim pra tudo.':
-      'Launch, final adjustments and a full walkthrough of how everything works — so you’re not dependent on me for every change.',
+    'Publicação, ajustes finais e um repasse completo de como tudo funciona.':
+      'Launch, final adjustments and a full walkthrough of how everything works.',
 
     /* — projetos — */
     '/ Projetos':'/ Work',
@@ -252,8 +252,6 @@
       'Google: titles, descriptions and speed ready to be indexed; Google Business Profile set up if you do not have one yet',
     'Domínio .com.br incluso, registrado no seu nome — é seu, não meu':
       '.com.br domain included, registered in your name — it is yours, not mine',
-    'Você aprende a editar textos e fotos em 15 minutos, sem depender de mim':
-      'You learn to edit text and photos in 15 minutes, without depending on me',
     'Preço e prazos':'Price and timelines',
     'a partir de':'from',
     'Hospedagem e domínio .com.br grátis no primeiro ano.':'Hosting and a .com.br domain free for the first year.',
