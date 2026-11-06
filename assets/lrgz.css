@@ -710,7 +710,7 @@ html.bf .nav{ top:var(--bf-h); padding-top:env(safe-area-inset-top); }
 html.bf .mobile-menu{ padding-top:calc(var(--nav-h) + var(--bf-h) + 1rem); }
 html.bf .page-top{ padding-top:calc(var(--nav-h) + var(--bf-h) + clamp(2.2rem,6vw,4.5rem)); }
 .bf-arte{
-  grid-column:1 / -1; grid-row:1; align-items:center; gap:clamp(.8rem,2.4vw,1.8rem); background:#000; color:var(--white);
+  grid-column:1 / -1; grid-row:1; align-items:center; box-shadow:0 0 0 2px #000; /* cobre o fio claro do card em zoom fracionado */ gap:clamp(.8rem,2.4vw,1.8rem); background:#000; color:var(--white);
   margin:calc(clamp(1.3rem,3.4vw,3rem) * -1) calc(clamp(1.3rem,3.4vw,3rem) * -1) clamp(1.3rem,3vw,2.2rem); padding:.9rem clamp(1.3rem,3.4vw,3rem);
 }
 .bf-arte img{ width:clamp(92px,12vw,150px); height:auto; flex:none; }
