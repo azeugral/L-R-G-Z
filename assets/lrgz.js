@@ -137,7 +137,7 @@
       new IntersectionObserver(function(en){ if(palco.classList.contains('modo-shader')) visivel = en[0].isIntersecting; }).observe(hero);
     }
 
-    /* rolagem: o sigilo cresce e atravessa a tela */
+    /* rolagem: o sigilo sai devagar */
     var txt = document.getElementById('heroTxt');
     var pedido = false;
     var rolar = function(){
@@ -146,11 +146,11 @@
       var p = alt > 0 ? Math.min(1, Math.max(0, window.scrollY / alt)) : 0;
       var e = p * p * (3 - 2 * p);
       document.body.classList.toggle('no-hero', p < .92);
-      palco.style.transform = 'scale(' + (1 + e * 1.15).toFixed(4) + ')';
-      palco.style.opacity = (1 - Math.max(0, (p - .5) / .5)).toFixed(3);
+      palco.style.transform = 'scale(' + (1 + e * .16).toFixed(4) + ')';
+      palco.style.opacity = (1 - e * .9).toFixed(3);
       if(txt){
-        txt.style.transform = 'translate3d(0,' + (-e * 70).toFixed(1) + 'px,0)';
-        txt.style.opacity = Math.max(0, 1 - p * 2.1).toFixed(3);
+        txt.style.transform = 'translate3d(0,' + (-e * 40).toFixed(1) + 'px,0)';
+        txt.style.opacity = Math.max(0, 1 - p * 1.6).toFixed(3);
       }
     };
     document.body.classList.add('no-hero');
@@ -161,25 +161,6 @@
       }, { passive:true });
       rolar();
     }
-  }
-
-  /* ---------- Sobre: o texto acende com a rolagem ---------- */
-  var luzes = document.querySelectorAll('[data-luz]');
-  if(luzes.length && !quieto){
-    var fila = false;
-    var acender = function(){
-      fila = false;
-      var vh = window.innerHeight;
-      luzes.forEach(function(el){
-        var r = el.getBoundingClientRect();
-        var p = (vh * .86 - r.top) / (r.height + vh * .3);
-        el.style.setProperty('--luz', Math.min(1, Math.max(0, p)).toFixed(3));
-      });
-    };
-    document.addEventListener('scroll', function(){
-      if(!fila){ fila = true; requestAnimationFrame(acender); }
-    }, { passive:true });
-    acender();
   }
 
   /* ---------- Voltar ao topo ---------- */

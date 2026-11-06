@@ -12,6 +12,13 @@
     'Abrir menu':'Open menu', 'Voltar ao topo':'Back to top',
 
     /* — hero — */
+    'sites no ar':'websites live',
+    'primeira versão':'first version',
+    'entrega':'delivery',
+    'no Google':'on Google',
+    '7 dias':'7 days',
+    '5,0':'5.0',
+    'Em números':'In numbers',
     'Studio de criação de sites':'Website design studio',
     'Criação de sites profissionais: seu negócio já é bom, falta parecer.':'Professional website design: your business is already good, it just needs to look it.',
     'Seu negócio já é bom.':'Your business is already good.',
