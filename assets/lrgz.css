@@ -170,7 +170,6 @@ body.no-hero .nav-logo img{ opacity:0; transform:scale(.9); }
 /* ---------- secoes ---------- */
 main{ display:block; position:relative; }
 .section{ position:relative; z-index:2; padding-block:var(--sec); background:var(--fundo); color:var(--texto); }
-.claro{ --fundo:#eceef0; --texto:#0b0c0d; --apagado:#54595f; --fio:#cfd2d6; --botao:#0b0c0d; --botao-texto:#f3f4f5; }
 .section-head{ display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:.8rem clamp(2rem,6vw,5rem); align-items:end; margin-bottom:clamp(2.2rem,4.8vw,3.8rem); }
 .section-head.centro{ grid-template-columns:minmax(0,1fr); justify-items:center; text-align:center; }
 .section-head.centro .section-note{ max-width:56ch; }
@@ -276,7 +275,7 @@ main{ display:block; position:relative; }
 .about-body{ font-size:clamp(1.08rem,1.5vw,1.28rem); line-height:1.5; max-width:46em; margin:1.5rem auto 0; color:var(--apagado); }
 .about-body strong{ font-weight:600; color:var(--texto); }
 .about-list{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1rem,2.2vw,2rem); margin-top:clamp(2.2rem,4.4vw,3.4rem); text-align:left; }
-.about-list li{ padding-top:.9rem; border-top:1px solid var(--texto); color:var(--apagado); font-size:1rem; }
+.about-list li{ padding-top:.9rem; border-top:1px solid var(--line); color:var(--apagado); font-size:1rem; }
 .about-list b{ display:block; color:var(--texto); font-weight:600; font-size:1.08rem; }
 
 /* ---------- servicos ---------- */
