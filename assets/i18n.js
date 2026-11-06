@@ -121,8 +121,8 @@
       'I define the visual identity, content structure and tone of voice — the foundation for everything that follows.',
     '03 / Construção':'03 / Build',
     'Desenvolver do zero':'Build from scratch',
-    'Desenvolvo o site do zero — responsivo, rápido e fácil de atualizar sozinho depois.':
-      'I build the site from scratch — responsive, fast, and easy for you to update yourself afterwards.',
+    'Desenvolvo o site do zero — responsivo e rápido.':
+      'I build the site from scratch — responsive and fast.',
     '04 / Entrega':'04 / Handover',
     'Publicar e repassar':'Launch and hand over',
     'Publicação, ajustes finais e um repasse completo de como tudo funciona.':
