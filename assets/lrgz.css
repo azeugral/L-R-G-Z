@@ -688,3 +688,52 @@ body.no-hero .wa-float{ opacity:0; visibility:hidden; transform:translate3d(0,10
   .trilho{ --c:min(calc(100vw - 2 * var(--pad)),calc((74svh - 34px) / .5625 * 1.26)); padding-inline:calc((100vw - var(--c)) / 2); scroll-padding-inline:calc((100vw - var(--c)) / 2); }
   .trilho .case-card{ flex-basis:var(--c); }
 }
+
+/* ---------- Black Friday (novembro/2026) ----------
+   html.bf vem do script no head e cai sozinho em 01/12. Para desligar antes,
+   basta tirar a condição do script em index.html e portfolio.html. */
+.bf-only{ display:none; }
+html.bf{ --bf-h:42px; scroll-padding-top:calc(var(--nav-h) + var(--bf-h)); }
+html.bf .sem-bf{ display:none; }
+html.bf span.bf-only{ display:inline; }
+html.bf p.bf-only{ display:block; }
+html.bf .bf-arte{ display:flex; }
+html.bf .bf-faixa{ display:flex; }
+.bf-faixa{
+  position:fixed; inset:0 0 auto 0; z-index:61; min-height:calc(var(--bf-h) + env(safe-area-inset-top)); padding:env(safe-area-inset-top) var(--pad) 0;
+  align-items:center; justify-content:center; gap:.3rem 1.1rem; color:#000; font-size:.98rem; font-weight:500; line-height:1.15; text-align:center;
+  background:linear-gradient(100deg,#e6eaef 0%,#9aa0a7 24%,#eef0f3 46%,#868c93 70%,#dfe3e8 100%);
+}
+.bf-faixa b{ font-family:var(--font-display); font-weight:400; letter-spacing:-.025em; text-transform:uppercase; }
+.bf-faixa em{ font-style:normal; font-weight:600; border-bottom:1px solid #000; }
+html.bf .nav{ top:var(--bf-h); padding-top:env(safe-area-inset-top); }
+html.bf .mobile-menu{ padding-top:calc(var(--nav-h) + var(--bf-h) + 1rem); }
+html.bf .page-top{ padding-top:calc(var(--nav-h) + var(--bf-h) + clamp(2.2rem,6vw,4.5rem)); }
+.bf-arte{
+  grid-column:1 / -1; grid-row:1; align-items:center; gap:clamp(.8rem,2.4vw,1.8rem); background:#000; color:var(--white);
+  margin:calc(clamp(1.3rem,3.4vw,3rem) * -1) calc(clamp(1.3rem,3.4vw,3rem) * -1) clamp(1.3rem,3vw,2.2rem); padding:.9rem clamp(1.3rem,3.4vw,3rem);
+}
+.bf-arte img{ width:clamp(92px,12vw,150px); height:auto; flex:none; }
+.bf-titulo{
+  font-family:var(--font-display); font-size:clamp(1.3rem,3.3vw,2.5rem); letter-spacing:-.025em; line-height:1.15; text-transform:uppercase;
+  background:linear-gradient(180deg,#fff 0%,#c9ced3 42%,#6b7177 54%,#e8ebee 70%,#969ca2 100%); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.bf-sub{ color:var(--red); font-size:1rem; font-weight:500; margin-top:.15rem; }
+.pc-de{ grid-column:1; color:#54595f; font-size:1.08rem; margin-bottom:.35rem; }
+.pc-de s{ color:#0b0c0d; font-weight:500; text-decoration-color:var(--red); text-decoration-thickness:2px; }
+html.bf .price-card .pc-linhas{ grid-row:2 / span 5; }
+html.bf .price-card .pc-cta{ grid-row:7; }
+html.bf .price-card{ grid-template-rows:auto auto auto auto auto auto 1fr; }
+html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-top:.45rem; }
+@media (max-width:1040px){
+  html.bf .price-card{ grid-template-rows:none; }
+  html.bf .price-card .pc-linhas,html.bf .price-card .pc-cta{ grid-row:auto; }
+}
+@media (max-width:999px), (max-height:600px){
+  html.bf .hero{ padding-top:calc(var(--nav-h) + var(--bf-h) + env(safe-area-inset-top)); }
+}
+@media (max-width:720px){
+  html.bf{ --bf-h:60px; }
+  .bf-faixa{ flex-wrap:wrap; font-size:.9rem; gap:.1rem .7rem; padding-block:.35rem; }
+  .bf-faixa span{ order:3; flex:0 0 100%; }
+}

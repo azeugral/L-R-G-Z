@@ -61,6 +61,7 @@
         function(i){ return i.nextElementSibling.textContent.trim(); }).join(', ');
     }
     var linhas = [T.ola, ''];
+    if(document.documentElement.classList.contains('bf')) linhas.splice(1, 0, en ? 'I came for the Black Friday offer.' : 'Quero a oferta de Black Friday.');
     if(v('nome'))    linhas.push(T.nome + v('nome'));
     if(v('negocio')) linhas.push(T.neg + v('negocio'));
     var selReg = form.querySelector('#orcRegiao');
