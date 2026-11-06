@@ -1,10 +1,13 @@
-/* L R G Z: menu, video sob demanda, revelacoes e rolagem do hero.
-   Tudo que anima na rolagem usa so transform e opacity, pra manter o
-   mesmo ritmo em celular fraco. */
+/* L R G Z: menu, video sob demanda, hero e vitrine de projetos.
+   Nada aqui reage a rolagem: tudo anima por tempo ou por toque, so com
+   transform e opacity, pra manter o mesmo ritmo em celular fraco. */
 (function(){
   document.documentElement.classList.add('js');
-  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var toque = window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  var mm = function(q){ return window.matchMedia ? window.matchMedia(q) : { matches:false }; };
+  var quieto = mm('(prefers-reduced-motion: reduce)').matches;
+  var toque = mm('(hover: none), (pointer: coarse)').matches;
+  var vit = document.getElementById('vitrine');
+  var vitrineLigada = !!vit && !quieto && mm('(min-width:1000px)').matches;
 
   /* ---------- Nav ---------- */
   var nav = document.getElementById('nav');
@@ -31,6 +34,8 @@
   /* ---------- Videos ---------- */
   (function(){
     var vids = Array.prototype.slice.call(document.querySelectorAll('[data-lazy-video]'));
+    /* no computador, quem toca os destaques e a vitrine */
+    if(vitrineLigada) vids = vids.filter(function(v){ return !vit.contains(v); });
     if(!vids.length) return;
     if(quieto){
       vids.forEach(function(v){ v.preload = 'metadata'; });
@@ -55,30 +60,21 @@
     });
   })();
 
-  /* ---------- Revelacao ---------- */
-  var reveals = document.querySelectorAll('.reveal, .raio, .parede');
-  if('IntersectionObserver' in window && !quieto){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
-      });
-    }, { rootMargin:'0px 0px -8% 0px', threshold:.08 });
-    reveals.forEach(function(el){ io.observe(el); });
-  } else {
-    reveals.forEach(function(el){ el.classList.add('is-in'); });
-  }
-
-  /* ---------- Hero: o sigilo ---------- */
+  /* ---------- Hero: a logo ---------- */
   var hero = document.getElementById('home');
   var palco = document.getElementById('sigilo');
   if(hero && palco){
     var canvas = document.getElementById('sigiloCanvas');
     var vForma = document.getElementById('sigiloForma');
     var vLaco = document.getElementById('sigiloLaco');
-    var poster = document.getElementById('sigiloPoster');
+    /* mesmo corte do CSS: tela larga mostra a logo inteira; o resto, o miolo em quadrado */
+    var largo = mm('(min-width:1000px) and (min-height:601px)').matches;
     var visivel = true, ctl = null;
 
     var usaVideo = function(){
+      var pasta = 'assets/marca/sigilo-' + (largo ? 'largo' : 'quadro') + '-';
+      vForma.src = pasta + 'forma.mp4?v=4';
+      vLaco.src = pasta + 'laco.mp4?v=4';
       palco.classList.add('modo-video');
       var pede = function(v){ var t = v.play(); return t && t.catch ? t : Promise.resolve(); };
       vLaco.load();
@@ -96,8 +92,8 @@
       }, 1600);
       if('IntersectionObserver' in window){
         new IntersectionObserver(function(en){
-          if(!vForma.ended && !vForma.paused) return;
-          if(en[0].isIntersecting){ if(vForma.ended) pede(vLaco); }
+          if(!vForma.ended) return;
+          if(en[0].isIntersecting) pede(vLaco);
           else vLaco.pause();
         }).observe(hero);
       }
@@ -109,9 +105,10 @@
         palco.classList.add('modo-shader');
         var inicio = performance.now(), quadros = 0, lento = 0, ant = inicio;
         var medir = function(){
-          var d = Math.min(window.devicePixelRatio || 1, 2);
-          var lado = Math.round(Math.min(palco.offsetWidth, palco.offsetHeight) * d);
-          if(canvas.width !== lado){ canvas.width = canvas.height = lado; }
+          /* nunca abaixo de 1,5x: reduzir o canvas no navegador tira o serrilhado */
+          var d = Math.min(Math.max(window.devicePixelRatio || 1, 1.5), 2);
+          var w = Math.round(palco.offsetWidth * d), h = Math.round(palco.offsetHeight * d);
+          if(canvas.width !== w || canvas.height !== h){ canvas.width = w; canvas.height = h; }
         };
         medir();
         window.addEventListener('resize', medir);
@@ -129,115 +126,64 @@
     };
 
     if(quieto){ palco.classList.add('so-poster'); }
-    else if(toque || window.innerWidth < 900) usaVideo();
+    else if(toque || !largo) usaVideo();
     else usaShader();
 
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(en){ if(palco.classList.contains('modo-shader')) visivel = en[0].isIntersecting; }).observe(hero);
-    }
-
-    /* rolagem: o sigilo encolhe ate o lugar do logo e vira ele */
-    var txt = document.getElementById('heroTxt');
-    var logo = document.querySelector('.nav-logo img');
-    var cena = palco.parentNode;
-    var pedido = false, alvo = null;
-    var medirAlvo = function(){
-      if(!logo) return;
-      var c = cena.getBoundingClientRect(), r = logo.getBoundingClientRect();
-      alvo = {
-        x: r.left + r.width / 2 - (c.left + c.width / 2),
-        y: r.top + r.height / 2 - (c.top + c.height / 2),
-        k: r.width / (Math.min(palco.offsetWidth, palco.offsetHeight) * .972)
-      };
-    };
-    var rolar = function(){
-      pedido = false;
-      var alt = hero.offsetHeight - window.innerHeight;
-      var p = alt > 0 ? Math.min(1, Math.max(0, window.scrollY / alt)) : 0;
-      var f = Math.min(1, p / .92);
-      var e = f * f * (3 - 2 * f);
-      document.body.classList.toggle('no-hero', f < 1);
-      if(alvo){
-        palco.style.transform = 'translate3d(' + (alvo.x * e).toFixed(1) + 'px,' + (alvo.y * e).toFixed(1) + 'px,0) scale(' + Math.pow(alvo.k, e).toFixed(4) + ')';
-      }
-      palco.style.opacity = f < 1 ? '1' : '0';
-      if(txt){
-        txt.style.transform = 'translate3d(0,' + (Math.min(1, p * 2.4) * 26).toFixed(1) + 'px,0)';
-        txt.style.opacity = Math.max(0, 1 - p * 2.4).toFixed(3);
-      }
-    };
+    /* o logo do menu e o WhatsApp so aparecem depois do hero */
     document.body.classList.add('no-hero');
-    if(quieto) document.body.classList.remove('no-hero');
-    if(!quieto){
-      document.addEventListener('scroll', function(){
-        if(!pedido){ pedido = true; requestAnimationFrame(rolar); }
-      }, { passive:true });
-      var refazer = function(){ var y = palco.style.transform; palco.style.transform = 'none'; medirAlvo(); palco.style.transform = y; rolar(); };
-      window.addEventListener('resize', refazer);
-      window.addEventListener('load', refazer);
-      refazer();
-    }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        if(palco.classList.contains('modo-shader')) visivel = en[0].isIntersecting;
+        document.body.classList.toggle('no-hero', en[0].intersectionRatio > .4);
+      }, { threshold:[0,.4,.41] }).observe(hero);
+    } else document.body.classList.remove('no-hero');
   }
 
-  /* ---------- Parede: entra do centro para fora, como o sigilo ---------- */
-  var parede = document.getElementById('parede-grade');
-  if(parede){
-    var ladrilhos = parede.children, caixa = parede.getBoundingClientRect(), maior = .01;
-    var dist = Array.prototype.map.call(ladrilhos, function(a){
-      var r = a.getBoundingClientRect();
-      var d = Math.hypot((r.left + r.width / 2 - caixa.left - caixa.width / 2) / caixa.width, (r.top + r.height / 2 - caixa.top - caixa.height / 2) / caixa.height);
-      maior = Math.max(maior, d);
-      return d;
-    });
-    Array.prototype.forEach.call(ladrilhos, function(a, i){ a.style.setProperty('--d', (dist[i] / maior * .8).toFixed(2) + 's'); });
-  }
-
-  /* ---------- Projetos: o card coberto recua e para o video ---------- */
-  var pilha = document.querySelector('.trilho');
-  var empilha = window.matchMedia && window.matchMedia('(min-width:1000px) and (min-height:640px)');
-  if(pilha && empilha && !quieto){
-    var cards = Array.prototype.slice.call(pilha.querySelectorAll('.case-card'));
-    var ticket = false;
-    var empilhar = function(){
-      ticket = false;
-      var liga = empilha.matches, topo = nav ? nav.offsetHeight : 76, altura = window.innerHeight - topo;
-      cards.forEach(function(c, i){
-        var prox = cards[i + 1], cobre = 0;
-        if(liga && prox) cobre = Math.min(1, Math.max(0, 1 - (prox.getBoundingClientRect().top - topo) / altura));
-        var escala = 1 - cobre * .05;
-        var op = (1 - cobre * .75).toFixed(3);
-        Array.prototype.forEach.call(c.children, function(f){
-          f.style.transform = liga && cobre ? 'scale(' + escala.toFixed(4) + ')' : '';
-          f.style.opacity = liga && cobre ? op : '';
-        });
+  /* ---------- Vitrine: um projeto por vez, com a lista ao lado ---------- */
+  if(vit){
+    var cards = Array.prototype.slice.call(vit.querySelectorAll('.case-card'));
+    var lista = document.createElement('ol');
+    lista.className = 'vitrine-lista';
+    var atual = 0;
+    var mostra = function(i){
+      atual = i;
+      cards.forEach(function(c, k){
+        var on = k === i;
+        c.classList.toggle('ativo', on);
+        btns[k].classList.toggle('ativo', on);
+        btns[k].setAttribute('aria-pressed', on ? 'true' : 'false');
+        if(!vitrineLigada) return;
         var v = c.querySelector('video');
-        if(v && liga){
-          if(cobre > .98 && !v.paused) v.pause();
-          else if(cobre <= .98 && v.paused && v.readyState > 1 && c.getBoundingClientRect().top < window.innerHeight * .6){ var t = v.play(); if(t && t.catch) t.catch(function(){}); }
-        }
+        if(on){
+          if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
+          var t = v.play(); if(t && t.catch) t.catch(function(){});
+        } else if(!v.paused) v.pause();
       });
     };
-    var pedeE = function(){ if(!ticket){ ticket = true; requestAnimationFrame(empilhar); } };
-    document.addEventListener('scroll', pedeE, { passive:true });
-    window.addEventListener('resize', pedeE);
-    empilhar();
-  }
-
-  /* ---------- Processo: a estrela anda pelas etapas ---------- */
-  var plista = document.getElementById('processo-lista');
-  if(plista && !quieto){
-    var trilha = plista.querySelector('.process-trilha'), passo = false;
-    var andar = function(){
-      passo = false;
-      if(!trilha.offsetWidth) return;
-      var r = plista.getBoundingClientRect(), vh = window.innerHeight;
-      var q = Math.min(1, Math.max(0, (vh * .86 - r.top) / (vh * .5)));
-      trilha.style.setProperty('--p', q.toFixed(3));
-      trilha.style.setProperty('--x', (q * trilha.offsetWidth).toFixed(1) + 'px');
-    };
-    document.addEventListener('scroll', function(){ if(!passo){ passo = true; requestAnimationFrame(andar); } }, { passive:true });
-    window.addEventListener('resize', andar);
-    andar();
+    var btns = cards.map(function(c, i){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = '<span></span><i></i>';
+      b.firstChild.textContent = c.querySelector('h3').textContent;
+      b.addEventListener('click', function(){ mostra(i); });
+      li.appendChild(b); lista.appendChild(li);
+      return b;
+    });
+    vit.appendChild(lista);
+    if(vitrineLigada){
+      lista.addEventListener('animationend', function(e){
+        if(e.target.parentNode === btns[atual]) mostra((atual + 1) % cards.length);
+      });
+      new IntersectionObserver(function(en){
+        var dentro = en[0].isIntersecting;
+        vit.classList.toggle('fora', !dentro);
+        var v = cards[atual].querySelector('video');
+        if(dentro){ var t = v.play(); if(t && t.catch) t.catch(function(){}); }
+        else if(!v.paused) v.pause();
+      }, { threshold:.35 }).observe(vit);
+    }
+    mostra(0);
   }
 
   /* ---------- Voltar ao topo ---------- */

@@ -6,11 +6,11 @@
 <title>Criação de Sites Profissionais e Landing Pages | LRGZ</title>
 <meta name="description" content="Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 500.">
 <meta name="theme-color" content="#000000">
-<link rel="icon" href="favicon.ico?v=2" sizes="any">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
 <link rel="manifest" href="site.webmanifest">
 <link rel="canonical" href="https://lrgz.com.br/">
 <meta property="og:type" content="website">
@@ -102,8 +102,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Saira:wght@300..600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
-<link rel="preload" as="image" href="assets/marca/sigilo-poster.jpg" media="(max-width:900px)">
-<link rel="stylesheet" href="assets/lrgz.css?v=7">
+<link rel="preload" as="image" href="assets/marca/sigilo-quadro-poster.jpg?v=4" media="(max-width:999px)">
+<link rel="stylesheet" href="assets/lrgz.css?v=8">
 </head>
 <body>
 
@@ -111,11 +111,14 @@
 <nav class="nav" id="nav">
   <div class="container">
     <a href="#home" class="nav-logo" aria-label="L R G Z — página inicial">
-      <img src="assets/marca/sigilo.svg" alt="L R G Z" width="560" height="460" decoding="async">
+      <img src="assets/marca/sigilo.svg?v=2" alt="L R G Z" width="1672" height="941" decoding="async">
     </a>
     <ul class="nav-links">
+      <li><a href="#sobre">Essência</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#investimento">Valores</a></li>
+      <li><a href="#depoimentos">Avaliações</a></li>
       <li><a href="/portfolio">Portfólio</a></li>
-      <li data-only="pt"><a href="#curso" class="nav-cta">Curso</a></li>
       <li><a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="nav-cta nav-cta--destaque">Falar no WhatsApp</a></li>
       <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
     </ul>
@@ -130,7 +133,10 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="menu-destaque">Falar no WhatsApp</a>
-  <a href="#curso" data-only="pt">Curso</a>
+  <a href="#sobre">Essência</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#investimento">Valores</a>
+  <a href="#depoimentos">Avaliações</a>
   <a href="/portfolio">Portfólio</a>
   <a href="#contato">Contato</a>
   <button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
@@ -139,19 +145,21 @@
 <main>
 
   <!-- ============ HERO ============
-       O sigilo oficial em metal acetinado. Computador: shader (assets/cromo.js).
+       A logo oficial. Computador: shader (assets/cromo.js).
        Celular: dois MP4 gravados do mesmo shader, a formacao e depois o laco. -->
   <section class="hero" id="home">
-    <div class="hero-palco">
-      <div class="hero-cena" aria-hidden="true">
-        <div class="sigilo" id="sigilo">
-          <img id="sigiloPoster" src="assets/marca/sigilo-poster.jpg" alt="" width="1080" height="1080" decoding="async">
-          <canvas id="sigiloCanvas" width="1080" height="1080"></canvas>
-          <video id="sigiloForma" muted playsinline preload="none" src="assets/marca/sigilo-forma.mp4"></video>
-          <video id="sigiloLaco" muted playsinline loop preload="none" src="assets/marca/sigilo-laco.mp4"></video>
-        </div>
+    <div class="hero-cena" aria-hidden="true">
+      <div class="sigilo" id="sigilo">
+        <picture>
+          <source media="(max-width:999px), (max-height:600px)" srcset="assets/marca/sigilo-quadro-poster.jpg?v=4">
+          <img id="sigiloPoster" src="assets/marca/sigilo-largo-poster.jpg?v=4" alt="" width="1920" height="1080" decoding="async">
+        </picture>
+        <canvas id="sigiloCanvas" width="1920" height="1080"></canvas>
+        <video id="sigiloForma" muted playsinline preload="none"></video>
+        <video id="sigiloLaco" muted playsinline loop preload="none"></video>
       </div>
-      <div class="hero-txt" id="heroTxt">
+    </div>
+    <div class="hero-txt" id="heroTxt">
         <h1 class="sr-only" id="heroA11y">Criação de sites profissionais: seu negócio já é bom, falta parecer.</h1>
         <p class="hero-frase" style="--i:0" aria-hidden="true"><span>Seu negócio já é bom.</span> <span>Falta parecer.</span></p>
         <p class="hero-lead" style="--i:1">Sites feitos do zero, com direção de arte, animação própria e código escrito à mão. Nenhum igual ao outro.</p>
@@ -159,19 +167,15 @@
           <a href="#projetos" class="btn">Ver projetos</a>
           <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="btn btn-outline">Chamar no WhatsApp</a>
         </div>
-      </div>
     </div>
   </section>
 
   <!-- ============ PORTFÓLIO ============ -->
   <section class="section" id="projetos">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">Projetos</p>
-          <h2 class="section-title">Alguns exemplos, o mesmo cuidado</h2>
-        </div>
-        <p class="section-note">São 36 sites no ar, nenhum saído de template. Aqui estão alguns; o portfólio completo tem todos, e dá pra testar cada um.</p>
+      <div class="section-head centro">
+        <p class="eyebrow">Projetos</p>
+        <h2 class="section-title">36 sites. Nenhum igual ao outro.</h2>
       </div>
 
       <!-- ===================================================================
@@ -180,10 +184,11 @@
            site, gravada quadro a quadro em 1280x720 e salva em 960x540.
            Capa = primeiro quadro, em posters/poster-<slug>.jpg.
            =================================================================== -->
+      <div class="vitrine" id="vitrine">
       <div class="portfolio-grid trilho">
 
         <!-- 04b · Thiago Zaparolli — dark art e coberturas, São José/SC (thiagozaparolli.com.br) -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -214,7 +219,7 @@
         </article>
 
         <!-- 02 · Maronez — tatuador freehand, Porto Alegre/RS -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -245,7 +250,7 @@
         </article>
 
         <!-- 03 · DAC Art Ink — tatuagem e arte autoral, São José dos Campos/SP -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -276,7 +281,7 @@
         </article>
 
         <!-- 04 · Samtto — tatupunk, Manaus/AM (samtto.com.br; mockup = tour, ver samtto_tour.py) -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -306,7 +311,7 @@
           </div>
         </article>
         <!-- 01 · Dra. Juliana Cubas — veterinária a domicílio, Tietê/SP -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -337,7 +342,7 @@
         </article>
 
         <!-- 04c · Goblins Mágicos Proxys — proxies de Magic, Americana/SP (goblinsmagicos.com.br) -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -368,7 +373,7 @@
         </article>
 
         <!-- 05 · Bernardo Art — tatuagem abstrata -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -399,7 +404,7 @@
         </article>
 
         <!-- 06 · Fernando Fernandes — preto e cinza, Bom Retiro/SP -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -430,7 +435,7 @@
         </article>
 
         <!-- 07 · Erick Ratox — tribal e freehand, Salvador/BA -->
-        <article class="case-card reveal">
+        <article class="case-card">
           <div class="case-frame"><span></span><span></span><span></span> </div>
           <div class="case-preview">
             <div class="mock">
@@ -462,17 +467,6 @@
 
       </div>
 
-    </div>
-  </section>
-
-  <!-- ============ PAREDE ============
-       Os 36 sites de uma vez, na ordem do portfolio. Miniaturas em posters/mini,
-       geradas dos posters. Entram do centro para fora, como o sigilo. -->
-  <section class="section parede-sec" id="parede">
-    <div class="container">
-      <div class="section-head centro reveal">
-        <p class="eyebrow">Portfólio</p>
-        <h2 class="section-title">36 sites. Nenhum igual ao outro.</h2>
       </div>
       <div class="parede" id="parede-grade">
         <a href="https://thiagozaparolli.com.br" target="_blank" rel="noopener" aria-label="Dark Art &amp; Coberturas"><img src="posters/mini/zaparolli.webp" alt="" width="384" height="216" loading="lazy" decoding="async"></a>
@@ -512,13 +506,12 @@
         <a href="https://azeugral.github.io/dj-mattos/" target="_blank" rel="noopener" aria-label="DJ de Casamentos"><img src="posters/mini/dj-mattos.webp" alt="" width="384" height="216" loading="lazy" decoding="async"></a>
         <a href="https://azeugral.github.io/pilha-ink-tattoo/" target="_blank" rel="noopener" aria-label="Tatuagem Autoral em Preto"><img src="posters/mini/pilha.webp" alt="" width="384" height="216" loading="lazy" decoding="async"></a>
       </div>
-      <ul class="numeros reveal">
+      <ul class="numeros">
         <li><b>48 h</b><span>primeira versão</span></li>
         <li><b>7 dias</b><span>entrega</span></li>
         <li><b>5,0</b><span>no Google</span></li>
       </ul>
-      <div class="portfolio-more reveal">
-        <p><b>36</b> sites no ar</p>
+      <div class="portfolio-more">
         <a href="/portfolio" class="btn btn-outline">Ver portfólio completo <span aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -527,13 +520,13 @@
   <!-- ============ SOBRE ============ -->
   <section class="section about claro" id="sobre">
         <div class="container about-grid">
-      <div class="about-head reveal">
-        <p class="eyebrow">Sobre</p>
+      <div class="about-head">
+        <p class="eyebrow">Essência</p>
         <h2 class="about-title">Todo projeto tratado como marca grande.</h2>
       </div>
       <div>
-        <p class="about-body reveal" style="--rd:.08s">L R G Z é a assinatura que uso pra esse trabalho: pegar quem já faz um trabalho bom — o estúdio de tatuagem, a clínica, o ateliê, a indústria — e dar a ele uma presença online <strong>com a mesma qualidade</strong>. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.</p>
-        <ul class="about-list reveal" style="--rd:.1s">
+        <p class="about-body">L R G Z é a assinatura que uso pra esse trabalho: pegar quem já faz um trabalho bom — o estúdio de tatuagem, a clínica, o ateliê, a indústria — e dar a ele uma presença online <strong>com a mesma qualidade</strong>. Nada de foto de banco de imagem com layout pronto. Cada site nasce do que o seu negócio já é.</p>
+        <ul class="about-list">
           <li><b>Design autoral</b> feito sob medida pro seu negócio, não adaptado de um template</li>
           <li><b>Código limpo</b> leve, rápido de carregar e fácil de manter</li>
           <li><b>Foco em identidade</b> visual consistente, não uma fórmula pronta</li>
@@ -545,7 +538,7 @@
   <!-- ============ SERVIÇOS ============ -->
   <section class="section claro" id="servicos">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div>
           <p class="eyebrow">O que eu faço</p>
           <h2 class="section-title">Onde eu entro</h2>
@@ -553,19 +546,19 @@
         <p class="section-note">Do primeiro rascunho ao site no ar — cada etapa pensada pro seu negócio, não pro meu processo.</p>
       </div>
       <div class="services-grid">
-      <div class="service-card reveal">
+      <div class="service-card">
         <h3>Site institucional</h3>
         <p>Presença digital completa: estrutura, conteúdo e visual pensados pra apresentar seu negócio com clareza — e converter visita em contato.</p>
       </div>
-      <div class="service-card reveal" style="--rd:.06s">
+      <div class="service-card">
         <h3>Landing page</h3>
         <p>Uma página, um objetivo. Ideal pra lançar um produto, uma campanha ou capturar contato rápido, sem enrolação.</p>
       </div>
-      <div class="service-card reveal" style="--rd:.12s">
+      <div class="service-card">
         <h3>Identidade visual digital</h3>
         <p>Direção de arte, paleta, tipografia e aplicação consistente — pra sua marca ser reconhecida em qualquer tela.</p>
       </div>
-      <div class="service-card reveal" style="--rd:.18s">
+      <div class="service-card">
         <h3>Manutenção &amp; suporte</h3>
         <p>Ajustes, atualização de conteúdo e acompanhamento depois da entrega. Seu site não fica largado.</p>
       </div>
@@ -578,7 +571,7 @@
   <!-- ============ PROCESSO ============ -->
   <section class="section" id="processo">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div>
           <p class="eyebrow">Como funciona</p>
           <h2 class="section-title">Do primeiro papo ao ar</h2>
@@ -587,28 +580,28 @@
       </div>
       <div class="process-list" id="processo-lista">
         <div class="process-trilha" aria-hidden="true"><i></i></div>
-        <div class="process-item reveal">
+        <div class="process-item">
           <p class="num">Diagnóstico</p>
           <div>
             <h3>Entender o negócio</h3>
             <p>Converso com você sobre o negócio, o público e o que já existe (ou não) da sua presença online hoje.</p>
           </div>
         </div>
-        <div class="process-item reveal" style="--rd:.06s">
+        <div class="process-item">
           <p class="num">Direção</p>
           <div>
             <h3>Definir a identidade</h3>
             <p>Defino identidade visual, estrutura de conteúdo e tom de voz do site — a base de tudo que vem depois.</p>
           </div>
         </div>
-        <div class="process-item reveal" style="--rd:.12s">
+        <div class="process-item">
           <p class="num">Construção</p>
           <div>
             <h3>Desenvolver do zero</h3>
             <p>Desenvolvo o site do zero — responsivo, rápido e fácil de atualizar sozinho depois.</p>
           </div>
         </div>
-        <div class="process-item reveal" style="--rd:.18s">
+        <div class="process-item">
           <p class="num">Entrega</p>
           <div>
             <h3>Publicar e repassar</h3>
@@ -628,13 +621,13 @@
        =================================================================== -->
   <section class="section" id="investimento">
     <div class="container">
-      <div class="section-head centro reveal">
+      <div class="section-head centro">
                   <p class="eyebrow">Investimento</p>
           <h2 class="section-title">O que vai no seu site</h2>
         <p class="section-note">Todo projeto sai com tudo isso. O valor depende do tamanho do que você precisa — e sai fechado na primeira conversa, sem surpresa no meio do caminho.</p>
       </div>
 
-      <div class="price-box reveal">
+      <div class="price-box">
         <div class="price-list">
           <p class="price-list-head">O que está incluso</p>
           <ul>
@@ -676,7 +669,7 @@
        =================================================================== -->
   <section class="section" id="depoimentos">
     <div class="container">
-      <div class="section-head centro reveal">
+      <div class="section-head centro">
                   <p class="eyebrow">Avaliações</p>
           <h2 class="section-title">O que dizem depois do site no ar</h2>
         <div class="section-note">
@@ -687,7 +680,7 @@
 
       <div class="reviews-grid">
 
-        <blockquote class="review reveal">
+        <blockquote class="review">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
           <p>Trabalho incrível realizado pelo Daniel! Ótimo profissional, atencioso, prestativo e objetivo. Foi muito competente em todo o processo. Recomendo demais!</p>
           <div class="review-by">
@@ -696,7 +689,7 @@
           </div>
         </blockquote>
 
-        <blockquote class="review reveal" style="--rd:.08s">
+        <blockquote class="review">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
           <p>Serviços incrível, antes mesmos de me contatar já estava estudando o meu trabalho para desenvolver um serviço ótimo, supera todas as expectativas 🤘</p>
           <div class="review-by">
@@ -705,7 +698,7 @@
           </div>
         </blockquote>
 
-        <blockquote class="review reveal" style="--rd:.16s">
+        <blockquote class="review">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
           <p>Serviço impecável, meu site foi feito por ele e eu amo cada detalhe, ele é super atencioso e gentil! Façam seu site com ele!!</p>
           <div class="review-by">
@@ -718,60 +711,12 @@
     </div>
   </section>
 
-  <!-- ============ CURSO / PÁGINA DE VENDAS ============ -->
-  <!-- CURSO-EN: a secção do curso só aparece em português enquanto o curso
-       não tiver versão em inglês. Para reativá-la nos dois idiomas, apague
-       data-only="pt" desta linha e dos 3 links "#curso" (nav, menu mobile
-       e rodapé). -->
-  <section class="section" id="curso" data-only="pt">
-    <div class="container">
-
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">Curso</p>
-          <h2 class="section-title">Aprenda a fazer o seu</h2>
-        </div>
-        <p class="section-note">Se você prefere colocar a mão na massa, eu ensino o mesmo método que uso nos projetos do estúdio.</p>
-      </div>
-
-      <div class="course-inner">
-
-        <div class="course-media reveal">
-          <img
-        src="curso-capa.webp" width="1040" height="1163" loading="lazy" decoding="async"
-          alt="Curso Criação de Sites Premium"
-          class="course-cover">
-        </div>
-
-        <div class="course-info reveal" style="--rd:.1s">
-          <p class="tag">Curso online · Acesso vitalício</p>
-          <h3 class="course-title">Método Site Premium</h3>
-          <p class="course-body">Do rascunho ao site publicado: direção visual, código e o passo a passo pra colocar no ar um site que parece caro — mesmo sendo o seu primeiro.</p>
-
-          <ul class="course-points">
-            <li>Aulas em ordem, do zero até o site no ar</li>
-            <li>Arquivos e templates que eu uso nos projetos</li>
-            <li>Pagamento único, sem mensalidade</li>
-            <li>Planos a partir de R$49,90 no Pix</li>
-          </ul>
-
-          <a href="/planos" class="contact-row cta-buy">
-            <span class="label">A partir de R$49,90</span>
-            <span class="buy-button">Comprar Agora</span>
-            <span class="arrow">→</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <div class="raio" aria-hidden="true"><i></i></div>
 
   <!-- ============ CTA / CONTATO ============ -->
   <section class="section" id="contato">
     <div class="container cta-inner">
-      <div class="reveal">
+      <div>
         <p class="eyebrow">Vamos começar</p>
         <h2 class="cta-title">Vamos construir algo que representa o que você faz de verdade.</h2>
         <p class="cta-body">Me conta um pouco sobre o seu negócio. Eu respondo pessoalmente — sem robô, sem formulário genérico.</p>
@@ -784,7 +729,7 @@
            - Instagram / LinkedIn: troque o href e o @usuário
            Para remover uma rede, apague o bloco <a class="contact-row"> inteiro.
            =================================================================== -->
-      <div class="contact-list reveal" style="--rd:.1s">
+      <div class="contact-list">
 
         <a class="contact-row" href="mailto:azeugral@gmail.com">
           <span class="contact-id">
@@ -823,13 +768,62 @@
     </div>
   </section>
 
+  <div class="raio" aria-hidden="true"><i></i></div>
+
+  <!-- ============ CURSO / PÁGINA DE VENDAS ============ -->
+  <!-- CURSO-EN: a secção do curso só aparece em português enquanto o curso
+       não tiver versão em inglês. Para reativá-la nos dois idiomas, apague
+       data-only="pt" desta linha e dos 3 links "#curso" (nav, menu mobile
+       e rodapé). -->
+  <section class="section" id="curso" data-only="pt">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Curso</p>
+          <h2 class="section-title">Aprenda a fazer o seu</h2>
+        </div>
+        <p class="section-note">Se você prefere colocar a mão na massa, eu ensino o mesmo método que uso nos projetos do estúdio.</p>
+      </div>
+
+      <div class="course-inner">
+
+        <div class="course-media">
+          <img
+        src="curso-capa.webp" width="1040" height="1163" loading="lazy" decoding="async"
+          alt="Curso Criação de Sites Premium"
+          class="course-cover">
+        </div>
+
+        <div class="course-info">
+          <p class="tag">Curso online · Acesso vitalício</p>
+          <h3 class="course-title">Método Site Premium</h3>
+          <p class="course-body">Do rascunho ao site publicado: direção visual, código e o passo a passo pra colocar no ar um site que parece caro — mesmo sendo o seu primeiro.</p>
+
+          <ul class="course-points">
+            <li>Aulas em ordem, do zero até o site no ar</li>
+            <li>Arquivos e templates que eu uso nos projetos</li>
+            <li>Pagamento único, sem mensalidade</li>
+            <li>Planos a partir de R$49,90 no Pix</li>
+          </ul>
+
+          <a href="/planos" class="contact-row cta-buy">
+            <span class="label">A partir de R$49,90</span>
+            <span class="buy-button">Comprar Agora</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="raio" aria-hidden="true"><i></i></div>
   <div class="container footer-inner">
     <p class="fmono">
-      <img class="footer-logo" src="assets/marca/sigilo.svg" alt="L R G Z" width="560" height="460" decoding="async" loading="lazy">© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.
+      <img class="footer-logo" src="assets/marca/sigilo.svg?v=2" alt="L R G Z" width="1672" height="941" decoding="async" loading="lazy">© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.
     </p>
     <div class="footer-links">
       <a href="#sobre">Sobre</a>
@@ -844,8 +838,8 @@
   </div>
 </footer>
 
-<script src="assets/cromo.js?v=3"></script>
-<script src="assets/lrgz.js?v=5"></script>
+<script src="assets/cromo.js?v=4"></script>
+<script src="assets/lrgz.js?v=6"></script>
 
 
 <!-- ============ I18N — PT-BR / EN-US ============
@@ -855,7 +849,7 @@
      Texto sem tradução aparece em português, sem quebrar a página.
      Para esconder um elemento num idioma: data-only="pt" ou data-only="en".
      ============================================================ -->
-<script src="assets/i18n.js?v=12"></script>
+<script src="assets/i18n.js?v=13"></script>
 <a class="wa-float" id="waFloat" href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2.5C6.79 2.5 2.52 6.77 2.52 12.02c0 1.68.44 3.32 1.28 4.77L2.5 21.5l4.85-1.27a9.47 9.47 0 0 0 4.69 1.2h.01c5.25 0 9.52-4.27 9.52-9.52a9.46 9.46 0 0 0-2.79-6.73 9.46 9.46 0 0 0-6.74-2.79zm0 17.35h-.01a7.9 7.9 0 0 1-4.02-1.1l-.29-.17-2.98.78.8-2.91-.19-.3a7.88 7.88 0 0 1-1.21-4.2c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.59 2.32a7.86 7.86 0 0 1 2.32 5.6c0 4.36-3.55 7.89-7.92 7.89z"/></svg>
   <span>Falar no WhatsApp</span>
