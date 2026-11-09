@@ -254,7 +254,7 @@
       'Your own domain included (.com or your country’s), registered in your name — it is yours, not mine',
     'Preço e prazos':'Price and timelines',
     'a partir de':'from',
-    'de R$ 1.500 por a partir de R$ 600 até 01/12':'Black Friday: was US$ 500, now US$ 250, through Dec 1',
+    'de R$ 1.500 por a partir de R$ 600 até 01/12':'was US$ 500, now US$ 250, through Dec 1',
     /* preço internacional (só na versão em inglês) */
     'R$ 1.500':'US$ 500', 'R$':'US$', '600':'250',
     'Ver oferta':'See offer',
