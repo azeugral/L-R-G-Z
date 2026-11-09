@@ -251,23 +251,25 @@
     'Google: títulos, descrições e velocidade prontos pra indexar; cadastro no Perfil de Empresa do Google se você ainda não tiver':
       'Google: titles, descriptions and speed ready to be indexed; Google Business Profile set up if you do not have one yet',
     'Domínio .com.br incluso, registrado no seu nome — é seu, não meu':
-      '.com.br domain included, registered in your name — it is yours, not mine',
+      'Your own domain included (.com or your country’s), registered in your name — it is yours, not mine',
     'Preço e prazos':'Price and timelines',
     'a partir de':'from',
-    'de R$ 1.500 por a partir de R$ 600 até 01/12':'was R$ 1,500, now from R$ 600, through Dec 1',
+    'de R$ 1.500 por a partir de R$ 600 até 01/12':'Black Friday: was US$ 500, now US$ 250, through Dec 1',
+    /* preço internacional (só na versão em inglês) */
+    'R$ 1.500':'US$ 500', 'R$':'US$', '600':'250',
     'Ver oferta':'See offer',
     'Novembro inteiro':'All of November',
     'de':'was', 'por':'now',
-    'Preço de Black Friday para projetos fechados até 01/12.':'Black Friday price for projects booked by Dec 1.',
+    'Preço de Black Friday para projetos fechados até 01/12.':'Black Friday price for projects booked by Dec 1. Paid in US dollars via PayPal or Wise.',
     'Garantir o preço de novembro':'Lock in the November price',
-    'Hospedagem e domínio .com.br grátis no primeiro ano.':'Hosting and a .com.br domain free for the first year.',
+    'Hospedagem e domínio .com.br grátis no primeiro ano.':'Hosting and your domain free for the first year.',
     'Primeira versão':'First version',
     'em 48 horas':'within 48 hours',
     'Entrega':'Delivery',
     'em até 7 dias':'within 7 days',
     'Pagamento':'Payment',
     'metade pra começar, metade na entrega':'half to start, half on delivery',
-    'Hospedagem + domínio .com.br':'Hosting + .com.br domain',
+    'Hospedagem + domínio .com.br':'Hosting + domain',
     '1 ano grátis':'1 year free',
     'Quero meu site em 7 dias':'I want my site in 7 days',
     'Brasil':'Brazil',
@@ -467,7 +469,7 @@
       'Sites built from scratch, each one shaped around who it serves. The video shows the home page; the button opens the real site.',
     'O próximo pode ser o seu.':'The next one could be yours.',
     'Primeira versão em 48 horas, entrega em até 7 dias, a partir de R$ 600.':
-      'First version in 48 hours, delivery within 7 days, from R$ 600.',
+      'First version in 48 hours, delivery within 7 days, from US$ 250.',
     'Ver o que está incluso':'See what is included',
     'Ver portfólio completo':'View full portfolio',
     'sites no ar':'sites live',
@@ -613,6 +615,9 @@
   try {
     var saved = localStorage.getItem(STORAGE_KEY);
     if(saved === 'en' || saved === 'pt') lang = saved;
+    /* link direto pra divulgar lá fora: lrgz.com.br/?lang=en (e ?lang=pt volta) */
+    var q = new URLSearchParams(location.search).get('lang');
+    if(q === 'en' || q === 'pt'){ lang = q; localStorage.setItem(STORAGE_KEY, lang); }
     /* sem deteccao automatica pelo idioma do navegador: o robo do Google
        navega em ingles e indexava a versao EN. Ingles so pelo botao. */
   } catch(e){}
