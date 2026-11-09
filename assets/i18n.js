@@ -260,7 +260,7 @@
     'Ver oferta':'See offer',
     'Novembro inteiro':'All of November',
     'de':'was', 'por':'now',
-    'Preço de Black Friday para projetos fechados até 01/12.':'Black Friday price for projects booked by Dec 1. Paid in US dollars via PayPal or Wise.',
+    'Preço de Black Friday para projetos fechados até 01/12.':'Black Friday price for projects booked by Dec 1. Priced in US dollars.',
     'Garantir o preço de novembro':'Lock in the November price',
     'Hospedagem e domínio .com.br grátis no primeiro ano.':'Hosting and your domain free for the first year.',
     'Primeira versão':'First version',
