@@ -80,3 +80,13 @@
   .ag-aparelho .celular{ width:min(380px, calc(100vw - 2 * var(--pad)), calc(78svh * 390 / 800 + 4px)); }
   .ag-aparelho .celular-tela{ padding:7px; }
 }
+
+/* ---------- preço ---------- */
+.ag-preco{ color:var(--apagado); margin-top:1.1rem; font-size:1rem; }
+.ag-preco b{ color:var(--texto); font-weight:500; }
+.ag-card .pc-nota + .pc-nota{ margin-top:.4rem; }
+.ag-card .pc-valor .pc-moeda:last-child{ margin-left:-.2rem; }
+.pc-linhas > div.ag-linha-lrgz{ display:grid; gap:.15rem; background:#dfe2e6; margin:0 -.8rem; padding:.75rem .8rem; border-top:0; }
+.pc-linhas > div.ag-linha-lrgz dt{ color:#0b0c0d; font-weight:600; }
+.pc-linhas > div.ag-linha-lrgz dd{ text-align:left; }
+.pc-linhas > div.ag-linha-lrgz + div{ border-top:0; }
