@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L R G Z Agenda | Orçamento e horário para tatuadores</title>
+<meta name="description" content="L R G Z Agenda: orçamento de tatuagem pelo corpo com horário livre do Google Agenda. O cliente marca o local, escolhe estilo e tamanho e pega um horário; você recebe tudo no WhatsApp.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
+<link rel="manifest" href="site.webmanifest">
+<link rel="canonical" href="https://lrgz.com.br/agenda">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lrgz.com.br/agenda">
+<meta property="og:site_name" content="LRGZ">
+<meta property="og:title" content="L R G Z Agenda | Orçamento e horário para tatuadores">
+<meta property="og:description" content="L R G Z Agenda: orçamento de tatuagem pelo corpo com horário livre do Google Agenda. O cliente marca o local, escolhe estilo e tamanho e pega um horário; você recebe tudo no WhatsApp.">
+<meta property="og:image" content="https://lrgz.com.br/og-lrgz.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lrgz.com.br/og-lrgz.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Saira:wght@300..600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');if(Date.now()<Date.parse('2026-12-02T00:00:00-03:00'))document.documentElement.classList.add('bf');</script>
+<link rel="stylesheet" href="assets/lrgz.css?v=18">
+<link rel="stylesheet" href="assets/agenda.css?v=1">
+</head>
+<body>
+
+
+<!-- Black Friday: some sozinha em 01/12 (ver o script no head e .bf-only no CSS) -->
+<a class="bf-faixa bf-only" href="/#investimento">
+  <b>Black Friday</b>
+  <span>de R$ 1.500 por a partir de R$ 600 até 01/12</span>
+  <em>Ver oferta</em>
+</a>
+<nav class="nav" id="nav">
+  <div class="container">
+    <ul class="nav-links nav-links--esq">
+      <li><button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button></li>
+      <li><a href="/portfolio">Portfólio</a></li>
+      <li><a href="/agenda" aria-current="page">Agenda</a></li>
+      <li><a href="/#servicos">Serviços</a></li>
+    </ul>
+    <a href="./" class="nav-logo" aria-label="L R G Z — página inicial">
+      <img src="assets/marca/logo-leitura.webp?v=1" alt="L R G Z" width="1124" height="144" decoding="async">
+    </a>
+    <ul class="nav-links nav-links--dir">
+      <li><a href="/#depoimentos">Avaliações</a></li>
+      <li><a href="/#investimento">Valores</a></li>
+      <li><a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="nav-cta nav-cta--destaque">Falar no WhatsApp</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang-toggle lang-toggle--nav" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
+      <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" class="menu-destaque">Falar no WhatsApp</a>
+  <a href="./">Página inicial</a>
+  <a href="/portfolio">Portfólio</a>
+  <a href="#teste">Testar agora</a>
+  <a href="#contratar">Contratar</a>
+  <a href="./#contato">Contato</a>
+  <button class="lang-toggle" type="button" aria-label="Switch to English"><span data-l-pt>PT</span><span class="sep">/</span><span data-l-en>EN</span></button>
+</div>
+
+<main>
+
+  <!-- ============ L R G Z AGENDA ============
+       Página do serviço de orçamento pelo corpo + horário do Google Agenda.
+       A demonstração é o Manequim de verdade, cliente "demo" do repo lrgz-manequim
+       (agenda simulada, nada é enviado): https://lrgz-manequim.pages.dev/demo/ -->
+  <section class="section page-top ag-hero">
+    <div class="container">
+      <p class="eyebrow">L R G Z Agenda · para tatuadores</p>
+      <h1 class="ag-titulo">Orçamento e horário no mesmo link.</h1>
+      <p class="ag-lead">O cliente marca no corpo onde quer a tatuagem, escolhe estilo e tamanho e pega um horário livre da sua agenda. Você recebe o pedido pronto no WhatsApp, e o horário já aparece no seu Google Agenda.</p>
+      <div class="ag-ctas">
+        <a href="#teste" class="btn">Testar agora</a>
+        <a href="https://wa.me/5519984428872?text=Oi%2C%20vi%20o%20L%20R%20G%20Z%20Agenda%20no%20site%20e%20quero%20no%20meu%20est%C3%BAdio." target="_blank" rel="noopener" class="btn btn-outline">Quero no meu estúdio</a>
+      </div>
+      <dl class="ag-fatos">
+        <div><dt>Link na bio</dt><dd>orcamento.seudominio.com.br</dd></div>
+        <div><dt>Agenda</dt><dd>a sua, no Google Agenda</dd></div>
+        <div><dt>Pedido</dt><dd>chega pronto no WhatsApp</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="raio" aria-hidden="true"><b><u></u></b><i></i><b><u></u></b></div>
+
+  <!-- ============ TESTE AQUI ============ -->
+  <section class="section" id="teste">
+    <div class="container ag-teste">
+      <div class="ag-teste-txt">
+        <p class="eyebrow">Teste aqui</p>
+        <h2 class="section-title">Faça um pedido como o seu cliente faria</h2>
+        <p class="section-note">É o sistema de verdade, com um estúdio de exemplo. A agenda é simulada e nada é enviado: no fim, você vê o que chegaria para você.</p>
+      </div>
+      <div class="ag-teste-guia">
+        <ul class="ag-roteiro">
+          <li><b>Toque no corpo</b> onde vai a tatuagem. Dá para marcar mais de uma região.</li>
+          <li><b>Escolha estilo e tamanho.</b> O tamanho define quanto tempo a sessão ocupa na agenda.</li>
+          <li><b>Pegue um horário livre</b> no calendário. Só aparece o que está vago.</li>
+          <li><b>Envie.</b> Veja a mensagem no WhatsApp e o evento no Google Agenda.</li>
+        </ul>
+        <a class="ag-abrir" href="https://lrgz-manequim.pages.dev/demo/" target="_blank" rel="noopener">Abrir em tela cheia ↗</a>
+      </div>
+      <div class="ag-aparelho">
+        <div class="celular">
+          <div class="celular-tela">
+            <iframe src="https://lrgz-manequim.pages.dev/demo/" title="Demonstração do L R G Z Agenda" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMO FUNCIONA ============ -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Como funciona</p>
+          <h2 class="section-title">Do toque no corpo à sua agenda</h2>
+        </div>
+        <p class="section-note">Quatro telas no celular do cliente. Do seu lado, nada muda: WhatsApp e Google Agenda, como já é hoje.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-trilha" aria-hidden="true"><i></i></div>
+        <div class="process-item">
+          <p class="num">Local</p>
+          <div>
+            <h3>Marca no corpo</h3>
+            <p>Um manequim de frente e de costas, dividido em regiões. O cliente toca onde quer, ou diz que ainda não decidiu.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <p class="num">Projeto</p>
+          <div>
+            <h3>Escolhe estilo e tamanho</h3>
+            <p>Os estilos são os seus, com as suas fotos. O tamanho já diz quanto tempo reservar.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <p class="num">Horário</p>
+          <div>
+            <h3>Pega um horário livre</h3>
+            <p>O calendário lê a sua agenda e mostra só o que está vago, nos dias e horas em que você atende.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <p class="num">Envio</p>
+          <div>
+            <h3>Chega pronto pra você</h3>
+            <p>O WhatsApp abre com o pedido completo, e o horário entra no seu Google Agenda como pré-agendado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="raio" aria-hidden="true"><b><u></u></b><i></i><b><u></u></b></div>
+
+  <!-- ============ VANTAGENS ============ -->
+  <section class="section" id="vantagens">
+    <div class="container">
+      <div class="section-head centro">
+        <p class="eyebrow">Por que usar</p>
+        <h2 class="section-title">O que muda no seu atendimento</h2>
+      </div>
+      <div class="services-grid ag-pontos">
+        <div class="service-card">
+          <h3>Pedido completo de primeira</h3>
+          <p>Local, estilo, tamanho, nome, idade e ideia chegam juntos. Acaba o vai e volta de "quanto fica?" sem informação nenhuma.</p>
+        </div>
+        <div class="service-card">
+          <h3>Só horário livre</h3>
+          <p>O site consulta a sua agenda na hora e mostra apenas o que está vago, dentro do seu horário de atendimento.</p>
+        </div>
+        <div class="service-card">
+          <h3>Sem horário duplicado</h3>
+          <p>Se duas pessoas tentam o mesmo horário ao mesmo tempo, só uma leva. A outra é avisada para escolher outro.</p>
+        </div>
+        <div class="service-card">
+          <h3>Quem confirma é você</h3>
+          <p>O horário entra como pré-agendado no seu Google Agenda. Você fecha valor e sinal pelo WhatsApp, do seu jeito.</p>
+        </div>
+        <div class="service-card">
+          <h3>Tempo certo por tamanho</h3>
+          <p>Uma tatuagem pequena ocupa menos tempo que fechar um braço. A duração muda com o tamanho, com folga entre sessões.</p>
+        </div>
+        <div class="service-card">
+          <h3>Com a cara do seu estúdio</h3>
+          <p>Cores, fontes, logo e fotos dos seus estilos. Não parece formulário genérico.</p>
+        </div>
+        <div class="service-card">
+          <h3>Um link para a bio</h3>
+          <p>orcamento.seudominio.com.br no Instagram, ou dentro do seu site. Substitui o Google Forms.</p>
+        </div>
+        <div class="service-card">
+          <h3>Nada para instalar</h3>
+          <p>O cliente não baixa app nem cria conta. Abre no celular e termina o pedido em menos de um minuto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EM USO ============ -->
+  <section class="section ag-uso-sec">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Em uso</p>
+          <h2 class="section-title">Já recebendo pedidos de verdade</h2>
+        </div>
+        <p class="section-note">O orçamento pelo corpo já roda com tatuadores clientes da L R G Z, cada um com a identidade do próprio estúdio.</p>
+      </div>
+      <div class="ag-uso">
+        <a href="https://orcamento.samtto.com.br" target="_blank" rel="noopener"><b>Samtto</b><span>Tatupunk, Manaus</span><em>orcamento.samtto.com.br ↗</em></a>
+        <a href="https://orcamento.maronez.com.br" target="_blank" rel="noopener"><b>Maronez</b><span>Freehand, Porto Alegre</span><em>orcamento.maronez.com.br ↗</em></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="raio" aria-hidden="true"><b><u></u></b><i></i><b><u></u></b></div>
+
+  <!-- ============ CONTRATAR ============ -->
+  <section class="section" id="contratar">
+    <div class="container">
+      <div class="section-head centro">
+        <p class="eyebrow">Contratar</p>
+        <h2 class="section-title">Leve para o seu estúdio</h2>
+        <p class="section-note">Eu monto tudo: o link, a identidade, os seus estilos e a ligação com a sua agenda. Você só compartilha a agenda do Google e começa a receber pedidos.</p>
+      </div>
+      <div class="price-box">
+        <div class="price-list">
+          <p class="price-list-head">O que vem junto</p>
+          <ul>
+            <li>Link próprio no seu domínio, pronto para a bio do Instagram</li>
+            <li>Identidade do seu estúdio: cores, fontes e logo</li>
+            <li>Os seus estilos, com fotos dos seus trabalhos</li>
+            <li>Ligação com o seu Google Agenda, sem senha: você só compartilha a agenda</li>
+            <li>Dias, horários, folgas e duração das sessões do seu jeito</li>
+            <li>Ajustes sempre que mudar o horário, um estilo ou um preço</li>
+          </ul>
+        </div>
+        <aside class="price-card ag-card" aria-label="Contratar o L R G Z Agenda">
+          <p class="pc-from">Serviço</p>
+          <p class="ag-card-nome">L R G Z Agenda</p>
+          <p class="pc-nota">Também funciona sem Google Agenda: o pedido chega com os melhores dias e o período do cliente.</p>
+          <dl class="pc-linhas">
+            <div><dt>Para</dt><dd>tatuadores e estúdios</dd></div>
+            <div><dt>Agenda</dt><dd>Google Agenda</dd></div>
+            <div><dt>Pedidos</dt><dd>no seu WhatsApp</dd></div>
+            <div><dt>Pagamento</dt><dd>só depois de funcionando</dd></div>
+          </dl>
+          <a href="https://wa.me/5519984428872?text=Oi%2C%20quero%20contratar%20o%20L%20R%20G%20Z%20Agenda%20para%20o%20meu%20est%C3%BAdio." target="_blank" rel="noopener" class="btn pc-cta">Quero o L R G Z Agenda</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERGUNTAS ============ -->
+  <section class="section" id="perguntas">
+    <div class="container ag-faq">
+      <div class="section-head centro">
+        <p class="eyebrow">Perguntas</p>
+        <h2 class="section-title">Antes de contratar</h2>
+      </div>
+      <details>
+        <summary>Preciso ter site?</summary>
+        <p>Não. O L R G Z Agenda funciona num link próprio, como orcamento.seudominio.com.br, que vai direto na bio do Instagram. Se você já tem site, ele entra numa página ou dentro do seu formulário.</p>
+      </details>
+      <details>
+        <summary>O cliente consegue marcar um horário que eu não quero?</summary>
+        <p>Não. Só aparecem horários dentro dos dias e horas que você define, com intervalo entre sessões e antecedência mínima. E o horário entra como pré-agendado: você confirma ou remarca pelo WhatsApp.</p>
+      </details>
+      <details>
+        <summary>E se eu não usar o Google Agenda?</summary>
+        <p>O orçamento funciona do mesmo jeito. No lugar do calendário, o cliente marca os melhores dias e o período, e você combina a data no chat.</p>
+      </details>
+      <details>
+        <summary>Preciso passar a senha do meu Google?</summary>
+        <p>Não. Você compartilha a agenda com o sistema pelo próprio Google Agenda, como faria com uma pessoa. Dá para tirar o acesso quando quiser.</p>
+      </details>
+      <details>
+        <summary>Duas pessoas podem pegar o mesmo horário?</summary>
+        <p>Não. Se duas tentarem ao mesmo tempo, só a primeira leva. A outra recebe o aviso na hora e escolhe outro horário.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p class="fmono">
+      <img class="footer-logo" src="assets/marca/logo-cromo.webp?v=1" alt="L R G Z" width="2000" height="1126" decoding="async" loading="lazy">© 2026 L R G Z · Santa Bárbara d'Oeste, SP. Todos os direitos reservados.
+    </p>
+    <div class="footer-links">
+      <a href="/agenda">L R G Z Agenda</a>
+      <a href="./#sobre">Sobre</a>
+      <a href="./#servicos">Serviços</a>
+      <a href="./#investimento">Investimento</a>
+      <a href="/portfolio">Projetos</a>
+      <a href="./#contato">Contato</a>
+      <a href="./#curso" data-only="pt">Comprar Agora</a>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
+  </div>
+</footer>
+
+<script src="assets/lrgz.js?v=8"></script>
+
+
+<!-- ============ I18N — PT-BR / EN-US ============
+     Todo o texto traduzido vive no objeto EN abaixo, no formato
+     'texto em português': 'texto em inglês'. Para corrigir ou
+     acrescentar uma tradução, basta editar este bloco.
+     Texto sem tradução aparece em português, sem quebrar a página.
+     Para esconder um elemento num idioma: data-only="pt" ou data-only="en".
+     ============================================================ -->
+<script src="assets/i18n.js?v=22"></script>
+<a class="wa-float" id="waFloat" href="https://wa.me/5519984428872?text=Oi%2C%20vim%20pelo%20site%20do%20L%20R%20G%20Z.%20Tenho%20um%20neg%C3%B3cio%20de%20" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2.5C6.79 2.5 2.52 6.77 2.52 12.02c0 1.68.44 3.32 1.28 4.77L2.5 21.5l4.85-1.27a9.47 9.47 0 0 0 4.69 1.2h.01c5.25 0 9.52-4.27 9.52-9.52a9.46 9.46 0 0 0-2.79-6.73 9.46 9.46 0 0 0-6.74-2.79zm0 17.35h-.01a7.9 7.9 0 0 1-4.02-1.1l-.29-.17-2.98.78.8-2.91-.19-.3a7.88 7.88 0 0 1-1.21-4.2c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.59 2.32a7.86 7.86 0 0 1 2.32 5.6c0 4.36-3.55 7.89-7.92 7.89z"/></svg>
+  <span>Falar no WhatsApp</span>
+</a>
+
+</body>
+</html>
