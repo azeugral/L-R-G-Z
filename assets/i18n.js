@@ -90,43 +90,43 @@
     /* — serviços — */
     '/ O que eu faço':'/ What I do',
     'Onde eu entro':'Where I come in',
-    'Do primeiro rascunho ao site no ar — cada etapa pensada pro seu negócio, não pro meu processo.':
-      'From first sketch to launch — every step shaped around your business, not around my process.',
+    'Do primeiro rascunho ao site no ar, cada etapa pensada pro seu negócio.':
+      'From first sketch to launch, every step shaped around your business.',
     'Serviço':'Service',
     'Site institucional':'Business website',
-    'Presença digital completa: estrutura, conteúdo e visual pensados pra apresentar seu negócio com clareza — e converter visita em contato.':
-      'A complete digital presence: structure, content and visuals designed to present your business clearly — and turn visits into enquiries.',
+    'Até 5 páginas com estrutura, textos e visual pensados pra apresentar o seu negócio com clareza e levar a visita até o WhatsApp.':
+      'Up to 5 pages with structure, copy and visuals that present your business clearly and lead visitors to WhatsApp.',
     'Landing page':'Landing page',
-    'Uma página, um objetivo. Ideal pra lançar um produto, uma campanha ou capturar contato rápido, sem enrolação.':
-      'One page, one goal. Ideal for launching a product, running a campaign or capturing leads fast, with no fluff.',
+    'Uma página com um objetivo só: lançar um produto, rodar uma campanha ou receber pedidos de orçamento.':
+      'One page with a single goal: launch a product, run a campaign or collect quote requests.',
     'Identidade visual digital':'Digital visual identity',
-    'Direção de arte, paleta, tipografia e aplicação consistente — pra sua marca ser reconhecida em qualquer tela.':
-      'Art direction, palette, typography and consistent application — so your brand is recognisable on any screen.',
+    'Paleta, tipografia e direção de arte definidas pra sua marca ser reconhecida em qualquer tela.':
+      'Palette, typography and art direction set so your brand is recognisable on any screen.',
     'Manutenção & suporte':'Maintenance & support',
-    'Ajustes, atualização de conteúdo e acompanhamento depois da entrega. Seu site não fica largado.':
-      'Tweaks, content updates and follow-up after launch. Your site doesn’t get left behind.',
+    'Depois da entrega, troco foto, horário, preço ou texto sempre que você pedir.':
+      'After launch, I swap photos, hours, prices or copy whenever you ask.',
 
     /* — processo — */
     '/ Como funciona':'/ How it works',
     'Do primeiro papo ao ar':'From first conversation to launch',
-    'Um processo direto, com pouca reunião e muita entrega.':
-      'A direct process — few meetings, plenty delivered.',
+    'Quatro etapas, e você acompanha cada uma.':
+      'Four steps, and you follow each one.',
     '01 / Diagnóstico':'01 / Discovery',
     'Entender o negócio':'Understand the business',
-    'Converso com você sobre o negócio, o público e o que já existe (ou não) da sua presença online hoje.':
-      'We talk through the business, the audience, and what does (or doesn’t) exist of your online presence today.',
+    'Entendo o negócio, o público e o que já existe da sua presença online hoje.':
+      'I learn the business, the audience and what already exists of your online presence today.',
     '02 / Direção':'02 / Direction',
     'Definir a identidade':'Define the identity',
-    'Defino identidade visual, estrutura de conteúdo e tom de voz do site — a base de tudo que vem depois.':
-      'I define the visual identity, content structure and tone of voice — the foundation for everything that follows.',
+    'Defino identidade visual, estrutura de conteúdo e tom de voz do site. É a base de tudo que vem depois.':
+      'I define the visual identity, content structure and tone of voice. It is the foundation for everything that follows.',
     '03 / Construção':'03 / Build',
     'Desenvolver do zero':'Build from scratch',
-    'Desenvolvo o site do zero — responsivo e rápido.':
-      'I build the site from scratch — responsive and fast.',
+    'Desenvolvo o site do zero, pensado primeiro pro celular e leve pra abrir rápido.':
+      'I build the site from scratch, mobile first and light enough to load fast.',
     '04 / Entrega':'04 / Handover',
     'Publicar e repassar':'Launch and hand over',
-    'Publicação, ajustes finais e um repasse completo de como tudo funciona.':
-      'Launch, final adjustments and a full walkthrough of how everything works.',
+    'Publico no seu domínio, faço os ajustes finais e mostro como tudo funciona.':
+      'I publish on your domain, make the final tweaks and show you how everything works.',
 
     /* — projetos — */
     '/ Projetos':'/ Work',
@@ -158,9 +158,9 @@
     'Experiência imersiva':'Immersive experience',
 
     /* Dra. Juliana Cubas */
-    'Médica Veterinária':'Veterinarian',
-    'Uma clínica veterinária premium que precisava transmitir confiança, cuidado e excelência em cada detalhe. Desenvolvi um site moderno com identidade visual refinada, navegação intuitiva e foco em conversão, facilitando o contato e o agendamento de consultas em qualquer dispositivo.':
-      'A premium veterinary clinic that needed to convey trust, care and excellence in every detail. I built a modern site with a refined visual identity, intuitive navigation and a focus on conversion, making it easy to get in touch and book appointments from any device.',
+    'Veterinária a Domicílio':'House-Call Veterinarian',
+    'Uma veterinária de Tietê que atende em casa, longe da caixa de transporte e da sala de espera. O site é claro e delicado, nas cores da logo dela, com a Amora em pixel passeando pela página, as cidades atendidas e uma ficha em três etapas que manda o pedido pronto pro WhatsApp.':
+      'A vet from Tietê who sees pets at home, away from the carrier and the waiting room. The site is light and delicate, in the colours of her logo, with Amora in pixel art walking across the page, the towns she covers and a three-step form that sends the request ready to WhatsApp.',
 
     /* Maronez */
     'Tatuador Freehand':'Freehand Tattoo Artist',
@@ -268,7 +268,7 @@
     'Entrega':'Delivery',
     'em até 7 dias':'within 7 days',
     'Pagamento':'Payment',
-    'metade pra começar, metade na entrega':'half to start, half on delivery',
+    'só depois que você aprovar o site':'only once you approve the site',
     'Hospedagem + domínio .com.br':'Hosting + domain',
     '1 ano grátis':'1 year free',
     'Quero meu site em 7 dias':'I want my site in 7 days',
@@ -417,8 +417,8 @@
     'Uma especialista em sobrancelhas e micropigmentação em Sesimbra, com mais de dez anos de profissão e formações para outras profissionais. O site, em português de Portugal, junta o que estava espalhado: procedimentos, portfólio, formações e terapias, com a avaliação pedida por uma mensagem que já chega pronta no WhatsApp.':
       'A brow and permanent makeup specialist in Sesimbra with more than ten years in the trade and training courses for other professionals. The site, in European Portuguese, brings together what was scattered: procedures, portfolio, training and therapies, with the consultation requested through a message that lands in WhatsApp ready to send.',
     'Tatuagem Preto e Cinza':'Black & Grey Tattoo',
-    'Um tatuador premiado do Bom Retiro, de preto e cinza e blackwork, que também grava vidro e toca sax. O site abre numa fumaça de tinta em movimento com o nome dele em destaque, mostra 72 trabalhos numa grade numerada, explica o processo da sessão e leva ao orçamento pelo WhatsApp.':
-      'An award-winning tattoo artist from Bom Retiro working in black and grey and blackwork, who also engraves glass and plays sax. The site opens on moving ink smoke with his name up front, shows 72 pieces in a numbered grid, explains how a session works and leads to a quote through WhatsApp.',
+    'Um tatuador premiado da Zona Norte de São Paulo, de preto e cinza e blackwork, que também grava vidro e toca sax. O site abre numa fumaça de tinta em movimento com o nome dele em destaque, mostra 72 trabalhos numa grade numerada, explica o processo da sessão e leva ao orçamento pelo WhatsApp.':
+      'An award-winning tattoo artist from São Paulo’s North Zone working in black and grey and blackwork, who also engraves glass and plays sax. The site opens on moving ink smoke with his name up front, shows 72 pieces in a numbered grid, explains how a session works and leads to a quote through WhatsApp.',
     'Blackwork Autoral':'Original Blackwork',
     'Uma tatuadora do Ipiranga que trocou o fineline delicado pelo blackwork autoral. O site acompanha essa virada: fumaça de tinta no fundo, imagens que surgem dela ao rolar, os desenhos exclusivos disponíveis separados dos trabalhos já feitos e o orçamento direto pelo WhatsApp.':
       'A tattoo artist from Ipiranga who swapped delicate fineline for original blackwork. The site follows that shift: ink smoke in the background, images emerging from it as you scroll, the exclusive available designs kept apart from finished work, and quotes straight through WhatsApp.',
