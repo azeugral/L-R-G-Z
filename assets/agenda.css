@@ -14,23 +14,21 @@
 .ag-fatos > div{ padding:1.1rem 1rem 0; border-left:1px solid var(--fio); }
 .ag-fatos > div:first-child{ border-left:0; }
 .ag-fatos dt{ color:var(--apagado); font-size:.95rem; }
-.ag-fatos dd{ font-size:1.05rem; font-weight:500; margin-top:.2rem; }
+.ag-fatos dd{ font-size:1.05rem; font-weight:500; margin-top:.2rem; overflow-wrap:anywhere; }
 
-/* ---------- teste aqui ---------- */
-.ag-teste{ display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-areas:'cab ap' 'guia ap'; gap:0 clamp(2rem,6vw,6rem); align-content:center; }
-.ag-teste-txt{ grid-area:cab; align-self:end; }
-.ag-teste-guia{ grid-area:guia; align-self:start; }
-.ag-aparelho{ grid-area:ap; }
-.ag-teste-txt .section-note{ margin-top:.9rem; }
-.ag-roteiro{ margin-top:1.8rem; border-top:1px solid var(--fio); }
-.ag-roteiro li{ padding:.85rem 0; border-bottom:1px solid var(--fio); color:var(--apagado); font-size:1rem; }
-.ag-roteiro b{ color:var(--texto); font-weight:500; }
-.ag-abrir{ display:inline-block; margin-top:1.4rem; padding-bottom:.2rem; border-bottom:1px solid #4b4f54; font-size:.98rem; transition:border-color .3s var(--ease); }
+/* ---------- teste aqui: a demonstração solta na página, sem aparelho ---------- */
+.ag-roteiro{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); max-width:1000px; margin:0 auto clamp(1.6rem,3vw,2.4rem); border-top:1px solid var(--fio); }
+.ag-roteiro li{ display:grid; align-content:start; gap:.3rem; padding:1rem 1.1rem 0; border-left:1px solid var(--fio); }
+.ag-roteiro li:first-child{ border-left:0; padding-left:0; }
+.ag-roteiro b{ font-weight:500; color:var(--texto); }
+.ag-roteiro span{ color:var(--apagado); font-size:.95rem; line-height:1.45; }
+.ag-demo{ max-width:1000px; margin:0 auto; border:1px solid var(--fio); background:#000; box-shadow:0 40px 120px rgba(0,0,0,.55); }
+.ag-demo-barra{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem 1rem; border-bottom:1px solid var(--fio); background:linear-gradient(180deg,#141517,#0b0c0d); }
+.ag-demo-link{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--apagado); font-size:.85rem; letter-spacing:.02em; }
+.ag-abrir{ flex:none; padding-bottom:.15rem; border-bottom:1px solid #4b4f54; font-size:.9rem; transition:border-color .3s var(--ease); }
 .ag-abrir:hover{ border-color:var(--white); }
-.ag-aparelho{ display:flex; justify-content:center; }
-.ag-aparelho .celular{ width:min(380px, calc(100vw - 2 * var(--pad)), calc(84svh * 390 / 800 + 4px)); padding:2px; border-radius:30px; box-shadow:0 30px 80px rgba(0,0,0,.6), 0 0 0 1px #000; }
-.ag-aparelho .celular-tela{ aspect-ratio:390/800; width:100%; height:auto; border-radius:28px; padding:10px; background:#060607; }
-.ag-aparelho iframe{ display:block; width:100%; height:100%; border:0; border-radius:19px; background:#000; }
+.wa-float.ag-oculto{ opacity:0; visibility:hidden; transform:translate3d(0,10px,0); }
+#ag-demo{ display:block; width:100%; height:1200px; border:0; background:#000; transition:height .25s var(--ease); }
 
 /* ---------- vantagens: 4 x 2 ---------- */
 .ag-pontos .service-card{ padding-bottom:1.4rem; }
@@ -64,21 +62,22 @@
 
 /* ---------- celular e tablet ---------- */
 @media (max-width:1040px){
-  .ag-teste{ grid-template-columns:minmax(0,1fr); grid-template-areas:'cab' 'ap' 'guia'; gap:2rem 0; }
-  .ag-teste-txt{ text-align:center; }
-  .ag-roteiro{ margin-top:0; }
-  .ag-teste-guia{ text-align:center; }
-  .ag-roteiro li{ text-align:left; }
+  .ag-roteiro{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ag-roteiro li:nth-child(odd){ border-left:0; padding-left:0; }
+  .ag-roteiro li:nth-child(n+3){ border-top:1px solid var(--fio); margin-top:1rem; }
 }
 @media (max-width:720px){
+  .ag-demo{ margin-inline:calc(var(--pad) * -1); border-inline:0; }
+  .ag-demo-barra{ padding:.65rem var(--pad); }
+  .ag-roteiro li{ padding:.9rem .8rem 0; }
+  .ag-roteiro li:nth-child(odd){ padding-left:0; }
+  .ag-roteiro span{ font-size:.88rem; }
   .ag-fatos{ grid-template-columns:minmax(0,1fr); }
   .ag-fatos > div{ border-left:0; border-top:1px solid var(--fio); padding:.9rem 0; }
   .ag-fatos > div:first-child{ border-top:0; }
   .ag-ctas .btn{ flex:1 1 100%; }
   .ag-uso{ grid-template-columns:minmax(0,1fr); }
   .ag-uso a + a{ border-left:0; padding-left:0; }
-  .ag-aparelho .celular{ width:min(380px, calc(100vw - 2 * var(--pad)), calc(78svh * 390 / 800 + 4px)); }
-  .ag-aparelho .celular-tela{ padding:7px; }
 }
 
 /* ---------- preço ---------- */
@@ -86,7 +85,7 @@
 .ag-preco b{ color:var(--texto); font-weight:500; }
 .ag-card .pc-nota + .pc-nota{ margin-top:.4rem; }
 .ag-card .pc-valor .pc-moeda:last-child{ margin-left:-.2rem; }
-.pc-linhas > div.ag-linha-lrgz{ display:grid; gap:.15rem; background:#dfe2e6; margin:0 -.8rem; padding:.75rem .8rem; border-top:0; }
+.pc-linhas > div.ag-linha-lrgz{ display:grid; gap:.15rem; background:#dfe2e6; box-shadow:-.8rem 0 0 #dfe2e6, .8rem 0 0 #dfe2e6; padding:.75rem 0; border-top:0; }
 .pc-linhas > div.ag-linha-lrgz dt{ color:#0b0c0d; font-weight:600; }
 .pc-linhas > div.ag-linha-lrgz dd{ text-align:left; }
 .pc-linhas > div.ag-linha-lrgz + div{ border-top:0; }
