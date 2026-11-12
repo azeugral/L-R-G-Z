@@ -396,6 +396,37 @@
     'Bichos & Ornamentos':'Creatures & Ornaments',
     'Um tatuador da Casa Feia, no centro de São Paulo, que desenha bichos, dragões e ornamentos à mão, em preto, vermelho ou azul, e tatua cada flash uma vez só. O site é papel e nanquim como as artes dele, com os desenhos disponíveis, a agenda por cidade e a lista de espera.':
       'A tattoo artist at Casa Feia, in central São Paulo, who hand-draws creatures, dragons and ornaments in black, red or blue, and tattoos each flash only once. The site is paper and India ink like his art, with the available designs, the schedule by city and the waiting list.',
+    /* — 10 prévias de 12/11/2026 — */
+    'Realismo & Coberturas':'Realism & Cover-ups',
+    'Um tatuador premiado de realismo e coberturas, com estúdios em Maringá e Goiânia e mais de 30 anos de carreira. No topo, a tinta preta cobre uma tatuagem antiga ao vivo e a peça nova surge em preto e cinza e depois em cor, e o site reúne os prêmios, os dois estúdios e o orçamento pelo WhatsApp.':
+      'An award-winning realism and cover-up tattoo artist with studios in Maringá and Goiânia and more than 30 years in the trade. At the top, black ink covers an old tattoo live and the new piece appears in black and grey, then in colour, and the site brings together the awards, both studios and the WhatsApp quote.',
+    'Fine Line na Bahia':'Fine Line in Bahia',
+    'Uma tatuadora de fine line de Feira de Santana que transforma sentimento em traço. No topo, 260 mil partículas de ouro escrevem uma palavra que escorre e vira a tinta de uma tatuagem real, e o portfólio é filtrado por sentimento, com cicatrizadas, coberturas e o orçamento montado para o WhatsApp.':
+      'A fine line tattoo artist from Feira de Santana who turns feelings into lines. At the top, 260 thousand gold particles write a word that drips and becomes the ink of a real tattoo, and the portfolio is filtered by feeling, with healed work, cover-ups and a quote built for WhatsApp.',
+    'Fineline & Microrrealismo':'Fineline & Micro-realism',
+    'Uma tatuadora de fineline e microrrealismo que atende em Leça da Palmeira, Santa Maria da Feira e Luxemburgo. No topo um fio único escreve as iniciais dela em ouro e tece borboleta, fénix e lótus até a tinta real assentar, e o site, em português de Portugal, traz o portfólio, as formações e a marcação.':
+      'A fineline and micro-realism tattoo artist working in Leça da Palmeira, Santa Maria da Feira and Luxembourg. At the top a single thread writes her initials in gold and weaves a butterfly, a phoenix and a lotus until the real ink settles, and the site, in European Portuguese, brings the portfolio, the training and booking.',
+    'Releituras de Pintura':'Painting Reinterpretations',
+    'Uma tatuadora do Butantã, em São Paulo, que leva pinturas clássicas e poesia para a pele. No topo o retrato se pinta em 35 mil pinceladas, e o site coloca cada tela ao lado da tatuagem em molduras douradas, com o poema Jardim da memória, a loja e a lista de espera por cidade.':
+      'A tattoo artist from Butantã, in São Paulo, who brings classic paintings and poetry to skin. At the top the portrait paints itself in 35 thousand brushstrokes, and the site sets each canvas next to its tattoo in gold frames, with the poem Jardim da memória, the shop and the waiting list by city.',
+    'Neotradicional em Lisboa':'Neo-traditional in Lisbon',
+    'Um tatuador brasileiro em Lisboa, premiado em neotradicional e em preto e cinza. No topo o stencil roxo aparece na pele, ganha sombra e a peça termina limpa, e o site, em português de Portugal e inglês, mostra os trabalhos, os prêmios, as datas de guest e a marcação pelo WhatsApp.':
+      'A Brazilian tattoo artist in Lisbon, awarded in neo-traditional and in black and grey. At the top the purple stencil appears on skin, gets its shading and the piece ends up clean, and the site, in European Portuguese and English, shows the work, the awards, the guest dates and WhatsApp booking.',
+    'Japonês Tradicional':'Traditional Japanese',
+    'Um tatuador de japonês tradicional no Nero Art, em Palma de Mallorca. No topo cada peça se forma a pincel, primeiro em tinta preta diluída e depois com a cor escorrendo sobre papel washi, e o site, em espanhol, leva da galeria às convenções e ao orçamento pelo WhatsApp.':
+      'A traditional Japanese tattoo artist at Nero Art, in Palma de Mallorca. At the top each piece forms with a brush, first in diluted black ink and then with colour running over washi paper, and the site, in Spanish, goes from the gallery to the conventions and the WhatsApp quote.',
+    'Realismo & Trash Polka':'Realism & Trash Polka',
+    'Um tatuador de Lousada, perto do Porto, premiado em realismo preto e cinza e conhecido pelo Trash Polka. No topo a tinta tirada da pele se forma sobre o nome dele em vermelho, do traço às sombras, e o site, em português de Portugal, reúne os trabalhos, os prêmios, as convenções e a marcação.':
+      'A tattoo artist from Lousada, near Porto, awarded in black and grey realism and known for Trash Polka. At the top ink taken from skin forms over his name in red, from linework to shading, and the site, in European Portuguese, brings together the work, the awards, the conventions and booking.',
+    'Tradicional & Serigrafia':'Traditional & Screen Printing',
+    'Um tatuador de tradicional de São Caetano do Sul que também imprime estampas em serigrafia. No topo os flashs dele são impressos tela por tela, com a puxada do rodo e o registro fora do lugar, e o site mostra o desenho ao lado da pele, os flashs disponíveis, o trabalho feito à mão e o agendamento.':
+      'A traditional tattoo artist from São Caetano do Sul who also screen prints his own designs. At the top his flashes are printed screen by screen, with the squeegee pull and slightly off registration, and the site shows drawing next to skin, the available flashes, the handmade work and booking.',
+    'Tatuagem Autoral em Leiria':'Original Tattoo in Leiria',
+    'Um tatuador da Batalha, em Leiria, que trabalha em três estilos com desenho à medida e faz guest spots pela Europa. No topo cada peça entra num quadro de passe-partout com o nome dele à frente, e o site, em português de Portugal, separa os estilos, as viagens e a marcação por mensagem.':
+      'A tattoo artist from Batalha, in Leiria, who works in three styles with custom designs and does guest spots across Europe. At the top each piece sits in a passe-partout frame with his name in front, and the site, in European Portuguese, sets apart the styles, the travels and booking by message.',
+    'Dark & Delicado':'Dark & Delicate',
+    'Uma tatuadora de Nova Resende, em Minas Gerais, que faz tanto o dark quanto o delicado. O site inteiro é dividido no meio, papel de um lado e preto do outro, como a máscara partida por uma katana de uma tatuagem dela, e todo título atravessa esse eixo até o orçamento pelo WhatsApp.':
+      'A tattoo artist from Nova Resende, in Minas Gerais, who does both dark and delicate work. The whole site is split down the middle, paper on one side and black on the other, like the mask cut by a katana in one of her tattoos, and every heading crosses that axis on the way to the WhatsApp quote.',
     /* — Zaparolli e Goblins Mágicos — */
     'Dark Art & Coberturas':'Dark Art & Cover-ups',
     'Proxies de Magic':'Magic Proxies',
