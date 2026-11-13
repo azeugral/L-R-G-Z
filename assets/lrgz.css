@@ -586,7 +586,7 @@ body.no-hero .wa-float{ opacity:0; visibility:hidden; transform:translate3d(0,10
   .pc-linhas > div:first-child{ border-top:1px solid #cfd2d6; padding-top:.7rem; }
 }
 
-@media (max-width:1180px){
+@media (max-width:1240px){
   .nav-links{ display:none; }
   .nav-actions{ display:contents; }
   .lang-toggle--nav{ grid-column:1; grid-row:1; justify-self:start; }
@@ -769,3 +769,25 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
 .nav-links a.nav-novo:hover,.nav-links a.nav-novo[aria-current]{ color:#000; box-shadow:0 0 0 1px rgba(255,255,255,.5), 0 8px 28px rgba(215,219,224,.28); }
 .nav-novo:active,.menu-novo:active{ transform:scale(.97); }
 .mobile-menu .menu-novo{ margin:.35rem 0 .5rem; padding:.45rem 1rem .45rem .45rem; font-size:clamp(1.05rem,4.8vw,1.35rem); line-height:1.3; color:#000; }
+
+/* ---------- investimento: à vista + mensal (lançamento 20/11/2026) ---------- */
+.pc-tipo{ grid-column:1; display:flex; align-items:center; gap:.6rem; color:#54595f; font-size:.85rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.7rem; }
+.pc-tipo b{ background:#0b0c0d; color:#f3f4f5; font-size:.7rem; font-weight:600; letter-spacing:.12em; padding:.25rem .5rem; line-height:1; }
+.price-card--mensal{ background:linear-gradient(180deg,#141517,#0b0c0d); color:#f3f4f5; box-shadow:inset 0 0 0 1px #34383c; --texto:#f3f4f5; --botao:#f3f4f5; --botao-texto:#0b0c0d; }
+.price-card--mensal,html.bf .price-card--mensal{ grid-template-rows:auto auto auto 1fr; }
+.price-card--mensal .pc-tipo,.price-card--mensal .pc-moeda,.price-card--mensal .pc-nota,.price-card--mensal .pc-linhas dt{ color:#9aa0a6; }
+.price-card--mensal .pc-tipo b{ background:#dfe2e6; color:#0b0c0d; }
+.price-card--mensal .pc-linhas > div{ border-top-color:#34383c; }
+.price-card--mensal .pc-linhas,html.bf .price-card--mensal .pc-linhas{ grid-row:1 / span 4; }
+.price-card--mensal .pc-cta,html.bf .price-card--mensal .pc-cta{ grid-row:5; }
+@media (max-width:1040px){
+  .price-card--mensal,html.bf .price-card--mensal{ grid-template-rows:none; }
+  .price-card--mensal .pc-linhas,.price-card--mensal .pc-cta,html.bf .price-card--mensal .pc-linhas,html.bf .price-card--mensal .pc-cta{ grid-row:auto; }
+  .price-card--mensal .pc-linhas > div:first-child{ border-top-color:#34383c; }
+}
+.price-box .price-card--mensal{ margin-top:calc(clamp(1.8rem,3.6vw,3rem) * -1 + 1rem); }
+/* curso: só um link apagado no rodapé */
+.footer-links a.footer-curso{ color:#4b4f54; font-size:.85rem; }
+.footer-links a.footer-curso:hover{ color:var(--gray); }
+.nav-novo span,.menu-novo span{ white-space:nowrap; }
+.nav-links a{ white-space:nowrap; }
