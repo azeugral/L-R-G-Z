@@ -4,6 +4,13 @@
     'Criação de Sites Profissionais e Landing Pages | LRGZ':'Professional Websites and Landing Pages | LRGZ',
     'Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 600.':
       'Websites built from scratch with bespoke design: a domain in your name, first version in 48 hours and delivery within 7 days.',
+    'Site por mês':'Monthly website', 'Site por R$ 67/mês':'Website for R$ 67/month', 'Novo':'New',
+    'À vista ou por mês':'Upfront or monthly', 'À vista':'Upfront', 'Mensal':'Monthly', 'Ver o plano mensal':'See the monthly plan',
+    'O site é o mesmo, feito do zero, e leva tudo o que está na lista. Muda só o jeito de pagar. O valor sai fechado na primeira conversa, sem surpresa no meio do caminho.':
+      'Same website, built from scratch, with everything on the list. Only the way you pay changes. The price is set in the first conversation, no surprises along the way.',
+    'Domínio, hospedagem e até 2 alterações por mês já estão dentro.':'Domain, hosting and up to 2 changes a month included.',
+    'Implantação':'Setup', 'grátis, com fidelidade de 6 meses':'free, with a 6-month commitment', 'Sem fidelidade':'No commitment',
+    'implantação de R$ 297':'R$ 297 setup', 'começa com o site no ar':'starts once the site is live',
     'Sobre':'About', 'Serviços':'Services', 'Processo':'Process',
     'Projetos':'Work', 'Contato':'Contact', 'Comprar Agora':'Buy Now',
     'Disponível para novos projetos':'Available for new projects',
