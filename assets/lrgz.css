@@ -843,5 +843,5 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
 
 .sigilo{ transform:scale(.84) translateY(-5%); }
 @media (max-width:999px){ .sigilo{ transform:none; } }
-@media (max-width:480px){ .hero-ctas{ flex-direction:column; align-items:stretch; width:100%; } .hero-ctas .btn{ width:100%; justify-content:center; text-align:center; } }
+@media (max-width:480px){ .hero-ctas{ grid-template-columns:1fr; flex-direction:column; align-items:stretch; width:100%; } .hero-ctas .btn{ width:100%; justify-content:center; text-align:center; } }
 .final-outros a{ display:inline-block; padding:.7rem .3rem; }
