@@ -114,8 +114,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Saira:wght@300..600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');if(Date.now()<Date.parse('2026-12-02T00:00:00-03:00'))document.documentElement.classList.add('bf');</script>
-<link rel="preload" as="image" href="assets/marca/sigilo-quadro-poster.jpg?v=4" media="(max-width:999px)">
-<link rel="stylesheet" href="assets/lrgz.css?v=30">
+<link rel="preload" as="image" href="assets/marca/sigilo-quadro-poster.jpg?v=4" media="(min-width:700px) and (max-width:999px)">
+<link rel="stylesheet" href="assets/lrgz.css?v=31">
 </head>
 <body>
 
@@ -171,7 +171,7 @@
     <div class="hero-cena" aria-hidden="true">
       <div class="sigilo" id="sigilo">
         <picture>
-          <source media="(max-width:999px), (max-height:600px)" srcset="assets/marca/sigilo-quadro-poster.jpg?v=4">
+          <source media="(min-width:700px) and (max-width:999px), (max-height:600px), (orientation:landscape) and (max-width:999px)" srcset="assets/marca/sigilo-quadro-poster.jpg?v=4">
           <img id="sigiloPoster" src="assets/marca/sigilo-largo-poster.jpg?v=4" alt="" width="1920" height="1080" decoding="async">
         </picture>
         <canvas id="sigiloCanvas" width="1920" height="1080"></canvas>
@@ -611,7 +611,7 @@
 </footer>
 
 <script src="assets/cromo.js?v=4"></script>
-<script src="assets/lrgz.js?v=9"></script>
+<script src="assets/lrgz.js?v=10"></script>
 
 
 <!-- ============ I18N — PT-BR / EN-US ============

@@ -867,3 +867,10 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
   .sigilo{ width:min(100%, 100svh); -webkit-mask-image:none; mask-image:none; }
   .sigilo canvas,.sigilo video,.sigilo img{ transform:scale(.78); }
 }
+/* celular em pé: usa a arte larga (raios completos) num quadro 16:9 */
+@media (max-width:699px) and (orientation:portrait){
+  .sigilo{ width:100%; aspect-ratio:16/9; max-height:none; align-self:center; }
+  .sigilo canvas,.sigilo video,.sigilo img{ transform:none; }
+  .hero{ grid-template-rows:minmax(0,1fr) auto; }
+  .hero-cena{ display:flex; align-items:center; justify-content:center; }
+}

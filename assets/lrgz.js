@@ -70,7 +70,7 @@
     var vForma = document.getElementById('sigiloForma');
     var vLaco = document.getElementById('sigiloLaco');
     /* mesmo corte do CSS: tela larga mostra a logo inteira; o resto, o miolo em quadrado */
-    var largo = mm('(min-width:1000px) and (min-height:601px)').matches;
+    var largo = mm('(min-width:1000px) and (min-height:601px)').matches || mm('(max-width:699px) and (orientation:portrait)').matches;
     var visivel = true, ctl = null;
 
     var usaVideo = function(){
