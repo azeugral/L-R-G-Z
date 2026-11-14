@@ -862,3 +862,8 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
   html .hero-lead .bf-only{ display:none !important; }
   .hero-garantia{ font-size:.82rem; }
 }
+/* celular: sem máscara nas bordas e a arte encolhida dentro do quadro, raios sempre inteiros */
+@media (max-width:699px){
+  .sigilo{ width:min(100%, 100svh); -webkit-mask-image:none; mask-image:none; }
+  .sigilo canvas,.sigilo video,.sigilo img{ transform:scale(.78); }
+}
