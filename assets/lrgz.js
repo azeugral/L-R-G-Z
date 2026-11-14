@@ -196,6 +196,28 @@
     mostra(0);
   }
 
+  /* ---------- Celular: trilho em laço, vizinhos aparecendo ---------- */
+  if(vit && !mm('(min-width:1000px)').matches){
+    var tr = vit.querySelector('.trilho');
+    var cs = Array.prototype.slice.call(tr.querySelectorAll('.case-card'));
+    var perto = function(){
+      var meio = tr.scrollLeft + tr.clientWidth / 2, best = 0, d = 1e9;
+      cs.forEach(function(c, k){ var m = c.offsetLeft + c.offsetWidth / 2, dd = Math.abs(m - meio); if(dd < d){ d = dd; best = k; } });
+      return best;
+    };
+    var marca = function(){ var k = perto(); cs.forEach(function(c, j){ c.classList.toggle('centro', j === k); }); };
+    var vai = function(k){ var c = cs[k]; tr.scrollTo({ left: c.offsetLeft - (tr.clientWidth - c.offsetWidth) / 2, behavior: quieto ? 'auto' : 'smooth' }); };
+    var parado = 0, visto = false;
+    tr.addEventListener('scroll', function(){ window.requestAnimationFrame(marca); }, { passive:true });
+    ['touchstart','pointerdown','wheel'].forEach(function(ev){ tr.addEventListener(ev, function(){ parado = Date.now(); }, { passive:true }); });
+    if('IntersectionObserver' in window) new IntersectionObserver(function(en){ visto = en[0].isIntersecting; }, { threshold:.5 }).observe(tr);
+    marca();
+    if(!quieto) setInterval(function(){
+      if(!visto || document.hidden || Date.now() - parado < 7000) return;
+      var k = perto(); vai(k + 1 < cs.length ? k + 1 : 0);
+    }, 4500);
+  }
+
   /* ---------- Raios: a luz so corre com o raio na tela ---------- */
   if(!quieto && 'IntersectionObserver' in window){
     var raios = new IntersectionObserver(function(en){

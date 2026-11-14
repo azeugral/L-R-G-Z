@@ -845,3 +845,14 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
 @media (max-width:999px){ .sigilo{ transform:none; } }
 @media (max-width:480px){ .hero-ctas{ grid-template-columns:1fr; flex-direction:column; align-items:stretch; width:100%; } .hero-ctas .btn{ width:100%; justify-content:center; text-align:center; } }
 .final-outros a{ display:inline-block; padding:.7rem .3rem; }
+
+/* trilho do celular: cartao mais estreito, vizinhos aparecendo e apagados */
+@media (max-width:699px){
+  .trilho{ gap:.3rem; padding-inline:calc((100vw - min(64vw,280px)) / 2); scroll-padding-inline:calc((100vw - min(64vw,280px)) / 2); }
+  .trilho .case-card{ flex-basis:min(64vw,280px); }
+}
+@media (max-width:999px){
+  .trilho .case-card{ transition:opacity .45s var(--ease), transform .45s var(--ease); opacity:.4; transform:scale(.92); }
+  .trilho .case-card.centro{ opacity:1; transform:none; }
+}
+@media (max-width:999px){ .trilho .case-card .case-body{ transition:opacity .3s; } .trilho .case-card:not(.centro) .case-body{ opacity:0; } }
