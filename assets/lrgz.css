@@ -856,3 +856,9 @@ html.bf .price-card .pc-nota + .pc-nota{ color:#0b0c0d; font-weight:500; margin-
   .trilho .case-card.centro{ opacity:1; transform:none; }
 }
 @media (max-width:999px){ .trilho .case-card .case-body{ transition:opacity .3s; } .trilho .case-card:not(.centro) .case-body{ opacity:0; } }
+/* celular: logo inteira com respiro nos raios; oferta já está na faixa do topo */
+@media (max-width:699px){
+  .sigilo{ width:min(86%, 100svh); justify-self:center; margin-inline:auto; }
+  html .hero-lead .bf-only{ display:none !important; }
+  .hero-garantia{ font-size:.82rem; }
+}
