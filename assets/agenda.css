@@ -89,3 +89,5 @@
 .pc-linhas > div.ag-linha-lrgz dt{ color:#0b0c0d; font-weight:600; }
 .pc-linhas > div.ag-linha-lrgz dd{ text-align:left; }
 .pc-linhas > div.ag-linha-lrgz + div{ border-top:0; }
+
+.ag-abrir{ display:inline-flex; align-items:center; min-height:40px; }
