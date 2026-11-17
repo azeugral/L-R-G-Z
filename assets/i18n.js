@@ -234,6 +234,8 @@
     'Tatuador · Samtto, Manaus':'Tattoo artist · Samtto, Manaus',
     'Veterinária a domicílio · Tietê, SP':'House-call veterinarian · Tietê, Brazil',
     'Dra. Juliana Cubas':'Dr. Juliana Cubas',
+    'Comentário no Instagram':'Instagram comment',
+    'Tatuador · Space Monkey, Águas Claras-DF':'Tattoo artist · Space Monkey, Brasília',
 
 
     /* — CTAs de WhatsApp — */
