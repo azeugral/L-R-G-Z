@@ -338,6 +338,8 @@ main{ display:block; position:relative; }
 .stars{ color:var(--white); letter-spacing:.12em; font-size:.9rem; }
 .review p{ color:#d4d7da; margin-top:.6rem; font-size:1.02rem; flex:1; }
 .review-by{ margin-top:1rem; }
+.review-destaque{ grid-column:1 / -1; }
+.review-destaque p{ font-size:clamp(1.1rem,1.6vw,1.35rem); line-height:1.5; max-width:62ch; color:var(--white); }
 .who{ font-weight:500; }
 .role{ color:var(--gray-dim); font-size:.93rem; }
 .reviews-score + .case-live{ margin-top:.4rem; }

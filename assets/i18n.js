@@ -235,6 +235,10 @@
     'Veterinária a domicílio · Tietê, SP':'House-call veterinarian · Tietê, Brazil',
     'Dra. Juliana Cubas':'Dr. Juliana Cubas',
     'Comentário no Instagram':'Instagram comment',
+    'Depoimento em vídeo no Instagram':'Video testimonial on Instagram',
+    'Tatuador · dark art e coberturas, São José-SC':'Tattoo artist · dark art and cover-ups, São José, Brazil',
+    'Foi o responsável por criar e desenvolver o site, deixar com a minha cara, com a minha estética. Ficou melhor do que eu imaginava. Ele entende o que cada um quer passar e desenvolve baseado nessas informações. E também o site serviu de uma forma com que eu consiga agilizar os orçamentos.':
+      'He was the one who created and built the site, made it look like me, with my aesthetic. It turned out better than I imagined. He understands what each person wants to convey and builds from that. And the site also helped me speed up my quotes.',
     'Tatuador · Space Monkey, Águas Claras-DF':'Tattoo artist · Space Monkey, Brasília',
 
 
