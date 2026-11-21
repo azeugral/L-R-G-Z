@@ -572,7 +572,7 @@
     'Prove os disponíveis num corpo 3D':'Try the flash designs on a 3D body',
     'Sistema de verdade, com desenhos de exemplo. Nada é enviado.':'The real system, with sample designs. Nothing is sent.',
     'Arraste um disponível até a pele':'Drag a design onto the skin',
-    'Ajuste tamanho, giro e cor':'Adjust size, rotation and color',
+    'Ajuste tamanho e giro':'Adjust size and rotation',
     'Gire o corpo e confira':'Turn the body and check it',
     'Envie o pedido':'Send the request',
     'Demonstração do provador 3D':'3D try-on demo',
