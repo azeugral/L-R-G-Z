@@ -3,8 +3,12 @@
   const f = document.getElementById("ag-demo");
   if (!f) return;
   // o WhatsApp flutuante sai de cena enquanto a demonstração está na tela (não cobre os botões dela)
-  const wa = document.getElementById("waFloat");
-  if (wa && "IntersectionObserver" in window) new IntersectionObserver(([e]) => wa.classList.toggle("ag-oculto", e.isIntersecting), { rootMargin: "-20% 0px -20% 0px" }).observe(f);
+  // (o botão vem depois deste script no HTML: procura quando a página terminar de montar)
+  const escondeWa = () => {
+    const wa = document.getElementById("waFloat");
+    if (wa && "IntersectionObserver" in window) new IntersectionObserver(([e]) => wa.classList.toggle("ag-oculto", e.isIntersecting), { rootMargin: "-20% 0px -20% 0px" }).observe(f);
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", escondeWa); else escondeWa();
   const suave = () => (matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
   const topoLivre = () => { const n = document.querySelector(".nav"); return (n ? n.getBoundingClientRect().bottom : 0) + 14; };
   addEventListener("message", (e) => {
