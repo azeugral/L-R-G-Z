@@ -571,7 +571,7 @@
     'O cliente prova seus disponíveis num corpo 3D, escolhe tamanho e um horário livre. O pedido chega pronto no seu WhatsApp e no seu Google Agenda.':'Your client tries your flash designs on a 3D body, picks the size and an open slot. The request arrives ready on your WhatsApp and in your Google Calendar.',
     'Prove os disponíveis num corpo 3D':'Try the flash designs on a 3D body',
     'Sistema de verdade, com desenhos de exemplo. Nada é enviado.':'The real system, with sample designs. Nothing is sent.',
-    'Arraste um disponível até a pele':'Drag a design onto the skin',
+    'Ponha um disponível na pele':'Place a design on the skin',
     'Ajuste tamanho e giro':'Adjust size and rotation',
     'Gire o corpo e confira':'Turn the body and check it',
     'Envie o pedido':'Send the request',
