@@ -4,7 +4,13 @@
     'Criação de Sites Profissionais e Landing Pages | LRGZ':'Professional Websites and Landing Pages | LRGZ',
     'Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 600.':
       'Websites built from scratch with bespoke design: a domain in your name, first version in 48 hours and delivery within 7 days.',
-    'Site por mês':'Monthly website', 'Site por R$ 67/mês':'Website for R$ 67/month', 'Novo':'New',
+    'Site por mês':'Monthly website', 'Quero pagar por mês':'I want to pay monthly',
+    'Dá pra parcelar':'Pay in installments', 'A gente combina em quantas vezes.':'We agree on how many.', 'À vista ou parcelado.':'Upfront or in installments.',
+    'Dá pra parcelar o site completo?':'Can I pay for the full website in installments?',
+    'Sim. Você aprova a prévia e a gente combina em quantas vezes fica melhor pra você.':'Yes. You approve the preview and we agree on how many installments work best for you.',
+    'O que muda no site por mês?':'What changes with the monthly website?',
+    'No site, nada. Muda o pagamento: R$ 67 por mês, com implantação de R$ 200 e fidelidade de 6 meses. Se cancelar antes, você paga 30% das mensalidades que faltam; depois, cancela sem multa. O domínio fica com você e o site sai do ar no fim do mês pago.':
+      'Nothing on the website. Only the payment changes: R$ 67 a month, with a R$ 200 setup and a 6-month commitment. If you cancel earlier, you pay 30% of the remaining months; after that, you cancel with no fee. The domain stays yours and the site goes offline at the end of the paid month.',
     'À vista ou por mês':'Upfront or monthly', 'À vista':'Upfront', 'Mensal':'Monthly', 'Ver o plano mensal':'See the monthly plan',
     'O site é o mesmo, feito do zero, e leva tudo o que está na lista. Muda só o jeito de pagar. O valor sai fechado na primeira conversa, sem surpresa no meio do caminho.':
       'Same website, built from scratch, with everything on the list. Only the way you pay changes. The price is set in the first conversation, no surprises along the way.',
