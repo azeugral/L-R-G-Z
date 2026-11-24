@@ -4,13 +4,20 @@
     'Criação de Sites Profissionais e Landing Pages | LRGZ':'Professional Websites and Landing Pages | LRGZ',
     'Criação de sites feitos do zero, com design autoral: domínio .com.br no seu nome, primeira versão em 48 horas e entrega em até 7 dias. A partir de R$ 600.':
       'Websites built from scratch with bespoke design: a domain in your name, first version in 48 hours and delivery within 7 days.',
-    'Site por mês':'Monthly website', 'Quero pagar por mês':'I want to pay monthly',
     'Dá pra parcelar':'Pay in installments', 'A gente combina em quantas vezes.':'We agree on how many.', 'À vista ou parcelado.':'Upfront or in installments.',
     'Dá pra parcelar o site completo?':'Can I pay for the full website in installments?',
     'Sim. Você aprova a prévia e a gente combina em quantas vezes fica melhor pra você.':'Yes. You approve the preview and we agree on how many installments work best for you.',
-    'O que muda no site por mês?':'What changes with the monthly website?',
-    'No site, nada. Muda o pagamento: R$ 67 por mês, com implantação de R$ 200 e fidelidade de 6 meses. Se cancelar antes, você paga 30% das mensalidades que faltam; depois, cancela sem multa. O domínio fica com você e o site sai do ar no fim do mês pago.':
-      'Nothing on the website. Only the payment changes: R$ 67 a month, with a R$ 200 setup and a 6-month commitment. If you cancel earlier, you pay 30% of the remaining months; after that, you cancel with no fee. The domain stays yours and the site goes offline at the end of the paid month.',
+    'Pacote Completo':'Complete Package', 'Quero o Pacote Completo':'I want the Complete Package',
+    '997':'400', '+ R$ 49/mês a partir do 2º mês':'+ US$ 20/month from the 2nd month',
+    'Site, orçamento e agenda funcionando juntos.':'Website, quotes and booking working together.',
+    'Site completo, até 8 páginas':'Full website, up to 8 pages',
+    'Agenda com orçamento pelo corpo':'Booking with body-map quotes',
+    'Provador 3D dos seus disponíveis':'3D try-on for your available designs',
+    'Domínio e hospedagem sempre inclusos':'Domain and hosting always included',
+    'Até 4 alterações por mês, sem custo extra':'Up to 4 changes a month, no extra cost',
+    'Como funciona o Pacote Completo?':'How does the Complete Package work?',
+    'Você paga R$ 997 pelo site com a agenda já instalada, à vista ou parcelado, só depois de aprovar a prévia. O primeiro mês vem incluso; depois são R$ 49 por mês, que cobrem a agenda, o provador, o domínio, a hospedagem e até 4 alterações. Não tem fidelidade: se cancelar a mensalidade, o site continua seu e só a agenda e as alterações param.':
+      'You pay US$ 400 for the website with booking already set up, upfront or in installments, only after you approve the preview. The first month is included; after that it is US$ 20 a month, covering booking, the try-on, domain, hosting and up to 4 changes. No commitment: if you cancel the monthly plan, the website stays yours and only booking and changes stop.',
     'À vista ou por mês':'Upfront or monthly', 'À vista':'Upfront', 'Mensal':'Monthly', 'Ver o plano mensal':'See the monthly plan',
     'O site é o mesmo, feito do zero, e leva tudo o que está na lista. Muda só o jeito de pagar. O valor sai fechado na primeira conversa, sem surpresa no meio do caminho.':
       'Same website, built from scratch, with everything on the list. Only the way you pay changes. The price is set in the first conversation, no surprises along the way.',
